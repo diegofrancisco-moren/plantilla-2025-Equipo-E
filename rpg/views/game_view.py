@@ -502,15 +502,24 @@ class GameView(arcade.View):
 
         self.player_light.position = self.player_sprite.position
 
-        # Update the characters
+        # Update the characters sprites
         try:
             self.map_list[self.cur_map_name].scene["characters"].on_update(delta_time)
         except KeyError:
             # no characters on map
             pass
+        #Update the enemies sprites
+        try:
+            self.map_list[self.cur_map_name].scene["enemy_collisions"].on_update(delta_time)
+        except KeyError:
+            # no enemies on map
+            pass
+
 
         # --- Manage doors ---
         map_layers = self.map_list[self.cur_map_name].map_layers
+        map_scene = self.map_list[self.cur_map_name].scene
+
 
         # Is there as layer named 'doors'?
         if "doors" in map_layers:
@@ -538,6 +547,24 @@ class GameView(arcade.View):
         else:
             # No doors, scroll normally
             self.scroll_to_player()
+
+        # Is there as layer named 'enemies'?
+        if "enemy_collisions" in map_scene.name_mapping.keys():
+            # Did we hit a enemy?
+            enemy_hit = arcade.check_for_collision_with_list(
+                self.player_sprite, map_scene["enemy_collisions"]
+            )
+            # We did!
+            if len(enemy_hit) > 0:
+                # Swap to the new map
+                self.window.show_view(self.window.views["battle"])
+            else:
+                # We didn't hit a character, scroll normally
+                self.scroll_to_player()
+        else:
+            # No character, scroll normally
+            self.scroll_to_player()
+
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""

@@ -32,6 +32,11 @@ KEY_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 INVENTORY = [arcade.key.I]
 SEARCH = [arcade.key.E]
 
+# Key attack view
+KEY_ATTACK = [arcade.key.A]
+KEY_MAGIC_ATTACK = [arcade.key.M]
+KEY_FELL = [arcade.key.F]
+
 # Message box
 MESSAGE_BOX_FONT_SIZE = 38
 MESSAGE_BOX_MARGIN = 30

@@ -1,6 +1,7 @@
 """
 Battle View
 """
+from contextlib import nullcontext
 
 import arcade
 import rpg.constants as constants
@@ -9,6 +10,13 @@ class BattleView(arcade.View):
     def __init__(self):
         super().__init__()
         self.started = False
+        self.inventory_open = False  # Variable para controlar si el inventario de items esta abierto
+        self.attack_menu = False # Variable para controlar si el menu de ataques esta abierto
+        self.magic_attack_menu = False # Variable para controlar si el menu de ataques magicos esta abierto
+        self.selected_item = 0  # Índice del ítem seleccionado
+        self.items = ["Poción", "Éter", "Antídoto", "Elixir"]  # Ejemplo de ítems
+        self.attacks = ["Estocada", "Puñalada"]
+        self.magic_attacks = ["Bola de fuego", "Rayo"]
         arcade.set_background_color(arcade.color.BLUE)
     def setup(self):
         pass
@@ -62,6 +70,65 @@ class BattleView(arcade.View):
             align="center",
             width=self.window.width,
         )
+        if self.inventory_open:
+            self.draw_inventory(self.items)
+        elif self.attack_menu:
+            self.draw_inventory(self.attacks)
+        elif self.magic_attack_menu:
+            self.draw_inventory(self.magic_attacks)
+
     def on_key_press(self, symbol: int, modifiers: int):
+        # Si se presiona la tecla escape se abre el menu de pausa
         if symbol == arcade.key.ESCAPE:
             self.window.show_view(self.window.views["main_menu"])
+        elif not(self.inventory_open or self.magic_attack_menu or self.magic_attack_menu):
+            # Si se presiona la tecla "A" se abre el menu de ataques
+            if symbol in constants.KEY_ATTACK:
+                self.attack_menu = True
+            #Si se presiona la tecla "M" se abre el menu de ataques magicos
+            elif symbol in constants.KEY_MAGIC_ATTACK:
+                self.magic_attack_menu = True
+            #Si se presiona la tecla "I" se abre el inventario de items
+            elif symbol in constants.INVENTORY:
+                self.inventory_open = True
+            #Si se presiona la tecla "F" se huye de la pelea
+            elif symbol in constants.KEY_FELL:
+                self.window.show_view(self.window.views["game"])
+
+            # Movimiento inventario de items
+        if self.inventory_open or self.magic_attack_menu or self.attack_menu:
+            if self.inventory_open:
+                items = self.items
+            elif self.magic_attack_menu:
+                items = self.magic_attacks
+            else:
+                items = self.attacks
+            if symbol in constants.KEY_UP:
+                self.selected_item = (self.selected_item - 1) % len(items)
+            elif symbol in constants.KEY_DOWN:
+                self.selected_item = (self.selected_item + 1) % len(items)
+            elif symbol == arcade.key.ENTER:
+                print(f"Usaste {items[self.selected_item]}")
+                self.inventory_open = False  # Cerrar inventario después de usar un ítem
+                self.magic_attack_menu = False
+                self.attack_menu = False
+
+    def draw_inventory(self, items):
+        inventory_width = 700
+        inventory_height = 415
+        x, y = self.window.width / 2, 425
+
+        arcade.draw_rectangle_filled(x, y, inventory_width, inventory_height, arcade.color.BLACK)
+
+        start_y = 610
+        for i, item in enumerate(items):
+            color = arcade.color.YELLOW if i == self.selected_item else arcade.color.WHITE
+            arcade.draw_text(
+                item, 320, start_y - i * 35, color, 24, anchor_x="left"
+            )
+
+            arcade.draw_lrtb_rectangle_outline(
+                290, 990, start_y - i * 35 + 24, start_y - i * 35 - 10, arcade.color.WHITE, 1
+            )
+
+
