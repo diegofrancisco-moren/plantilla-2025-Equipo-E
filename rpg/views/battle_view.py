@@ -20,45 +20,29 @@ class BattleView(arcade.View):
         self.magic_attacks = ["Bola de fuego", "Rayo"]
 
         self.game_view = game_view
-        self.player = player
         self.enemy = enemy
+        self.player = player
+        if not(self.player == None):
+            self.player_sprite = arcade.Sprite()
+            self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
 
-        # Crear los sprites del jugador y enemigo
-        self.player_sprite = arcade.Sprite(":characters:Female/Female 18-4.png")
-        self.enemy_sprite = arcade.Sprite(":enemies:Enemy/Enemy 06-1.png")
-        player_texture = arcade.load_texture(
-            ":characters:Female/Female 18-4.png",
-            x=0,  # Coordenada X dentro del sprite sheet
-            y=0,  # Coordenada Y dentro del sprite sheet
-            width=32,  # Ancho del recorte
-            height=32  # Alto del recorte
-        )
+            self.enemy_sprite = arcade.Sprite()
+            self.enemy_sprite.texture = self.enemy.texture
+            self.enemy_sprite.texture = arcade.load_texture(self.enemy.sheet_name, x=0, y=0, width=32, height=32)
 
-        enemy_texture = arcade.load_texture(
-            ":enemies:Enemy/Enemy 06-1.png",
-            x=0,  # Coordenada X dentro del sprite sheet
-            y=0,  # Coordenada Y dentro del sprite sheet
-            width=32,  # Ancho del recorte
-            height=32  # Alto del recorte
-        )
+            # Posicionar los sprites en la pantalla
+            self.player_sprite.center_x = 200  # Posición en X
+            self.player_sprite.center_y = 500  # Posición en Y
 
-        self.player_sprite = arcade.Sprite()
-        self.player_sprite.texture = player_texture
+            self.enemy_sprite.center_x = 1000  # Posición en X del enemigo
+            self.enemy_sprite.center_y = 500  # Posición en Y del enemigo
 
-        self.enemy_sprite = arcade.Sprite()
-        self.enemy_sprite.texture = enemy_texture
+            # Agregar los sprites a la lista de sprites para ser renderizados
+            self.sprite_list = arcade.SpriteList()
+            self.sprite_list.append(self.player_sprite)
+            self.sprite_list.append(self.enemy_sprite)
 
-        # Posicionar los sprites en la pantalla
-        self.player_sprite.center_x = 200  # Posición en X
-        self.player_sprite.center_y = 500  # Posición en Y
 
-        self.enemy_sprite.center_x = 1000  # Posición en X del enemigo
-        self.enemy_sprite.center_y = 500  # Posición en Y del enemigo
-
-        # Agregar los sprites a la lista de sprites para ser renderizados
-        self.sprite_list = arcade.SpriteList()
-        self.sprite_list.append(self.player_sprite)
-        self.sprite_list.append(self.enemy_sprite)
 
         arcade.set_background_color(arcade.color.BLUE)
 

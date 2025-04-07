@@ -446,9 +446,54 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":16,
+         "name":"enemies",
+         "objects":[
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":96,
+                         "y":0
+                        }, 
+                        {
+                         "x":97,
+                         "y":64
+                        }, 
+                        {
+                         "x":-0.333333333333258,
+                         "y":64
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1503.66666666667,
+                 "y":512
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":16,
- "nextobjectid":13,
+ "nextlayerid":17,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "renderorder":"left-up",
  "tiledversion":"1.11.2",
@@ -456,15 +501,15 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/..\/..\/plantilla-2025-Equipo-E\/resources\/tilesets\/[Base]BaseChip_pipo.json"
+         "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
         }, 
         {
          "firstgid":1065,
-         "source":"..\/..\/..\/plantilla-2025-Equipo-E\/resources\/tilesets\/[A]Water_pipo.json"
+         "source":"..\/tilesets\/[A]Water_pipo.json"
         }, 
         {
          "firstgid":4137,
-         "source":"..\/..\/..\/plantilla-2025-Equipo-E\/resources\/tilesets\/[A]Grass_pipo.json"
+         "source":"..\/tilesets\/[A]Grass_pipo.json"
         }],
  "tilewidth":32,
  "type":"map",

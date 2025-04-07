@@ -130,8 +130,6 @@ def load_map(map_name):
 
     if "enemies" in my_map.object_lists:
 
-        print("Enemigos encontrados en el mapa:")
-        print(my_map.object_lists["enemies"])  # Ver qué se está cargando realmente
         f = open("../resources/data/enemies_dictionary.json")
         enemy_dictionary = json.load(f)
         enemy_object_list = my_map.object_lists["enemies"]

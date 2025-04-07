@@ -15,6 +15,7 @@ class PathFollowingSprite(CharacterSprite):
         self.path = []
         self.cur_point = 0
         self.speed = 1
+        self.sheet_name = sheet_name
 
     def on_update(self, delta_time):
         super().on_update(delta_time)
