@@ -26,13 +26,34 @@ class BattleView(arcade.View):
         # Crear los sprites del jugador y enemigo
         self.player_sprite = arcade.Sprite(":characters:Female/Female 18-4.png")
         self.enemy_sprite = arcade.Sprite(":enemies:Enemy/Enemy 06-1.png")
+        player_texture = arcade.load_texture(
+            ":characters:Female/Female 18-4.png",
+            x=0,  # Coordenada X dentro del sprite sheet
+            y=0,  # Coordenada Y dentro del sprite sheet
+            width=32,  # Ancho del recorte
+            height=32  # Alto del recorte
+        )
+
+        enemy_texture = arcade.load_texture(
+            ":enemies:Enemy/Enemy 06-1.png",
+            x=0,  # Coordenada X dentro del sprite sheet
+            y=0,  # Coordenada Y dentro del sprite sheet
+            width=32,  # Ancho del recorte
+            height=32  # Alto del recorte
+        )
+
+        self.player_sprite = arcade.Sprite()
+        self.player_sprite.texture = player_texture
+
+        self.enemy_sprite = arcade.Sprite()
+        self.enemy_sprite.texture = enemy_texture
 
         # Posicionar los sprites en la pantalla
         self.player_sprite.center_x = 200  # Posición en X
-        self.player_sprite.center_y = 100  # Posición en Y
+        self.player_sprite.center_y = 500  # Posición en Y
 
-        self.enemy_sprite.center_x = 500  # Posición en X del enemigo
-        self.enemy_sprite.center_y = 100  # Posición en Y del enemigo
+        self.enemy_sprite.center_x = 1000  # Posición en X del enemigo
+        self.enemy_sprite.center_y = 500  # Posición en Y del enemigo
 
         # Agregar los sprites a la lista de sprites para ser renderizados
         self.sprite_list = arcade.SpriteList()
