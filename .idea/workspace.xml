@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,12 +97,29 @@
       <option name="project" value="LOCAL" />
       <updated>1742500002611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
+      <option name="closed" value="true" />
+      <created>1744017494337</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744017494337</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
+      <option name="closed" value="true" />
+      <created>1744017776975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744017776975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
     <MESSAGE value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
+    <MESSAGE value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
   </component>
 </project>
