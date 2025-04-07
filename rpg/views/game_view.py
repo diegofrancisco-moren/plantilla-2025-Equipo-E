@@ -13,6 +13,7 @@ from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 from rpg.message_box import MessageBox
 from rpg.sprites.player_sprite import PlayerSprite
+from rpg.views.battle_view import BattleView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -147,6 +148,12 @@ class GameView(arcade.View):
         self.right_pressed = False
         self.up_pressed = False
         self.down_pressed = False
+
+        # Teclas pulsadas
+        self.keys_held = set()
+
+        #Inmunidad a colisiones
+        self.collision_cooldown = 0.0
 
         # Physics engine
         self.physics_engine = None
@@ -410,61 +417,19 @@ class GameView(arcade.View):
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
-        MOVING_UP = (
-            self.up_pressed
-            and not self.down_pressed
-            and not self.right_pressed
-            and not self.left_pressed
-        )
+        # Evaluar qué teclas están presionadas
+        MOVING_UP = any(k in self.keys_held for k in constants.KEY_UP)
+        MOVING_DOWN = any(k in self.keys_held for k in constants.KEY_DOWN)
+        MOVING_LEFT = any(k in self.keys_held for k in constants.KEY_LEFT)
+        MOVING_RIGHT = any(k in self.keys_held for k in constants.KEY_RIGHT)
 
-        MOVING_DOWN = (
-            self.down_pressed
-            and not self.up_pressed
-            and not self.right_pressed
-            and not self.left_pressed
-        )
+        # Combinaciones diagonales
+        MOVING_UP_LEFT = MOVING_UP and MOVING_LEFT
+        MOVING_UP_RIGHT = MOVING_UP and MOVING_RIGHT
+        MOVING_DOWN_LEFT = MOVING_DOWN and MOVING_LEFT
+        MOVING_DOWN_RIGHT = MOVING_DOWN and MOVING_RIGHT
 
-        MOVING_RIGHT = (
-            self.right_pressed
-            and not self.left_pressed
-            and not self.up_pressed
-            and not self.down_pressed
-        )
-
-        MOVING_LEFT = (
-            self.left_pressed
-            and not self.right_pressed
-            and not self.up_pressed
-            and not self.down_pressed
-        )
-
-        MOVING_UP_LEFT = (
-            self.up_pressed
-            and self.left_pressed
-            and not self.down_pressed
-            and not self.right_pressed
-        )
-
-        MOVING_DOWN_LEFT = (
-            self.down_pressed
-            and self.left_pressed
-            and not self.up_pressed
-            and not self.right_pressed
-        )
-
-        MOVING_UP_RIGHT = (
-            self.up_pressed
-            and self.right_pressed
-            and not self.down_pressed
-            and not self.left_pressed
-        )
-
-        MOVING_DOWN_RIGHT = (
-            self.down_pressed
-            and self.right_pressed
-            and not self.up_pressed
-            and not self.left_pressed
-        )
+        diagonal_speed = constants.MOVEMENT_SPEED / 1.5
 
         if MOVING_UP:
             self.player_sprite.change_y = constants.MOVEMENT_SPEED
@@ -479,20 +444,20 @@ class GameView(arcade.View):
             self.player_sprite.change_x = constants.MOVEMENT_SPEED
 
         if MOVING_UP_LEFT:
-            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = diagonal_speed
+            self.player_sprite.change_x = -diagonal_speed
 
         if MOVING_UP_RIGHT:
-            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = diagonal_speed
+            self.player_sprite.change_x = diagonal_speed
 
         if MOVING_DOWN_LEFT:
-            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = -diagonal_speed
+            self.player_sprite.change_x = -diagonal_speed
 
         if MOVING_DOWN_RIGHT:
-            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = -diagonal_speed
+            self.player_sprite.change_x = diagonal_speed
 
         # Call update to move the sprite
         self.physics_engine.update()
@@ -548,22 +513,26 @@ class GameView(arcade.View):
             # No doors, scroll normally
             self.scroll_to_player()
 
-        # Is there as layer named 'enemies'?
-        if "enemy_collisions" in map_scene.name_mapping.keys():
-            # Did we hit a enemy?
-            enemy_hit = arcade.check_for_collision_with_list(
-                self.player_sprite, map_scene["enemy_collisions"]
-            )
-            # We did!
-            if len(enemy_hit) > 0:
-                # Swap to the new map
-                self.window.show_view(self.window.views["battle"])
-            else:
-                # We didn't hit a character, scroll normally
-                self.scroll_to_player()
+        if self.collision_cooldown > 0:
+            self.collision_cooldown -= delta_time
         else:
-            # No character, scroll normally
-            self.scroll_to_player()
+            # Is there as layer named 'enemies'?
+            if "enemy_collisions" in map_scene.name_mapping.keys():
+                # Did we hit a enemy?
+                enemy_hit = arcade.check_for_collision_with_list(
+                    self.player_sprite, map_scene["enemy_collisions"]
+                )
+                # We did!
+                if len(enemy_hit) > 0:
+                    # Swap to the new map
+                    battle_view = BattleView(player=self.player_sprite,enemy=enemy_hit[0],game_view=self)
+                    self.window.show_view(battle_view)
+                else:
+                    # We didn't hit a character, scroll normally
+                    self.scroll_to_player()
+            else:
+                # No character, scroll normally
+                self.scroll_to_player()
 
 
     def on_key_press(self, key, modifiers):
@@ -573,14 +542,8 @@ class GameView(arcade.View):
             self.message_box.on_key_press(key, modifiers)
             return
 
-        if key in constants.KEY_UP:
-            self.up_pressed = True
-        elif key in constants.KEY_DOWN:
-            self.down_pressed = True
-        elif key in constants.KEY_LEFT:
-            self.left_pressed = True
-        elif key in constants.KEY_RIGHT:
-            self.right_pressed = True
+        if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
+            self.keys_held.add(key)
         elif key in constants.INVENTORY:
             self.window.show_view(self.window.views["inventory"])
         elif key == arcade.key.ESCAPE:
@@ -652,14 +615,8 @@ class GameView(arcade.View):
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
 
-        if key in constants.KEY_UP:
-            self.up_pressed = False
-        elif key in constants.KEY_DOWN:
-            self.down_pressed = False
-        elif key in constants.KEY_LEFT:
-            self.left_pressed = False
-        elif key in constants.KEY_RIGHT:
-            self.right_pressed = False
+        if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
+            self.keys_held.discard(key)
 
     def on_mouse_motion(self, x, y, delta_x, delta_y):
         """Called whenever the mouse moves."""
@@ -684,3 +641,14 @@ class GameView(arcade.View):
         cur_map = self.map_list[self.cur_map_name]
         if cur_map.light_layer:
             cur_map.light_layer.resize(width, height)
+
+    def resume_from_battle(self, result, enemy):
+        self.keys_held.clear()
+        self.player_sprite.change_x = 0
+        self.player_sprite.change_y = 0
+
+        if result:
+            self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
+
+        self.collision_cooldown = 2.0
+        self.window.show_view(self.window.views["game"])

@@ -7,17 +7,40 @@ import arcade
 import rpg.constants as constants
 
 class BattleView(arcade.View):
-    def __init__(self):
+    def __init__(self, player, enemy, game_view):
         super().__init__()
         self.started = False
         self.inventory_open = False  # Variable para controlar si el inventario de items esta abierto
         self.attack_menu = False # Variable para controlar si el menu de ataques esta abierto
         self.magic_attack_menu = False # Variable para controlar si el menu de ataques magicos esta abierto
         self.selected_item = 0  # Índice del ítem seleccionado
+
         self.items = ["Poción", "Éter", "Antídoto", "Elixir"]  # Ejemplo de ítems
         self.attacks = ["Estocada", "Puñalada"]
         self.magic_attacks = ["Bola de fuego", "Rayo"]
+
+        self.game_view = game_view
+        self.player = player
+        self.enemy = enemy
+
+        # Crear los sprites del jugador y enemigo
+        self.player_sprite = arcade.Sprite(":characters:Female/Female 18-4.png")
+        self.enemy_sprite = arcade.Sprite(":enemies:Enemy/Enemy 06-1.png")
+
+        # Posicionar los sprites en la pantalla
+        self.player_sprite.center_x = 200  # Posición en X
+        self.player_sprite.center_y = 100  # Posición en Y
+
+        self.enemy_sprite.center_x = 500  # Posición en X del enemigo
+        self.enemy_sprite.center_y = 100  # Posición en Y del enemigo
+
+        # Agregar los sprites a la lista de sprites para ser renderizados
+        self.sprite_list = arcade.SpriteList()
+        self.sprite_list.append(self.player_sprite)
+        self.sprite_list.append(self.enemy_sprite)
+
         arcade.set_background_color(arcade.color.BLUE)
+
     def setup(self):
         pass
     def on_show_view(self):
@@ -70,6 +93,7 @@ class BattleView(arcade.View):
             align="center",
             width=self.window.width,
         )
+        self.sprite_list.draw()
         if self.inventory_open:
             self.draw_inventory(self.items)
         elif self.attack_menu:
@@ -93,7 +117,7 @@ class BattleView(arcade.View):
                 self.inventory_open = True
             #Si se presiona la tecla "F" se huye de la pelea
             elif symbol in constants.KEY_FELL:
-                self.window.show_view(self.window.views["game"])
+                self.game_view.resume_from_battle(False, self.enemy)
 
             # Movimiento inventario de items
         if self.inventory_open or self.magic_attack_menu or self.attack_menu:
