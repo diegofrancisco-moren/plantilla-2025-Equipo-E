@@ -11,6 +11,9 @@ import arcade.gui
 import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
+
+from rpg.load_game_map import background_music, background_player #Se importa la variable desde load_game_map
+
 from rpg.message_box import MessageBox
 from rpg.sprites.player_sprite import PlayerSprite
 from rpg.views.battle_view import BattleView
@@ -129,8 +132,12 @@ class GameView(arcade.View):
     Main application class.
     """
 
+
     def __init__(self, map_list):
         super().__init__()
+        self.coin_sound = arcade.load_sound(":sounds:item-pick-up.mp3")#variable para almacenar sonido de recoger item
+        self.items_collected = 0#variable para contar items recogidos
+        self.time_of_day = "day"#variable para cambiar día y noche
 
         arcade.set_background_color(arcade.color.AMAZON)
 
@@ -183,7 +190,7 @@ class GameView(arcade.View):
         # Create a small white light
         x = 100
         y = 200
-        radius = 150
+        radius = 300
         mode = "soft"
         color = arcade.csscolor.WHITE
         self.player_light = Light(x, y, radius, color, mode)
@@ -222,6 +229,7 @@ class GameView(arcade.View):
             self.my_map.light_layer.resize(self.window.width, self.window.height)
 
     def setup_physics(self):
+
         if self.noclip_status:
             # make an empty spritelist so the character does not collide with anyting
             self.physics_engine = arcade.PhysicsEngineSimple(
@@ -233,11 +241,13 @@ class GameView(arcade.View):
                 self.player_sprite, self.my_map.scene["wall_list"]
             )
 
+
+
     def setup(self):
         """Set up the game variables. Call to re-start the game."""
 
         # Create the player character
-        self.player_sprite = PlayerSprite(":characters:Female/Female 18-4.png")
+        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png")
 
         # Spawn the player
         start_x = constants.STARTING_X
@@ -332,12 +342,16 @@ class GameView(arcade.View):
             text = f"     {item_name}"
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
 
+
+
     def on_draw(self):
         """
         Render the screen.
         """
 
-        # This command should happen before we start drawing. It will clear
+
+
+            # This command should happen before we start drawing. It will clear
         # the screen to the background color, and erase what we drew last frame.
         arcade.start_render()
         cur_map = self.map_list[self.cur_map_name]
@@ -358,6 +372,7 @@ class GameView(arcade.View):
             # Draw scene
             cur_map.scene.draw()
 
+
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
                     filename=":misc:shiny-stars.png",
@@ -366,8 +381,21 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
+            if map_layers.get("bridges",[]):
+                self.map_list[self.cur_map_name].map_layers["bridges"].draw()
+            if map_layers.get("bridges2",[]):
+                self.map_list[self.cur_map_name].map_layers["bridges2"].draw()
+
+
+
             # Draw the player
             self.player_sprite_list.draw()
+
+
+            if map_layers.get("walls_nonblocking",[]):
+                self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
+
+
 
         if cur_map.light_layer:
             # Draw the light layer to the screen.
@@ -379,6 +407,7 @@ class GameView(arcade.View):
             else:
                 ambient_color = arcade.color.WHITE
             cur_map.light_layer.draw(ambient_color=ambient_color)
+
 
         # Use the non-scrolled GUI camera
         self.camera_gui.use()
@@ -392,6 +421,8 @@ class GameView(arcade.View):
 
         # draw GUI
         self.ui_manager.draw()
+
+        arcade.draw_text(f"Items: {self.items_collected}", 10, self.window.height - 30, arcade.color.WHITE, 18)#texto de items recogidos
 
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
@@ -499,6 +530,9 @@ class GameView(arcade.View):
                     map_name = doors_hit[0].properties["map_name"]
                     start_x = doors_hit[0].properties["start_x"]
                     start_y = doors_hit[0].properties["start_y"]
+
+
+
                 except KeyError:
                     raise KeyError(
                         "Door objects must have 'map_name', 'start_x', and 'start_y' properties defined."
@@ -533,6 +567,7 @@ class GameView(arcade.View):
             else:
                 # No character, scroll normally
                 self.scroll_to_player()
+
 
 
     def on_key_press(self, key, modifiers):
@@ -589,6 +624,7 @@ class GameView(arcade.View):
 
     def search(self):
         """Search for things"""
+
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "searchable" not in map_layers:
             print(f"No searchable sprites on {self.cur_map_name} map layer.")
@@ -604,6 +640,10 @@ class GameView(arcade.View):
                 self.message_box = MessageBox(
                     self, f"Found: {sprite.properties['item']}"
                 )
+
+                arcade.play_sound(self.coin_sound)#sonido añadido para buscar cosas
+                self.items_collected += 1#contador de items recogidos
+
                 sprite.remove_from_sprite_lists()
                 lookup_item = self.item_dictionary[sprite.properties["item"]]
                 self.player_sprite.inventory.append(lookup_item)
