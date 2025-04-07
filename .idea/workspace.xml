@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment=".">
+    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/tilesets/[Base]BaseChip_pipo.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tilesets/[Base]BaseChip_pipo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +40,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.__main__.executor": "Run",
-    "Python.load_game_map.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Ruben",
-    "settings.editor.selected.configurable": "reference.idesettings.debugger.python"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.__main__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Ruben&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="plantilla-2025-Equipo-E" />
@@ -105,6 +104,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
-    <option name="LAST_COMMIT_MESSAGE" value="ko" />
+    <MESSAGE value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
   </component>
 </project>
