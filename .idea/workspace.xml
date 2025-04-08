@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff967be0-4ea0-4c01-95ef-44d9196ca051" name="Changes" comment="" />
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +29,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git&quot;,
-    &quot;accountId&quot;: &quot;6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33&quot;
+    &quot;accountId&quot;: &quot;0b8f004e-8e19-4b48-b993-2d8c29ab5681&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -44,6 +46,7 @@
     &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Miguel&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -82,7 +85,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="13dd30b4-7ef3-4122-b7a9-7707234ce6aa" name="Changes" comment="" />
+      <changelist id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats" />
       <created>1742494925932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
