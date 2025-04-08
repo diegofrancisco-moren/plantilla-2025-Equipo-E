@@ -4,39 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff967be0-4ea0-4c01-95ef-44d9196ca051" name="Changes" comment="Mostrar Ventana Batalla al chocar enemigo" />
+    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/Diego" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -53,7 +27,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git&quot;,
-    &quot;accountId&quot;: &quot;674ba447-9868-4d53-82c7-a2f690faa876&quot;
+    &quot;accountId&quot;: &quot;6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -70,8 +44,8 @@
     &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Diego&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Ruben&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;
   }
 }</component>
   <component name="RunManager">
@@ -84,6 +58,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (plantilla-2025-Equipo-E)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rpg" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -108,7 +83,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff967be0-4ea0-4c01-95ef-44d9196ca051" name="Changes" comment="Mostrar Ventana Batalla al chocar enemigo" />
+      <changelist id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="." />
       <created>1742494925932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -122,73 +97,29 @@
       <option name="project" value="LOCAL" />
       <updated>1742500002611</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
+      <option name="closed" value="true" />
+      <created>1744017494337</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744017494337</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
+      <option name="closed" value="true" />
+      <created>1744017776975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744017776975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/Diego" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/Diego" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="user">
-                    <value>
-                      <list>
-                        <option value="*" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
-    <MESSAGE value="Mostrar Ventana Batalla al chocar enemigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mostrar Ventana Batalla al chocar enemigo" />
+    <MESSAGE value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
+    <MESSAGE value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
   </component>
 </project>
