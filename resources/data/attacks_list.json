@@ -1,0 +1,23 @@
+{
+  "Slash": {
+    "name": "Slash",
+    "power": 10,
+    "mana": 0,
+    "type": "physic",
+    "description": "A basic physic attack, doesn't require mana"
+  },
+  "FireBall": {
+    "name": "FireBall",
+    "power": 25,
+    "mana": 10,
+    "type": "magic",
+    "description": "A magic attack, great damage, looses mana"
+  },
+  "Healing": {
+    "name": "Healing",
+    "power": -20,
+    "mana": 15,
+    "type": "magic",
+    "description": "Heals by the cost of mana, I doubt changing to negative the value of the power works"
+  }
+}
