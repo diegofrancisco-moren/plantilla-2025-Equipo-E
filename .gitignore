@@ -1,3 +1,4 @@
-# created by virtualenv automatically
 *.xml
-plantilla-2025-Equipo-E.iml
+.idea/vcs.xml
+.idea/misc.xml
+.idea/plantilla-2025-Equipo-E.iml
