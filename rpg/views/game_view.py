@@ -17,6 +17,7 @@ from rpg.load_game_map import background_music, background_player #Se importa la
 from rpg.message_box import MessageBox
 from rpg.sprites.player_sprite import PlayerSprite
 from rpg.views.battle_view import BattleView
+from rpg.entities.player import Player
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -246,8 +247,12 @@ class GameView(arcade.View):
     def setup(self):
         """Set up the game variables. Call to re-start the game."""
 
+        #Create the statistics of the player
+        player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
+                                   , constants.DEFENSE, constants.SPEED, constants.MANA)
+
         # Create the player character
-        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png")
+        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png", player_statistics)
 
         # Spawn the player
         start_x = constants.STARTING_X

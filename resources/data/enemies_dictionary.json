@@ -1,5 +1,11 @@
 {
   "skeleton": {
-    "images": "Enemy/Enemy 06-1.png"
+    "images": "Enemy/Enemy 06-1.png",
+    "health": 100,
+    "attack": 20,
+    "defense": 20,
+    "speed": 10,
+    "mana": 40,
+    "reward": 5
   }
 }

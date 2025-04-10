@@ -22,6 +22,7 @@ class BattleView(arcade.View):
         self.game_view = game_view
         self.enemy = enemy
         self.player = player
+
         if not(self.player == None):
             self.player_sprite = arcade.Sprite()
             self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
@@ -137,10 +138,18 @@ class BattleView(arcade.View):
             elif symbol in constants.KEY_DOWN:
                 self.selected_item = (self.selected_item + 1) % len(items)
             elif symbol == arcade.key.ENTER:
-                print(f"Usaste {items[self.selected_item]}")
-                self.inventory_open = False  # Cerrar inventario después de usar un ítem
-                self.magic_attack_menu = False
-                self.attack_menu = False
+                if self.inventory_open:
+                    self.inventory_open = False
+                    print(f"Usaste {items[self.selected_item]}")
+                    self.use_item()
+                    self.attack(player_attack_type=0, enemy_attack_type=0.5)
+                else:
+                    print(f"Usaste {items[self.selected_item]}")
+                    self.attack(player_attack_type = 1, enemy_attack_type = 0.5)
+                      # Cerrar inventario después de usar un ítem
+                    self.magic_attack_menu = False
+                    self.attack_menu = False
+
 
     def draw_inventory(self, items):
         inventory_width = 700
@@ -159,5 +168,44 @@ class BattleView(arcade.View):
             arcade.draw_lrtb_rectangle_outline(
                 290, 990, start_y - i * 35 + 24, start_y - i * 35 - 10, arcade.color.WHITE, 1
             )
-
-
+    def use_item(self):
+        return None
+    def attack(self, player_attack_type, enemy_attack_type):
+        #Calculo del ataque del jugador
+        player_damage = self.player.statistics.attack * player_attack_type
+        #Calculo del ataque del enemigo
+        enemy_damage = self.enemy.statistics.attack * enemy_attack_type
+        if self.player.statistics.speed > self.enemy.statistics.speed:
+            #Ataque del jugador
+            self.enemy.statistics.health_down(player_damage)
+            print(self.player.statistics.name + " ha inflingido " +
+                  str(player_damage) + " de daño al enemigo")
+            if not (self.enemy.statistics.alive()):
+                # Si después del ataque el enemigo esta muerto, terminamos la batalla
+                self.game_view.resume_from_battle(True, self.enemy)
+                return
+            #Ataque del enemigo
+            self.player.statistics.health_down(enemy_damage)
+            print("El enemigo ha inflingido " +
+                  str(enemy_damage) + " de daño a " + self.player.statistics.name)
+            if not (self.player.statistics.alive()):
+                # Si después del ataque el jugador esta muerto, terminamos la batalla
+                self.game_view.resume_from_battle(False, self.enemy)
+                return
+        else:
+            #Ataque del enemigo
+            self.player.statistics.health_down(enemy_damage)
+            print("El enemigo ha inflingido " +
+                  str(enemy_damage) + " de daño a " + self.player.statistics.name)
+            if not (self.enemy.statistics.alive()):
+                # Si después del ataque el jugador esta muerto, terminamos la batalla
+                self.game_view.resume_from_battle(True, self.enemy)
+                return
+            #Ataque del jugador
+            self.enemy.statistics.health_down(player_damage)
+            print(self.player.statistics.name + " ha inflingido " +
+                  str(player_damage) + " de daño al enemigo")
+            if not (self.player.statistics.alive()):
+                # Si después del ataque el enemigo esta muerto, terminamos la batalla
+                self.game_view.resume_from_battle(False, self.enemy)
+                return

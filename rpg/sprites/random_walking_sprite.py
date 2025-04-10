@@ -4,21 +4,23 @@ import random
 import arcade
 
 from rpg.sprites.character_sprite import CharacterSprite
-
+from rpg.entities.enemy import Enemy
 
 class RandomWalkingSprite(CharacterSprite):
     """
     Simple character that walks randomly around the map
     """
-
     MAX_PATH_DISTANCE = 350
 
-    def __init__(self, sheet_name, scene, speed=1):
+    def __init__(self, sheet_name, scene, statistics, speed=1):
         super().__init__(sheet_name)
         self.speed = speed
         self.scene = scene
         self.destination = None
         self.wall_list = None
+        self.sheet_name = sheet_name
+        self.statistics = statistics
+
 
     def on_update(self, delta_time):
         super().on_update(delta_time)
