@@ -9,7 +9,6 @@ import arcade
 from rpg.constants import SCREEN_HEIGHT, SCREEN_TITLE, SCREEN_WIDTH
 from rpg.views import LoadingView
 
-
 class MyWindow(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=True)
@@ -20,7 +19,7 @@ class MyWindow(arcade.Window):
         arcade.resources.add_resource_handle("data", "../resources/data")
         arcade.resources.add_resource_handle("sounds", "../resources/sounds")
         arcade.resources.add_resource_handle("misc", "../resources/misc")
-
+        arcade.resources.add_resource_handle("enemies","../resources/characters/")
 
 def main():
     """Main method"""

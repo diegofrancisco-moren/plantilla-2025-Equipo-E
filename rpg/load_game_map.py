@@ -1,5 +1,5 @@
 """
-Load maps
+Load maps (edited)
 """
 import json
 import os
@@ -24,15 +24,17 @@ class GameMap:
     properties = None
     background_color = arcade.color.AMAZON
 
-
+background_music=False
+background_player=""
 def load_map(map_name):
     """
     Load a map
     """
 
+    global background_music
+    global background_player
     game_map = GameMap()
     game_map.map_layers = OrderedDict()
-
     game_map.light_layer = LightLayer(100, 100)
 
     # List of blocking sprites
@@ -40,9 +42,11 @@ def load_map(map_name):
     layer_options = {
         "trees_blocking": {
             "use_spatial_hash": True,
+            "hit_box_algorithm": "Simple"  # Evita cálculo automático
         },
         "misc_blocking": {
             "use_spatial_hash": True,
+
         },
         "bridges": {
             "use_spatial_hash": True,
@@ -52,6 +56,8 @@ def load_map(map_name):
         },
     }
 
+
+
     # Read in the tiled map
     print(f"Loading map: {map_name}")
     my_map = arcade.tilemap.load_tilemap(
@@ -59,6 +65,13 @@ def load_map(map_name):
     )
 
     game_map.scene = arcade.Scene.from_tilemap(my_map)
+    if not background_music:
+        background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")  # Asegúrate de que la ruta sea correcta
+        background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
+        background_music = True
+
+
+
 
     if "characters" in my_map.object_lists:
         f = open("../resources/data/characters_dictionary.json")
@@ -115,6 +128,67 @@ def load_map(map_name):
             print(f"Adding character {character_type} at {character_sprite.position}")
             game_map.scene.add_sprite("characters", character_sprite)
 
+    if "enemies" in my_map.object_lists:
+
+        f = open("../resources/data/enemies_dictionary.json")
+        enemy_dictionary = json.load(f)
+        enemy_object_list = my_map.object_lists["enemies"]
+        game_map.scene.add_sprite_list("enemy_collisions", use_spatial_hash=True)
+
+        for enemy_object in enemy_object_list:
+
+            if "type" not in enemy_object.properties:
+                print(
+                    f"No 'type' field for enemies in map {map_name}. {enemy_object.properties}"
+                )
+                continue
+
+            enemy_type = enemy_object.properties["type"]
+            if enemy_type not in enemy_dictionary:
+                print(
+                    f"Unable to find '{enemy_type}' in enemies_dictionary.json."
+                )
+                continue
+
+            enemy_data = enemy_dictionary[enemy_type]
+            shape = enemy_object.shape
+
+            if isinstance(shape, list) and len(shape) == 2:
+                # Point
+                if enemy_object.properties.get("movement") == "random":
+                    enemy_sprite = RandomWalkingSprite(
+                        f":enemies:{enemy_data['images']}", game_map.scene
+                    )
+                else:
+                    enemy_sprite = CharacterSprite(
+                        f":enemies:{enemy_data['images']}"
+                    )
+                enemy_sprite.position = shape
+            elif isinstance(shape, list) and len(shape[0]) == 2:
+                # Rect or polygon.
+                location = [shape[0][0], shape[0][1]]
+                enemy_sprite = PathFollowingSprite(
+                    f":enemies:{enemy_data['images']}"
+                )
+                enemy_sprite.position = location
+                path = []
+                for point in shape:
+                    location = [point[0], point[1]]
+                    path.append(location)
+                enemy_sprite.path = path
+            else:
+                print(
+                    f"Unknown shape type for enemies with shape '{shape}' in map {map_name}."
+                )
+                continue
+
+            print(f"Adding enemy {enemy_type} at {enemy_sprite.position}")
+            ##game_map.scene.add_sprite("enemies", enemy_sprite)
+            enemy_sprite.set_hit_box([[-10, -10], [10, -10], [10, 10], [-10, 10]])
+            print(f"Hitbox del enemigo: {enemy_sprite.hit_box}")
+
+            game_map.scene["enemy_collisions"].append(enemy_sprite)
+
     if "lights" in my_map.object_lists:
         lights_object_list = my_map.object_lists["lights"]
 
@@ -162,6 +236,8 @@ def load_map(map_name):
 
     game_map.properties = my_map.properties
 
+
+
     # Any layer with '_blocking' in it, will be a wall
     game_map.scene.add_sprite_list("wall_list", use_spatial_hash=True)
     for layer, sprite_list in game_map.map_layers.items():
@@ -169,6 +245,13 @@ def load_map(map_name):
             game_map.scene.remove_sprite_list_by_object(sprite_list)
 
             game_map.scene["wall_list"].extend(sprite_list)
+
+    print(f"Map loaded: {map_name}")
+    print(f"Layers: {list(game_map.map_layers.keys())}")
+    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
+
+
+
 
     return game_map
 
@@ -193,7 +276,9 @@ def load_maps():
             for f in os.listdir(mypath)
             if isfile(join(mypath, f)) and f.endswith(".json")
         ]
+        # Sort the list alphabetically
         load_maps.map_file_names.sort()
+
         load_maps.file_count = len(load_maps.map_file_names)
 
     # Loop and load each file

@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats">
-      <change afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/ally.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/enemy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/entity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Rutosca" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,7 +27,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git&quot;,
-    &quot;accountId&quot;: &quot;0b8f004e-8e19-4b48-b993-2d8c29ab5681&quot;
+    &quot;accountId&quot;: &quot;6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -60,8 +44,8 @@
     &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Miguel&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Ruben&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.idesettings.debugger.python&quot;
   }
 }</component>
   <component name="RunManager">
@@ -99,7 +83,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats" />
+      <changelist id="0815045d-b0d6-497e-b8e8-6dff38faa30e" name="Changes" comment="." />
       <created>1742494925932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -113,28 +97,29 @@
       <option name="project" value="LOCAL" />
       <updated>1742500002611</updated>
     </task>
-    <task id="LOCAL-00002" summary="Basic Idea of the implementation of characters stats">
+    <task id="LOCAL-00002" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
       <option name="closed" value="true" />
-      <created>1744120052575</created>
+      <created>1744017494337</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1744120052575</updated>
+      <updated>1744017494337</updated>
     </task>
-    <task id="LOCAL-00003" summary="Basic Idea of the implementation of characters stats">
+    <task id="LOCAL-00003" summary="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;">
       <option name="closed" value="true" />
-      <created>1744120096863</created>
+      <created>1744017776975</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1744120096863</updated>
+      <updated>1744017776975</updated>
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
-    <MESSAGE value="Basic Idea of the implementation of characters stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Idea of the implementation of characters stats" />
+    <MESSAGE value="Añadidos tilesets de los mapas del bosque.&#10;Añadidos los mapas del bosque perdido. Consisten en un grupo de pequeñas salas que conformarían un único mapa con ambientación de bosque. Son archivos .json nombrados como 'woods_a' hasta la letra 'k', y un mapa extra con la letra 'o'.&#10;Editado el dibujado del mapa. Ahora ciertas capas se dibujan a parte encima del mundo y encima o debajo del personaje para dar efectos de profundidad." />
+    <MESSAGE value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Añadida música de fondo en load_game_map.py, class load_map&#10;- Añadido sonido en game_view.py, class Game_View, function search()&#10;- Añadido Contador de items recogidos en game_view.py, class Game_view, function search(). Se muestra en pantalla en function on_draw()&#10;- Añadido sistema día/noche en game_view.py, class Game_view, function on_draw()&#10;Añadidos y terminados las salas que conforman el mapa del bosque perdido, desde la &quot;a&quot; hasta la &quot;k&quot; con sala extra con la &quot;o&quot;" />
   </component>
 </project>

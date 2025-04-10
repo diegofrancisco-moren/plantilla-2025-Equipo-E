@@ -11,8 +11,12 @@ import arcade.gui
 import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
+
+from rpg.load_game_map import background_music, background_player #Se importa la variable desde load_game_map
+
 from rpg.message_box import MessageBox
 from rpg.sprites.player_sprite import PlayerSprite
+from rpg.views.battle_view import BattleView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -128,8 +132,12 @@ class GameView(arcade.View):
     Main application class.
     """
 
+
     def __init__(self, map_list):
         super().__init__()
+        self.coin_sound = arcade.load_sound(":sounds:item-pick-up.mp3")#variable para almacenar sonido de recoger item
+        self.items_collected = 0#variable para contar items recogidos
+        self.time_of_day = "day"#variable para cambiar día y noche
 
         arcade.set_background_color(arcade.color.AMAZON)
 
@@ -147,6 +155,12 @@ class GameView(arcade.View):
         self.right_pressed = False
         self.up_pressed = False
         self.down_pressed = False
+
+        # Teclas pulsadas
+        self.keys_held = set()
+
+        #Inmunidad a colisiones
+        self.collision_cooldown = 0.0
 
         # Physics engine
         self.physics_engine = None
@@ -176,7 +190,7 @@ class GameView(arcade.View):
         # Create a small white light
         x = 100
         y = 200
-        radius = 150
+        radius = 300
         mode = "soft"
         color = arcade.csscolor.WHITE
         self.player_light = Light(x, y, radius, color, mode)
@@ -215,6 +229,7 @@ class GameView(arcade.View):
             self.my_map.light_layer.resize(self.window.width, self.window.height)
 
     def setup_physics(self):
+
         if self.noclip_status:
             # make an empty spritelist so the character does not collide with anyting
             self.physics_engine = arcade.PhysicsEngineSimple(
@@ -226,11 +241,13 @@ class GameView(arcade.View):
                 self.player_sprite, self.my_map.scene["wall_list"]
             )
 
+
+
     def setup(self):
         """Set up the game variables. Call to re-start the game."""
 
         # Create the player character
-        self.player_sprite = PlayerSprite(":characters:Female/Female 18-4.png")
+        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png")
 
         # Spawn the player
         start_x = constants.STARTING_X
@@ -325,12 +342,16 @@ class GameView(arcade.View):
             text = f"     {item_name}"
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
 
+
+
     def on_draw(self):
         """
         Render the screen.
         """
 
-        # This command should happen before we start drawing. It will clear
+
+
+            # This command should happen before we start drawing. It will clear
         # the screen to the background color, and erase what we drew last frame.
         arcade.start_render()
         cur_map = self.map_list[self.cur_map_name]
@@ -351,6 +372,7 @@ class GameView(arcade.View):
             # Draw scene
             cur_map.scene.draw()
 
+
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
                     filename=":misc:shiny-stars.png",
@@ -359,8 +381,21 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
+            if map_layers.get("bridges",[]):
+                self.map_list[self.cur_map_name].map_layers["bridges"].draw()
+            if map_layers.get("bridges2",[]):
+                self.map_list[self.cur_map_name].map_layers["bridges2"].draw()
+
+
+
             # Draw the player
             self.player_sprite_list.draw()
+
+
+            if map_layers.get("walls_nonblocking",[]):
+                self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
+
+
 
         if cur_map.light_layer:
             # Draw the light layer to the screen.
@@ -372,6 +407,7 @@ class GameView(arcade.View):
             else:
                 ambient_color = arcade.color.WHITE
             cur_map.light_layer.draw(ambient_color=ambient_color)
+
 
         # Use the non-scrolled GUI camera
         self.camera_gui.use()
@@ -385,6 +421,8 @@ class GameView(arcade.View):
 
         # draw GUI
         self.ui_manager.draw()
+
+        arcade.draw_text(f"Items: {self.items_collected}", 10, self.window.height - 30, arcade.color.WHITE, 18)#texto de items recogidos
 
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
@@ -410,61 +448,19 @@ class GameView(arcade.View):
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
-        MOVING_UP = (
-            self.up_pressed
-            and not self.down_pressed
-            and not self.right_pressed
-            and not self.left_pressed
-        )
+        # Evaluar qué teclas están presionadas
+        MOVING_UP = any(k in self.keys_held for k in constants.KEY_UP)
+        MOVING_DOWN = any(k in self.keys_held for k in constants.KEY_DOWN)
+        MOVING_LEFT = any(k in self.keys_held for k in constants.KEY_LEFT)
+        MOVING_RIGHT = any(k in self.keys_held for k in constants.KEY_RIGHT)
 
-        MOVING_DOWN = (
-            self.down_pressed
-            and not self.up_pressed
-            and not self.right_pressed
-            and not self.left_pressed
-        )
+        # Combinaciones diagonales
+        MOVING_UP_LEFT = MOVING_UP and MOVING_LEFT
+        MOVING_UP_RIGHT = MOVING_UP and MOVING_RIGHT
+        MOVING_DOWN_LEFT = MOVING_DOWN and MOVING_LEFT
+        MOVING_DOWN_RIGHT = MOVING_DOWN and MOVING_RIGHT
 
-        MOVING_RIGHT = (
-            self.right_pressed
-            and not self.left_pressed
-            and not self.up_pressed
-            and not self.down_pressed
-        )
-
-        MOVING_LEFT = (
-            self.left_pressed
-            and not self.right_pressed
-            and not self.up_pressed
-            and not self.down_pressed
-        )
-
-        MOVING_UP_LEFT = (
-            self.up_pressed
-            and self.left_pressed
-            and not self.down_pressed
-            and not self.right_pressed
-        )
-
-        MOVING_DOWN_LEFT = (
-            self.down_pressed
-            and self.left_pressed
-            and not self.up_pressed
-            and not self.right_pressed
-        )
-
-        MOVING_UP_RIGHT = (
-            self.up_pressed
-            and self.right_pressed
-            and not self.down_pressed
-            and not self.left_pressed
-        )
-
-        MOVING_DOWN_RIGHT = (
-            self.down_pressed
-            and self.right_pressed
-            and not self.up_pressed
-            and not self.left_pressed
-        )
+        diagonal_speed = constants.MOVEMENT_SPEED / 1.5
 
         if MOVING_UP:
             self.player_sprite.change_y = constants.MOVEMENT_SPEED
@@ -479,20 +475,20 @@ class GameView(arcade.View):
             self.player_sprite.change_x = constants.MOVEMENT_SPEED
 
         if MOVING_UP_LEFT:
-            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = diagonal_speed
+            self.player_sprite.change_x = -diagonal_speed
 
         if MOVING_UP_RIGHT:
-            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = diagonal_speed
+            self.player_sprite.change_x = diagonal_speed
 
         if MOVING_DOWN_LEFT:
-            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = -diagonal_speed
+            self.player_sprite.change_x = -diagonal_speed
 
         if MOVING_DOWN_RIGHT:
-            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5
-            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5
+            self.player_sprite.change_y = -diagonal_speed
+            self.player_sprite.change_x = diagonal_speed
 
         # Call update to move the sprite
         self.physics_engine.update()
@@ -502,15 +498,24 @@ class GameView(arcade.View):
 
         self.player_light.position = self.player_sprite.position
 
-        # Update the characters
+        # Update the characters sprites
         try:
             self.map_list[self.cur_map_name].scene["characters"].on_update(delta_time)
         except KeyError:
             # no characters on map
             pass
+        #Update the enemies sprites
+        try:
+            self.map_list[self.cur_map_name].scene["enemy_collisions"].on_update(delta_time)
+        except KeyError:
+            # no enemies on map
+            pass
+
 
         # --- Manage doors ---
         map_layers = self.map_list[self.cur_map_name].map_layers
+        map_scene = self.map_list[self.cur_map_name].scene
+
 
         # Is there as layer named 'doors'?
         if "doors" in map_layers:
@@ -525,6 +530,9 @@ class GameView(arcade.View):
                     map_name = doors_hit[0].properties["map_name"]
                     start_x = doors_hit[0].properties["start_x"]
                     start_y = doors_hit[0].properties["start_y"]
+
+
+
                 except KeyError:
                     raise KeyError(
                         "Door objects must have 'map_name', 'start_x', and 'start_y' properties defined."
@@ -539,6 +547,29 @@ class GameView(arcade.View):
             # No doors, scroll normally
             self.scroll_to_player()
 
+        if self.collision_cooldown > 0:
+            self.collision_cooldown -= delta_time
+        else:
+            # Is there as layer named 'enemies'?
+            if "enemy_collisions" in map_scene.name_mapping.keys():
+                # Did we hit a enemy?
+                enemy_hit = arcade.check_for_collision_with_list(
+                    self.player_sprite, map_scene["enemy_collisions"]
+                )
+                # We did!
+                if len(enemy_hit) > 0:
+                    # Swap to the new map
+                    battle_view = BattleView(player=self.player_sprite,enemy=enemy_hit[0],game_view=self)
+                    self.window.show_view(battle_view)
+                else:
+                    # We didn't hit a character, scroll normally
+                    self.scroll_to_player()
+            else:
+                # No character, scroll normally
+                self.scroll_to_player()
+
+
+
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
 
@@ -546,14 +577,8 @@ class GameView(arcade.View):
             self.message_box.on_key_press(key, modifiers)
             return
 
-        if key in constants.KEY_UP:
-            self.up_pressed = True
-        elif key in constants.KEY_DOWN:
-            self.down_pressed = True
-        elif key in constants.KEY_LEFT:
-            self.left_pressed = True
-        elif key in constants.KEY_RIGHT:
-            self.right_pressed = True
+        if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
+            self.keys_held.add(key)
         elif key in constants.INVENTORY:
             self.window.show_view(self.window.views["inventory"])
         elif key == arcade.key.ESCAPE:
@@ -599,6 +624,7 @@ class GameView(arcade.View):
 
     def search(self):
         """Search for things"""
+
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "searchable" not in map_layers:
             print(f"No searchable sprites on {self.cur_map_name} map layer.")
@@ -614,6 +640,10 @@ class GameView(arcade.View):
                 self.message_box = MessageBox(
                     self, f"Found: {sprite.properties['item']}"
                 )
+
+                arcade.play_sound(self.coin_sound)#sonido añadido para buscar cosas
+                self.items_collected += 1#contador de items recogidos
+
                 sprite.remove_from_sprite_lists()
                 lookup_item = self.item_dictionary[sprite.properties["item"]]
                 self.player_sprite.inventory.append(lookup_item)
@@ -625,14 +655,8 @@ class GameView(arcade.View):
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
 
-        if key in constants.KEY_UP:
-            self.up_pressed = False
-        elif key in constants.KEY_DOWN:
-            self.down_pressed = False
-        elif key in constants.KEY_LEFT:
-            self.left_pressed = False
-        elif key in constants.KEY_RIGHT:
-            self.right_pressed = False
+        if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
+            self.keys_held.discard(key)
 
     def on_mouse_motion(self, x, y, delta_x, delta_y):
         """Called whenever the mouse moves."""
@@ -657,3 +681,14 @@ class GameView(arcade.View):
         cur_map = self.map_list[self.cur_map_name]
         if cur_map.light_layer:
             cur_map.light_layer.resize(width, height)
+
+    def resume_from_battle(self, result, enemy):
+        self.keys_held.clear()
+        self.player_sprite.change_x = 0
+        self.player_sprite.change_y = 0
+
+        if result:
+            self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
+
+        self.collision_cooldown = 2.0
+        self.window.show_view(self.window.views["game"])
