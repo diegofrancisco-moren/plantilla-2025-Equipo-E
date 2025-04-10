@@ -9,6 +9,7 @@ from os.path import isfile, join
 import arcade
 from arcade.experimental.lights import Light, LightLayer
 
+from rpg.entities.enemy import Enemy
 from rpg.sprites.character_sprite import CharacterSprite
 from rpg.constants import TILE_SCALING
 from rpg.sprites.path_following_sprite import PathFollowingSprite
@@ -101,18 +102,16 @@ def load_map(map_name):
                 if character_object.properties.get("movement") == "random":
                     character_sprite = RandomWalkingSprite(
                         f":characters:{character_data['images']}", game_map.scene
-                    )
+                    , None)
                 else:
                     character_sprite = CharacterSprite(
-                        f":characters:{character_data['images']}"
-                    )
+                        f":characters:{character_data['images']}")
                 character_sprite.position = shape
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
                 character_sprite = PathFollowingSprite(
-                    f":characters:{character_data['images']}"
-                )
+                    f":characters:{character_data['images']}", None)
                 character_sprite.position = location
                 path = []
                 for point in shape:
@@ -152,24 +151,27 @@ def load_map(map_name):
 
             enemy_data = enemy_dictionary[enemy_type]
             shape = enemy_object.shape
-
+            enemy_statistics = Enemy(enemy_type, enemy_data["health"]
+                                     , enemy_data["attack"]
+                                     , enemy_data["defense"]
+                                     , enemy_data["speed"]
+                                     , enemy_data["mana"]
+                                     , enemy_data["reward"])
             if isinstance(shape, list) and len(shape) == 2:
                 # Point
                 if enemy_object.properties.get("movement") == "random":
                     enemy_sprite = RandomWalkingSprite(
                         f":enemies:{enemy_data['images']}", game_map.scene
-                    )
+                        , enemy_statistics)
                 else:
                     enemy_sprite = CharacterSprite(
-                        f":enemies:{enemy_data['images']}"
-                    )
+                        f":enemies:{enemy_data['images']}")
                 enemy_sprite.position = shape
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
                 enemy_sprite = PathFollowingSprite(
-                    f":enemies:{enemy_data['images']}"
-                )
+                    f":enemies:{enemy_data['images']}", enemy_statistics)
                 enemy_sprite.position = location
                 path = []
                 for point in shape:

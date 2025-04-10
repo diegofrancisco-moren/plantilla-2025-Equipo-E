@@ -1,6 +1,6 @@
-import entity
+from rpg.entities.entity import Entity
 
-class Enemy(entity):
+class Player(Entity):
     def __init__(self, name, health, attack, defense, speed, mana):
         super().__init__(name, health, attack, defense, speed, mana)
         self.xp = 0
