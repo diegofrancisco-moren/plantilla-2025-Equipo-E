@@ -15,15 +15,21 @@ class BattleView(arcade.View):
         self.magic_attack_menu = False # Variable para controlar si el menu de ataques magicos esta abierto
         self.selected_item = 0  # Índice del ítem seleccionado
 
-        self.items = ["Poción", "Éter", "Antídoto", "Elixir"]  # Ejemplo de ítems
-        self.attacks = ["Estocada", "Puñalada"]
-        self.magic_attacks = ["Bola de fuego", "Rayo"]
-
         self.game_view = game_view
         self.enemy = enemy
         self.player = player
+        self.items = []
+
 
         if not(self.player == None):
+            for item in self.player.inventory:
+                if item["usable"]:
+                    self.items.append(item)
+                    print(item["name"])
+
+            self.attacks = player.statistics.attack_list
+            self.magic_attacks = player.statistics.attack_magic_list
+
             self.player_sprite = arcade.Sprite()
             self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
 
@@ -141,11 +147,10 @@ class BattleView(arcade.View):
                 if self.inventory_open:
                     self.inventory_open = False
                     print(f"Usaste {items[self.selected_item]}")
-                    self.use_item()
-                    self.attack(player_attack_type=0, enemy_attack_type=0.5)
+                    self.use_item(enemy_attack_type = 0.5, selected_item = items[self.selected_item])
                 else:
                     print(f"Usaste {items[self.selected_item]}")
-                    self.attack(player_attack_type = 1, enemy_attack_type = 0.5)
+                    self.attack(player_attack_type = 1, selected_attack_type = None, enemy_attack_type = 0.5)
                       # Cerrar inventario después de usar un ítem
                     self.magic_attack_menu = False
                     self.attack_menu = False
@@ -162,17 +167,21 @@ class BattleView(arcade.View):
         for i, item in enumerate(items):
             color = arcade.color.YELLOW if i == self.selected_item else arcade.color.WHITE
             arcade.draw_text(
-                item, 320, start_y - i * 35, color, 24, anchor_x="left"
+                item["name"], 320, start_y - i * 35, color, 24, anchor_x="left"
             )
 
             arcade.draw_lrtb_rectangle_outline(
                 290, 990, start_y - i * 35 + 24, start_y - i * 35 - 10, arcade.color.WHITE, 1
             )
-    def use_item(self):
-        return None
-    def attack(self, player_attack_type, enemy_attack_type):
+
+    def use_item(self, enemy_attack_type, selected_item):
+        enemy_damage = self.enemy.statistics.attack * enemy_attack_type
+        self.player.statistics.health_up(selected_item["heal_amount"])
+        self.player.statistics.health_down(enemy_damage)
+
+    def attack(self, player_attack_type, selected_attack_type, enemy_attack_type):
         #Calculo del ataque del jugador
-        player_damage = self.player.statistics.attack * player_attack_type
+        player_damage = self.player.statistics.attack + player_attack_type
         #Calculo del ataque del enemigo
         enemy_damage = self.enemy.statistics.attack * enemy_attack_type
         if self.player.statistics.speed > self.enemy.statistics.speed:

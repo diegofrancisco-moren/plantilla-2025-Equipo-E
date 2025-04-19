@@ -4,6 +4,8 @@
     "power": 10,
     "mana": 0,
     "type": "physic",
+    "class": "warrior",
+    "level": 1,
     "description": "A basic physic attack, doesn't require mana"
   },
   "FireBall": {
@@ -11,6 +13,8 @@
     "power": 25,
     "mana": 10,
     "type": "magic",
+    "class": "magician",
+    "level": 1,
     "description": "A magic attack, great damage, looses mana"
   },
   "Healing": {
@@ -18,6 +22,8 @@
     "power": -20,
     "mana": 15,
     "type": "magic",
+    "class": "all",
+    "level": 1,
     "description": "Heals by the cost of mana, I doubt changing to negative the value of the power works"
   }
 }

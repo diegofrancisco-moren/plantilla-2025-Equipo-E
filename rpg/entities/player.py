@@ -1,11 +1,12 @@
 from rpg.entities.entity import Entity
 
 class Player(Entity):
-    def __init__(self, name, health, attack, defense, speed, mana):
+    def __init__(self, name, health, attack, defense, speed, mana, class_type):
         super().__init__(name, health, attack, defense, speed, mana)
         self.xp = 0
         self.xp_max = 100
         self.level = 1
+        self.class_type = class_type
 
     def leveling_up(self):
         if self.xp >= self.xp_max:

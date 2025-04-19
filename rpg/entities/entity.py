@@ -1,3 +1,6 @@
+import json
+
+
 class Entity:
     def __init__(self, name, health, attack, defense, speed, mana):
         self.name = name
@@ -9,6 +12,7 @@ class Entity:
         self.mana = mana
         self.mana_max = mana
         self.attack_list = []
+        self.attack_magic_list = []
         'The attacks can be storage at the .json file in resources > data > attacks_list'
 
     def alive(self):
@@ -41,3 +45,22 @@ class Entity:
             new_mana = self.mana_max
 
         self.mana = new_mana
+
+    def add_attack(self, player):
+        with open("../resources/data/attacks_list.json") as f:
+            attack_dictionary = json.load(f)
+        for attack_data in attack_dictionary.values():
+            if attack_data["type"] == "physic":
+                if attack_data["class"] == player.class_type or attack_data["class"] == "all":
+                    if attack_data["level"] == player.level:
+                        self.attack_list.append(attack_data)
+
+
+    def add_magic_attack(self, player):
+        with open("../resources/data/attacks_list.json") as f:
+            attack_dictionary = json.load(f)
+        for attack_data in attack_dictionary.values():
+            if attack_data["type"] == "magic":
+                if attack_data["class"] == player.class_type or attack_data["class"] == "all":
+                    if attack_data["level"] == player.level:
+                        self.attack_list.append(attack_data)

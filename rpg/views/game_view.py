@@ -249,7 +249,10 @@ class GameView(arcade.View):
 
         #Create the statistics of the player
         player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
-                                   , constants.DEFENSE, constants.SPEED, constants.MANA)
+                                   , constants.DEFENSE, constants.SPEED, constants.MANA,
+                                   "warrior")
+        player_statistics.add_attack(player_statistics)
+        player_statistics.add_magic_attack(player_statistics)
 
         # Create the player character
         self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png", player_statistics)
@@ -337,7 +340,7 @@ class GameView(arcade.View):
                 )
 
             if len(self.player_sprite.inventory) > i:
-                item_name = self.player_sprite.inventory[i]["short_name"]
+                item_name = self.player_sprite.inventory[i]["name"]
             else:
                 item_name = ""
 
