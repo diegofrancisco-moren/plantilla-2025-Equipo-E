@@ -1,19 +1,32 @@
 {
   "Slash": {
     "name": "Slash",
-    "power": 10,
+    "base_power": 10,
+    "atk_mod": 0.5,
     "mana": 0,
     "type": "physic",
     "class": "warrior",
+    "learned": false,
     "level": 1,
+    "description": "A basic physic attack, doesn't require mana"
+  },
+  "Bone Throw": {
+    "name": "Bone Throw",
+    "base_power": 15,
+    "atk_mod": 0.7,
+    "mana": 0,
+    "type": "physic",
+    "class": "enemy",
     "description": "A basic physic attack, doesn't require mana"
   },
   "FireBall": {
     "name": "FireBall",
-    "power": 25,
+    "power": 15,
+    "atk_mod": 0.7,
     "mana": 10,
     "type": "magic",
     "class": "magician",
+    "learned": false,
     "level": 1,
     "description": "A magic attack, great damage, looses mana"
   },
@@ -23,6 +36,7 @@
     "mana": 15,
     "type": "magic",
     "class": "all",
+    "learned": false,
     "level": 1,
     "description": "Heals by the cost of mana, I doubt changing to negative the value of the power works"
   }

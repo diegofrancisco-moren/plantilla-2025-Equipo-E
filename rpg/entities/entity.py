@@ -1,5 +1,5 @@
-import json
 
+from rpg import constants
 
 class Entity:
     def __init__(self, name, health, attack, defense, speed, mana):
@@ -46,21 +46,12 @@ class Entity:
 
         self.mana = new_mana
 
-    def add_attack(self, player):
-        with open("../resources/data/attacks_list.json") as f:
-            attack_dictionary = json.load(f)
-        for attack_data in attack_dictionary.values():
-            if attack_data["type"] == "physic":
-                if attack_data["class"] == player.class_type or attack_data["class"] == "all":
-                    if attack_data["level"] == player.level:
-                        self.attack_list.append(attack_data)
 
-
-    def add_magic_attack(self, player):
-        with open("../resources/data/attacks_list.json") as f:
-            attack_dictionary = json.load(f)
-        for attack_data in attack_dictionary.values():
-            if attack_data["type"] == "magic":
-                if attack_data["class"] == player.class_type or attack_data["class"] == "all":
-                    if attack_data["level"] == player.level:
-                        self.attack_list.append(attack_data)
+    # Metodo para añadir ataques (de cualquier tipo) a los enemigos
+    def add_enemy_attack(self, enemy_type):
+        attack_dictionary = constants.attack_dictionary
+        for attack_ref in enemy_type["attacks"]:
+            attack_name = attack_ref["name"]
+            if attack_name in attack_dictionary:
+                attack_data = attack_dictionary[attack_name]
+                self.attack_list.append(attack_data)

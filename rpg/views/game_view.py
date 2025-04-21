@@ -251,8 +251,8 @@ class GameView(arcade.View):
         player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
                                    , constants.DEFENSE, constants.SPEED, constants.MANA,
                                    "warrior")
-        player_statistics.add_attack(player_statistics)
-        player_statistics.add_magic_attack(player_statistics)
+        player_statistics.add_player_attack()
+        player_statistics.add_player_magic_attack()
 
         # Create the player character
         self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png", player_statistics)
@@ -696,6 +696,7 @@ class GameView(arcade.View):
         self.player_sprite.change_y = 0
 
         if result:
+            self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
             self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
 
         self.collision_cooldown = 2.0
