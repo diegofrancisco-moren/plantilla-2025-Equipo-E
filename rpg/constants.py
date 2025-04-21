@@ -12,13 +12,13 @@ SPRITE_SIZE = 32
 # How fast does the player move
 MOVEMENT_SPEED = 6
 
-
 # Statistics of the player
 HEALTH = 100
 ATTACK = 40
 DEFENSE = 10
 SPEED = 10
 MANA = 20
+
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.
