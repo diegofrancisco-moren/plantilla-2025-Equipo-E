@@ -5,6 +5,7 @@ from contextlib import nullcontext
 
 import arcade
 import rpg.constants as constants
+import random
 
 class BattleView(arcade.View):
     def __init__(self, player, enemy, game_view):
@@ -15,15 +16,21 @@ class BattleView(arcade.View):
         self.magic_attack_menu = False # Variable para controlar si el menu de ataques magicos esta abierto
         self.selected_item = 0  # Índice del ítem seleccionado
 
-        self.items = ["Poción", "Éter", "Antídoto", "Elixir"]  # Ejemplo de ítems
-        self.attacks = ["Estocada", "Puñalada"]
-        self.magic_attacks = ["Bola de fuego", "Rayo"]
-
         self.game_view = game_view
         self.enemy = enemy
         self.player = player
+        self.items = []
+
 
         if not(self.player == None):
+            for item in self.player.inventory:
+                if item["usable"]:
+                    self.items.append(item)
+                    print(item["name"])
+
+            self.attacks = player.statistics.attack_list
+            self.magic_attacks = player.statistics.attack_magic_list
+
             self.player_sprite = arcade.Sprite()
             self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
 
@@ -141,11 +148,10 @@ class BattleView(arcade.View):
                 if self.inventory_open:
                     self.inventory_open = False
                     print(f"Usaste {items[self.selected_item]}")
-                    self.use_item()
-                    self.attack(player_attack_type=0, enemy_attack_type=0.5)
+                    self.use_item(selected_item = items[self.selected_item])
                 else:
                     print(f"Usaste {items[self.selected_item]}")
-                    self.attack(player_attack_type = 1, enemy_attack_type = 0.5)
+                    self.attack(player_selected_attack = items[self.selected_item])
                       # Cerrar inventario después de usar un ítem
                     self.magic_attack_menu = False
                     self.attack_menu = False
@@ -162,22 +168,43 @@ class BattleView(arcade.View):
         for i, item in enumerate(items):
             color = arcade.color.YELLOW if i == self.selected_item else arcade.color.WHITE
             arcade.draw_text(
-                item, 320, start_y - i * 35, color, 24, anchor_x="left"
+                item["name"], 320, start_y - i * 35, color, 24, anchor_x="left"
             )
 
             arcade.draw_lrtb_rectangle_outline(
                 290, 990, start_y - i * 35 + 24, start_y - i * 35 - 10, arcade.color.WHITE, 1
             )
-    def use_item(self):
-        return None
-    def attack(self, player_attack_type, enemy_attack_type):
-        #Calculo del ataque del jugador
-        player_damage = self.player.statistics.attack * player_attack_type
-        #Calculo del ataque del enemigo
-        enemy_damage = self.enemy.statistics.attack * enemy_attack_type
-        if self.player.statistics.speed > self.enemy.statistics.speed:
+
+    def use_item(self,selected_item):
+        enemy_selected_attack = random.choice(self.enemy.statistics.attack_list)
+        enemy_damage = (self.enemy.statistics.attack * enemy_selected_attack["atk_mod"] + enemy_selected_attack["power"]) - self.player.statistics.defense
+        self.player.statistics.health_up(selected_item["heal_amount"])
+        self.player.statistics.health_down(enemy_damage)
+
+    def attack(self, player_selected_attack):
+        """
+        Calculo del ataque del jugador
+        Los ataques tienen dos partes, un daño varaible y un daño base.
+        El daño base viene definido por el ataque usado, en el campo "power"
+        El daño varible se obtiene con el siguente calculo:
+        player_attack * atk_mod
+        Siendo "player_attack" la estadística de ataque del jugador.
+        Y "atk_mod" el campo modificador de ataque que tienen todos los ataques.
+        Por ultimo se resta al ataque la defensa del objetivo
+        Los ataques enemigos se calcularán de la misma forma
+        """
+        player_damage = (self.player.statistics.attack * player_selected_attack["atk_mod"] + player_selected_attack["base_power"]) - self.enemy.statistics.defense
+
+        """Calculo del ataque del enemigo
+        El ataque que utilice el enemigo (si tiene más de un ataque) se hará de forma
+        aleatoria. Utilizando random, se tomará un ataque de la lista del enemigo.
+        """
+        enemy_selected_attack = random.choice(self.enemy.statistics.attack_list)
+        enemy_damage = (self.enemy.statistics.attack * enemy_selected_attack["atk_mod"] + enemy_selected_attack["base_power"]) - self.player.statistics.defense
+        if self.player.statistics.speed >= self.enemy.statistics.speed:
             #Ataque del jugador
             self.enemy.statistics.health_down(player_damage)
+            print(self.player.statistics.name + " utilizo " + player_selected_attack["name"])
             print(self.player.statistics.name + " ha inflingido " +
                   str(player_damage) + " de daño al enemigo")
             if not (self.enemy.statistics.alive()):
@@ -186,6 +213,7 @@ class BattleView(arcade.View):
                 return
             #Ataque del enemigo
             self.player.statistics.health_down(enemy_damage)
+            print("El enemigo utilizo " + enemy_selected_attack["name"])
             print("El enemigo ha inflingido " +
                   str(enemy_damage) + " de daño a " + self.player.statistics.name)
             if not (self.player.statistics.alive()):
@@ -195,16 +223,18 @@ class BattleView(arcade.View):
         else:
             #Ataque del enemigo
             self.player.statistics.health_down(enemy_damage)
-            print("El enemigo ha inflingido " +
-                  str(enemy_damage) + " de daño a " + self.player.statistics.name)
+            print(self.player.statistics.name + " utilizo " + player_selected_attack["name"])
+            print(self.player.statistics.name + " ha inflingido " +
+                  str(player_damage) + " de daño al enemigo")
             if not (self.enemy.statistics.alive()):
                 # Si después del ataque el jugador esta muerto, terminamos la batalla
                 self.game_view.resume_from_battle(True, self.enemy)
                 return
             #Ataque del jugador
             self.enemy.statistics.health_down(player_damage)
-            print(self.player.statistics.name + " ha inflingido " +
-                  str(player_damage) + " de daño al enemigo")
+            print("El enemigo utilizo " + enemy_selected_attack["name"])
+            print("El enemigo ha inflingido " +
+                  str(enemy_damage) + " de daño a " + self.player.statistics.name)
             if not (self.player.statistics.alive()):
                 # Si después del ataque el enemigo esta muerto, terminamos la batalla
                 self.game_view.resume_from_battle(False, self.enemy)

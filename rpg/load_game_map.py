@@ -156,7 +156,8 @@ def load_map(map_name):
                                      , enemy_data["defense"]
                                      , enemy_data["speed"]
                                      , enemy_data["mana"]
-                                     , enemy_data["reward"])
+                                     , enemy_data["reward_exp"])
+            enemy_statistics.add_enemy_attack(enemy_data)
             if isinstance(shape, list) and len(shape) == 2:
                 # Point
                 if enemy_object.properties.get("movement") == "random":

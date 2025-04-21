@@ -1,7 +1,11 @@
-"""
-Constant values for the game
-"""
+
+import json
+
 import arcade
+
+#Json archives
+f = open("../resources/data/attacks_list.json")
+attack_dictionary = json.load(f)
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720

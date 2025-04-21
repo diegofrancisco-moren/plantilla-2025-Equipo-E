@@ -3,9 +3,17 @@
     "images": "Enemy/Enemy 06-1.png",
     "health": 100,
     "attack": 20,
-    "defense": 20,
+    "defense": 5,
     "speed": 10,
     "mana": 40,
-    "reward": 5
+    "reward_exp": 700,
+     "attacks": [
+      {
+        "name": "Slash"
+      },
+      {
+        "name": "Bone Throw"
+      }
+    ]
   }
 }

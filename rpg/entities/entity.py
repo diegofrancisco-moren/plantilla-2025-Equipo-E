@@ -1,3 +1,6 @@
+
+from rpg import constants
+
 class Entity:
     def __init__(self, name, health, attack, defense, speed, mana):
         self.name = name
@@ -9,6 +12,7 @@ class Entity:
         self.mana = mana
         self.mana_max = mana
         self.attack_list = []
+        self.attack_magic_list = []
         'The attacks can be storage at the .json file in resources > data > attacks_list'
 
     def alive(self):
@@ -41,3 +45,13 @@ class Entity:
             new_mana = self.mana_max
 
         self.mana = new_mana
+
+
+    # Metodo para añadir ataques (de cualquier tipo) a los enemigos
+    def add_enemy_attack(self, enemy_type):
+        attack_dictionary = constants.attack_dictionary
+        for attack_ref in enemy_type["attacks"]:
+            attack_name = attack_ref["name"]
+            if attack_name in attack_dictionary:
+                attack_data = attack_dictionary[attack_name]
+                self.attack_list.append(attack_data)
