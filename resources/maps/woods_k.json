@@ -85,17 +85,17 @@
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"city"
+                         "value":"nexo"
                         }, 
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":10
+                         "value":51
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":18
+                         "value":94
                         }],
                  "rotation":0,
                  "type":"",

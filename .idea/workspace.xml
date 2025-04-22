@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+      <change afterPath="$PROJECT_DIR$/resources/maps/nexo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/maps/nexo_int.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/LightShadow_pipo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/Untitled (Recovered).json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/Untitled (Recovered).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/[A]Dirt_pipo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/ground.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/ground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/tent.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/tilesets/tent.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/characters_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/characters_dictionary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/woods_k.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods_k.json" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +32,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Maxim" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Diego" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,13 +58,12 @@
     &quot;assignee&quot;: &quot;Rutosca&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git",
-    "accountId": "6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33"
-
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E&quot;,
+    &quot;accountId&quot;: &quot;f31bdab1-31ac-4ed6-b874-86b390dd1904&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -56,11 +78,16 @@
     "Python.load_game_map.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-
-    "git-widget-placeholder": "David,-invent",
+    "git-widget-placeholder": "Maxim",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E",
-    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -73,11 +100,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.10 (plantilla-2025-Equipo-E)" />
+      <option name="SDK_NAME" value="Python 3.10 (.virtualenvs)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rpg" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rpg/__main__.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -91,7 +119,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
+        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
       </set>
     </attachedChunks>
   </component>
@@ -103,6 +132,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742494925932</updated>
+      <workItem from="1745239989704" duration="233000" />
+      <workItem from="1745240241556" duration="2285000" />
+      <workItem from="1745256885909" duration="19598000" />
     </task>
     <task id="LOCAL-00001" summary="ko">
       <option name="closed" value="true" />
@@ -128,7 +160,6 @@
       <option name="project" value="LOCAL" />
       <updated>1744120096863</updated>
     </task>
-
     <task id="LOCAL-00004" summary="-Implementación de listas de ataques fisicos y magicos en la clase Entity, con sus funciones para cargar los ataques&#10;-Automatización de la carga de los ataques del jugador al iniciar el juego.&#10;-Ahora se muestran las listas de ataques fisicos y mágicos del jugador al pulsar los respectivos botones en la pantalla de batalla. También se muestran los objetos usables por el jugador al pulsar el boton &quot;I&quot; en la ventana de batalla.">
       <option name="closed" value="true" />
       <created>1745075791688</created>
@@ -148,6 +179,9 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -162,8 +196,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
     <MESSAGE value="Basic Idea of the implementation of characters stats" />
-
     <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
     <option name="LAST_COMMIT_MESSAGE" value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rpg/load_game_map.py</url>
+          <line>281</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/plantilla_2025_Equipo_E$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1745331043777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rpg" />
   </component>
 </project>
