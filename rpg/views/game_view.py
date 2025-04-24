@@ -705,3 +705,5 @@ class GameView(arcade.View):
 
         self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])
+
+
