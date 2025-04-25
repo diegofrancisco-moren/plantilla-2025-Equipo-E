@@ -55,3 +55,52 @@ class Entity:
             if attack_name in attack_dictionary:
                 attack_data = attack_dictionary[attack_name]
                 self.attack_list.append(attack_data)
+
+    def get_name(self):
+        return self.name
+
+    def get_health(self):
+        return self.health
+
+    def get_health_max(self):
+        return self.healh_max
+
+    def get_attack(self):
+        return self.attack
+
+    def get_defense(self):
+        return self.defense
+
+    def get_speed(self):
+        return self.speed
+
+    def get_mana(self):
+        return self.mana
+
+    def get_mana_max(self):
+        return self.mana_max
+
+    def set_name(self, value):
+        self.name = value
+
+    def set_health(self, value):
+        self.health = value
+
+    def set_health_max(self, value):
+        self.healh_max = value
+
+    def set_attack(self, value):
+        self.attack = value
+
+    def set_defense(self, value):
+        self.defense = value
+
+    def set_speed(self, value):
+        self.speed = value
+
+    def set_mana(self, value):
+        self.mana = value
+
+    def set_mana_max(self, value):
+        self.mana_max = value
+

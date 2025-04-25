@@ -9,6 +9,7 @@ class Player(Entity):
         self.xp_max = 100
         self.level = 1
         self.class_type = class_type
+        self.save_file = None
 
     def leveling_up(self):
         while self.xp >= self.xp_max:
@@ -50,3 +51,30 @@ class Player(Entity):
                             self.attack_list.append(attack_data)
                             print(self.name + " aprendió " + attack_data["name"])
                             attack_data["learned"] = True
+
+    def get_xp(self):
+        return self.xp
+
+    def get_xp_max(self):
+        return self.xp_max
+
+    def get_level(self):
+        return self.level
+
+    def get_class_type(self):
+        return self.class_type
+
+    def get_save_file(self):
+        return self.save_file
+
+    def set_xp(self, value):
+        self.xp = value
+
+    def set_xp_max(self, value):
+        self.xp_max = value
+
+    def set_level(self, value):
+        self.level = value
+
+    def set_save_file(self, save_file):
+        self.save_file = save_file
