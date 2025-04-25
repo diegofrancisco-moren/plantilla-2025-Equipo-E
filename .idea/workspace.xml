@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
-      <change afterPath="$PROJECT_DIR$/resources/maps/nexo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/maps/nexo_int.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/LightShadow_pipo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/Untitled (Recovered).json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/Untitled (Recovered).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/[A]Dirt_pipo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/ground.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/ground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/tent.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tilesets/tent.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/characters_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/characters_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_k.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods_k.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/nexo.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/nexo.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +123,7 @@
       <updated>1742494925932</updated>
       <workItem from="1745239989704" duration="233000" />
       <workItem from="1745240241556" duration="2285000" />
-      <workItem from="1745256885909" duration="19598000" />
+      <workItem from="1745256885909" duration="29353000" />
     </task>
     <task id="LOCAL-00001" summary="ko">
       <option name="closed" value="true" />
@@ -176,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745077068319</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+      <option name="closed" value="true" />
+      <created>1745331223351</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745331223351</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
