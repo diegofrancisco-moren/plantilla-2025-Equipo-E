@@ -11,48 +11,51 @@ class BattleView(arcade.View):
     def __init__(self, player, enemy, game_view):
         super().__init__()
         self.started = False
-        self.inventory_open = False  # Variable para controlar si el inventario de items esta abierto
-        self.attack_menu = False # Variable para controlar si el menu de ataques esta abierto
-        self.magic_attack_menu = False # Variable para controlar si el menu de ataques magicos esta abierto
-        self.selected_item = 0  # Índice del ítem seleccionado
+        self.inventory_open = False
+        self.attack_menu = False
+        self.magic_attack_menu = False
+        self.selected_item = 0
 
         self.game_view = game_view
         self.enemy = enemy
         self.player = player
         self.items = []
 
+        # Preparar lista de sprites
+        self.sprite_list = arcade.SpriteList()
 
-        if not(self.player == None):
+        # Crear sprites vacíos primero
+        self.player_sprite = arcade.Sprite()
+        self.enemy_sprite = arcade.Sprite()
+
+        if self.player is not None and self.enemy is not None:
             for item in self.player.inventory:
                 if item["usable"]:
                     self.items.append(item)
-                    print(item["name"])
 
             self.attacks = player.statistics.attack_list
             self.magic_attacks = player.statistics.attack_magic_list
 
-            self.player_sprite = arcade.Sprite()
+            # Cargar texturas
             self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
-
-            self.enemy_sprite = arcade.Sprite()
-            self.enemy_sprite.texture = self.enemy.texture
             self.enemy_sprite.texture = arcade.load_texture(self.enemy.sheet_name, x=0, y=0, width=32, height=32)
 
-            # Posicionar los sprites en la pantalla
-            self.player_sprite.center_x = 200  # Posición en X
-            self.player_sprite.center_y = 500  # Posición en Y
+            # Posicionar los sprites
+            self.player_sprite.center_x = 200
+            self.player_sprite.center_y = 500
 
-            self.enemy_sprite.center_x = 1000  # Posición en X del enemigo
-            self.enemy_sprite.center_y = 500  # Posición en Y del enemigo
+            self.enemy_sprite.center_x = 1000
+            self.enemy_sprite.center_y = 500
 
-            # Agregar los sprites a la lista de sprites para ser renderizados
-            self.sprite_list = arcade.SpriteList()
+            # Añadirlos a la lista de sprites
             self.sprite_list.append(self.player_sprite)
             self.sprite_list.append(self.enemy_sprite)
 
-
-
-        arcade.set_background_color(arcade.color.BLUE)
+            # Cargar iconos de acciones
+            self.icon_attack = arcade.load_texture("../resources/misc/sword-icon.png")
+            self.icon_magic = arcade.load_texture("../resources/misc/potion-icon.png")
+            self.icon_item = arcade.load_texture("../resources/misc/backpack-icon.png")
+            self.icon_flee = arcade.load_texture("../resources/misc/footprints-icon.png")
 
     def setup(self):
         pass
@@ -60,53 +63,89 @@ class BattleView(arcade.View):
         arcade.set_background_color(arcade.color.BLUE)
         arcade.set_viewport(0, self.window.width, 0, self.window.height)
 
-    def on_draw(self):#makes text apear on screen. The blue background will not draw w/o this
+    def on_draw(self):
         arcade.start_render()
+
+        # Fondo bonito
+        arcade.set_background_color(arcade.color.AIR_SUPERIORITY_BLUE)
+
+        # Área de batalla
+        battle_area_y = self.window.height * 0.6
+        arcade.draw_rectangle_filled(
+            self.window.width / 2,
+            battle_area_y,
+            self.window.width,
+            self.window.height * 0.8,
+            arcade.color.LIGHT_GRAY
+        )
+
+        # Área de menú de acciones
+        menu_area_height = 200
+        arcade.draw_rectangle_filled(
+            self.window.width / 2,
+            menu_area_height / 2,
+            self.window.width,
+            menu_area_height,
+            arcade.color.DARK_BLUE_GRAY
+        )
+
+        # Sombra del título de batalla
         arcade.draw_text(
-            "BATTLE(WIP)",
+            "BATALLA",
+            self.window.width / 2 + 2,  # mover un poco para dar efecto de sombra
+            self.window.height - 52,
+            arcade.color.BLACK,
+            50,  # un poco más grande para que impacte más
+            anchor_x="center"
+        )
+
+        # Texto principal del título de batalla
+        arcade.draw_text(
+            "BATALLA",
             self.window.width / 2,
             self.window.height - 50,
             arcade.color.WHITE,
-            44,
-            anchor_x="center",
-            anchor_y="center",
-            align="center",
-            width=self.window.width,
+            50,
+            anchor_x="center"
         )
-        arcade.draw_text(
-            "[-----------------------------------------------------------------------------------------------------------------------------]",
-            self.window.width / 2,
-            self.window.height - 500,
-            arcade.color.WHITE,
-            22,
-            anchor_x="center",
-            anchor_y="center",
-            align="center",
-            width=self.window.width,
-        )
-        arcade.draw_text(
-            "ATTACK [A]                                  ITEMS [I]",
-            self.window.width / 2,
-            self.window.height - 550,
-            arcade.color.WHITE,
-            44,
-            anchor_x="center",
-            anchor_y="center",
-            align="center",
-            width=self.window.width,
-        )
-        arcade.draw_text(
-            "MAGIC [M]                                  FLEE [F]",
-            self.window.width / 2,
-            self.window.height - 650,
-            arcade.color.WHITE,
-            44,
-            anchor_x="center",
-            anchor_y="center",
-            align="center",
-            width=self.window.width,
-        )
+
+        # Dibujar sprites (jugador a la izquierda, enemigo a la derecha)
         self.sprite_list.draw()
+
+        # Dibujar barras de vida
+        if self.player is not None and self.enemy is not None:
+            self.draw_health_bar(self.player_sprite.center_x, self.player_sprite.center_y + 50,
+                                 self.player.statistics.health, self.player.statistics.max_health)
+            self.draw_health_bar(self.enemy_sprite.center_x, self.enemy_sprite.center_y + 50,
+                                 self.enemy.statistics.health, self.enemy.statistics.max_health, is_enemy=True)
+
+        # Dibujar los botones (acciones)
+        button_texts = ["[A] ATACAR", "[M] MAGIA", "[I] OBJETOS", "[F] HUIR"]
+        button_spacing = self.window.width // (len(button_texts) + 1)
+        icon_textures = [self.icon_attack, self.icon_magic, self.icon_item, self.icon_flee]
+
+        # Generamos cada boton
+        for i, (text, icon) in enumerate(zip(button_texts, icon_textures)):
+            x = button_spacing * (i + 1)
+            y = menu_area_height / 2
+            # Dibuja el botón
+            arcade.draw_rectangle_filled(x, y, 250, 60, arcade.color.WHITE_SMOKE)
+
+            # Dibuja el icono
+            arcade.draw_texture_rectangle(x - 80, y, 40, 40, icon)  # 40x40 tamaño de icono ajustable
+
+            # Dibuja el texto
+            arcade.draw_text(
+                text,
+                x + 20,  # Un poco a la derecha para dejar hueco al icono
+                y,
+                arcade.color.BLACK,
+                20,
+                anchor_x="center",
+                anchor_y="center"
+            )
+
+        # Si algún menú (inventario o ataques) está abierto
         if self.inventory_open:
             self.draw_inventory(self.items)
         elif self.attack_menu:
@@ -156,6 +195,22 @@ class BattleView(arcade.View):
                     self.magic_attack_menu = False
                     self.attack_menu = False
 
+    def draw_health_bar(self, x, y, current_health, max_health, is_enemy=False):
+        bar_width = 120
+        bar_height = 15
+        health_percentage = current_health / max_health
+
+        # Color: rojo si es enemigo, verde si es jugador
+        color = arcade.color.RED if is_enemy else arcade.color.GREEN
+
+        # Fondo de la barra (gris)
+        arcade.draw_rectangle_filled(x, y, bar_width, bar_height, arcade.color.DARK_SLATE_GRAY)
+        # Vida actual
+        arcade.draw_rectangle_filled(x - (1 - health_percentage) * (bar_width / 2), y, bar_width * health_percentage,
+                                     bar_height, color)
+
+        # Borde de la barra
+        arcade.draw_rectangle_outline(x, y, bar_width, bar_height, arcade.color.BLACK, 2)
 
     def draw_inventory(self, items):
         inventory_width = 700
