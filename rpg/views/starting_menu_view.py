@@ -6,15 +6,12 @@ from rpg.views.game_view import GameView
 class StartingMenuView(arcade.View):
     def __init__(self):
         super().__init__()
-        self.progress = 0
         self.manager = arcade.gui.UIManager()
         self.v_box = arcade.gui.UIBoxLayout()
 
         load_game_button = arcade.gui.UIFlatButton(text="Load Game", width=200)
         self.v_box.add(load_game_button.with_space_around(bottom=20))
         load_game_button.on_click = self.on_click_load_game
-
-
 
         settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
         self.v_box.add(settings_button.with_space_around(bottom=20))
@@ -45,8 +42,10 @@ class StartingMenuView(arcade.View):
 
     def on_click_load_game(self, event):
         print("Loads game")
-        LoadingView.on_draw(self)
-        LoadingView.setup(self)
+        self.manager.disable()
+        load_game = LoadingView()
+        load_game.setup()
+        self.window.show_view(load_game)
 
 
     def on_click_settings(self, event):
