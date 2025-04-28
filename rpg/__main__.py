@@ -8,6 +8,8 @@ import arcade
 
 from rpg.constants import SCREEN_HEIGHT, SCREEN_TITLE, SCREEN_WIDTH
 from rpg.views import LoadingView
+from rpg.views.starting_menu_view import StartingMenuView
+
 
 class MyWindow(arcade.Window):
     def __init__(self):
@@ -25,7 +27,7 @@ def main():
     """Main method"""
     window = MyWindow()
     window.center_window()
-    start_view = LoadingView()
+    start_view = StartingMenuView()
     start_view.setup()
     window.show_view(start_view)
     arcade.run()
