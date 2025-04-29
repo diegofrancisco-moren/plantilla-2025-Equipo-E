@@ -299,3 +299,5 @@ class BattleView(arcade.View):
                 # Si después del ataque el enemigo esta muerto, terminamos la batalla
                 self.game_view.resume_from_battle(False, self.enemy)
                 return
+
+

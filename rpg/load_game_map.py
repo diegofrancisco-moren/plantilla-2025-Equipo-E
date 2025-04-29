@@ -298,3 +298,5 @@ def load_maps():
 load_maps.map_file_names = None
 load_maps.map_list = None
 load_maps.file_count = None
+
+

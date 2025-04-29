@@ -19,7 +19,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzVUu0KgCAM3MP1\/hBZEEW9Sv2YpMPDM1RqMPy87XabyGPT7WvCHXh3EtsY7IfEffjOnHvjD4nrm\/V+0\/Oiq+h6kvmRsfxZvOeZ65v3nYyf44XmgsUjHWrhrS6IJ8Ln8qI+tNLX9s\/i\/X9UH+KBeLXWz8a3dfWeXxu\/tH7WWH5\/wSMdkds+f6WOt3g0J8hrzU9p3lD\/C2VNpeY=",
+         "data":"eJzVUlsKgDAM6+G8P\/gEUfQq+rHhDA3rNidaCHN2adOHyGX9iVnBQPyj3K0Nvhvlf+jXjPkZvyvk430Tvb7F3Sd3ijt3Y35mMT2pfK8zNjeP1Rg\/pgvj+7y5c0deKR\/7wnQyfiwvm0Ot\/uL8kO\/fs\/qYDqardv8wPtb19v5i\/NT6rWbV9xc+6yMDzvkrdeTy2Z4wPLU\/qXnD\/h9RN6UX",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -36,34 +36,6 @@
          "id":4,
          "name":"doors",
          "objects":[
-                {
-                 "gid":295,
-                 "height":32,
-                 "id":1,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"main_map"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":7
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":22
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":448,
-                 "y":32
-                }, 
                 {
                  "gid":336,
                  "height":32,
@@ -91,6 +63,34 @@
                  "width":32,
                  "x":450.666666666667,
                  "y":992.666666666667
+                }, 
+                {
+                 "gid":351,
+                 "height":32.1818181818182,
+                 "id":16,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"main_map"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":7
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":22
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":480,
+                 "y":64.0909090909091
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -100,11 +100,11 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBgYoM84QBaPglEwCkbBKBgFQxSkM1PPLACRAwCb",
+         "data":"eJxjYCAfhDNSoHkUjIJRMApGwSgYBSSBdGbqmQUA0vIAww==",
          "encoding":"base64",
          "height":32,
          "id":5,
-         "name":"decorative_nonblocking",
+         "name":"decorations_nonblocking",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -223,7 +223,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":15,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -232,7 +232,7 @@
          "value":"#ff0a0a0a"
         }],
  "renderorder":"left-up",
- "tiledversion":"1.8.4",
+ "tiledversion":"1.11.2",
  "tileheight":32,
  "tilesets":[
         {
@@ -241,6 +241,6 @@
         }],
  "tilewidth":32,
  "type":"map",
- "version":"1.8",
+ "version":"1.10",
  "width":16
 }
