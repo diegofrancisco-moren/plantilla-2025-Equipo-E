@@ -13,6 +13,30 @@
   },
   "grey_dog": {
     "images": "Animal/Dog 01-2.png"
+  },
+  "tavernkeeper": {
+    "images": "Female/Female 17-1.png"
+  },
+  "blacksmith": {
+    "images": "Male/Male 02-4.png"
+  },
+  "mage": {
+    "images": "Female/Female 09-3.png"
+  },
+  "priest": {
+    "images": "Male/Male 05-2.png"
+  },
+  "merchant1": {
+    "images": "Male/Male 12-1.png"
+  },
+  "merchant2": {
+    "images": "Female/Female 18-1.png"
+  },
+  "guard1": {
+    "images": "Soldier/Soldier 03-1.png"
+  },
+  "guard2": {
+    "images": "Soldier/Soldier 03-2.png"
   }
 
 }
