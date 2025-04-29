@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
-      <change afterPath="$PROJECT_DIR$/resources/misc/backpack-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/misc/footprints-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/misc/potion-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/misc/sword-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpg/views/battle_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/battle_view.py" afterDir="false" />
     </list>
@@ -61,11 +57,14 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/PycharmProjects/plantilla-2025-Equipo-E/resources/misc&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\plantilla-2025-Equipo-E\resources\misc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\PycharmProjects\plantilla-2025-Equipo-E\resources\misc" />
     </key>

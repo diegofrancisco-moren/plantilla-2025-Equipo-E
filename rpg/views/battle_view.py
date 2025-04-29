@@ -6,6 +6,7 @@ from contextlib import nullcontext
 import arcade
 import rpg.constants as constants
 import random
+import os
 
 class BattleView(arcade.View):
     def __init__(self, player, enemy, game_view):
@@ -51,11 +52,15 @@ class BattleView(arcade.View):
             self.sprite_list.append(self.player_sprite)
             self.sprite_list.append(self.enemy_sprite)
 
-            # Cargar iconos de acciones
-            self.icon_attack = arcade.load_texture("../resources/misc/sword-icon.png")
-            self.icon_magic = arcade.load_texture("../resources/misc/potion-icon.png")
-            self.icon_item = arcade.load_texture("../resources/misc/backpack-icon.png")
-            self.icon_flee = arcade.load_texture("../resources/misc/footprints-icon.png")
+        # Ruta base a partir del archivo actual (battle_view.py)
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../resources/misc"))
+
+        # Cargar iconos de acciones con ruta absoluta
+        self.icon_attack = arcade.load_texture(os.path.join(base_path, "sword-icon.png"))
+        self.icon_magic = arcade.load_texture(os.path.join(base_path, "potion-icon.png"))
+        self.icon_item = arcade.load_texture(os.path.join(base_path, "backpack-icon.png"))
+        self.icon_flee = arcade.load_texture(os.path.join(base_path, "footprints-icon.png"))
+
 
     def setup(self):
         pass
