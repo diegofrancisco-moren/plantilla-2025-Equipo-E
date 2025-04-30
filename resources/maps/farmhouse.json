@@ -159,7 +159,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -268,9 +268,14 @@
          "name":"ambient_color",
          "type":"color",
          "value":"#ff797979"
+        }, 
+        {
+         "name":"background_color",
+         "type":"color",
+         "value":"#ffaaaa7f"
         }],
  "renderorder":"left-up",
- "tiledversion":"1.8.4",
+ "tiledversion":"1.11.2",
  "tileheight":32,
  "tilesets":[
         {
@@ -279,6 +284,6 @@
         }],
  "tilewidth":32,
  "type":"map",
- "version":"1.8",
+ "version":"1.10",
  "width":16
 }
