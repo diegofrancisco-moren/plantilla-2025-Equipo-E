@@ -1,5 +1,7 @@
 import arcade
 import arcade.gui
+
+from rpg.views.credits_view import CreditsView
 from rpg.views.loading_view import LoadingView
 from rpg.views.settings_view import SettingsView
 from rpg.views.saves_view import SavesView
@@ -78,6 +80,9 @@ class StartingMenuView(arcade.View):
 
     def on_click_credits(self, event):
         print("Displays the credits")
+        credits_show = CreditsView()
+        credits_show.setup()
+        self.window.show_view(credits_show)
 
     def on_click_exit(self, event):
         print("Exits the game")

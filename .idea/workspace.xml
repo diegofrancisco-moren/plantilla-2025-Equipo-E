@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido el menú de archivos de guardado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/saves_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/saves_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/starting_menu_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/starting_menu_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/credits_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/credits_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746027870442</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Añadido el menú de archivos de guardado">
+      <option name="closed" value="true" />
+      <created>1746030404459</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746030404459</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +203,18 @@
     <MESSAGE value="Añadido el menu principal (Ahora si funciona, al menos el botón de iniciar el juego)" />
     <MESSAGE value="Añadido el botón de juego nuevo y el título" />
     <MESSAGE value="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos" />
+    <MESSAGE value="Añadido el menú de archivos de guardado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido el menú de archivos de guardado" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rpg/views/settings_view.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
