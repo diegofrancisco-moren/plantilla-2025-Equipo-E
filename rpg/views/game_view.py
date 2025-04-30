@@ -136,6 +136,7 @@ class GameView(arcade.View):
 
     def __init__(self, map_list):
         super().__init__()
+        self.object_list = None
         self.coin_sound = arcade.load_sound(":sounds:item-pick-up.mp3")#variable para almacenar sonido de recoger item
         self.items_collected = 0#variable para contar items recogidos
         self.time_of_day = "day"#variable para cambiar día y noche
@@ -395,13 +396,18 @@ class GameView(arcade.View):
                 self.map_list[self.cur_map_name].map_layers["bridges2"].draw()
             if map_layers.get("enemies",[]):
                 self.map_list[self.cur_map_name].map_layers["enemies"].draw()
-            if map_layers.get("characters",[]):
-                self.map_list[self.cur_map_name].map_layers["characters"].draw()
+            self.object_list = arcade.SpriteList()
+
+
+
 
 
 
             # Draw the player
             self.player_sprite_list.draw()
+            if map_layers.get("characters",[]):
+                self.map_list[self.cur_map_name].map_layers["characters"].draw()
+
 
 
             if map_layers.get("walls_nonblocking",[]):

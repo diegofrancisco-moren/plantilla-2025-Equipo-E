@@ -85,7 +85,7 @@
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"woods_b"
+                         "value":"woods"
                         }, 
                         {
                          "name":"start_x",
@@ -274,7 +274,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/..\/..\/plantilla-2025-Equipo-E\/resources\/tilesets\/[Base]BaseChip_pipo.json"
+         "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
         }, 
         {
          "firstgid":1065,
