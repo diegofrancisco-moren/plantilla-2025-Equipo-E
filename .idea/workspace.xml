@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_a.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods_a.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745077068319</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746023585426</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746023585426</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,6 +164,7 @@
     <MESSAGE value="ko" />
     <MESSAGE value="Basic Idea of the implementation of characters stats" />
     <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
+    <MESSAGE value="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
+    <option name="LAST_COMMIT_MESSAGE" value="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
   </component>
 </project>

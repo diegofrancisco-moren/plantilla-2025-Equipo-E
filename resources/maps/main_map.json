@@ -513,8 +513,19 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":17,
+         "name":"hookable",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":17,
+ "nextlayerid":18,
  "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"left-up",
