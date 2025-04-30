@@ -2,6 +2,7 @@ import arcade
 import arcade.gui
 from rpg.views.loading_view import LoadingView
 from rpg.views.settings_view import SettingsView
+from rpg.views.saves_view import SavesView
 
 
 class StartingMenuView(arcade.View):
@@ -11,7 +12,8 @@ class StartingMenuView(arcade.View):
         self.v_box = arcade.gui.UIBoxLayout()
         arcade.set_background_color(arcade.color.ALMOND)
 
-        title = arcade.gui.UILabel(text="[NOMBRE DEL JUEGO]", width=637, font_size=44, text_color=arcade.color.ALLOY_ORANGE)
+        title = arcade.gui.UILabel(text="[NOMBRE DEL JUEGO]", width=637, font_size=44,
+                                   text_color=arcade.color.ALLOY_ORANGE)
         self.v_box.add(title.with_space_around(bottom=80))
 
         new_game_button = arcade.gui.UIFlatButton(text="New Game", width=200)
@@ -62,10 +64,9 @@ class StartingMenuView(arcade.View):
 
     def on_click_load_game(self, event):
         print("Loads game")
-        self.manager.disable()
-        load_game = LoadingView()
-        load_game.setup()
-        self.window.show_view(load_game)
+        save_menu = SavesView()
+        save_menu.setup()
+        self.window.show_view(save_menu)
 
 
     def on_click_settings(self, event):
