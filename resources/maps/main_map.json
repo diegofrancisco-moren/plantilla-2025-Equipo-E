@@ -87,17 +87,17 @@
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"woods_a"
+                         "value":"woods"
                         }, 
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":10
+                         "value":130
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":18
+                         "value":198
                         }],
                  "rotation":0,
                  "type":"",

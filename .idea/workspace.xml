@@ -146,7 +146,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746023585426</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746025872431</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746025872431</updated>
+    </task>
+    <task id="LOCAL-00008" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746026144851</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746026144851</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
