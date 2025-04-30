@@ -9,9 +9,10 @@ class StartingMenuView(arcade.View):
         super().__init__()
         self.manager = arcade.gui.UIManager()
         self.v_box = arcade.gui.UIBoxLayout()
+        arcade.set_background_color(arcade.color.ALMOND)
 
-        title = arcade.gui.UILabel(text="[NOMBRE ORIGINAL]", width=270, font_size=20, text_color=arcade.color.MAGENTA)
-        self.v_box.add(title.with_space_around(bottom=20))
+        title = arcade.gui.UILabel(text="[NOMBRE DEL JUEGO]", width=637, font_size=44, text_color=arcade.color.ALLOY_ORANGE)
+        self.v_box.add(title.with_space_around(bottom=80))
 
         new_game_button = arcade.gui.UIFlatButton(text="New Game", width=200)
         self.v_box.add(new_game_button.with_space_around(bottom=20))
@@ -24,6 +25,10 @@ class StartingMenuView(arcade.View):
         settings_button = arcade.gui.UIFlatButton(text="Settings", width=200)
         self.v_box.add(settings_button.with_space_around(bottom=20))
         settings_button.on_click = self.on_click_settings
+
+        credits_button = arcade.gui.UIFlatButton(text="Credits", width=200)
+        self.v_box.add(credits_button.with_space_around(bottom=20))
+        credits_button.on_click = self.on_click_credits
 
         exit_button = arcade.gui.UIFlatButton(text="Exit", width=200)
         self.v_box.add(exit_button.with_space_around(bottom=20))
@@ -69,6 +74,9 @@ class StartingMenuView(arcade.View):
         settings_menu.setup()
         self.window.show_view(settings_menu)
         'Have to find a way to fix the Esc button not working'
+
+    def on_click_credits(self, event):
+        print("Displays the credits")
 
     def on_click_exit(self, event):
         print("Exits the game")
