@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido el menú de archivos de guardado">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadida funcionalidad al botón de créditos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/credits_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/credits_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746030404459</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Añadida funcionalidad al botón de créditos">
+      <option name="closed" value="true" />
+      <created>1746031065780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031065780</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,7 +211,8 @@
     <MESSAGE value="Añadido el botón de juego nuevo y el título" />
     <MESSAGE value="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos" />
     <MESSAGE value="Añadido el menú de archivos de guardado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido el menú de archivos de guardado" />
+    <MESSAGE value="Añadida funcionalidad al botón de créditos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida funcionalidad al botón de créditos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
