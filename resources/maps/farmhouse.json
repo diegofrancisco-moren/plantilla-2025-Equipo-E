@@ -8,7 +8,7 @@
          "data":"eJzTZGRg0BzFo3gUD0lMKQAAArwnYQ==",
          "encoding":"base64",
          "height":16,
-         "id":1,
+         "id":13,
          "name":"ground",
          "opacity":1,
          "type":"tilelayer",
@@ -260,7 +260,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":12,
+ "nextlayerid":14,
  "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":[

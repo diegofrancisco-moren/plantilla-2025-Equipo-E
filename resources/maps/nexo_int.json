@@ -712,6 +712,12 @@
  "nextlayerid":11,
  "nextobjectid":15,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"background_color",
+         "type":"color",
+         "value":"#ff797979"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
  "tileheight":32,

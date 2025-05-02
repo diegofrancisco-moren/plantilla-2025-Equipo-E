@@ -4705,6 +4705,29 @@
                  "width":0,
                  "x":4159.66666666667,
                  "y":1937
+                }, 
+                {
+                 "height":0,
+                 "id":59,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff9ffb8"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":4159,
+                 "y":6394.33333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4801,7 +4824,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":59,
+ "nextobjectid":60,
  "orientation":"orthogonal",
  "properties":[
         {

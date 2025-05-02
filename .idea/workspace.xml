@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Mapa del bosque unificado a un solo mapa (woods.json)">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/farmhouse.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/farmhouse.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/nexo.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/nexo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/nexo_int.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/nexo_int.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/woods.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_f.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_g.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_h.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_i.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_j.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_k.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods_o.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/tilesets/ProjectUtumno_full.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tilesets/ProjectUtumno_full.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746027969472</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746031913276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031913276</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

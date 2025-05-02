@@ -127,25 +127,18 @@
          "draworder":"topdown",
          "id":8,
          "name":"characters",
-         "objects":[
-                {
-                 "height":0,
-                 "id":6,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":202,
-                 "y":91
-                }],
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"enemies",
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -222,7 +215,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
+ "nextlayerid":12,
  "nextobjectid":17,
  "orientation":"orthogonal",
  "properties":[

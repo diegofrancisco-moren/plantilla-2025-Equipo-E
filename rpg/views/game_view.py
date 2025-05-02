@@ -427,6 +427,7 @@ class GameView(arcade.View):
             cur_map.light_layer.draw(ambient_color=ambient_color)
 
 
+
         # Use the non-scrolled GUI camera
         self.camera_gui.use()
 
