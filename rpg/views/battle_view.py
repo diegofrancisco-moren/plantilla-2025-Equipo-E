@@ -16,6 +16,8 @@ class BattleView(arcade.View):
         self.attack_menu = False
         self.magic_attack_menu = False
         self.selected_item = 0
+        self.attacks = None
+        self.magic_attacks = None
 
         self.game_view = game_view
         self.enemy = enemy
@@ -28,6 +30,7 @@ class BattleView(arcade.View):
         # Crear sprites vacíos primero
         self.player_sprite = arcade.Sprite()
         self.enemy_sprite = arcade.Sprite()
+
 
         if self.player is not None and self.enemy is not None:
             for item in self.player.inventory:

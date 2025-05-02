@@ -19,7 +19,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzVUlsKgDAM6+G8P\/gEUfQq+rHhDA3rNidaCHN2adOHyGX9iVnBQPyj3K0Nvhvlf+jXjPkZvyvk430Tvb7F3Sd3ijt3Y35mMT2pfK8zNjeP1Rg\/pgvj+7y5c0deKR\/7wnQyfiwvm0Ot\/uL8kO\/fs\/qYDqardv8wPtb19v5i\/NT6rWbV9xc+6yMDzvkrdeTy2Z4wPLU\/qXnD\/h9RN6UX",
+         "data":"eJzVUu0KgCAM3MP1\/hBZEEW9Sv2YpMPDM1RqMPy87XabyGPT7WvCHXh3EtsY7IfEffjOnHvjD4nrm\/V+0\/Oiq+h6kvmRsfxZvOeZ65v3nYyf44XmgsUjHWrhrS6IJ8Ln8qI+tNLX9s\/i\/X9UH+KBeLXWz8a3dfWeXxu\/tH7WWH5\/wSMdkds+f6WOt3g0J8hrzU9p3lD\/C2VNpeY=",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -89,8 +89,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":480,
-                 "y":64.0909090909091
+                 "x":448.083333333333,
+                 "y":64.0075757575758
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -100,7 +100,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYCAfhDNSoHkUjIJRMApGwSgYBSSBdGbqmQUA0vIAww==",
+         "data":"eJxjYCAPhDOSqXEUjIJRMApGwSgYBWSBdGbqmQUA1FIAww==",
          "encoding":"base64",
          "height":32,
          "id":5,
@@ -138,7 +138,41 @@
          "draworder":"topdown",
          "id":11,
          "name":"enemies",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-0.5,
+                         "y":416.5
+                        }, 
+                        {
+                         "x":0,
+                         "y":416.5
+                        }, 
+                        {
+                         "x":0.6875,
+                         "y":0
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":271,
+                 "y":240
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -216,7 +250,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "properties":[
         {

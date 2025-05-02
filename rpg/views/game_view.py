@@ -206,6 +206,7 @@ class GameView(arcade.View):
         """
         self.cur_map_name = map_name
 
+
         try:
             self.my_map = self.map_list[self.cur_map_name]
         except KeyError:
@@ -353,15 +354,18 @@ class GameView(arcade.View):
 
 
 
+
+
     def on_draw(self):
         """
         Render the screen.
         """
+
+
             # This command should happen before we start drawing. It will clear
         # the screen to the background color, and erase what we drew last frame.
         arcade.start_render()
         cur_map = self.map_list[self.cur_map_name]
-
 
         # --- Light related ---
         # Everything that should be affected by lights gets rendered inside this
@@ -379,7 +383,8 @@ class GameView(arcade.View):
             # Draw scene
 
             cur_map.scene.draw()
-            arcade.set_background_color(cur_map.background_color)
+            for layer in cur_map.map_layers.keys():
+                self.map_list[self.cur_map_name].map_layers[layer].draw()
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
                     filename=":misc:shiny-stars.png",
@@ -388,8 +393,6 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            for layer in cur_map.map_layers.keys():
-                self.map_list[self.cur_map_name].map_layers[layer].draw()
 
 
             if "characters" in cur_map.scene.name_mapping:
@@ -414,6 +417,7 @@ class GameView(arcade.View):
                 # ambient_color = (ambient_color.green, ambient_color.blue, ambient_color.alpha, ambient_color.red)
             else:
                 ambient_color = arcade.color.WHITE
+
 
             cur_map.light_layer.draw(ambient_color=ambient_color)
 

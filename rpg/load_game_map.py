@@ -40,10 +40,19 @@ def load_map(map_name):
 
     # List of blocking sprites
 
+
     layer_options = {
+        "trees3_blocking": {
+            "use_spatial_hash": True,
+
+        },
+        "trees2_blocking": {
+            "use_spatial_hash": True,
+
+        },
         "trees_blocking": {
             "use_spatial_hash": True,
-            "hit_box_algorithm": "Simple"  # Evita cálculo automático
+
         },
         "misc_blocking": {
             "use_spatial_hash": True,
@@ -70,8 +79,6 @@ def load_map(map_name):
         background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")  # Asegúrate de que la ruta sea correcta
         background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
         background_music = True
-
-
 
 
     if "characters" in my_map.object_lists:
@@ -239,22 +246,16 @@ def load_map(map_name):
 
     game_map.properties = my_map.properties
 
-
-
     # Any layer with '_blocking' in it, will be a wall
     game_map.scene.add_sprite_list("wall_list", use_spatial_hash=True)
     for layer, sprite_list in game_map.map_layers.items():
         if "_blocking" in layer:
             game_map.scene.remove_sprite_list_by_object(sprite_list)
-
             game_map.scene["wall_list"].extend(sprite_list)
 
     print(f"Map loaded: {map_name}")
     print(f"Layers: {list(game_map.map_layers.keys())}")
     print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
-
-
-
 
     return game_map
 

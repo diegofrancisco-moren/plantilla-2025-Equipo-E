@@ -33,20 +33,6 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
-         "encoding":"base64",
-         "height":16,
-         "id":3,
-         "name":"windows",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":16,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "compression":"zlib",
          "data":"eJxjYBh48JKJgeEVE2F1f4BqHJkZGJyA2JkZIf4RKP6JCP0g4AnU5wXE3syE1cLAayLNHgXkgQkkxAU2MINC\/SMZAACE3wiO",
          "encoding":"base64",
          "height":16,
@@ -66,6 +52,20 @@
          "height":16,
          "id":5,
          "name":"funiture_nonblocking",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
+         "encoding":"base64",
+         "height":16,
+         "id":3,
+         "name":"windows",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -134,6 +134,17 @@
                  "x":352,
                  "y":480
                 }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":11,
+         "name":"characters",
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -243,17 +254,6 @@
                  "x":253.671865355335,
                  "y":35.8174560717666
                 }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":11,
-         "name":"characters",
-         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,

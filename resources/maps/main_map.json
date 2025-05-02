@@ -120,7 +120,7 @@
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":14
+                         "value":13
                         }, 
                         {
                          "name":"start_y",
@@ -170,6 +170,20 @@
         }, 
         {
          "compression":"zlib",
+         "data":"eJzt2j1OwzAcBXAnGcsGEkNPAWJCTFEnxAlY4SLARIEJ2FhCWZpOpWJAiIGvAcFROAT\/CFtyXTdOhN3E7vtJT5EcK\/Krk6hS22GMrVA6\/zyqNjRjbbRKWbNwTJXr+tLfFfXzAIB6NuPZLJPQ++v6ydnWJCSm\/qkmIdHtr5y6\/SeUx5ppkq6fKWXGi1m2Naauu5qUCa3\/cTSdk6j8err+N05Wboduf+VU7S++a+v637lavAVHvFdB7SpHnJf7p1IE3+7\/U+rT55360fyI82eG+\/+J6d\/xD8q8Z9aO9z8AtMcb5VPKOx9\/bWxFi\/VSczw06D+rN2c8RF9s+vkX+W5yUQAAgN\/UAAAAAAAc+1hvegXuLUNHMNuKzQnZTmyOb7KEsVvKIDHP7cXmnHcZu+i6X7cN+9R5SMkpI0v9r6j7tSf9C2PqfU+ZVOi\/F5tTOEj+EposomelJIPiPxge7b3wU3FepnQtqP0vef\/DAPd\/SP1ynhHvn2vGAAAAAAAAfPQLjV96HQ==",
+         "encoding":"base64",
+         "height":64,
+         "id":8,
+         "name":"misc_blocking",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":64,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
          "data":"eJzt2jEKAjEQBdBpstfxdB5LrPRY6hG0EEyxsGDiZDHvw29n57Gkm4jf51Yi7u8+SsIHdxZ+fn5+fn7+0dvkh5+fn5+fn3\/0Nvnh5+fn5+ef3X9ZIs7l+9ZpmbM2L8Pf2jq952X4j6\/\/f2honZY5a\/My\/LO\/f\/7R2+SHn5+fn5+ff\/Q2+eHn55\/XLzJzZn\/\/\/Pz8\/Pz8\/KO3yQ8\/P\/8+\/T1uKLZ6XT7+U+P9R+9u3Ueoqv5rn49ka0E=",
          "encoding":"base64",
          "height":64,
@@ -212,21 +226,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2j1OwzAcBXAnGcsGEkNPAWJCTFEnxAlY4SLARIEJ2FhCWZpOpWJAiIGvAcFROAT\/CFtyXTdOhN3E7vtJT5EcK\/Krk6hS22GMrVA6\/zyqNjRjbbRKWbNwTJXr+tLfFfXzAIB6NuPZLJPQ++v6ydnWJCSm\/qkmIdHtr5y6\/SeUx5ppkq6fKWXGi1m2Naauu5qUCa3\/cTSdk6j8err+N05Wboduf+VU7S++a+v637lavAVHvFdB7SpHnJf7p1IE3+7\/U+rT55360fyI82eG+\/+J6d\/xD8q8Z9aO9z8AtMcb5VPKOx9\/bWxFi\/VSczw06D+rN2c8RF9s+vkX+W5yUQAAgN\/UAAAAAAAc+1hvegXuLUNHMNuKzQnZTmyOb7KEsVvKIDHP7cXmnHcZu+i6X7cN+9R5SMkpI0v9r6j7tSf9C2PqfU+ZVOi\/F5tTOEj+EposomelJIPiPxge7b3wU3FepnQtqP0vef\/DAPd\/SP1ynhHvn2vGAAAAAAAAfPQLjV96HQ==",
-         "encoding":"base64",
-         "height":64,
-         "id":8,
-         "name":"misc_blocking",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "compression":"zlib",
-         "data":"eJzt2sEOwTAYB\/CSuHsVYzLiKvEmPI6bGzdOxM2TeB8aFtXM2qytfv36\/yXNLLOt\/\/q2bDMh\/JkOhRg8p9XQ40YBIJryPZ1G2v8o0n5VcgxC5p8H3DZ0U4pP7VM3C7TdVPKDH23nuRC14Hpub1p\/rzXpoDTppDRVIdKv+aPWJNv8HFy0JuWU\/6o1XfXf7ljZ9dyWq0z5Kdoa8pmWQ7uzYb5N4bMjjijcCwFwtul\/T3Miz3VrLX9u41DnXWrzAK4WsTsA8CeUrpspwzjRRvn3ye1+sClv7P\/OKNcH5CH1\/yx88DEGOJbTlGr92\/a7ELxr81c2n5lTep8jFOTPz73\/ajXOYzCx+I5N\/orBM9+xw7orBvlT0VaPnI\/Vmikj9zGgfF1ys3zvxEf\/qY5BF12uW0PXQfnjM2f188Jc8oIZagEAAABy9wAJbS+9",
+         "data":"eJzt2t8OwTAUBvCSuPcqxmTErcSb8Dju3HHHFXHnSbwPDYtqZu22Vk97vl\/SzDLZ+tXZ7J8Q7kyHQgye02LocKUAEEz+nk4DbX8UaLsqOQY+8889rhvaycWn9qmbeVpvLPnBjbrjHMVaqPpv2GtNOihNOilNlQmaOZs4ak2yzZ+Ci9YkTvmvWtMV\/+2OlV2v23KVKT9FW0M+03KodzbM18lcdqQjCtdCACnb9L+nnMhj3VrLz20cyrxLbR6gq0XoDgD8CaXzZsowTrRR\/n24XQ9W5Q397IxyfQAPsT+zcMHFGGBfjlOs9W\/b70ykXZu\/srnMHNP7HL4gfzNFAvf+7v1XKzUZg1Vk+ScW3+GyD4xDdwCs1NUjh1o1ZUx9DCifl9ws3ztx0X+qY9BGm\/NW33WQ\/\/icsvJ+IZe8YIZaAAAAAO4eznMvjA==",
          "encoding":"base64",
          "height":64,
          "id":9,
@@ -263,17 +263,6 @@
          "type":"tilelayer",
          "visible":true,
          "width":64,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":19,
-         "name":"enemies",
-         "objects":[],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -502,6 +491,17 @@
         }, 
         {
          "draworder":"topdown",
+         "id":19,
+         "name":"enemies",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":16,
          "name":"axeable",
          "objects":[
@@ -573,6 +573,12 @@
  "nextlayerid":20,
  "nextobjectid":27,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"background_color",
+         "type":"color",
+         "value":"#ff5f8702"
+        }],
  "renderorder":"left-up",
  "tiledversion":"1.11.2",
  "tileheight":32,
