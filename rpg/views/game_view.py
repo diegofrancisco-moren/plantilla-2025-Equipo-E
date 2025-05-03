@@ -385,6 +385,7 @@ class GameView(arcade.View):
             cur_map.scene.draw()
             for layer in cur_map.map_layers.keys():
                 self.map_list[self.cur_map_name].map_layers[layer].draw()
+
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
                     filename=":misc:shiny-stars.png",
@@ -392,8 +393,6 @@ class GameView(arcade.View):
                     center_y=item.center_y,
                     scale=0.8,
                 ).draw()
-
-
 
             if "characters" in cur_map.scene.name_mapping:
                 cur_map.scene["characters"].draw()

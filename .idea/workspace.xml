@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Arreglado el dibujado de capas (se dibujan en orden).">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/farmhouse.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/farmhouse.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/lumberjack_house.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/lumberjack_house.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/nexo_int.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/nexo_int.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/battle_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/battle_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -205,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746217091359</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746223160323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746223160325</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +227,7 @@
     <MESSAGE value="Mapa del bosque unificado a un solo mapa (woods.json)" />
     <MESSAGE value="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha" />
     <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado el dibujado de capas (se dibujan en orden)." />
+    <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)" />
   </component>
 </project>
