@@ -404,6 +404,8 @@ class GameView(arcade.View):
 
             if map_layers.get("walls_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
+            if map_layers.get("walls2_nonblocking", []):
+                self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
 
 

@@ -161,6 +161,34 @@
                  "width":32,
                  "x":223,
                  "y":1643.79347826087
+                }, 
+                {
+                 "gid":7689,
+                 "height":32,
+                 "id":27,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_outside"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":55
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":80
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1246.66666666667,
+                 "y":929.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -485,7 +513,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -571,7 +599,7 @@
          "y":0
         }],
  "nextlayerid":20,
- "nextobjectid":27,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -602,6 +630,10 @@
         {
          "firstgid":6081,
          "source":"..\/tilesets\/bosque2.json"
+        }, 
+        {
+         "firstgid":7577,
+         "source":"..\/tilesets\/Castle2.json"
         }],
  "tilewidth":32,
  "type":"map",
