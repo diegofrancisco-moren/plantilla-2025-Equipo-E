@@ -1312,62 +1312,6 @@
                  "y":2560.41665
                 }, 
                 {
-                 "gid":2721,
-                 "height":127.333,
-                 "id":41,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"woods"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":121
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":190
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":21,
-                 "x":4459.83166666667,
-                 "y":2305.25331666667
-                }, 
-                {
-                 "gid":2721,
-                 "height":127.333,
-                 "id":42,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"woods"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":18
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":190
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":21,
-                 "x":3840.50166666667,
-                 "y":2303.25331666667
-                }, 
-                {
                  "gid":2724,
                  "height":25.6667,
                  "id":43,

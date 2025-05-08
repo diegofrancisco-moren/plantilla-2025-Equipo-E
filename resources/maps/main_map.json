@@ -546,55 +546,7 @@
          "draworder":"topdown",
          "id":16,
          "name":"axeable",
-         "objects":[
-                {
-                 "gid":5285,
-                 "height":32,
-                 "id":19,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":608,
-                 "y":32
-                }, 
-                {
-                 "gid":5286,
-                 "height":32,
-                 "id":20,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":640,
-                 "y":32
-                }, 
-                {
-                 "gid":5287,
-                 "height":32,
-                 "id":21,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":672,
-                 "y":32
-                }, 
-                {
-                 "gid":5294,
-                 "height":32,
-                 "id":22,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":640,
-                 "y":32
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -613,7 +565,7 @@
          "y":0
         }],
  "nextlayerid":23,
- "nextobjectid":33,
+ "nextobjectid":38,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -648,6 +600,10 @@
         {
          "firstgid":7577,
          "source":"..\/tilesets\/Castle2.json"
+        }, 
+        {
+         "firstgid":7833,
+         "source":"..\/tilesets\/ground.json"
         }],
  "tilewidth":32,
  "type":"map",

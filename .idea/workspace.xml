@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="pequeños cambios para hacer pruebas">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="pequeños cambios para hacer pruebas.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/battle_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/battle_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/woods.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -273,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746740511651</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="pequeños cambios para hacer pruebas.">
+      <option name="closed" value="true" />
+      <created>1746745215884</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746745215884</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,6 +309,7 @@
     <MESSAGE value="Arreglada la pantalla de batalla: No se cierra el juego al colisionar con enemigos ni pulsar botones de acciones" />
     <MESSAGE value="Arreglado el dibujado de capas definitivamente (espero)" />
     <MESSAGE value="pequeños cambios para hacer pruebas" />
-    <option name="LAST_COMMIT_MESSAGE" value="pequeños cambios para hacer pruebas" />
+    <MESSAGE value="pequeños cambios para hacer pruebas." />
+    <option name="LAST_COMMIT_MESSAGE" value="pequeños cambios para hacer pruebas." />
   </component>
 </project>

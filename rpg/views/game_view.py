@@ -379,7 +379,6 @@ class GameView(arcade.View):
             map_layers = cur_map.map_layers
 
             # Draw scene
-
             for layer in cur_map.map_layers:
                 self.map_list[self.cur_map_name].map_layers[layer].draw()
 
@@ -391,9 +390,6 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            #if "characters" in cur_map.scene.name_mapping:
-
-                #cur_map.scene["characters"].draw()
 
             for layer in cur_map.scene.name_mapping:
                 if layer not in cur_map.map_layers and layer !="wall_list":
@@ -403,7 +399,7 @@ class GameView(arcade.View):
             # Draw the player
             self.player_sprite_list.draw()
 
-
+            #Draw layers above player for deepness
             if map_layers.get("walls_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
             if map_layers.get("walls2_nonblocking", []):

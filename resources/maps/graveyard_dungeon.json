@@ -172,6 +172,40 @@
                  "width":0,
                  "x":271,
                  "y":240
+                }, 
+                {
+                 "height":0,
+                 "id":20,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":0,
+                         "y":-94
+                        }, 
+                        {
+                         "x":382,
+                         "y":-95.3333333333334
+                        }, 
+                        {
+                         "x":383.333333333333,
+                         "y":0.666666666666629
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":81.3333333333333,
+                 "y":782.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -250,7 +284,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":19,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "properties":[
         {
