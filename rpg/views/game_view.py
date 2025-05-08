@@ -380,9 +380,7 @@ class GameView(arcade.View):
 
             # Draw scene
 
-            cur_map.scene.draw()
-
-            for layer in cur_map.map_layers.keys():
+            for layer in cur_map.map_layers:
                 self.map_list[self.cur_map_name].map_layers[layer].draw()
 
             for item in map_layers.get("searchable", []):
@@ -393,13 +391,16 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            if "characters" in cur_map.scene.name_mapping:
+            #if "characters" in cur_map.scene.name_mapping:
 
+                #cur_map.scene["characters"].draw()
+
+            for layer in cur_map.scene.name_mapping:
+                if layer not in cur_map.map_layers and layer !="wall_list":
+                    cur_map.scene[layer].draw()
+
+            if cur_map.scene.name_mapping.get("characters"):
                 cur_map.scene["characters"].draw()
-
-            if "characters2" in cur_map.scene.name_mapping:
-                print("si hay")
-                cur_map.scene["characters2"].draw()
 
 
 

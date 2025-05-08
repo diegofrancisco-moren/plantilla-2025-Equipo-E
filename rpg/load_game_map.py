@@ -39,8 +39,6 @@ def load_map(map_name):
     game_map.light_layer = LightLayer(100, 100)
 
     # List of blocking sprites
-
-
     layer_options = {
         "trees3_blocking": {
             "use_spatial_hash": True,
@@ -64,6 +62,7 @@ def load_map(map_name):
         "water_blocking": {
             "use_spatial_hash": True,
         },
+
     }
 
 
@@ -75,8 +74,11 @@ def load_map(map_name):
     )
 
 
+
     game_map.scene = arcade.Scene.from_tilemap(my_map)
-    print(game_map.scene.name_mapping.keys())
+
+
+
     if not background_music:
         background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")
         background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
@@ -256,6 +258,8 @@ def load_map(map_name):
             game_map.scene["wall_list"].extend(sprite_list)
 
     print(f"Map loaded: {map_name}")
+    print(game_map.map_layers.items())
+    print("Capas de game_map  ", game_map.scene.name_mapping.keys())
     print(f"Layers: {list(game_map.map_layers.keys())}")
     print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
 
