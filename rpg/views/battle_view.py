@@ -16,8 +16,8 @@ class BattleView(arcade.View):
         self.attack_menu = False
         self.magic_attack_menu = False
         self.selected_item = 0
-        self.attacks = None
-        self.magic_attacks = None
+        self.attacks = ["Estocada", "Puñalada"]
+        self.magic_attacks = ["Bola de Fuego", "Rayo"]
 
         self.game_view = game_view
         self.enemy = enemy
@@ -41,8 +41,8 @@ class BattleView(arcade.View):
             self.magic_attacks = player.statistics.attack_magic_list
 
             # Cargar texturas
-            self.player_sprite.texture = arcade.load_texture(self.player.name, x=0, y=0, width=32, height=32)
-            self.enemy_sprite.texture = arcade.load_texture(self.enemy.name, x=0, y=0, width=32, height=32)
+            self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
+            self.enemy_sprite.texture = arcade.load_texture(self.enemy.sheet_name, x=0, y=0, width=32, height=32)
 
             # Posicionar los sprites
             self.player_sprite.center_x = 200
@@ -123,9 +123,9 @@ class BattleView(arcade.View):
         # Dibujar barras de vida
         if self.player is not None and self.enemy is not None:
             self.draw_health_bar(self.player_sprite.center_x, self.player_sprite.center_y + 50,
-                                 self.player.statistics.health, self.player.statistics.health)
+                                 self.player.statistics.health, self.player.statistics.healh_max)
             self.draw_health_bar(self.enemy_sprite.center_x, self.enemy_sprite.center_y + 50,
-                                 self.enemy.statistics.health, self.enemy.statistics.health, is_enemy=True)
+                                 self.enemy.statistics.health, self.enemy.statistics.healh_max, is_enemy=True)
 
         # Dibujar los botones (acciones)
         button_texts = ["[A] ATACAR", "[M] MAGIA", "[I] OBJETOS", "[F] HUIR"]
