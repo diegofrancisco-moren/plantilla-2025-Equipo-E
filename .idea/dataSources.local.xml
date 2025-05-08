@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="PY-243.23654.177">
+    <data-source name="image (3).png" uuid="d9e0c431-b4b0-4bde-b91e-7b28125b2177">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="DERBY" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

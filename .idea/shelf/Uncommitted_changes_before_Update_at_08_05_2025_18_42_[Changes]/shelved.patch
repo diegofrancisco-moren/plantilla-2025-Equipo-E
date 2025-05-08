@@ -1,0 +1,395 @@
+Index: resources/data/characters_dictionary.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"skeleton\": {\r\n    \"images\": \"Enemy/Enemy 06-1.png\"\r\n  },\r\n  \"white_cat\": {\r\n    \"images\": \"Animal/Cat 01-1.png\"\r\n  },\r\n  \"grey_cat\": {\r\n    \"images\": \"Animal/Cat 01-2.png\"\r\n  },\r\n  \"orange_cat\": {\r\n    \"images\": \"Animal/Cat 01-3.png\"\r\n  },\r\n  \"orange_dog\": {\r\n    \"images\": \"Animal/Dog 01-1.png\"\r\n  },\r\n  \"grey_dog\": {\r\n    \"images\": \"Animal/Dog 01-2.png\"\r\n  }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/data/characters_dictionary.json b/resources/data/characters_dictionary.json
+--- a/resources/data/characters_dictionary.json	(revision ec5eacbecc43720b3dc4fb038455f1a12c400f44)
++++ b/resources/data/characters_dictionary.json	(date 1743695240029)
+@@ -3,16 +3,16 @@
+     "images": "Enemy/Enemy 06-1.png"
+   },
+   "white_cat": {
+-    "images": "Animal/Cat 01-1.png"
++    "images": "Boss/Boss 01.png"
+   },
+   "grey_cat": {
+-    "images": "Animal/Cat 01-2.png"
++    "images": "Boss/Bos 01.png"
+   },
+   "orange_cat": {
+-    "images": "Animal/Cat 01-3.png"
++    "images": "Boss/Boss 01.png"
+   },
+   "orange_dog": {
+-    "images": "Animal/Dog 01-1.png"
++    "images": "Boss/Boss 01.png"
+   },
+   "grey_dog": {
+     "images": "Animal/Dog 01-2.png"
+Index: rpg/views/game_view.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\"\"\"\r\nMain game view\r\n\"\"\"\r\n\r\nimport json\r\nfrom functools import partial\r\nfrom typing import Callable\r\n\r\nimport arcade\r\nimport arcade.gui\r\nimport rpg.constants as constants\r\nfrom arcade.experimental.lights import Light\r\nfrom pyglet.math import Vec2\r\nfrom rpg.message_box import MessageBox\r\nfrom rpg.sprites.player_sprite import PlayerSprite\r\n\r\n\r\nclass DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):\r\n    def __init__(\r\n        self,\r\n        *,\r\n        width: float,\r\n        height: float,\r\n        noclip_callback: Callable,\r\n        hyper_callback: Callable,\r\n    ):\r\n\r\n        self.off_style = {\r\n            \"bg_color\": arcade.color.BLACK,\r\n        }\r\n\r\n        self.on_style = {\r\n            \"bg_color\": arcade.color.REDWOOD,\r\n        }\r\n\r\n        self.setup_noclip(noclip_callback)\r\n        self.setup_hyper(hyper_callback)\r\n\r\n        space = 10\r\n\r\n        self._title = arcade.gui.UITextArea(\r\n            text=\"DEBUG MENU\",\r\n            width=width - space,\r\n            height=height - space,\r\n            font_size=14,\r\n            text_color=arcade.color.BLACK,\r\n        )\r\n\r\n        group = arcade.gui.UIPadding(\r\n            bg_color=(255, 255, 255, 255),\r\n            child=arcade.gui.UILayout(\r\n                width=width,\r\n                height=height,\r\n                children=[\r\n                    arcade.gui.UIAnchorWidget(\r\n                        child=self._title,\r\n                        anchor_x=\"left\",\r\n                        anchor_y=\"top\",\r\n                        align_x=10,\r\n                        align_y=-10,\r\n                    ),\r\n                    arcade.gui.UIAnchorWidget(\r\n                        child=arcade.gui.UIBoxLayout(\r\n                            x=0,\r\n                            y=0,\r\n                            children=[\r\n                                arcade.gui.UIPadding(\r\n                                    child=self.noclip_button, pading=(5, 5, 5, 5)\r\n                                ),\r\n                                arcade.gui.UIPadding(\r\n                                    child=self.hyper_button, padding=(5, 5, 5, 5)\r\n                                ),\r\n                            ],\r\n                            vertical=False,\r\n                        ),\r\n                        anchor_x=\"left\",\r\n                        anchor_y=\"bottom\",\r\n                        align_x=5,\r\n                    ),\r\n                ],\r\n            ),\r\n        )\r\n\r\n        # x and y don't seem to actually change where this is created. bug?\r\n        # TODO: make this not appear at the complete bottom left (top left would be better?)\r\n        super().__init__(border_width=5, child=group)\r\n\r\n    def setup_noclip(self, callback: Callable):\r\n        # disable player collision\r\n\r\n        def toggle(*args):\r\n            # toggle state on click\r\n            self.noclip_status = True if not self.noclip_status else False\r\n            self.noclip_button._style = (\r\n                self.off_style if not self.noclip_status else self.on_style\r\n            )\r\n            self.noclip_button.clear()\r\n\r\n            callback(status=self.noclip_status)\r\n\r\n        self.noclip_status = False\r\n        self.noclip_button = arcade.gui.UIFlatButton(\r\n            text=\"noclip\", style=self.off_style\r\n        )\r\n        self.noclip_button.on_click = toggle  # type: ignore\r\n\r\n    def setup_hyper(self, callback: Callable):\r\n        # increase player speed\r\n\r\n        def toggle(*args):\r\n            # toggle state on click\r\n            self.hyper_status = True if not self.hyper_status else False\r\n            self.hyper_button._style = (\r\n                self.off_style if not self.hyper_status else self.on_style\r\n            )\r\n            self.hyper_button.clear()\r\n\r\n            callback(status=self.hyper_status)\r\n\r\n        self.hyper_status = False\r\n\r\n        self.hyper_button = arcade.gui.UIFlatButton(text=\"hyper\", style=self.off_style)\r\n        self.hyper_button.on_click = toggle  # type: ignore\r\n\r\n\r\nclass GameView(arcade.View):\r\n    \"\"\"\r\n    Main application class.\r\n    \"\"\"\r\n\r\n    def __init__(self, map_list):\r\n        super().__init__()\r\n\r\n        arcade.set_background_color(arcade.color.AMAZON)\r\n\r\n        self.setup_debug_menu()\r\n\r\n        self.ui_manager = arcade.gui.UIManager()\r\n        self.ui_manager.enable()\r\n\r\n        # Player sprite\r\n        self.player_sprite = None\r\n        self.player_sprite_list = None\r\n\r\n        # Track the current state of what key is pressed\r\n        self.left_pressed = False\r\n        self.right_pressed = False\r\n        self.up_pressed = False\r\n        self.down_pressed = False\r\n\r\n        # Physics engine\r\n        self.physics_engine = None\r\n\r\n        # Maps\r\n        self.map_list = map_list\r\n\r\n        # Name of map we are on\r\n        self.cur_map_name = None\r\n\r\n        self.message_box = None\r\n\r\n        # Selected Items Hotbar\r\n        self.hotbar_sprite_list = None\r\n        self.selected_item = 1\r\n\r\n        f = open(\"../resources/data/item_dictionary.json\")\r\n        self.item_dictionary = json.load(f)\r\n\r\n        f = open(\"../resources/data/characters_dictionary.json\")\r\n        self.enemy_dictionary = json.load(f)\r\n\r\n        # Cameras\r\n        self.camera_sprites = arcade.Camera(self.window.width, self.window.height)\r\n        self.camera_gui = arcade.Camera(self.window.width, self.window.height)\r\n\r\n        # Create a small white light\r\n        x = 100\r\n        y = 200\r\n        radius = 150\r\n        mode = \"soft\"\r\n        color = arcade.csscolor.WHITE\r\n        self.player_light = Light(x, y, radius, color, mode)\r\n\r\n    def switch_map(self, map_name, start_x, start_y):\r\n        \"\"\"\r\n        Switch the current map\r\n        :param map_name: Name of map to switch to\r\n        :param start_x: Grid x location to spawn at\r\n        :param start_y: Grid y location to spawn at\r\n        \"\"\"\r\n        self.cur_map_name = map_name\r\n\r\n        try:\r\n            self.my_map = self.map_list[self.cur_map_name]\r\n        except KeyError:\r\n            raise KeyError(f\"Unable to find map named '{map_name}'.\")\r\n\r\n        if self.my_map.background_color:\r\n            arcade.set_background_color(self.my_map.background_color)\r\n\r\n        map_height = self.my_map.map_size[1]\r\n        self.player_sprite.center_x = (\r\n            start_x * constants.SPRITE_SIZE + constants.SPRITE_SIZE / 2\r\n        )\r\n        self.player_sprite.center_y = (\r\n            map_height - start_y\r\n        ) * constants.SPRITE_SIZE - constants.SPRITE_SIZE / 2\r\n        self.scroll_to_player(1.0)\r\n        self.player_sprite_list = arcade.SpriteList()\r\n        self.player_sprite_list.append(self.player_sprite)\r\n\r\n        self.setup_physics()\r\n\r\n        if self.my_map.light_layer:\r\n            self.my_map.light_layer.resize(self.window.width, self.window.height)\r\n\r\n    def setup_physics(self):\r\n        if self.noclip_status:\r\n            # make an empty spritelist so the character does not collide with anyting\r\n            self.physics_engine = arcade.PhysicsEngineSimple(\r\n                self.player_sprite, arcade.SpriteList()\r\n            )\r\n        else:\r\n            # use the walls as normal\r\n            self.physics_engine = arcade.PhysicsEngineSimple(\r\n                self.player_sprite, self.my_map.scene[\"wall_list\"]\r\n            )\r\n\r\n    def setup(self):\r\n        \"\"\"Set up the game variables. Call to re-start the game.\"\"\"\r\n\r\n        # Create the player character\r\n        self.player_sprite = PlayerSprite(\":characters:Female/Female 18-4.png\")\r\n\r\n        # Spawn the player\r\n        start_x = constants.STARTING_X\r\n        start_y = constants.STARTING_Y\r\n        self.switch_map(constants.STARTING_MAP, start_x, start_y)\r\n        self.cur_map_name = constants.STARTING_MAP\r\n\r\n        # Set up the hotbar\r\n        self.load_hotbar_sprites()\r\n\r\n    def load_hotbar_sprites(self):\r\n        \"\"\"Load the sprites for the hotbar at the bottom of the screen.\r\n\r\n        Loads the controls sprite tileset and selects only the number pad button sprites.\r\n        These will be visual representations of number keypads (1\uFE0F⃣, 2\uFE0F⃣, 3\uFE0F⃣, ..., 0\uFE0F⃣)\r\n        to clarify that the hotkey bar can be accessed through these keypresses.\r\n        \"\"\"\r\n\r\n        first_number_pad_sprite_index = 51\r\n        last_number_pad_sprite_index = 61\r\n\r\n        self.hotbar_sprite_list = arcade.load_spritesheet(\r\n            file_name=\"../resources/tilesets/input_prompts_kenney.png\",\r\n            sprite_width=16,\r\n            sprite_height=16,\r\n            columns=34,\r\n            count=816,\r\n            margin=1,\r\n        )[first_number_pad_sprite_index:last_number_pad_sprite_index]\r\n\r\n    def setup_debug_menu(self):\r\n        self.debug = False\r\n\r\n        self.debug_menu = DebugMenu(\r\n            width=450,\r\n            height=200,\r\n            noclip_callback=self.noclip,\r\n            hyper_callback=self.hyper,\r\n        )\r\n\r\n        self.original_movement_speed = constants.MOVEMENT_SPEED\r\n        self.noclip_status = False\r\n\r\n    def enable_debug_menu(self):\r\n        self.ui_manager.add(self.debug_menu)\r\n\r\n    def disable_debug_menu(self):\r\n        self.ui_manager.remove(self.debug_menu)\r\n\r\n    def noclip(self, *args, status: bool):\r\n        self.noclip_status = status\r\n\r\n        self.setup_physics()\r\n\r\n    def hyper(self, *args, status: bool):\r\n        constants.MOVEMENT_SPEED = (\r\n            int(self.original_movement_speed * 3.5)\r\n            if status\r\n            else self.original_movement_speed\r\n        )\r\n\r\n    def draw_inventory(self):\r\n        capacity = 10\r\n        vertical_hotbar_location = 40\r\n        hotbar_height = 80\r\n        sprite_height = 16\r\n\r\n        field_width = self.window.width / (capacity + 1)\r\n\r\n        x = self.window.width / 2\r\n        y = vertical_hotbar_location\r\n\r\n        arcade.draw_rectangle_filled(\r\n            x, y, self.window.width, hotbar_height, arcade.color.ALMOND\r\n        )\r\n        for i in range(capacity):\r\n            y = vertical_hotbar_location\r\n            x = i * field_width + 5\r\n            if i == self.selected_item - 1:\r\n                arcade.draw_lrtb_rectangle_outline(\r\n                    x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2\r\n                )\r\n\r\n            if len(self.player_sprite.inventory) > i:\r\n                item_name = self.player_sprite.inventory[i][\"short_name\"]\r\n            else:\r\n                item_name = \"\"\r\n\r\n            hotkey_sprite = self.hotbar_sprite_list[i]\r\n            hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)\r\n            # Add whitespace so the item text doesn't hide behind the number pad sprite\r\n            text = f\"     {item_name}\"\r\n            arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)\r\n\r\n    def on_draw(self):\r\n        \"\"\"\r\n        Render the screen.\r\n        \"\"\"\r\n\r\n        # This command should happen before we start drawing. It will clear\r\n        # the screen to the background color, and erase what we drew last frame.\r\n        arcade.start_render()\r\n        cur_map = self.map_list[self.cur_map_name]\r\n\r\n        # --- Light related ---\r\n        # Everything that should be affected by lights gets rendered inside this\r\n        # 'with' statement. Nothing is rendered to the screen yet, just the light\r\n        # layer.\r\n        with cur_map.light_layer:\r\n            arcade.set_background_color(cur_map.background_color)\r\n\r\n            # Use the scrolling camera for sprites\r\n            self.camera_sprites.use()\r\n\r\n            # Grab each tile layer from the map\r\n            map_layers = cur_map.map_layers\r\n\r\n            # Draw scene\r\n            cur_map.scene.draw()\r\n\r\n            for item in map_layers.get(\"searchable\", []):\r\n                arcade.Sprite(\r\n                    filename=\":misc:shiny-stars.png\",\r\n                    center_x=item.center_x,\r\n                    center_y=item.center_y,\r\n                    scale=0.8,\r\n                ).draw()\r\n\r\n            # Draw the player\r\n            self.player_sprite_list.draw()\r\n\r\n        if cur_map.light_layer:\r\n            # Draw the light layer to the screen.\r\n            # This fills the entire screen with the lit version\r\n            # of what we drew into the light layer above.\r\n            if cur_map.properties and \"ambient_color\" in cur_map.properties:\r\n                ambient_color = cur_map.properties[\"ambient_color\"]\r\n                # ambient_color = (ambient_color.green, ambient_color.blue, ambient_color.alpha, ambient_color.red)\r\n            else:\r\n                ambient_color = arcade.color.WHITE\r\n            cur_map.light_layer.draw(ambient_color=ambient_color)\r\n\r\n        # Use the non-scrolled GUI camera\r\n        self.camera_gui.use()\r\n\r\n        # Draw the inventory\r\n        self.draw_inventory()\r\n\r\n        # Draw any message boxes\r\n        if self.message_box:\r\n            self.message_box.on_draw()\r\n\r\n        # draw GUI\r\n        self.ui_manager.draw()\r\n\r\n    def scroll_to_player(self, speed=constants.CAMERA_SPEED):\r\n        \"\"\"Manage Scrolling\"\"\"\r\n\r\n        vector = Vec2(\r\n            self.player_sprite.center_x - self.window.width / 2,\r\n            self.player_sprite.center_y - self.window.height / 2,\r\n        )\r\n        self.camera_sprites.move_to(vector, speed)\r\n\r\n    def on_show_view(self):\r\n        # Set background color\r\n        my_map = self.map_list[self.cur_map_name]\r\n        if my_map.background_color:\r\n            arcade.set_background_color(my_map.background_color)\r\n\r\n    def on_update(self, delta_time):\r\n        \"\"\"\r\n        All the logic to move, and the game logic goes here.\r\n        \"\"\"\r\n\r\n        # Calculate speed based on the keys pressed\r\n        self.player_sprite.change_x = 0\r\n        self.player_sprite.change_y = 0\r\n\r\n        MOVING_UP = (\r\n            self.up_pressed\r\n            and not self.down_pressed\r\n            and not self.right_pressed\r\n            and not self.left_pressed\r\n        )\r\n\r\n        MOVING_DOWN = (\r\n            self.down_pressed\r\n            and not self.up_pressed\r\n            and not self.right_pressed\r\n            and not self.left_pressed\r\n        )\r\n\r\n        MOVING_RIGHT = (\r\n            self.right_pressed\r\n            and not self.left_pressed\r\n            and not self.up_pressed\r\n            and not self.down_pressed\r\n        )\r\n\r\n        MOVING_LEFT = (\r\n            self.left_pressed\r\n            and not self.right_pressed\r\n            and not self.up_pressed\r\n            and not self.down_pressed\r\n        )\r\n\r\n        MOVING_UP_LEFT = (\r\n            self.up_pressed\r\n            and self.left_pressed\r\n            and not self.down_pressed\r\n            and not self.right_pressed\r\n        )\r\n\r\n        MOVING_DOWN_LEFT = (\r\n            self.down_pressed\r\n            and self.left_pressed\r\n            and not self.up_pressed\r\n            and not self.right_pressed\r\n        )\r\n\r\n        MOVING_UP_RIGHT = (\r\n            self.up_pressed\r\n            and self.right_pressed\r\n            and not self.down_pressed\r\n            and not self.left_pressed\r\n        )\r\n\r\n        MOVING_DOWN_RIGHT = (\r\n            self.down_pressed\r\n            and self.right_pressed\r\n            and not self.up_pressed\r\n            and not self.left_pressed\r\n        )\r\n\r\n        if MOVING_UP:\r\n            self.player_sprite.change_y = constants.MOVEMENT_SPEED\r\n\r\n        if MOVING_DOWN:\r\n            self.player_sprite.change_y = -constants.MOVEMENT_SPEED\r\n\r\n        if MOVING_LEFT:\r\n            self.player_sprite.change_x = -constants.MOVEMENT_SPEED\r\n\r\n        if MOVING_RIGHT:\r\n            self.player_sprite.change_x = constants.MOVEMENT_SPEED\r\n\r\n        if MOVING_UP_LEFT:\r\n            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5\r\n            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5\r\n\r\n        if MOVING_UP_RIGHT:\r\n            self.player_sprite.change_y = constants.MOVEMENT_SPEED / 1.5\r\n            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5\r\n\r\n        if MOVING_DOWN_LEFT:\r\n            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5\r\n            self.player_sprite.change_x = -constants.MOVEMENT_SPEED / 1.5\r\n\r\n        if MOVING_DOWN_RIGHT:\r\n            self.player_sprite.change_y = -constants.MOVEMENT_SPEED / 1.5\r\n            self.player_sprite.change_x = constants.MOVEMENT_SPEED / 1.5\r\n\r\n        # Call update to move the sprite\r\n        self.physics_engine.update()\r\n\r\n        # Update player animation\r\n        self.player_sprite_list.on_update(delta_time)\r\n\r\n        self.player_light.position = self.player_sprite.position\r\n\r\n        # Update the characters\r\n        try:\r\n            self.map_list[self.cur_map_name].scene[\"characters\"].on_update(delta_time)\r\n        except KeyError:\r\n            # no characters on map\r\n            pass\r\n\r\n        # --- Manage doors ---\r\n        map_layers = self.map_list[self.cur_map_name].map_layers\r\n\r\n        # Is there as layer named 'doors'?\r\n        if \"doors\" in map_layers:\r\n            # Did we hit a door?\r\n            doors_hit = arcade.check_for_collision_with_list(\r\n                self.player_sprite, map_layers[\"doors\"]\r\n            )\r\n            # We did!\r\n            if len(doors_hit) > 0:\r\n                try:\r\n                    # Grab the info we need\r\n                    map_name = doors_hit[0].properties[\"map_name\"]\r\n                    start_x = doors_hit[0].properties[\"start_x\"]\r\n                    start_y = doors_hit[0].properties[\"start_y\"]\r\n                except KeyError:\r\n                    raise KeyError(\r\n                        \"Door objects must have 'map_name', 'start_x', and 'start_y' properties defined.\"\r\n                    )\r\n\r\n                # Swap to the new map\r\n                self.switch_map(map_name, start_x, start_y)\r\n            else:\r\n                # We didn't hit a door, scroll normally\r\n                self.scroll_to_player()\r\n        else:\r\n            # No doors, scroll normally\r\n            self.scroll_to_player()\r\n\r\n    def on_key_press(self, key, modifiers):\r\n        \"\"\"Called whenever a key is pressed.\"\"\"\r\n\r\n        if self.message_box:\r\n            self.message_box.on_key_press(key, modifiers)\r\n            return\r\n\r\n        if key in constants.KEY_UP:\r\n            self.up_pressed = True\r\n        elif key in constants.KEY_DOWN:\r\n            self.down_pressed = True\r\n        elif key in constants.KEY_LEFT:\r\n            self.left_pressed = True\r\n        elif key in constants.KEY_RIGHT:\r\n            self.right_pressed = True\r\n        elif key in constants.INVENTORY:\r\n            self.window.show_view(self.window.views[\"inventory\"])\r\n        elif key == arcade.key.ESCAPE:\r\n            self.window.show_view(self.window.views[\"main_menu\"])\r\n        elif key in constants.SEARCH:\r\n            self.search()\r\n        elif key == arcade.key.KEY_1:\r\n            self.selected_item = 1\r\n        elif key == arcade.key.KEY_2:\r\n            self.selected_item = 2\r\n        elif key == arcade.key.KEY_3:\r\n            self.selected_item = 3\r\n        elif key == arcade.key.KEY_4:\r\n            self.selected_item = 4\r\n        elif key == arcade.key.KEY_5:\r\n            self.selected_item = 5\r\n        elif key == arcade.key.KEY_6:\r\n            self.selected_item = 6\r\n        elif key == arcade.key.KEY_7:\r\n            self.selected_item = 7\r\n        elif key == arcade.key.KEY_8:\r\n            self.selected_item = 8\r\n        elif key == arcade.key.KEY_9:\r\n            self.selected_item = 9\r\n        elif key == arcade.key.KEY_0:\r\n            self.selected_item = 10\r\n        elif key == arcade.key.L:\r\n            cur_map = self.map_list[self.cur_map_name]\r\n            if self.player_light in cur_map.light_layer:\r\n                cur_map.light_layer.remove(self.player_light)\r\n            else:\r\n                cur_map.light_layer.add(self.player_light)\r\n        elif key == arcade.key.G:  # G\r\n            # toggle debug\r\n            self.debug = True if not self.debug else False\r\n            if self.debug:\r\n                self.enable_debug_menu()\r\n            else:\r\n                self.disable_debug_menu()\r\n\r\n    def close_message_box(self):\r\n        self.message_box = None\r\n\r\n    def search(self):\r\n        \"\"\"Search for things\"\"\"\r\n        map_layers = self.map_list[self.cur_map_name].map_layers\r\n        if \"searchable\" not in map_layers:\r\n            print(f\"No searchable sprites on {self.cur_map_name} map layer.\")\r\n            return\r\n\r\n        searchable_sprites = map_layers[\"searchable\"]\r\n        sprites_in_range = arcade.check_for_collision_with_list(\r\n            self.player_sprite, searchable_sprites\r\n        )\r\n        print(f\"Found {len(sprites_in_range)} searchable sprite(s) in range.\")\r\n        for sprite in sprites_in_range:\r\n            if \"item\" in sprite.properties:\r\n                self.message_box = MessageBox(\r\n                    self, f\"Found: {sprite.properties['item']}\"\r\n                )\r\n                sprite.remove_from_sprite_lists()\r\n                lookup_item = self.item_dictionary[sprite.properties[\"item\"]]\r\n                self.player_sprite.inventory.append(lookup_item)\r\n            else:\r\n                print(\r\n                    \"The 'item' property was not set for the sprite. Can't get any items from this.\"\r\n                )\r\n\r\n    def on_key_release(self, key, modifiers):\r\n        \"\"\"Called when the user releases a key.\"\"\"\r\n\r\n        if key in constants.KEY_UP:\r\n            self.up_pressed = False\r\n        elif key in constants.KEY_DOWN:\r\n            self.down_pressed = False\r\n        elif key in constants.KEY_LEFT:\r\n            self.left_pressed = False\r\n        elif key in constants.KEY_RIGHT:\r\n            self.right_pressed = False\r\n\r\n    def on_mouse_motion(self, x, y, delta_x, delta_y):\r\n        \"\"\"Called whenever the mouse moves.\"\"\"\r\n        pass\r\n\r\n    def on_mouse_press(self, x, y, button, key_modifiers):\r\n        \"\"\"Called when the user presses a mouse button.\"\"\"\r\n        if button == arcade.MOUSE_BUTTON_RIGHT:\r\n            self.player_sprite.destination_point = x, y\r\n\r\n    def on_mouse_release(self, x, y, button, key_modifiers):\r\n        \"\"\"Called when a user releases a mouse button.\"\"\"\r\n        pass\r\n\r\n    def on_resize(self, width, height):\r\n        \"\"\"\r\n        Resize window\r\n        Handle the user grabbing the edge and resizing the window.\r\n        \"\"\"\r\n        self.camera_sprites.resize(width, height)\r\n        self.camera_gui.resize(width, height)\r\n        cur_map = self.map_list[self.cur_map_name]\r\n        if cur_map.light_layer:\r\n            cur_map.light_layer.resize(width, height)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/rpg/views/game_view.py b/rpg/views/game_view.py
+--- a/rpg/views/game_view.py	(revision ec5eacbecc43720b3dc4fb038455f1a12c400f44)
++++ b/rpg/views/game_view.py	(date 1746718360095)
+@@ -230,7 +230,7 @@
+         """Set up the game variables. Call to re-start the game."""
+ 
+         # Create the player character
+-        self.player_sprite = PlayerSprite(":characters:Female/Female 18-4.png")
++        self.player_sprite = PlayerSprite(":characters:Mainchar/magician_sprite.png")
+ 
+         # Spawn the player
+         start_x = constants.STARTING_X
+Index: resources/maps/graveyard_dungeon.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{ \"backgroundcolor\":\"#525252\",\r\n \"compressionlevel\":-1,\r\n \"height\":32,\r\n \"infinite\":false,\r\n \"layers\":[\r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJxjYEAAZUbcGJc8wwjRj46dKdRPqf3k6nfGox8dkKMOV3gPtH5y0gUl+kmJP3roH2rhR21\\/ker\\/wRZ\\/I0U\\/OWAw6R\\/o8CMVAwCjlDT9\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":32,\r\n         \"id\":9,\r\n         \"name\":\"floor\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":16,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzVUu0KgCAM3MP1\\/hBZEEW9Sv2YpMPDM1RqMPy87XabyGPT7WvCHXh3EtsY7IfEffjOnHvjD4nrm\\/V+0\\/Oiq+h6kvmRsfxZvOeZ65v3nYyf44XmgsUjHWrhrS6IJ8Ln8qI+tNLX9s\\/i\\/X9UH+KBeLXWz8a3dfWeXxu\\/tH7WWH5\\/wSMdkds+f6WOt3g0J8hrzU9p3lD\\/C2VNpeY=\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":32,\r\n         \"id\":2,\r\n         \"name\":\"walls_blocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":16,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":4,\r\n         \"name\":\"doors\",\r\n         \"objects\":[\r\n                {\r\n                 \"gid\":295,\r\n                 \"height\":32,\r\n                 \"id\":1,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"map_name\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"main_map\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_x\",\r\n                         \"type\":\"int\",\r\n                         \"value\":7\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_y\",\r\n                         \"type\":\"int\",\r\n                         \"value\":22\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":448,\r\n                 \"y\":32\r\n                }, \r\n                {\r\n                 \"gid\":336,\r\n                 \"height\":32,\r\n                 \"id\":11,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"map_name\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"graveyard_dungeon_second_level\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_x\",\r\n                         \"type\":\"int\",\r\n                         \"value\":26\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_y\",\r\n                         \"type\":\"int\",\r\n                         \"value\":2\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":450.666666666667,\r\n                 \"y\":992.666666666667\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJxjYBgYoM84QBaPglEwCkbBKBgFQxSkM1PPLACRAwCb\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":32,\r\n         \"id\":5,\r\n         \"name\":\"decorative_nonblocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":16,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":10,\r\n         \"name\":\"lights\",\r\n         \"objects\":[],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":8,\r\n         \"name\":\"characters\",\r\n         \"objects\":[\r\n                {\r\n                 \"height\":0,\r\n                 \"id\":6,\r\n                 \"name\":\"\",\r\n                 \"point\":true,\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"type\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"skeleton\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":0,\r\n                 \"x\":202,\r\n                 \"y\":91\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":7,\r\n         \"name\":\"emptied\",\r\n         \"objects\":[\r\n                {\r\n                 \"gid\":858,\r\n                 \"height\":32,\r\n                 \"id\":4,\r\n                 \"name\":\"\",\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":382.371562594139,\r\n                 \"y\":64.5298915913883\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":6,\r\n         \"name\":\"searchable\",\r\n         \"objects\":[\r\n                {\r\n                 \"gid\":857,\r\n                 \"height\":32,\r\n                 \"id\":3,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"item\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"Dagger\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":382.371562594139,\r\n                 \"y\":64.4744158023841\r\n                }, \r\n                {\r\n                 \"gid\":863,\r\n                 \"height\":32,\r\n                 \"id\":8,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"item\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"Sword\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":416.414417645477,\r\n                 \"y\":990.563211691922\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }],\r\n \"nextlayerid\":11,\r\n \"nextobjectid\":15,\r\n \"orientation\":\"orthogonal\",\r\n \"properties\":[\r\n        {\r\n         \"name\":\"ambient_color\",\r\n         \"type\":\"color\",\r\n         \"value\":\"#ff0a0a0a\"\r\n        }],\r\n \"renderorder\":\"left-up\",\r\n \"tiledversion\":\"1.8.4\",\r\n \"tileheight\":32,\r\n \"tilesets\":[\r\n        {\r\n         \"firstgid\":1,\r\n         \"source\":\"..\\/tilesets\\/[Base]BaseChip_pipo.json\"\r\n        }],\r\n \"tilewidth\":32,\r\n \"type\":\"map\",\r\n \"version\":\"1.8\",\r\n \"width\":16\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/maps/graveyard_dungeon.json b/resources/maps/graveyard_dungeon.json
+--- a/resources/maps/graveyard_dungeon.json	(revision ec5eacbecc43720b3dc4fb038455f1a12c400f44)
++++ b/resources/maps/graveyard_dungeon.json	(date 1746454379591)
+@@ -19,7 +19,7 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJzVUu0KgCAM3MP1\/hBZEEW9Sv2YpMPDM1RqMPy87XabyGPT7WvCHXh3EtsY7IfEffjOnHvjD4nrm\/V+0\/Oiq+h6kvmRsfxZvOeZ65v3nYyf44XmgsUjHWrhrS6IJ8Ln8qI+tNLX9s\/i\/X9UH+KBeLXWz8a3dfWeXxu\/tH7WWH5\/wSMdkds+f6WOt3g0J8hrzU9p3lD\/C2VNpeY=",
++         "data":"eJzVUlsKgDAM6+G8P\/gEUfQq+rHhDA3rNidaCHN2adOHyGX9iVnBQPyj3K0Nvhvlf+jXjPkZvyvk430Tvb7F3Sd3ijt3Y35mMT2pfK8zNjeP1Rg\/pgvj+7y5c0deKR\/7wnQyfiwvm0Ot\/uL8kO\/fs\/qYDqardv8wPtb19v5i\/NT6rWbV9xc+6yMDzvkrdeTy2Z4wPLU\/qXnD\/h9RN6UX",
+          "encoding":"base64",
+          "height":32,
+          "id":2,
+@@ -37,60 +37,60 @@
+          "name":"doors",
+          "objects":[
+                 {
+-                 "gid":295,
++                 "gid":336,
+                  "height":32,
+-                 "id":1,
++                 "id":11,
+                  "name":"",
+                  "properties":[
+                         {
+                          "name":"map_name",
+                          "type":"string",
+-                         "value":"main_map"
++                         "value":"graveyard_dungeon_second_level"
+                         }, 
+                         {
+                          "name":"start_x",
+                          "type":"int",
+-                         "value":7
++                         "value":26
+                         }, 
+                         {
+                          "name":"start_y",
+                          "type":"int",
+-                         "value":22
++                         "value":2
+                         }],
+                  "rotation":0,
+                  "type":"",
+                  "visible":true,
+                  "width":32,
+-                 "x":448,
+-                 "y":32
++                 "x":450.666666666667,
++                 "y":992.666666666667
+                 }, 
+                 {
+-                 "gid":336,
+-                 "height":32,
+-                 "id":11,
++                 "gid":351,
++                 "height":32.1818181818182,
++                 "id":16,
+                  "name":"",
+                  "properties":[
+                         {
+                          "name":"map_name",
+                          "type":"string",
+-                         "value":"graveyard_dungeon_second_level"
++                         "value":"main_map"
+                         }, 
+                         {
+                          "name":"start_x",
+                          "type":"int",
+-                         "value":26
++                         "value":7
+                         }, 
+                         {
+                          "name":"start_y",
+                          "type":"int",
+-                         "value":2
++                         "value":22
+                         }],
+                  "rotation":0,
+                  "type":"",
+                  "visible":true,
+                  "width":32,
+-                 "x":450.666666666667,
+-                 "y":992.666666666667
++                 "x":480,
++                 "y":64.0909090909091
+                 }],
+          "opacity":1,
+          "type":"objectgroup",
+@@ -100,11 +100,11 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJxjYBgYoM84QBaPglEwCkbBKBgFQxSkM1PPLACRAwCb",
++         "data":"eJxjYCAfhDNSoHkUjIJRMApGwSgYBSSBdGbqmQUA0vIAww==",
+          "encoding":"base64",
+          "height":32,
+          "id":5,
+-         "name":"decorative_nonblocking",
++         "name":"decorations_nonblocking",
+          "opacity":1,
+          "type":"tilelayer",
+          "visible":true,
+@@ -223,7 +223,7 @@
+          "y":0
+         }],
+  "nextlayerid":11,
+- "nextobjectid":15,
++ "nextobjectid":17,
+  "orientation":"orthogonal",
+  "properties":[
+         {
+@@ -232,7 +232,7 @@
+          "value":"#ff0a0a0a"
+         }],
+  "renderorder":"left-up",
+- "tiledversion":"1.8.4",
++ "tiledversion":"1.11.2",
+  "tileheight":32,
+  "tilesets":[
+         {
+@@ -241,6 +241,6 @@
+         }],
+  "tilewidth":32,
+  "type":"map",
+- "version":"1.8",
++ "version":"1.10",
+  "width":16
+ }
+\ No newline at end of file
+Index: resources/maps/main_map.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{ \"backgroundcolor\":\"#5f8702\",\r\n \"compressionlevel\":-1,\r\n \"height\":64,\r\n \"infinite\":false,\r\n \"layers\":[\r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt2k1OwzAQBWBTCbH1SdquGlYl92DNAnEYzoBYwSlxJCpGg39iZ5xM7Ld4Em2t2N94rEouB2PMISN3kVysMYPLo42P05QcO\\/zxGkz+ewN\\/6\\/5QDXrp\\/1ANetp\\/+OHv2e971tb+JXvZsv\\/L5dvl8\\/f1B3sNP\\/yt+G\\/WpT749+lfK5L+l8T41OdzElqblL1F\\/9GNPWVken5L\\/gsxPdl09u7n+009Ws5\\/bk+mejO03zSa\\/KE1zo2U31eDUv+rG\\/8cyRv5O\\/dM8owK\\/RLnuDTUc43UTItfOhq+\\/+GHf25qnn\\/4y+3ww9+6f+21wQ+\\/Fv8Wa6sxR8n3\\/V79pdYSuxa\\/lBn+PLsW\\/xZ936K\\/1tp68E+hd698XMn9Lb\\/HHTyfne3\\/GpTUZene8PBxS+5vqd+XM6v3kdWmhtvnp\\/eHfFzJvS3\\/jWVg79MaUK\\/vfxIlzVrO\\/9XTC6dAb7Tov9XA1w8D64FW\\/b5aUP\\/YkZ+O7+H8p\\/pg7NS\\/ZuCHH3749+R\\/t3J5MH+h70vOSefg80g8r0a4f405S9eGIAiC9JEfUZuu2A==\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":1,\r\n         \"name\":\"ground\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":11,\r\n         \"name\":\"doors\",\r\n         \"objects\":[\r\n                {\r\n                 \"gid\":392,\r\n                 \"height\":32,\r\n                 \"id\":2,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"map_name\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"farmhouse\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_x\",\r\n                         \"type\":\"int\",\r\n                         \"value\":4\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_y\",\r\n                         \"type\":\"int\",\r\n                         \"value\":12\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":1056,\r\n                 \"y\":480\r\n                }, \r\n                {\r\n                 \"gid\":392,\r\n                 \"height\":32,\r\n                 \"id\":3,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"map_name\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"farmhouse\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_x\",\r\n                         \"type\":\"int\",\r\n                         \"value\":11\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_y\",\r\n                         \"type\":\"int\",\r\n                         \"value\":12\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":1312,\r\n                 \"y\":480\r\n                }, \r\n                {\r\n                 \"gid\":67,\r\n                 \"height\":32,\r\n                 \"id\":5,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"map_name\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"graveyard_dungeon\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_x\",\r\n                         \"type\":\"int\",\r\n                         \"value\":14\r\n                        }, \r\n                        {\r\n                         \"name\":\"start_y\",\r\n                         \"type\":\"int\",\r\n                         \"value\":1\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":32,\r\n                 \"x\":224,\r\n                 \"y\":770\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt2jEKAjEQBdBpstfxdB5LrPRY6hG0EEyxsGDiZDHvw29n57Gkm4jf51Yi7u8+SsIHdxZ+fn5+fn7+0dvkh5+fn5+fn3\\/0Nvnh5+fn5+ef3X9ZIs7l+9ZpmbM2L8Pf2jq952X4j6\\/\\/f2honZY5a\\/My\\/LO\\/f\\/7R2+SHn5+fn5+ff\\/Q2+eHn55\\/XLzJzZn\\/\\/\\/Pz8\\/Pz8\\/KO3yQ8\\/P\\/8+\\/T1uKLZ6XT7+U+P9R+9u3Ueoqv5rn49ka0E=\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":4,\r\n         \"name\":\"water_blocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt2DENACAQBEEasIN0nAESKB8HkPxMsgKuvVIAAAAAAADeGjXKaNUoo94iAAAA4B\\/z+ix2wt\\/C\\/tz7AQAAAOCVA11REQg=\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":6,\r\n         \"name\":\"water_nonblocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt2kEOgjAQBdDKjUQxatx6Fj2OJ9CdrjRexvuYRom1gZbQls50\\/ksmSlTorwMBUSkAgG7N93GVafvzTNs16TlImX+bcN0wTqN+vU\\/dJtF6ueSHOFzHuRS9EHps7\\/r82SrtYpR2M8pUK\\/49f7VKG5q\\/BA+rNEn5n1bZ1tMOZ3K+\\/BSdZmGvg9vds+xSxxxIIArXQgAlO1b\\/j5LoY93Byi9tHtq8e2sZINQu9wAAJkLpvJkyzBNtlL8fadeDXXlz3zuj3B8gA\\/d7FjHEmAPsyzxx7f+h465V2b3Zly1mZk7\\/50gF+eV5VZ9qlTwHywHvKTm\\/aZF7AAzl6A3XNin2auzzEF9GinMQUwnnJTHGz30OTGP2kdR90PQ8L1n7e6GUvOCHXgAAAADp3uZ9LSU=\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":9,\r\n         \"name\":\"decorations_nonblocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt1zsOg0AMRdGhDCRIAYLEJ+x\\/mbieDQySz5Fe71u6FAAAAAAAoLV3V8onNnatL2ljie5fbNWfUvb+M7r\\/sStpPwAAAM\\/0ij+1rzYk+l2\\/0TpVmxP1b9G6VzsS9QMAAABASzdiSwKh\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":5,\r\n         \"name\":\"bridges\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJzt2UtOg1AUxvGDHdaZ7sPH0CFx5BLcjTqybsGJj4k6ahsHxjjwMTG6FBfhIeEmt\\/QUJAK3XP6\\/5AvJhZDzFUpIGIvIpmb8z21mR7OrSTV70g9bmu0GtmnhvH3p35bi7wGgnv2N5QxJ7P2tfn4OjMSkqn9qJCbW9fVTt\\/9c81QzIVn9qlJm2s3YjanqemSkTGz9T5PFnCXl57P6X7YyeTOs6+vnr\\/3du7bV\\/7at4RtwkvfKFLv6cfv9\\/qkXp2\\/3\\/7n2meSdJsnquP0XFff\\/s9jP+MfCcS+yHs9\\/AOvjXfPp5SNffws2Ubdea67Hhv7LDlesx+hLFv\\/\\/Lt8hhwIA8E0NAAAAAACYrkYi15qbUehJunesne8095qHAfbPTLX3TDMfaH+I\\/IQeAAAAAAAQ3C9NLlfm\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":8,\r\n         \"name\":\"misc_blocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"compression\":\"zlib\",\r\n         \"data\":\"eJztmllOxDAMhvsKMzAwbMNyAQbEcgMeuf+J8DxUKpGdOFuz\\/Z9kRWqbOE7jP+mymaZpS7aJLDmkc75tHz3rnZGdK8oTz2QvTHlDdutRckjnJB\\/S8TkubV+uyfaL8pHsiSlt8XPY7rUPkg9pvGxjrMEn\\/pD7eWI5p1zYxjgH0jxY9iV2jGcfGmLjfw2sZ+bF9xQfdwi2+H3mUYp6JbCNuc88SlEP\\/Cc0t0BZju5LmvIDQC2MoInS3r6lfUUM0p7Eta8YZXwksO9al1bW31TvCkL81ZCTvs+VPwn9tZiTv6U7AFRI+lNDzpWkxZwDMq2ssynQ5G4v+b0juzKOaXLXdk1LY\\/NAdkjcJrSvXlqamxKfZF+BdVPPzbWfa9bG9a6rxPcy0DecRpl51oOOSXAaZeZZbWtsjnfivWurC2hrPbj0xnw+7E2ffPWmNn0y\\/wUcDfNfQABiwfpcdn3+KOgbgNyMulbPhKzVF2SXGfpSi9a\\/Oc7fkd1n8Fta6wHQ4MqPkcilhWvDxcF9tzTRaKGmndJwcXDfLd8D2s7x\\/RMAAABojT+YDxat\",\r\n         \"encoding\":\"base64\",\r\n         \"height\":64,\r\n         \"id\":7,\r\n         \"name\":\"trees_blocking\",\r\n         \"opacity\":1,\r\n         \"type\":\"tilelayer\",\r\n         \"visible\":true,\r\n         \"width\":64,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }, \r\n        {\r\n         \"draworder\":\"topdown\",\r\n         \"id\":14,\r\n         \"name\":\"characters\",\r\n         \"objects\":[\r\n                {\r\n                 \"height\":0,\r\n                 \"id\":7,\r\n                 \"name\":\"\",\r\n                 \"polygon\":[\r\n                        {\r\n                         \"x\":0,\r\n                         \"y\":0\r\n                        }, \r\n                        {\r\n                         \"x\":170.666666666667,\r\n                         \"y\":-34\r\n                        }, \r\n                        {\r\n                         \"x\":400.333333333333,\r\n                         \"y\":16.6666666666666\r\n                        }, \r\n                        {\r\n                         \"x\":163.333333333333,\r\n                         \"y\":67.3333333333333\r\n                        }, \r\n                        {\r\n                         \"x\":110.333333333333,\r\n                         \"y\":33\r\n                        }, \r\n                        {\r\n                         \"x\":6.33333333333337,\r\n                         \"y\":56.6666666666666\r\n                        }],\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"type\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"orange_cat\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":0,\r\n                 \"x\":999.333333333333,\r\n                 \"y\":560\r\n                }, \r\n                {\r\n                 \"height\":365.333333333333,\r\n                 \"id\":9,\r\n                 \"name\":\"\",\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"type\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"grey_dog\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":371.333333333333,\r\n                 \"x\":82,\r\n                 \"y\":562.666666666667\r\n                }, \r\n                {\r\n                 \"height\":0,\r\n                 \"id\":10,\r\n                 \"name\":\"\",\r\n                 \"polygon\":[\r\n                        {\r\n                         \"x\":0,\r\n                         \"y\":0\r\n                        }, \r\n                        {\r\n                         \"x\":633.333333333333,\r\n                         \"y\":-1.33333333333326\r\n                        }, \r\n                        {\r\n                         \"x\":632,\r\n                         \"y\":-441.333333333333\r\n                        }, \r\n                        {\r\n                         \"x\":1422.66666666667,\r\n                         \"y\":-445.333333333333\r\n                        }, \r\n                        {\r\n                         \"x\":1426.66666666667,\r\n                         \"y\":-1114.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":946.666666666667,\r\n                         \"y\":-1108\r\n                        }, \r\n                        {\r\n                         \"x\":948,\r\n                         \"y\":-1813.33333333333\r\n                        }, \r\n                        {\r\n                         \"x\":1693.33333333333,\r\n                         \"y\":-1812\r\n                        }, \r\n                        {\r\n                         \"x\":1700,\r\n                         \"y\":-1566.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1429.33333333333,\r\n                         \"y\":-1541.33333333333\r\n                        }, \r\n                        {\r\n                         \"x\":1438.66666666667,\r\n                         \"y\":-1142.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1842.66666666667,\r\n                         \"y\":-1158.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1832,\r\n                         \"y\":-1365.33333333333\r\n                        }, \r\n                        {\r\n                         \"x\":1652,\r\n                         \"y\":-1366.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1654.66666666667,\r\n                         \"y\":-1497.33333333333\r\n                        }, \r\n                        {\r\n                         \"x\":2000,\r\n                         \"y\":-1492\r\n                        }, \r\n                        {\r\n                         \"x\":1990.66666666667,\r\n                         \"y\":-1362.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1877.33333333333,\r\n                         \"y\":-1346.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1876,\r\n                         \"y\":-1118.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1462.66666666667,\r\n                         \"y\":-1118.66666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1453.33333333333,\r\n                         \"y\":-890.666666666667\r\n                        }, \r\n                        {\r\n                         \"x\":2001.33333333333,\r\n                         \"y\":-904\r\n                        }, \r\n                        {\r\n                         \"x\":1997.33333333333,\r\n                         \"y\":14.6666666666667\r\n                        }, \r\n                        {\r\n                         \"x\":1417.33333333333,\r\n                         \"y\":20\r\n                        }, \r\n                        {\r\n                         \"x\":1418.66666666667,\r\n                         \"y\":-430.666666666667\r\n                        }, \r\n                        {\r\n                         \"x\":630.666666666667,\r\n                         \"y\":-465.333333333333\r\n                        }, \r\n                        {\r\n                         \"x\":630.666666666667,\r\n                         \"y\":-726.666666666667\r\n                        }, \r\n                        {\r\n                         \"x\":5.33333333333333,\r\n                         \"y\":-710.666666666667\r\n                        }],\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"type\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"orange_dog\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":0,\r\n                 \"x\":25.3333333333333,\r\n                 \"y\":1825.33333333333\r\n                }, \r\n                {\r\n                 \"height\":0,\r\n                 \"id\":11,\r\n                 \"name\":\"\",\r\n                 \"point\":true,\r\n                 \"properties\":[\r\n                        {\r\n                         \"name\":\"movement\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"random\"\r\n                        }, \r\n                        {\r\n                         \"name\":\"type\",\r\n                         \"type\":\"string\",\r\n                         \"value\":\"white_cat\"\r\n                        }],\r\n                 \"rotation\":0,\r\n                 \"type\":\"\",\r\n                 \"visible\":true,\r\n                 \"width\":0,\r\n                 \"x\":1179.46345975948,\r\n                 \"y\":1001.38760407031\r\n                }],\r\n         \"opacity\":1,\r\n         \"type\":\"objectgroup\",\r\n         \"visible\":true,\r\n         \"x\":0,\r\n         \"y\":0\r\n        }],\r\n \"nextlayerid\":16,\r\n \"nextobjectid\":12,\r\n \"orientation\":\"orthogonal\",\r\n \"renderorder\":\"left-up\",\r\n \"tiledversion\":\"1.8.4\",\r\n \"tileheight\":32,\r\n \"tilesets\":[\r\n        {\r\n         \"firstgid\":1,\r\n         \"source\":\"..\\/tilesets\\/[Base]BaseChip_pipo.json\"\r\n        }, \r\n        {\r\n         \"firstgid\":1065,\r\n         \"source\":\"..\\/tilesets\\/[A]Water_pipo.json\"\r\n        }, \r\n        {\r\n         \"firstgid\":4137,\r\n         \"source\":\"..\\/tilesets\\/[A]Grass_pipo.json\"\r\n        }],\r\n \"tilewidth\":32,\r\n \"type\":\"map\",\r\n \"version\":\"1.8\",\r\n \"width\":64\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/maps/main_map.json b/resources/maps/main_map.json
+--- a/resources/maps/main_map.json	(revision ec5eacbecc43720b3dc4fb038455f1a12c400f44)
++++ b/resources/maps/main_map.json	(date 1746454379637)
+@@ -5,7 +5,7 @@
+  "layers":[
+         {
+          "compression":"zlib",
+-         "data":"eJzt2k1OwzAQBWBTCbH1SdquGlYl92DNAnEYzoBYwSlxJCpGg39iZ5xM7Ld4Em2t2N94rEouB2PMISN3kVysMYPLo42P05QcO\/zxGkz+ewN\/6\/5QDXrp\/1ANetp\/+OHv2e971tb+JXvZsv\/L5dvl8\/f1B3sNP\/yt+G\/WpT749+lfK5L+l8T41OdzElqblL1F\/9GNPWVken5L\/gsxPdl09u7n+009Ws5\/bk+mejO03zSa\/KE1zo2U31eDUv+rG\/8cyRv5O\/dM8owK\/RLnuDTUc43UTItfOhq+\/+GHf25qnn\/4y+3ww9+6f+21wQ+\/Fv8Wa6sxR8n3\/V79pdYSuxa\/lBn+PLsW\/xZ936K\/1tp68E+hd698XMn9Lb\/HHTyfne3\/GpTUZene8PBxS+5vqd+XM6v3kdWmhtvnp\/eHfFzJvS3\/jWVg79MaUK\/vfxIlzVrO\/9XTC6dAb7Tov9XA1w8D64FW\/b5aUP\/YkZ+O7+H8p\/pg7NS\/ZuCHH3749+R\/t3J5MH+h70vOSefg80g8r0a4f405S9eGIAiC9JEfUZuu2A==",
++         "data":"eJzt2kFOwzAQBVBTqbD1SdquGlYl92BNBUJC3IQzIFZwShypFaPBduKJk0zsv\/hSm1q239hWJbcbY8wmITeRHK0xjcu9jbfTlBQ7\/PEadP6tgb90f6gGtez\/UA1qWn\/44a\/Z7+traf+YtSzZ\/+3y4\/J1ef\/J3sMPfyn+q3WsD\/51+udKTv9TT\/u+z4ckNLdc9hL9O9d2n5Cu\/5L8R2J6sP1Zu5+vN\/VoOf+pe7Jvb4bWm0aTPzTHocnl99VA6n9x7R8jeSWvU88kT6vQn+McS0M9p0jNtPhzR8P3P\/zwD82U5x9+uR1++Ev3zz03+OHX4l9iblOMIfm+X6tfapXYtfhzmeFPs2vxL7HvS\/RPNbca\/F3o3StvJ7m\/5fe4jeezg\/1fA0ldxq4ND2835v6W+n05sHrvWG2mcPv89P6Qt5Pc2\/LfWBr2nNaAen3\/Scxp1nL+T569sA\/sjRL91xr49kPD9kCpfl8tqL+tyE\/b13D++\/ZBW6lfmttLtM1tLv\/Z9f+cOAb88Jfif3P9v1fg\/7D5cmf+Qp\/nHJOOwcfJ0d8U4f45xpTODUEQBKkjv7rQsqI=",
+          "encoding":"base64",
+          "height":64,
+          "id":1,
+@@ -79,9 +79,37 @@
+                  "y":480
+                 }, 
+                 {
+-                 "gid":67,
++                 "gid":5,
+                  "height":32,
+-                 "id":5,
++                 "id":12,
++                 "name":"",
++                 "properties":[
++                        {
++                         "name":"map_name",
++                         "type":"string",
++                         "value":"woods_a"
++                        }, 
++                        {
++                         "name":"start_x",
++                         "type":"int",
++                         "value":10
++                        }, 
++                        {
++                         "name":"start_y",
++                         "type":"int",
++                         "value":18
++                        }],
++                 "rotation":0,
++                 "type":"",
++                 "visible":true,
++                 "width":91.5,
++                 "x":609,
++                 "y":34
++                }, 
++                {
++                 "gid":335,
++                 "height":32,
++                 "id":15,
+                  "name":"",
+                  "properties":[
+                         {
+@@ -99,12 +127,68 @@
+                          "type":"int",
+                          "value":1
+                         }],
++                 "rotation":0,
++                 "type":"",
++                 "visible":true,
++                 "width":32,
++                 "x":224.333333333333,
++                 "y":768
++                }, 
++                {
++                 "gid":641,
++                 "height":40.6363636363637,
++                 "id":16,
++                 "name":"",
++                 "properties":[
++                        {
++                         "name":"map_name",
++                         "type":"string",
++                         "value":"main_map"
++                        }, 
++                        {
++                         "name":"start_x",
++                         "type":"int",
++                         "value":7
++                        }, 
++                        {
++                         "name":"start_y",
++                         "type":"int",
++                         "value":22
++                        }],
++                 "rotation":0,
++                 "type":"",
++                 "visible":true,
++                 "width":32,
++                 "x":192,
++                 "y":1641.54545454545
++                }, 
++                {
++                 "gid":642,
++                 "height":41.75,
++                 "id":17,
++                 "name":"",
++                 "properties":[
++                        {
++                         "name":"map_name",
++                         "type":"string",
++                         "value":"main_map"
++                        }, 
++                        {
++                         "name":"start_x",
++                         "type":"int",
++                         "value":7
++                        }, 
++                        {
++                         "name":"start_y",
++                         "type":"int",
++                         "value":22
++                        }],
+                  "rotation":0,
+                  "type":"",
+                  "visible":true,
+                  "width":32,
+                  "x":224,
+-                 "y":770
++                 "y":1641.79347826087
+                 }],
+          "opacity":1,
+          "type":"objectgroup",
+@@ -128,7 +212,7 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJzt2DENACAQBEEasIN0nAESKB8HkPxMsgKuvVIAAAAAAADeGjXKaNUoo94iAAAA4B\/z+ix2wt\/C\/tz7AQAAAOCVA11REQg=",
++         "data":"eJzt2MEJgDAQBMAjENuxRm0onakl+DwLEKLcDOx\/97sRAAAAAAAAc42eqejsmYrWJQMAAAB8x\/H4LK6Cv4X9tfcD\/MnWIvY2uwUAAABvuQGlZxIP",
+          "encoding":"base64",
+          "height":64,
+          "id":6,
+@@ -142,7 +226,7 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJzt2kEOgjAQBdDKjUQxatx6Fj2OJ9CdrjRexvuYRom1gZbQls50\/ksmSlTorwMBUSkAgG7N93GVafvzTNs16TlImX+bcN0wTqN+vU\/dJtF6ueSHOFzHuRS9EHps7\/r82SrtYpR2M8pUK\/49f7VKG5q\/BA+rNEn5n1bZ1tMOZ3K+\/BSdZmGvg9vds+xSxxxIIArXQgAlO1b\/j5LoY93Byi9tHtq8e2sZINQu9wAAJkLpvJkyzBNtlL8fadeDXXlz3zuj3B8gA\/d7FjHEmAPsyzxx7f+h465V2b3Zly1mZk7\/50gF+eV5VZ9qlTwHywHvKTm\/aZF7AAzl6A3XNin2auzzEF9GinMQUwnnJTHGz30OTGP2kdR90PQ8L1n7e6GUvOCHXgAAAADp3uZ9LSU=",
++         "data":"eJzt2sEOwTAYB\/CSuO9VjC2IK6\/Cq3Byc+PGibh5Eu9Dw6Ia1mb7ql\/b\/y\/5Mgu2\/uszY4SgU2ZC9B7LUUa4UQDwpngtS0\/773var0rOgcv8E4fbhmYK8e597saOthtKfqBRd5xz0Qttj+3fnr\/TStorJR2VUuUi\/J4\/aCXZ5o\/BWSsppfwXrXSj\/w7HyrbT7n6VKT9HG0M+0\/1Q72RYr5NTDqQlDt+FAGK27H4uUyKPdQstf2rzUOWdaesAbU19DwDgTzidN3OGeeKN8+uT2vfBb3l9Xzvj3B+QhtCvWVCgmAO8l8MUav\/bjjsXcffmr2yUmUP6P4cryJ+eW\/dZlZjnYGjxmJjzqwa+BwBW6vqRY69Sn4eYMnKcA0pcz0uunWfZoBg\/tzlYPT4z1w2v\/TV5j7jug+LH7ZhVvxemkhfM9F6YexkFAAAAgD93LPAxgA==",
+          "encoding":"base64",
+          "height":64,
+          "id":9,
+@@ -170,7 +254,7 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJzt2UtOg1AUxvGDHdaZ7sPH0CFx5BLcjTqybsGJj4k6ahsHxjjwMTG6FBfhIeEmt\/QUJAK3XP6\/5AvJhZDzFUpIGIvIpmb8z21mR7OrSTV70g9bmu0GtmnhvH3p35bi7wGgnv2N5QxJ7P2tfn4OjMSkqn9qJCbW9fVTt\/9c81QzIVn9qlJm2s3YjanqemSkTGz9T5PFnCXl57P6X7YyeTOs6+vnr\/3du7bV\/7at4RtwkvfKFLv6cfv9\/qkXp2\/3\/7n2meSdJsnquP0XFff\/s9jP+MfCcS+yHs9\/AOvjXfPp5SNffws2Ubdea67Hhv7LDlesx+hLFv\/\/Lt8hhwIA8E0NAAAAAACYrkYi15qbUehJunesne8095qHAfbPTLX3TDMfaH+I\/IQeAAAAAAAQ3C9NLlfm",
++         "data":"eJzt2s1Kw0AUBeDJdFl3+iKKK3EVuhKfoG+jrqyv4EZrF6a4aIsLERf+bEQfxYfwFjIwnd5kJjRpMrfng0NgMoQ5+SPQ9pVSe5T+hlvXITPWRfuUgxq2qXPcWPo3xT0fAFDNkV7PLpHen+tn54SJJL7+KRNJuOtrp2r\/BeWlYtrE9fOlzGw7y66Nr+sZkzLS+l8mq7lKyo\/H9b9tZOX14K6vndD+5lub6\/\/Q1OJrcJH3WnK72jH77f6pFSO2+\/+a+ozyTqOkOGb\/jef+f1X8O\/7ZmfemuvH+B4Du+KR8W\/nKxz9aW9F2vVcclwb91w0KxiX6UavPv8lvm4sCAAD8pgYAAAAAAAAbO9ZhkepUhyU2dz2l7injXvm8gQ5LTIbU+ZGSUaY72H9pRr3nlIWn\/7kOi1SThJ4TT8ae\/1901V\/AnElBTwn9QzxRtyzP1OqZFYwDAAAAAADE5h8EOXUt",
+          "encoding":"base64",
+          "height":64,
+          "id":8,
+@@ -184,7 +268,7 @@
+         }, 
+         {
+          "compression":"zlib",
+-         "data":"eJztmllOxDAMhvsKMzAwbMNyAQbEcgMeuf+J8DxUKpGdOFuz\/Z9kRWqbOE7jP+mymaZpS7aJLDmkc75tHz3rnZGdK8oTz2QvTHlDdutRckjnJB\/S8TkubV+uyfaL8pHsiSlt8XPY7rUPkg9pvGxjrMEn\/pD7eWI5p1zYxjgH0jxY9iV2jGcfGmLjfw2sZ+bF9xQfdwi2+H3mUYp6JbCNuc88SlEP\/Cc0t0BZju5LmvIDQC2MoInS3r6lfUUM0p7Eta8YZXwksO9al1bW31TvCkL81ZCTvs+VPwn9tZiTv6U7AFRI+lNDzpWkxZwDMq2ssynQ5G4v+b0juzKOaXLXdk1LY\/NAdkjcJrSvXlqamxKfZF+BdVPPzbWfa9bG9a6rxPcy0DecRpl51oOOSXAaZeZZbWtsjnfivWurC2hrPbj0xnw+7E2ffPWmNn0y\/wUcDfNfQABiwfpcdn3+KOgbgNyMulbPhKzVF2SXGfpSi9a\/Oc7fkd1n8Fta6wHQ4MqPkcilhWvDxcF9tzTRaKGmndJwcXDfLd8D2s7x\/RMAAABojT+YDxat",
++         "data":"eJztmkluxSAMhrNtX+d5ukBfqw436LL3P1H9FpFSZIOZAib\/J1lIScDYwYZAdtM0nZDsMksO6V5s2\/vIekckx4rywDPJC1Nek9xElBzSPUmHdH22S9uXS5KrRflI8sSUPvs5fO86BkmH5C+fjzXE2J\/yPg8sx1QIn49rII2DZV9yfTzr0JBr\/2tiPTcuvqd8u1Pw2R8zjkrUa4HP5zHjqEQ98J\/U2AJt2YcfMaUHgF7YQk6U1vaW1hU5SGuS0LpiK\/6RwLprXazMv6X2ClL09RCTsd+VPwX1WYzJ39YdACqk\/NNDzLXEYswBGSvzbAk0sTtKfJ+TXDjXNLHre8aSb+5JHgq3idzXL5bGpsQnyVdi3dJjc+3vmrUJ7XW1OC8DY8PlKDfORshjElyOcuOstzm2xp746Lk1BHKrXUbOTxp6y0\/uv4Bbw\/0XEABgm4\/WHQCgIludq2dS5upTkrMKfemFt8D9W5K7NToCQIeE4mNLjJILOTu4c0sXTS7UtNMazg7u3PI9oe0a558AAACANf4AjDgV0Q==",
+          "encoding":"base64",
+          "height":64,
+          "id":7,
+@@ -383,12 +467,12 @@
+                          "type":"string",
+                          "value":"orange_dog"
+                         }],
+-                 "rotation":0,
++                 "rotation":0.103390187748589,
+                  "type":"",
+                  "visible":true,
+                  "width":0,
+-                 "x":25.3333333333333,
+-                 "y":1825.33333333333
++                 "x":23.7169291309533,
++                 "y":1823.52617225299
+                 }, 
+                 {
+                  "height":0,
+@@ -415,15 +499,15 @@
+                 }],
+          "opacity":1,
+          "type":"objectgroup",
+-         "visible":true,
++         "visible":false,
+          "x":0,
+          "y":0
+         }],
+  "nextlayerid":16,
+- "nextobjectid":12,
++ "nextobjectid":18,
+  "orientation":"orthogonal",
+  "renderorder":"left-up",
+- "tiledversion":"1.8.4",
++ "tiledversion":"1.11.2",
+  "tileheight":32,
+  "tilesets":[
+         {
+@@ -440,6 +524,6 @@
+         }],
+  "tilewidth":32,
+  "type":"map",
+- "version":"1.8",
++ "version":"1.10",
+  "width":64
+ }
+\ No newline at end of file
