@@ -365,7 +365,25 @@
          "draworder":"topdown",
          "id":19,
          "name":"characters",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"guard2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1749,
+                 "y":2452
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -409,7 +427,41 @@
          "draworder":"topdown",
          "id":20,
          "name":"enemies",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":127,
+                         "y":2
+                        }, 
+                        {
+                         "x":128,
+                         "y":61
+                        }, 
+                        {
+                         "x":3,
+                         "y":62
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"illusioner"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1711,
+                 "y":1837
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -417,7 +469,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":7,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
