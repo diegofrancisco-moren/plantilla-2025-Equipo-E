@@ -33,7 +33,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2z1OwzAYgGGGsCPUA8IN6AUZgYkROAFwDBKxlJKmdWrH\/tLnkbygUNm8JG3zc3UFAAAAAEAND93hQdu0i0u7uLSLS7u4tANgje67vyPXtuSx7U4fS7wOp9MuLu3i0i6uY3\/nm+u0drvba5fX\/vmQGvudczLzaBeXdnHNbTe8j03Rrjz7XVzntMs11thuietil9CuxvXF4T1lf+SmXRml2w2vN3Xte844tc\/UuM28zlba5R7n9DjUJHX7sXY5\/5cuud3SQ7u4\/dbQbometTst0a4VObulfoaI2G6tNo3ud5vMnzPXSLvySh2zc7Z71G5UhHav2o2K0M4xc5x2cWkXV8nvl7U7jY01aencAGm0i0u7uLSLK0K75wBzrKH1dm\/9\/N778dH4PGtovd1nP7+vfnw3Ps8aWm\/HYdrFpV1c2sWlXVzaxaVdTMM1kW2hayOtXXcpOZ8aa13beqZc0loB5rq7gONYyftCUp9xzDHf\/WdallprDaXbpf7u2Ovs\/iz1uZal1srxdgD899T93q\/y4lgZjvtV4nK\/CgAAAAAAAAAAAACpfgD2tEtY",
+         "data":"eJzt201Og0AYgOEucG9MD6g30Au6VFcu1ROoxxBiTGqhtNCZYT76PMlsDOJMX0sbfjYbAAAAAACWcN8cHtRNu7i0i0u7uLSLSzsA1uiu+T9SbUsaD83po8R+OJ12cWkXl3ZxHXudr6+mtdvdXru09s+HLPG+c05mHu3i0i6uue26z7Ex2uXnfRfXOe1SjTW2K3Fd7BLaLXF9sftM2R+paZdH7nbd\/saufc8Zp\/YZGzeJ11lLu9TjnB6Hmkzdfqhdyv+lS25XemgXt98a2pXouXSnEu1qkbLb1O8QEdut1bbS99028ffMNdIuv1zH7JTtHgO0W+IYGqHdq3aDIrSLcMzUTrsptEtjTe06S3caGjnXWlpN5wYi0y4u7eLSLi7thj0HmKN2fW\/t\/N7b8VH5PLXr+2zn99WO78rnqV1c2sWlXVzaxaVdXNrFpV1cpdt1f+\/vXrwc+8593WWKnPNZYq1rW8+YS1orwFy3F3Acy3lfyNRnHFPMd\/+ZllJrXULudlN\/d2g\/uz+b+lxLqbVyvB0AfU\/N7\/0qL46V4US5X4W+KPerAAAAAAAAAAAAAFCPHyGGVGg=",
          "encoding":"base64",
          "height":100,
          "id":4,
@@ -47,7 +47,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt101KxEAQBtAsymP6gxcQvIDiBUQvIHgBBxfizsGTiSg4xhlELNJV+h4UCRkIXf0FpmuaAAAAAAAAAAAAAADIdBjTdDSrEeZrOB60jk5Oiu7RadF1VSK7vmTXl+z6kl1fsutLdn3JblnzOfY3FXuju9nudV2ZfQIAy9mPtzqIj\/t57fpt\/rzyWWVXbz+t80JnlavIq8ozQlaPt4V6XEVeVc4uq8eR2a3i61V2svsP2d3LblGyk1217NaRV5Wzy+rxeWCP6\/h8zXQWeXNUZl0U\/aYquYzceTGrrmX3rZst\/w8VqtI8XZXs+pJdX3dJe70p430jz\/VdyK6vp8iZoR7e9\/ox6X0jZzIAAAAAAAAAAAAAAAAAAAAAAADg73kBGAu30w==",
+         "data":"eJzt101KA0EQBtBZlMf0By8geAHFC4heQPAChizEncGTiahE22QRUpmulvegmJCBoau+xUxNEwAAAAAAAAAAAAAAmU5jms6a6qE9w3mnc4zkouiMLoueqxLZjUt245LduGQ3LtmNS3bjkt282j12n4qj3t1s9nGuzD4BgPkcx2edxPp3W9vutf9X\/lbZ1tuudV3oW+Uu8qryjpDV42OhHheRV5Wzy+qxZ3aL+HuV3e7ZtXOcg+z2q6XsZiU72VXLbhV5VTm7rB7fOma3it\/XTFeRt0dl1s0Bej3kHHu4jdx9Mavu\/8l8D+khct+fWVVpn65KduOS3biekmb9U8bzlrH5vKzJblyvkbNDPX\/N+iXped87GQAAAAAAAAAAAAAAAAAAAAAAAECGdz8fwGM=",
          "encoding":"base64",
          "height":100,
          "id":5,
@@ -61,7 +61,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt291KwzAYxvEd7DLn\/Dj2A3YDgx164uahJ4I3oHgDildmgy2U2jZp0zR93v1\/EMKwfZvkkWUUsloBAAAAAAAAAAAAAAALrtdxfwcAdZfrv++6rhajr+4N36\/RHjKt4Y7sopGdLrLTRXa6yE4X2ekiO11kp4vsdJHdNNz7qavynVG9T\/n+yGJ2S1rHlPO0mN2S1jHlM\/dF7U2GdjC2jjme+VTUPmZoz8bWMcczX4vaHxnam7F1XGp2zpBcQq63lp3bey6Kdlv2bl\/YJt4bLGaXYx2be8+pbCn3hr7s2vgyC70+ZXZLWseU83zPlN2nsXUku2mQXdpmNbvqd9JuhnnGZOcoZTfHOs6Z3VdR+3tkc8be+5Ph\/9FadhaRnS6y05Uju2rvqWeXem+wqGsPn2Md69lBC9npIjtdZKeL7HSRnS6y00V2ushOF9npIjtdZKeL7HSRHQAAUNB27ja2rxt6r+\/Mb9dZ4b5+zvmeM9\/v3lznn5eoOoe0Lfs7Tx9yXZ072zTkGb4zUPuWetXn+5Z+06gXOpYhY87luP7fTh0t9Dpf\/b57m\/e3jTd0fK49BowntNaY8aaU4gxHbP0px\/sywXhixpsS2elmN\/achu\/8R0z9qcc753wBAAAAAAAAAAAAAAAAAAAA4Nz8AumhSrU=",
+         "data":"eJzt201qwzAQhuEsfMw0\/Vn3B3KBQJbdNOmym0Iv0NILtPRktagNJrUt2fJ4PJP3ASFCbEmeD6Jg0GoFAAAAAAAAAAAAAAA8uC7yvgcA6y6Lv9+6rpajb9wbfl+zPSjVcEt22cjOLrKzi+zsIju7yM4usrOL7OwiO7vIbhrh\/dRV9c6o2Uu+P\/KY3ZLqKPmcHrNbUh0l59yVY68V2t5ZHTXmfCrHPii0Z2d11JjztRz7Q6G9OavjUrMLhuSScr237MLec1G226oP+8JGeG\/wmJ1GHU\/3nmPVJPeGvuzaxDJLvV4yuyXVUfI535Wy+3RWR7KbBtnJNq\/Z1f+TtjM8Z052wZKz06jjnHN+lWN\/j2zB2Ht\/nNVRY06PyM4usrNLc+9pzim9N3ikWcfmnBhPo45kNw2ys4vs7CI7u8jOLrKzi+zsIju7yM4usrOL7OwiO7vIzi7qCACArLZzt7l909B7Y2d+u84K9\/VzPu85i\/1f0zr\/vET1OaRN1d9F+pTrmsLZpiFzxM5A7VrGqz\/ft\/Trk\/FS1zJkzVoOxf927Gip18XG77v39P629aauL7THhPWkjjVmvZIkznDkjj\/lel8mWE\/OeiWRnd3sxp7TiJ3\/yBl\/6vXO+bwAAAAAAAAAAAAAAAAAAAAAcG5+AVWqUBE=",
          "encoding":"base64",
          "height":100,
          "id":6,
@@ -159,7 +159,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt3TENACAQA0CG9++HARFIQAIOmFlJCBDulq5NKqApAQAAAOxR43QDVjXbPavbDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4WPbl9KQScwIAAAAAAAAAAAAAcJ8BsjcE7w==",
+         "data":"eJzt0bEJACAQBMEPtDVLsFeLsCdjU0FeYSa5dOEiAAAAAO5oNbuAU913AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8aJTsAk7Msi8AAAAAAAAAAAAAAO9ZK5YDBg==",
          "encoding":"base64",
          "height":100,
          "id":13,
@@ -368,9 +368,25 @@
          "objects":[
                 {
                  "height":0,
-                 "id":7,
+                 "id":15,
                  "name":"",
-                 "point":true,
+                 "polygon":[
+                        {
+                         "x":0.0909090909092356,
+                         "y":15.3636363636365
+                        }, 
+                        {
+                         "x":86.375,
+                         "y":14.421875
+                        }, 
+                        {
+                         "x":86.375,
+                         "y":14.625
+                        }, 
+                        {
+                         "x":0.136363636363512,
+                         "y":15.4318181818185
+                        }],
                  "properties":[
                         {
                          "name":"type",
@@ -381,8 +397,42 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":1749,
-                 "y":2452
+                 "x":1656.75,
+                 "y":2437
+                }, 
+                {
+                 "height":0,
+                 "id":17,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-91.5,
+                         "y":-2.5
+                        }, 
+                        {
+                         "x":-91.5,
+                         "y":-2.59090909090901
+                        }, 
+                        {
+                         "x":0.125,
+                         "y":-0.375
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"guard2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1898,
+                 "y":2454.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -469,7 +519,7 @@
          "y":0
         }],
  "nextlayerid":24,
- "nextobjectid":10,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
