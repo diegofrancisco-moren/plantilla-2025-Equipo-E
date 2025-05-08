@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/battle_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/battle_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +225,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746550742090</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Arreglado el error del mapa del castillo">
+      <option name="closed" value="true" />
+      <created>1746716991485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746716991485</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <option name="closed" value="true" />
+      <created>1746723774624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746723774624</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +265,8 @@
     <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden)." />
     <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)" />
     <MESSAGE value="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets" />
+    <MESSAGE value="Arreglado el error del mapa del castillo" />
+    <MESSAGE value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
   </component>
 </project>

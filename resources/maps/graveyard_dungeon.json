@@ -172,6 +172,24 @@
                  "width":0,
                  "x":271,
                  "y":240
+                }, 
+                {
+                 "height":0,
+                 "id":18,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":207.5,
+                 "y":81.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -250,7 +268,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":18,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "properties":[
         {

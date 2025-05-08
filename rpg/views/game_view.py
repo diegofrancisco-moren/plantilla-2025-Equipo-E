@@ -360,8 +360,6 @@ class GameView(arcade.View):
         """
         Render the screen.
         """
-
-
             # This command should happen before we start drawing. It will clear
         # the screen to the background color, and erase what we drew last frame.
         arcade.start_render()
@@ -383,6 +381,7 @@ class GameView(arcade.View):
             # Draw scene
 
             cur_map.scene.draw()
+
             for layer in cur_map.map_layers.keys():
                 self.map_list[self.cur_map_name].map_layers[layer].draw()
 
@@ -395,12 +394,18 @@ class GameView(arcade.View):
                 ).draw()
 
             if "characters" in cur_map.scene.name_mapping:
+
                 cur_map.scene["characters"].draw()
-            if "enemies" in cur_map.scene.name_mapping:
-                cur_map.scene["enemies"].draw()
+
+            if "characters2" in cur_map.scene.name_mapping:
+                print("si hay")
+                cur_map.scene["characters2"].draw()
+
+
 
             # Draw the player
             self.player_sprite_list.draw()
+
 
             if map_layers.get("walls_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()

@@ -74,9 +74,11 @@ def load_map(map_name):
         map_name, scaling=TILE_SCALING, layer_options=layer_options
     )
 
+
     game_map.scene = arcade.Scene.from_tilemap(my_map)
+    print(game_map.scene.name_mapping.keys())
     if not background_music:
-        background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")  # Asegúrate de que la ruta sea correcta
+        background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")
         background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
         background_music = True
 
