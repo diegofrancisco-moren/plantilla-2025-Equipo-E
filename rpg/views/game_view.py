@@ -399,10 +399,6 @@ class GameView(arcade.View):
                 if layer not in cur_map.map_layers and layer !="wall_list":
                     cur_map.scene[layer].draw()
 
-            if cur_map.scene.name_mapping.get("characters"):
-                cur_map.scene["characters"].draw()
-
-
 
             # Draw the player
             self.player_sprite_list.draw()

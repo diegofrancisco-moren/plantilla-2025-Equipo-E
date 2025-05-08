@@ -119,6 +119,24 @@ class BattleView(arcade.View):
 
         # Dibujar sprites (jugador a la izquierda, enemigo a la derecha)
         self.sprite_list.draw()
+        #Dibujar nombres de personaje y enemigo debajo del sprite
+        arcade.draw_text(
+            self.player.statistics.name,
+            200,
+            400,
+            arcade.color.BLACK,
+            20,
+            anchor_x="center"
+        )
+
+        arcade.draw_text(
+            self.enemy.statistics.name,
+            1000,
+            400,
+            arcade.color.BLACK,
+            20,
+            anchor_x="center"
+        )
 
         # Dibujar barras de vida
         if self.player is not None and self.enemy is not None:

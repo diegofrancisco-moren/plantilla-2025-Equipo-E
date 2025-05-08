@@ -16,7 +16,7 @@
       }
     ]
   },
-  "illusioner": {
+  "necromancer": {
     "images": "Enemy/Enemy 02-1.png",
     "health": 200,
     "attack": 30,
