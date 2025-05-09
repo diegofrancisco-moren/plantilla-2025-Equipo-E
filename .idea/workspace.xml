@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <change afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,19 +22,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/Maxim" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -46,12 +35,12 @@
     &quot;assignee&quot;: &quot;Rutosca&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E&quot;,
-    &quot;accountId&quot;: &quot;f31bdab1-31ac-4ed6-b874-86b390dd1904&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E",
+    "accountId": "f31bdab1-31ac-4ed6-b874-86b390dd1904"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -60,24 +49,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.__main__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Maxim&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.__main__.executor": "Run",
+    "Python.load_game_map.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Maxim",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="plantilla-2025-Equipo-E" />
@@ -88,7 +76,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.10 (.virtualenvs)" />
+      <option name="SDK_NAME" value="Python 3.10 (plantilla-2025-Equipo-E)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rpg" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -120,12 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742494925932</updated>
-      <workItem from="1745239989704" duration="233000" />
-      <workItem from="1745240241556" duration="2285000" />
-      <workItem from="1745256885909" duration="29353000" />
-      <workItem from="1745600638948" duration="106000" />
-      <workItem from="1746720224378" duration="1531000" />
-      <workItem from="1746723133990" duration="2192000" />
+      <workItem from="1746809070961" duration="7652000" />
     </task>
     <task id="LOCAL-00001" summary="ko">
       <option name="closed" value="true" />
@@ -167,31 +150,103 @@
       <option name="project" value="LOCAL" />
       <updated>1745077068319</updated>
     </task>
-    <task id="LOCAL-00006" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+    <task id="LOCAL-00006" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
       <option name="closed" value="true" />
-      <created>1745331223351</created>
+      <created>1746023585426</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1745331223351</updated>
+      <updated>1746023585426</updated>
     </task>
-    <task id="LOCAL-00007" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+    <task id="LOCAL-00007" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
       <option name="closed" value="true" />
-      <created>1745600667279</created>
+      <created>1746025872431</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1745600667279</updated>
+      <updated>1746025872431</updated>
     </task>
-    <task id="LOCAL-00008" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+    <task id="LOCAL-00008" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
       <option name="closed" value="true" />
-      <created>1746722971545</created>
+      <created>1746026144851</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1746722971545</updated>
+      <updated>1746026144851</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746027969472</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746027969472</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746031913276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031913276</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha">
+      <option name="closed" value="true" />
+      <created>1746210172380</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746210172380</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Arreglado el dibujado de capas (se dibujan en orden).">
+      <option name="closed" value="true" />
+      <created>1746217091359</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746217091359</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746223160323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746223160325</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746231369462</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746231369462</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets">
+      <option name="closed" value="true" />
+      <created>1746550742090</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746550742090</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Arreglado el error del mapa del castillo">
+      <option name="closed" value="true" />
+      <created>1746716991485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746716991485</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <option name="closed" value="true" />
+      <created>1746723774624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746723774624</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +267,15 @@
     <MESSAGE value="ko" />
     <MESSAGE value="Basic Idea of the implementation of characters stats" />
     <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
+    <MESSAGE value="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
+    <MESSAGE value="Mapa del bosque unificado a un solo mapa (woods.json)" />
+    <MESSAGE value="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha" />
+    <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden)." />
+    <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)" />
+    <MESSAGE value="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets" />
+    <MESSAGE value="Arreglado el error del mapa del castillo" />
+    <MESSAGE value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,6 +289,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/plantilla_2025_Equipo_E$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1746724230109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rpg" />
+    <SUITE FILE_PATH="coverage/plantilla_2025_Equipo_E$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1746820550020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rpg" />
   </component>
 </project>
