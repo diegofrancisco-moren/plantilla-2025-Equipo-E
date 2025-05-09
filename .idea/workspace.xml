@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="pequeños cambios para hacer pruebas.">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Actualización castillo final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746747234620</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Actualización castillo final">
+      <option name="closed" value="true" />
+      <created>1746822145615</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1746822145615</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,6 +332,7 @@
     <MESSAGE value="Arreglado el dibujado de capas definitivamente (espero)" />
     <MESSAGE value="pequeños cambios para hacer pruebas" />
     <MESSAGE value="pequeños cambios para hacer pruebas." />
-    <option name="LAST_COMMIT_MESSAGE" value="pequeños cambios para hacer pruebas." />
+    <MESSAGE value="Actualización castillo final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualización castillo final" />
   </component>
 </project>
