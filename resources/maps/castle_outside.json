@@ -229,8 +229,8 @@
          "data":"eJztwYEAAAAAw6D5U1\/gCFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAOtcAAB",
          "encoding":"base64",
          "height":100,
-         "id":26,
-         "name":"bridges",
+         "id":25,
+         "name":"water_nonblocking",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -243,8 +243,8 @@
          "data":"eJztwYEAAAAAw6D5U1\/gCFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAOtcAAB",
          "encoding":"base64",
          "height":100,
-         "id":25,
-         "name":"water_nonblocking",
+         "id":26,
+         "name":"bridges",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -405,85 +405,6 @@
         }, 
         {
          "draworder":"topdown",
-         "id":19,
-         "name":"characters",
-         "objects":[
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":0.0909090909092356,
-                         "y":15.3636363636365
-                        }, 
-                        {
-                         "x":86.375,
-                         "y":14.421875
-                        }, 
-                        {
-                         "x":87.288043478261,
-                         "y":47.092391304348
-                        }, 
-                        {
-                         "x":0.136363636363512,
-                         "y":15.4318181818185
-                        }],
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"guard2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1656.75,
-                 "y":2437
-                }, 
-                {
-                 "height":0,
-                 "id":17,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":-91.5,
-                         "y":-2.5
-                        }, 
-                        {
-                         "x":-90.9545454545453,
-                         "y":30.8636363636365
-                        }, 
-                        {
-                         "x":0.125,
-                         "y":-0.375
-                        }],
-                 "properties":[
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"guard2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1898,
-                 "y":2454.5
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
          "id":18,
          "name":"searchable",
          "objects":[],
@@ -509,6 +430,85 @@
          "id":22,
          "name":"axeable",
          "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":19,
+         "name":"characters",
+         "objects":[
+                {
+                 "height":0,
+                 "id":15,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":-2.90909090909076,
+                         "y":14.030303030303
+                        }, 
+                        {
+                         "x":86.375,
+                         "y":14.421875
+                        }, 
+                        {
+                         "x":86.2880434782608,
+                         "y":83.092391304348
+                        }, 
+                        {
+                         "x":-3.19696969696975,
+                         "y":82.0984848484854
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"guard2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1656.75,
+                 "y":2437
+                }, 
+                {
+                 "height":0,
+                 "id":19,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":2.90909,
+                         "y":14.0303
+                        }, 
+                        {
+                         "x":-86.375,
+                         "y":14.4219
+                        }, 
+                        {
+                         "x":-86.288,
+                         "y":83.0924
+                        }, 
+                        {
+                         "x":3.19697,
+                         "y":82.0985
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"guard2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1893.84469666667,
+                 "y":2437
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -561,7 +561,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":19,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
