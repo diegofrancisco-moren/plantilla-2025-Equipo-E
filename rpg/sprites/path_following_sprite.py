@@ -10,11 +10,11 @@ class PathFollowingSprite(CharacterSprite):
     Simple character that follows a pre-defined path of points
     """
 
-    def __init__(self, sheet_name, statistics):
+    def __init__(self, sheet_name, statistics,speed=1):
         super().__init__(sheet_name)
         self.path = []
         self.cur_point = 0
-        self.speed = 1
+        self.speed = speed
         self.sheet_name = sheet_name
         self.statistics = statistics
 

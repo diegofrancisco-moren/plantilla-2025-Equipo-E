@@ -8,7 +8,7 @@ class PlayerSprite(CharacterSprite):
     def __init__(self, sheet_name, statistics):
         super().__init__(sheet_name)
         self.sound_update = 0
-        self.footstep_sound = arcade.load_sound(":sounds:footstep00.wav")
+        self.footstep_sound = None
         self.sheet_name = sheet_name
         self.statistics = statistics
 

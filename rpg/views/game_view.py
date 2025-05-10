@@ -379,6 +379,7 @@ class GameView(arcade.View):
             map_layers = cur_map.map_layers
 
             # Draw scene
+
             for layer in cur_map.map_layers:
                 self.map_list[self.cur_map_name].map_layers[layer].draw()
 
@@ -393,7 +394,7 @@ class GameView(arcade.View):
 
             for layer in cur_map.scene.name_mapping:
                 if layer not in cur_map.map_layers and layer !="wall_list":
-                    cur_map.scene[layer].draw()
+                   cur_map.scene[layer].draw()
 
 
             # Draw the player

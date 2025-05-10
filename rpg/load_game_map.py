@@ -35,7 +35,7 @@ def load_map(map_name):
     global background_music
     global background_player
     game_map = GameMap()
-    game_map.map_layers = OrderedDict()
+    game_map.map_layers = dict()
     game_map.light_layer = LightLayer(100, 100)
 
     # List of blocking sprites
@@ -76,7 +76,6 @@ def load_map(map_name):
 
 
     game_map.scene = arcade.Scene.from_tilemap(my_map)
-
 
 
     if not background_music:
@@ -121,8 +120,9 @@ def load_map(map_name):
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
+                speed = character_object.properties.get("speed", 1)
                 character_sprite = PathFollowingSprite(
-                    f":characters:{character_data['images']}", None)
+                    f":characters:{character_data['images']}", None,speed)
                 character_sprite.position = location
                 path = []
                 for point in shape:
@@ -182,8 +182,9 @@ def load_map(map_name):
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
+                speed = enemy_object.properties.get("speed", 1)
                 enemy_sprite = PathFollowingSprite(
-                    f":enemies:{enemy_data['images']}", enemy_statistics)
+                    f":enemies:{enemy_data['images']}", enemy_statistics, speed)
                 enemy_sprite.position = location
                 path = []
                 for point in shape:
@@ -259,7 +260,7 @@ def load_map(map_name):
 
     print(f"Map loaded: {map_name}")
     print(game_map.map_layers.items())
-    print("Capas de game_map  ", game_map.scene.name_mapping.keys())
+    print("Capas de game_map scene ", game_map.scene.name_mapping.keys())
     print(f"Layers: {list(game_map.map_layers.keys())}")
     print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
 
