@@ -3,7 +3,6 @@ Main game view
 """
 
 import json
-from functools import partial
 from typing import Callable
 
 import arcade
@@ -12,7 +11,6 @@ import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 
-from rpg.load_game_map import background_music, background_player #Se importa la variable desde load_game_map
 
 from rpg.message_box import MessageBox
 from rpg.save_player_game import load_game
@@ -244,11 +242,11 @@ class GameView(arcade.View):
 
 
 
-    def setup(self, save_file):
+    def setup(self, load_save, file_name):
         """Set up the game variables. Call to re-start the game."""
-        if save_file:
+        if load_save:
             print("Cargo el personaje anterior")
-            load_game(filename = "save_player_Paco_0.json", gameview = self)
+            load_game(filename = file_name, gameview = self)
         else:
             #Create the statistics of the player
             player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
@@ -703,6 +701,7 @@ class GameView(arcade.View):
         self.keys_held.clear()
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
+
 
         if result:
             self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)

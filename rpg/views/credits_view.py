@@ -26,3 +26,7 @@ class CreditsView(arcade.View):
         arcade.set_background_color(arcade.color.ALMOND)
         arcade.set_viewport(0, self.window.width, 0, self.window.height)
 
+    def on_key_press(self, symbol: int, modifiers: int):
+        if symbol == arcade.key.ESCAPE:
+                print("show game view")
+                self.window.show_view(self.window.views["starting_menu"])

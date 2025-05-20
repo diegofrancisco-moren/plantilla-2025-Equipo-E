@@ -4,7 +4,8 @@
 import arcade
 import arcade.gui
 
-from rpg.save_player_game import save_game
+
+from rpg.views.saves_view import SavesView
 
 
 class MainMenuView(arcade.View):
@@ -88,8 +89,8 @@ class MainMenuView(arcade.View):
 
     def on_click_save_game(self, event, player, gameview):
         print("saving game...")
-        save_file = save_game(player, gameview)
-        print("La partida se guardo en " + save_file)
+        next_view = SavesView(True, player, gameview)
+        self.window.show_view(next_view)
 
     def on_click_quit(self, event):
         print("quitting")

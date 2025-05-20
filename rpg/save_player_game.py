@@ -12,7 +12,7 @@ from rpg.load_game_map import load_map
 from rpg.sprites.player_sprite import PlayerSprite
 
 
-def save_game(player, game_view):
+def save_game(player, game_view, button_text):
     save_data = {
         # Atributos Clase Player
         "class_type": player.statistics.get_class_type(),
@@ -40,20 +40,32 @@ def save_game(player, game_view):
     }
 
     # El nombre del archivo JSON será el nombre del jugador
-    base_filename = f"../resources/saves/save_player_{player.statistics.get_name()}"
+    base_file = "../resources/saves/"
+    file_name = f"save_player_{player.statistics.get_name()}"
     extension = ".json"
 
 
     # Si esta partida no tiene arhcivo de guardado se crea uno
-    if player.statistics.save_file is None:
-        candidate = base_filename + extension
+    print(button_text)
+    if button_text == "Archivo libre":
+        candidate = base_file + file_name + extension
         counter = 0
         # Si el nombre del archivo ya existe, se le añade un número
         while os.path.exists(candidate):
-            candidate = f"{base_filename}_{counter}{extension}"
+            candidate = f"{base_file}{file_name}_{counter}{extension}"
             counter += 1
 
         player.statistics.save_file = candidate
+    elif file_name != button_text:
+        os.remove(f"{base_file}{button_text}")
+        candidate = base_file + file_name + extension
+        counter = 0
+        # Si el nombre del archivo ya existe, se le añade un número
+        while os.path.exists(candidate):
+            candidate = f"{base_file}{file_name}_{counter}{extension}"
+            counter += 1
+        player.statistics.save_file = candidate
+
 
     with open(player.statistics.save_file, "w") as f:
         json.dump(save_data, f, indent=2)

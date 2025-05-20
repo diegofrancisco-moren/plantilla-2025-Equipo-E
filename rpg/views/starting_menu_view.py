@@ -1,9 +1,7 @@
 import arcade
 import arcade.gui
 
-from rpg.views.credits_view import CreditsView
 from rpg.views.loading_view import LoadingView
-from rpg.views.settings_view import SettingsView
 from rpg.views.saves_view import SavesView
 
 
@@ -42,6 +40,8 @@ class StartingMenuView(arcade.View):
                 anchor_x="center_x", anchor_y="center_y", child=self.v_box
             )
         )
+        self.window.views["starting_menu"] = self
+
 
     def on_show_view(self):
         self.manager.enable()
@@ -60,29 +60,28 @@ class StartingMenuView(arcade.View):
     def on_click_new_game(self, event):
         print("Loads game")
         self.manager.disable()
-        load_game = LoadingView()
-        load_game.setup()
-        self.window.show_view(load_game)
+        self.window.views["loading"] = LoadingView()
+        self.window.views["loading"].set_load_game(load_save = False, file_name = None)
+        self.window.views["loading"].setup()
+        self.window.show_view(self.window.views["loading"])
 
     def on_click_load_game(self, event):
         print("Loads game")
-        save_menu = SavesView()
-        save_menu.setup()
-        self.window.show_view(save_menu)
+        # Indicamos False, ya que no vamos a guardar una partida
+        self.window.views["loading"] = LoadingView()
+        self.window.views["loading"].setup()
+        next_view = SavesView(save = False, player = None, gameview = None)
+        self.window.show_view(next_view)
 
 
     def on_click_settings(self, event):
         print("Adjust the settings")
-        settings_menu = SettingsView()
-        settings_menu.setup()
-        self.window.show_view(settings_menu)
+        self.window.show_view(self.window.views["settings"])
         'Have to find a way to fix the Esc button not working'
 
     def on_click_credits(self, event):
         print("Displays the credits")
-        credits_show = CreditsView()
-        credits_show.setup()
-        self.window.show_view(credits_show)
+        self.window.show_view(self.window.views["credits"])
 
     def on_click_exit(self, event):
         print("Exits the game")

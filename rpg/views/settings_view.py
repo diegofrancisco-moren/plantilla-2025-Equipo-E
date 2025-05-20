@@ -6,7 +6,7 @@ import rpg.constants as constants
 
 
 class SettingsView(arcade.View):
-    def __init__(self):
+    def __init__(self, last_window):
         super().__init__()
         self.started = False
         arcade.set_background_color(arcade.color.ALMOND)
