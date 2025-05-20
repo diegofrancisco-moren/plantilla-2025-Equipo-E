@@ -16,6 +16,9 @@ SPRITE_SIZE = 32
 # How fast does the player move
 MOVEMENT_SPEED = 6
 
+# Sprite of the player
+player_sheet_name = ":characters:Male/Male 02-2.png"
+
 # Statistics of the player
 HEALTH = 100
 ATTACK = 40

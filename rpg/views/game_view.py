@@ -3,7 +3,6 @@ Main game view
 """
 
 import json
-from functools import partial
 from typing import Callable
 
 import arcade
@@ -12,12 +11,13 @@ import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 
-from rpg.load_game_map import background_music, background_player #Se importa la variable desde load_game_map
 
 from rpg.message_box import MessageBox
+from rpg.save_player_game import load_game
 from rpg.sprites.player_sprite import PlayerSprite
 from rpg.views.battle_view import BattleView
 from rpg.entities.player import Player
+from rpg.views.main_menu_view import MainMenuView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -219,9 +219,7 @@ class GameView(arcade.View):
         self.player_sprite.center_x = (
             start_x * constants.SPRITE_SIZE + constants.SPRITE_SIZE / 2
         )
-        self.player_sprite.center_y = (
-            map_height - start_y
-        ) * constants.SPRITE_SIZE - constants.SPRITE_SIZE / 2
+        self.player_sprite.center_y = (map_height - start_y) * constants.SPRITE_SIZE - constants.SPRITE_SIZE / 2
         self.scroll_to_player(1.0)
         self.player_sprite_list = arcade.SpriteList()
         self.player_sprite_list.append(self.player_sprite)
@@ -246,24 +244,28 @@ class GameView(arcade.View):
 
 
 
-    def setup(self):
+    def setup(self, load_save, file_name):
         """Set up the game variables. Call to re-start the game."""
+        if load_save:
+            print("Cargo el personaje anterior")
+            load_game(filename = file_name, gameview = self)
+        else:
+            #Create the statistics of the player
+            player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
+                                       , constants.DEFENSE, constants.SPEED, constants.MANA,
+                                       "warrior")
+            player_statistics.add_player_attack()
+            player_statistics.add_player_magic_attack()
 
-        #Create the statistics of the player
-        player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
-                                   , constants.DEFENSE, constants.SPEED, constants.MANA,
-                                   "warrior")
-        player_statistics.add_player_attack()
-        player_statistics.add_player_magic_attack()
+            # Create the player character
+            self.player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
 
-        # Create the player character
-        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png", player_statistics)
 
-        # Spawn the player
-        start_x = constants.STARTING_X
-        start_y = constants.STARTING_Y
-        self.switch_map(constants.STARTING_MAP, start_x, start_y)
-        self.cur_map_name = constants.STARTING_MAP
+            # Spawn the player
+            start_x = constants.STARTING_X
+            start_y = constants.STARTING_Y
+            self.switch_map(constants.STARTING_MAP, start_x, start_y)
+            self.cur_map_name = constants.STARTING_MAP
 
         # Set up the hotbar
         self.load_hotbar_sprites()
@@ -596,7 +598,8 @@ class GameView(arcade.View):
         elif key in constants.INVENTORY:
             self.window.show_view(self.window.views["inventory"])
         elif key == arcade.key.ESCAPE:
-            self.window.show_view(self.window.views["main_menu"])
+            pause_menu = MainMenuView(player = self.player_sprite, game_view = self)
+            self.window.show_view(pause_menu)
         elif key in constants.SEARCH:
             self.search()
         elif key == arcade.key.KEY_1:
@@ -701,6 +704,7 @@ class GameView(arcade.View):
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
+
         if result:
             self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
             self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
@@ -708,4 +712,12 @@ class GameView(arcade.View):
         self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])
 
+    def set_player_sprite(self, player_sprite):
+        self.player_sprite = player_sprite
+
+    def set_cur_map_name(self, cur_map_name):
+        self.cur_map_name = cur_map_name
+
+    def get_cur_map_name(self):
+        return self.cur_map_name
 

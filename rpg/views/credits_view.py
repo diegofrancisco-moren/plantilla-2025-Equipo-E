@@ -1,20 +1,14 @@
-"""
-Settings
-"""
 import arcade
-import rpg.constants as constants
 
-
-class SettingsView(arcade.View):
-    def __init__(self, last_window):
+class CreditsView(arcade.View):
+    def __init__(self):
         super().__init__()
-        self.started = False
         arcade.set_background_color(arcade.color.ALMOND)
 
     def on_draw(self):
         arcade.start_render()
         arcade.draw_text(
-            "Settings",
+            "Credits",
             self.window.width / 2,
             self.window.height - 50,
             arcade.color.ALLOY_ORANGE,
@@ -34,4 +28,5 @@ class SettingsView(arcade.View):
 
     def on_key_press(self, symbol: int, modifiers: int):
         if symbol == arcade.key.ESCAPE:
-            self.window.show_view(self.window.views["main_menu"])
+                print("show game view")
+                self.window.show_view(self.window.views["starting_menu"])
