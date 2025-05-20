@@ -55,7 +55,7 @@ class Entity:
             if attack_name in attack_dictionary:
                 attack_data = attack_dictionary[attack_name]
                 self.attack_list.append(attack_data)
-
+                
     def get_name(self):
         return self.name
 
@@ -103,4 +103,3 @@ class Entity:
 
     def set_mana_max(self, value):
         self.mana_max = value
-

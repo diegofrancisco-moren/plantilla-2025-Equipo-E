@@ -293,7 +293,7 @@
                  "x":160,
                  "y":192
                 }],
-         "opacity":1,
+         "opacity":0.92,
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -313,7 +313,7 @@
                         {
                          "name":"item",
                          "type":"string",
-                         "value":"Lesser Healing Potion"
+                         "value":"Lesser_Healing_Potion"
                         }],
                  "rotation":0,
                  "type":"",
@@ -361,7 +361,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/..\/..\/plantilla-2025-Equipo-E\/resources\/tilesets\/[Base]BaseChip_pipo.json"
+         "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
         }, 
         {
          "firstgid":1065,

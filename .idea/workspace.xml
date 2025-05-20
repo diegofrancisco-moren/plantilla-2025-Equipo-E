@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats">
-      <change afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/ally.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/enemy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/entity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpg/entities/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadida funcionalidad al botón de créditos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Rutosca" />
+        <entry key="$PROJECT_DIR$" value="Diego" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +52,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Miguel&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
 }</component>
   <component name="RunManager">
@@ -92,7 +85,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
+        <option value="bundled-python-sdk-348a24fa61fa-5312c7369657-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.23774.444" />
       </set>
     </attachedChunks>
   </component>
@@ -129,12 +122,113 @@
       <option name="project" value="LOCAL" />
       <updated>1744120096863</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="-Implementación de listas de ataques fisicos y magicos en la clase Entity, con sus funciones para cargar los ataques&#10;-Automatización de la carga de los ataques del jugador al iniciar el juego.&#10;-Ahora se muestran las listas de ataques fisicos y mágicos del jugador al pulsar los respectivos botones en la pantalla de batalla. También se muestran los objetos usables por el jugador al pulsar el boton &quot;I&quot; en la ventana de batalla.">
+      <option name="closed" value="true" />
+      <created>1745075791688</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745075791688</updated>
+    </task>
+    <task id="LOCAL-00005" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+      <option name="closed" value="true" />
+      <created>1745077068319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745077068319</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Añadido el menu principal (aunque aún no funciona)">
+      <option name="closed" value="true" />
+      <created>1745833559189</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745833559189</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Añadido el menu principal (Ahora si funciona, al menos el botón de iniciar el juego)">
+      <option name="closed" value="true" />
+      <created>1745835287905</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745835287905</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Añadido el botón de juego nuevo y el título">
+      <option name="closed" value="true" />
+      <created>1745839919372</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745839919372</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos">
+      <option name="closed" value="true" />
+      <created>1746027870442</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746027870442</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Añadido el menú de archivos de guardado">
+      <option name="closed" value="true" />
+      <created>1746030404459</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746030404459</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Añadida funcionalidad al botón de créditos">
+      <option name="closed" value="true" />
+      <created>1746031065780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031065780</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Añadida funcionalidad al botón de créditos">
+      <option name="closed" value="true" />
+      <created>1746126450574</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746126450574</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ko" />
     <MESSAGE value="Basic Idea of the implementation of characters stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic Idea of the implementation of characters stats" />
+    <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
+    <MESSAGE value="Añadido el menu principal (aunque aún no funciona)" />
+    <MESSAGE value="Añadido el menu principal (Ahora si funciona, al menos el botón de iniciar el juego)" />
+    <MESSAGE value="Añadido el botón de juego nuevo y el título" />
+    <MESSAGE value="Añadido un botón de créditos al menu de inicio y los archivos de las vistas de guardado y créditos" />
+    <MESSAGE value="Añadido el menú de archivos de guardado" />
+    <MESSAGE value="Añadida funcionalidad al botón de créditos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida funcionalidad al botón de créditos" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rpg/views/settings_view.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

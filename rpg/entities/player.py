@@ -11,6 +11,7 @@ class Player(Entity):
         self.class_type = class_type
         self.save_file = None
 
+
     def leveling_up(self):
         while self.xp >= self.xp_max:
             self.xp = self.xp - self.xp_max
@@ -78,3 +79,4 @@ class Player(Entity):
 
     def set_save_file(self, save_file):
         self.save_file = save_file
+

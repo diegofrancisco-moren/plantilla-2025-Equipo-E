@@ -14,7 +14,7 @@ TILE_SCALING = 1.0
 SPRITE_SIZE = 32
 
 # How fast does the player move
-MOVEMENT_SPEED = 3
+MOVEMENT_SPEED = 6
 
 # Sprite of the player
 player_sheet_name = ":characters:Male/Male 02-2.png"
@@ -25,6 +25,7 @@ ATTACK = 40
 DEFENSE = 10
 SPEED = 10
 MANA = 20
+
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.

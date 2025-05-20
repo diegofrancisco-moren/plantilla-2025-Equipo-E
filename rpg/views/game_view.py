@@ -260,6 +260,7 @@ class GameView(arcade.View):
             # Create the player character
             self.player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
 
+
             # Spawn the player
             start_x = constants.STARTING_X
             start_y = constants.STARTING_Y
@@ -396,6 +397,10 @@ class GameView(arcade.View):
                 self.map_list[self.cur_map_name].map_layers["bridges"].draw()
             if map_layers.get("bridges2",[]):
                 self.map_list[self.cur_map_name].map_layers["bridges2"].draw()
+            if map_layers.get("enemies",[]):
+                self.map_list[self.cur_map_name].map_layers["enemies"].draw()
+            if map_layers.get("characters",[]):
+                self.map_list[self.cur_map_name].map_layers["characters"].draw()
 
 
 

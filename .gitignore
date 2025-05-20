@@ -1,4 +1,5 @@
 *.xml
-.idea/vcs.xml
-.idea/misc.xml
-.idea/plantilla-2025-Equipo-E.iml
+*.pyc
+*.iml
+*.patch
+
