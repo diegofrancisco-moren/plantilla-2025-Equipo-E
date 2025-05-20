@@ -88,6 +88,8 @@ def load_game(filename, gameview):
     player_statistics.set_mana(save_data["mana"])
     player_statistics.set_save_file(filename)
 
+    player_statistics.leveling_up()
+
     # Restaurar sprite del jugador, inventario, mapa y ultima posicion
     player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
     player_sprite.set_inventory(save_data["inventory"])

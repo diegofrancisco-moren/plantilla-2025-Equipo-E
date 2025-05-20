@@ -223,6 +223,12 @@ class GameView(arcade.View):
         self.player_sprite_list.append(self.player_sprite)
 
         self.setup_physics()
+        map_scene = self.map_list[self.cur_map_name].scene
+
+        if "enemy_collisions" in map_scene.name_mapping.keys():
+            for enemy in self.my_map.scene["enemy_collisions"]:
+                enemy.visible = True
+                enemy.defeated = False
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)
@@ -570,8 +576,9 @@ class GameView(arcade.View):
                 enemy_hit = arcade.check_for_collision_with_list(
                     self.player_sprite, map_scene["enemy_collisions"]
                 )
+                alive_enemies = [e for e in enemy_hit if not getattr(e, "defeated", False)]
                 # We did!
-                if len(enemy_hit) > 0:
+                if len(alive_enemies) > 0:
                     # Swap to the new map
                     battle_view = BattleView(player=self.player_sprite,enemy=enemy_hit[0],game_view=self)
                     self.window.show_view(battle_view)
@@ -705,7 +712,8 @@ class GameView(arcade.View):
 
         if result:
             self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
-            self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
+            enemy.statistics.set_defeated(True)
+            enemy.visible = False
 
         self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])

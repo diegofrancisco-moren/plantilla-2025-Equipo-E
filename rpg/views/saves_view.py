@@ -72,7 +72,7 @@ class SavesView(arcade.View):
             save_game(self.player, self.gameview, self.save_buttons[0].text)
             self.window.show_view(self.window.views["main_menu"])
         else:
-            if self.save_buttons[2].text == "Archivo libre":
+            if self.save_buttons[0].text == "Archivo libre":
                 pass
             else:
                 print("Loads the save file 1")
@@ -85,7 +85,7 @@ class SavesView(arcade.View):
             save_game(self.player, self.gameview, self.save_buttons[1].text)
             self.window.show_view(self.window.views["main_menu"])
         else:
-            if self.save_buttons[2].text == "Archivo libre":
+            if self.save_buttons[1].text == "Archivo libre":
                 pass
             else:
                 print("Loads the save file 2")
