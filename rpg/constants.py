@@ -1,10 +1,12 @@
 
 import json
+import os
 
 import arcade
 
 #Json archives
-f = open("../resources/data/attacks_list.json")
+f = open(".." + os.path.sep + "resources" + os.path.sep + "data"
+         + os.path.sep + "attacks_list.json")
 attack_dictionary = json.load(f)
 
 SCREEN_WIDTH = 1280
@@ -17,7 +19,7 @@ SPRITE_SIZE = 32
 MOVEMENT_SPEED = 6
 
 # Sprite of the player
-player_sheet_name = ":characters:Male/Male 02-2.png"
+player_sheet_name = ":characters:Male" + os.path.sep + "Male 02-2.png"
 
 # Statistics of the player
 HEALTH = 100

@@ -3,6 +3,7 @@ Main game view
 """
 
 import json
+import os
 from typing import Callable
 
 import arcade
@@ -179,10 +180,12 @@ class GameView(arcade.View):
         self.hotbar_sprite_list = None
         self.selected_item = 1
 
-        f = open("../resources/data/item_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "item_dictionary.json")
         self.item_dictionary = json.load(f)
 
-        f = open("../resources/data/characters_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "characters_dictionary.json")
         self.enemy_dictionary = json.load(f)
 
         # Cameras
@@ -225,6 +228,12 @@ class GameView(arcade.View):
         self.player_sprite_list.append(self.player_sprite)
 
         self.setup_physics()
+        map_scene = self.map_list[self.cur_map_name].scene
+
+        if "enemy_collisions" in map_scene.name_mapping.keys():
+            for enemy in self.my_map.scene["enemy_collisions"]:
+                enemy.visible = True
+                enemy.defeated = False
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)
@@ -282,7 +291,8 @@ class GameView(arcade.View):
         last_number_pad_sprite_index = 61
 
         self.hotbar_sprite_list = arcade.load_spritesheet(
-            file_name="../resources/tilesets/input_prompts_kenney.png",
+            file_name=".." + os.path.sep + "resources" + os.path.sep + "tilesets" +
+                      os.path.sep + "input_prompts_kenney.png",
             sprite_width=16,
             sprite_height=16,
             columns=34,
@@ -351,7 +361,7 @@ class GameView(arcade.View):
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
-            text = f"     {item_name}"
+            text = f"{item_name}"
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
 
 
@@ -572,8 +582,9 @@ class GameView(arcade.View):
                 enemy_hit = arcade.check_for_collision_with_list(
                     self.player_sprite, map_scene["enemy_collisions"]
                 )
+                alive_enemies = [e for e in enemy_hit if not getattr(e, "defeated", False)]
                 # We did!
-                if len(enemy_hit) > 0:
+                if len(alive_enemies) > 0:
                     # Swap to the new map
                     battle_view = BattleView(player=self.player_sprite,enemy=enemy_hit[0],game_view=self)
                     self.window.show_view(battle_view)
@@ -707,7 +718,8 @@ class GameView(arcade.View):
 
         if result:
             self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
-            self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
+            enemy.statistics.set_defeated(True)
+            enemy.visible = False
 
         self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])

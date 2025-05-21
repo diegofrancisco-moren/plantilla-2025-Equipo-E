@@ -1,8 +1,6 @@
 """
 Battle View
 """
-from contextlib import nullcontext
-
 import arcade
 import rpg.constants as constants
 import random
@@ -220,6 +218,10 @@ class BattleView(arcade.View):
                       # Cerrar inventario después de usar un ítem
                     self.magic_attack_menu = False
                     self.attack_menu = False
+            elif symbol == arcade.key.B:
+                self.inventory_open = False
+                self.magic_attack_menu = False
+                self.attack_menu = False
 
     def draw_health_bar(self, x, y, current_health, max_health, is_enemy=False):
         bar_width = 120

@@ -85,7 +85,8 @@ def load_map(map_name):
 
 
     if "characters" in my_map.object_lists:
-        f = open("../resources/data/characters_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "characters_dictionary.json")
         character_dictionary = json.load(f)
         character_object_list = my_map.object_lists["characters"]
 
@@ -140,7 +141,8 @@ def load_map(map_name):
 
     if "enemies" in my_map.object_lists:
 
-        f = open("../resources/data/enemies_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep
+                 + "data" + os.path.sep + "enemies_dictionary.json")
         enemy_dictionary = json.load(f)
         enemy_object_list = my_map.object_lists["enemies"]
         game_map.scene.add_sprite_list("enemy_collisions", use_spatial_hash=True)
@@ -274,7 +276,7 @@ def load_maps():
     """
 
     # Directory to pull maps from
-    mypath = "../resources/maps"
+    mypath = ".." + os.path.sep + "resources" + os.path.sep + "maps"
 
     if load_maps.map_file_names is None:
 
@@ -294,7 +296,8 @@ def load_maps():
 
     # Loop and load each file
     map_name = load_maps.map_file_names.pop(0)
-    load_maps.map_list[map_name] = load_map(f"../resources/maps/{map_name}.json")
+    load_maps.map_list[map_name] = load_map(f".." + os.path.sep + "resources" +
+                                            os.path.sep + "maps" + os.path.sep + f"{map_name}.json")
 
     files_left = load_maps.file_count - len(load_maps.map_file_names)
     progress = 100 * files_left / load_maps.file_count

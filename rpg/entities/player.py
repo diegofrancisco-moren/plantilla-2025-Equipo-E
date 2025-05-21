@@ -49,7 +49,7 @@ class Player(Entity):
                 if attack_data["class"] == self.class_type or attack_data["class"] == "all":
                     if attack_data["level"] <= self.level:
                         if not (attack_data["learned"]):
-                            self.attack_list.append(attack_data)
+                            self.attack_magic_list.append(attack_data)
                             print(self.name + " aprendió " + attack_data["name"])
                             attack_data["learned"] = True
 

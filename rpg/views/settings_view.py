@@ -2,7 +2,6 @@
 Settings
 """
 import arcade
-import rpg.constants as constants
 
 
 class SettingsView(arcade.View):
