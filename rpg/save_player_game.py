@@ -1,9 +1,4 @@
 import os
-from datetime import datetime
-import json
-
-
-from datetime import datetime
 import json
 
 from rpg import constants
@@ -40,7 +35,7 @@ def save_game(player, game_view, button_text):
     }
 
     # El nombre del archivo JSON será el nombre del jugador
-    base_file = "../resources/saves/"
+    base_file = ".." + os.path.sep + "resources" + os.path.sep + "saves"
     file_name = f"save_player_{player.statistics.get_name()}"
     extension = ".json"
 
@@ -73,7 +68,8 @@ def save_game(player, game_view, button_text):
     return player.statistics.save_file
 
 def load_game(filename, gameview):
-    filepath = f"../resources/saves/{filename}"
+    filepath = (".." + os.path.sep + "resources" + os.path.sep + "saves" +
+                os.path.sep + f"{filename}")
     with open(filepath, "r") as f:
         save_data = json.load(f)
     print("¡Partida cargada!")

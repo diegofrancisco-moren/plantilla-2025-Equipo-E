@@ -1,8 +1,6 @@
 """
 Battle View
 """
-from contextlib import nullcontext
-
 import arcade
 import rpg.constants as constants
 import random

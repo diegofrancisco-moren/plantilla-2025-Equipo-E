@@ -3,8 +3,7 @@ Python Arcade Community RPG
 
 An open-source RPG
 """
-from idlelib.mainmenu import menudefs
-
+import os
 import arcade
 
 from rpg.constants import SCREEN_HEIGHT, SCREEN_TITLE, SCREEN_WIDTH
@@ -16,12 +15,30 @@ class MyWindow(arcade.Window):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=True)
         self.views = {}
 
-        arcade.resources.add_resource_handle("characters", "../resources/characters")
-        arcade.resources.add_resource_handle("maps", "../resources/maps")
-        arcade.resources.add_resource_handle("data", "../resources/data")
-        arcade.resources.add_resource_handle("sounds", "../resources/sounds")
-        arcade.resources.add_resource_handle("misc", "../resources/misc")
-        arcade.resources.add_resource_handle("enemies","../resources/characters/")
+        arcade.resources.add_resource_handle("characters", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "characters" +
+                                             os.path.sep)
+        arcade.resources.add_resource_handle("maps", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "maps" +
+                                             os.path.sep)
+        arcade.resources.add_resource_handle("data", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "data" +
+                                             os.path.sep)
+        arcade.resources.add_resource_handle("sounds", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "sounds" +
+                                             os.path.sep)
+        arcade.resources.add_resource_handle("misc", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "misc" +
+                                             os.path.sep)
+        arcade.resources.add_resource_handle("enemies",".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "characters" +
+                                             os.path.sep)
 
 def main():
     """Main method"""

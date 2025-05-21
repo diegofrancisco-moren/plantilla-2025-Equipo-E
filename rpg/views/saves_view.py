@@ -1,11 +1,10 @@
 import arcade
 import arcade.gui
 import os
-
 from rpg.save_player_game import save_game
 
 
-SAVE_FOLDER = "../resources/saves/"
+SAVE_FOLDER = ".." + os.path.sep + "resources" + os.path.sep + "saves" + os.path.sep
 MAX_SAVES = 3  # Número máximo de archivos de guardado
 
 class SavesView(arcade.View):
