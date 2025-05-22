@@ -253,7 +253,7 @@ def load_map(map_name):
 
     print(f"Map loaded: {map_name}")
     print(f"Layers: {list(game_map.map_layers.keys())}")
-    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
+    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}" + "\n")
 
 
 

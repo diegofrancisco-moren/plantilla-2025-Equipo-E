@@ -1,21 +1,23 @@
 {
   "Apple": {"name": "Apple",
-            "type": "food",
+            "type": "Food",
+            "booster_type": "health",
             "heal_amount": 5,
             "usable" : true
   },
   "Dagger": {"name": "Dagger",
-             "type": "weapon",
+             "type": "Weapon",
              "damage_amount": 5,
              "usable" : false
   },
   "Sword": {"name": "Sword",
-             "type": "weapon",
+             "type": "Weapon",
              "damage_amount": 10,
              "usable" : false
   },
   "Lesser_Healing_Potion": {"name": "Lesser Healing Potion",
               "type": "Potion",
+              "booster_type": "health",
               "heal_amount": 10,
               "usable" : true
   }

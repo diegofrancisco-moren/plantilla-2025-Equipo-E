@@ -14,27 +14,41 @@ BUTTON_HEIGHT = 50
 
 
 class Item():
-    def __init__(self, name, color):
+    def __init__(self, name, color, quantity):
         self.name = name
         self.color = color
+        self.quantity = quantity
 
 
 class InventoryView(arcade.View):
-    def __init__(self):
+    def __init__(self, player):
         super().__init__()
         self.inventory = [[None for _ in range(INVENTORY_COLS)] for _ in range(INVENTORY_ROWS)]
         self.selected = None
-        self.setup()
+        self.player = player
 
     def setup(self):
         # ejemplos
-        self.inventory[0][0] = Item("Espada", arcade.color.RED)
-        self.inventory[1][2] = Item("Poción", arcade.color.GREEN)
-        self.inventory[2][4] = Item("Escudo", arcade.color.BLUE)
-        self.inventory[0][3] = Item("Arco", arcade.color.RED)
-        self.inventory[2][0] = Item("Manzana", arcade.color.YELLOW)
+        player_inventory = list(self.player.get_inventory().values())
+        i_cols = 0
+        i_rows = 2
+        item_color = None
+        for i in range(len(player_inventory)):
+            i_cols = i
+            if i_cols > 6:
+                i_cols = 0
+                i_rows -= 1
+            if player_inventory[i]["type"] == "Weapon":
+                item_color = arcade.color.RED
+            elif player_inventory[i]["type"] == "Food":
+                item_color = arcade.color.YELLOW
+            elif player_inventory[i]["type"] == "Potion":
+                item_color = arcade.color.GREEN
+            self.inventory[i_rows][i_cols] = Item(player_inventory[i]["name"],
+                                                  item_color, player_inventory[i]["quantity"])
 
     def on_draw(self):
+
         arcade.start_render()
         arcade.set_background_color(arcade.color.ALMOND)
 
@@ -70,6 +84,14 @@ class InventoryView(arcade.View):
                         item.name,
                         x,
                         y - 45,
+                        arcade.color.DARK_BROWN,
+                        14,
+                        anchor_x="center"
+                    )
+                    arcade.draw_text(
+                        f"x{item.quantity}",
+                        x,
+                        y + 45,
                         arcade.color.DARK_BROWN,
                         14,
                         anchor_x="center"
@@ -129,7 +151,7 @@ class InventoryView(arcade.View):
         for row in range(INVENTORY_ROWS):
             for col in range(INVENTORY_COLS):
                 if index < len(items):
-                    new_inventory[row][col] = items[index]
+                    new_inventory[2 - row][col] = items[index]
                     index += 1
         self.inventory = new_inventory
         self.selected = None  # Deselecciona tras ordenar

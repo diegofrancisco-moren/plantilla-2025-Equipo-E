@@ -24,9 +24,9 @@ def save_game(player, game_view, button_text):
         "attack": player.statistics.get_attack(),
         "defense": player.statistics.get_defense(),
         "speed": player.statistics.get_speed(),
+        "inventory": player.statistics.get_inventory(),
 
         # Atributos clase Sprite
-        "inventory": player.get_inventory(),
         "player_position": list(player.get_position()),
 
         # Atributos clase GameView
@@ -35,7 +35,7 @@ def save_game(player, game_view, button_text):
     }
 
     # El nombre del archivo JSON será el nombre del jugador
-    base_file = ".." + os.path.sep + "resources" + os.path.sep + "saves"
+    base_file = ".." + os.path.sep + "resources" + os.path.sep + "saves" + os.path.sep
     file_name = f"save_player_{player.statistics.get_name()}"
     extension = ".json"
 
@@ -83,12 +83,13 @@ def load_game(filename, gameview):
     player_statistics.set_health(save_data["health"])
     player_statistics.set_mana(save_data["mana"])
     player_statistics.set_save_file(filename)
+    player_statistics.set_inventory(save_data["inventory"])
 
     player_statistics.leveling_up()
 
     # Restaurar sprite del jugador, inventario, mapa y ultima posicion
     player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
-    player_sprite.set_inventory(save_data["inventory"])
+
 
     gameview.set_player_sprite(player_sprite)
 

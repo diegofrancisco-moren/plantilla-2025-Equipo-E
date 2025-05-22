@@ -31,7 +31,6 @@ class CharacterSprite(arcade.Sprite):
         self.should_update = 0
         self.cur_texture_index = 0
         self.texture = self.textures[self.cur_texture_index]
-        self.inventory = []
 
     def on_update(self, delta_time):
         if not self.change_x and not self.change_y:
@@ -64,12 +63,6 @@ class CharacterSprite(arcade.Sprite):
             self.cur_texture_index = SPRITE_INFO[direction][0]
 
         self.texture = self.textures[self.cur_texture_index]
-
-    def get_inventory(self):
-        return self.inventory
-
-    def set_inventory(self, inventory):
-        self.inventory = inventory
 
     def get_position(self):
         return self.position
