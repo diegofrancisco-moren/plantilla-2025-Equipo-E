@@ -30,7 +30,11 @@ class BattleView(arcade.View):
             self.magic_attacks = player.statistics.attack_magic_list
 
             # Cargar texturas
+            self.player_sprite = arcade.Sprite()
             self.player_sprite.texture = arcade.load_texture(self.player.sheet_name, x=0, y=0, width=32, height=32)
+
+            self.enemy_sprite = arcade.Sprite()
+            self.enemy_sprite.texture = self.enemy.texture
             self.enemy_sprite.texture = arcade.load_texture(self.enemy.sheet_name, x=0, y=0, width=32, height=32)
 
             # Posicionar los sprites
@@ -45,7 +49,10 @@ class BattleView(arcade.View):
             self.sprite_list.append(self.enemy_sprite)
 
         # Ruta base a partir del archivo actual (battle_view.py)
-        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../resources/misc"))
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".." +
+                                             os.path.sep + ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "misc"))
 
         # Cargar iconos de acciones con ruta absoluta
         self.icon_attack = arcade.load_texture(os.path.join(base_path, "sword-icon.png"))
@@ -263,7 +270,7 @@ class BattleView(arcade.View):
 
         start_y = 610
 
-        for i, item in enumerate(self.items):
+        for i, item in enumerate(items):
             color = arcade.color.YELLOW if i == self.selected_item else arcade.color.WHITE
             arcade.draw_text(
                 item["name"], 320, start_y - i * 35, color, 24, anchor_x="left"
