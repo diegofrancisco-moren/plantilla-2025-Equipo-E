@@ -10,6 +10,7 @@ class Player(Entity):
         self.level = 1
         self.class_type = class_type
         self.save_file = None
+        self.inventory = {}
 
 
     def leveling_up(self):
@@ -21,9 +22,10 @@ class Player(Entity):
             self.attack += (self.attack * 0.1)
             self.defense += (self.defense * 0.1)
             self.speed +=  (self.speed * 0.1)
-            print(self.name + " ha subido al nivel " + str(self.level))
+            print(self.name + " ha subido al nivel " + str(self.level) + "\n")
         self.add_player_attack()
         self.add_player_magic_attack()
+        print("\n")
 
     def add_xp(self, amount):
         self.xp += amount
@@ -80,3 +82,11 @@ class Player(Entity):
     def set_save_file(self, save_file):
         self.save_file = save_file
 
+    def get_inventory(self):
+        return self.inventory
+
+    def set_inventory(self, inventory):
+        self.inventory = inventory
+
+    def del_item_inventory(self, item_name):
+        del self.inventory[item_name]

@@ -18,6 +18,7 @@ from rpg.save_player_game import load_game
 from rpg.sprites.player_sprite import PlayerSprite
 from rpg.views.battle_view import BattleView
 from rpg.entities.player import Player
+from rpg.views.inventory_view import InventoryView
 from rpg.views.main_menu_view import MainMenuView
 
 
@@ -266,9 +267,11 @@ class GameView(arcade.View):
             player_statistics.add_player_attack()
             player_statistics.add_player_magic_attack()
 
+            self.window.views["inventory"] = InventoryView(player_statistics)
+            self.window.views["inventory"].setup()
+
             # Create the player character
             self.player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
-
 
             # Spawn the player
             start_x = constants.STARTING_X
@@ -353,8 +356,9 @@ class GameView(arcade.View):
                     x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
                 )
 
-            if len(self.player_sprite.inventory) > i:
-                item_name = self.player_sprite.inventory[i]["name"]
+            player_inventory = list(self.player_sprite.statistics.get_inventory().values())
+            if len(player_inventory) > i:
+                item_name = player_inventory[i]["name"]
             else:
                 item_name = ""
 
@@ -607,7 +611,9 @@ class GameView(arcade.View):
         if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
             self.keys_held.add(key)
         elif key in constants.INVENTORY:
-            self.window.show_view(self.window.views["inventory"])
+            inventory_view = InventoryView(self.player_sprite.statistics)
+            inventory_view.setup()
+            self.window.show_view(inventory_view)
         elif key == arcade.key.ESCAPE:
             pause_menu = MainMenuView(player = self.player_sprite, game_view = self)
             self.window.show_view(pause_menu)
@@ -655,29 +661,37 @@ class GameView(arcade.View):
 
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "searchable" not in map_layers:
-            print(f"No searchable sprites on {self.cur_map_name} map layer.")
+            print(f"No searchable sprites on {self.cur_map_name} map layer.\n")
             return
 
         searchable_sprites = map_layers["searchable"]
         sprites_in_range = arcade.check_for_collision_with_list(
             self.player_sprite, searchable_sprites
         )
-        print(f"Found {len(sprites_in_range)} searchable sprite(s) in range.")
+        print(f"Found {len(sprites_in_range)} searchable sprite(s) in range.\n")
         for sprite in sprites_in_range:
             if "item" in sprite.properties:
                 self.message_box = MessageBox(
-                    self, f"Found: {sprite.properties['item']}"
+                    self, f"Found: {sprite.properties['item']}\n"
                 )
 
                 arcade.play_sound(self.coin_sound)#sonido añadido para buscar cosas
                 self.items_collected += 1#contador de items recogidos
 
                 sprite.remove_from_sprite_lists()
+                item_key = sprite.properties["item"]
                 lookup_item = self.item_dictionary[sprite.properties["item"]]
-                self.player_sprite.inventory.append(lookup_item)
+                player_inventory = self.player_sprite.statistics.get_inventory()
+                if item_key in player_inventory:
+                    player_inventory[item_key]["quantity"] += 1
+                else:
+                    # Copiar el diccionario del ítem y añadirle cantidad
+                    item_copy = lookup_item.copy()
+                    item_copy["quantity"] = 1
+                    player_inventory[item_key] = item_copy
             else:
                 print(
-                    "The 'item' property was not set for the sprite. Can't get any items from this."
+                    "The 'item' property was not set for the sprite. Can't get any items from this.\n"
                 )
 
     def on_key_release(self, key, modifiers):

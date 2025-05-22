@@ -264,7 +264,7 @@ def load_map(map_name):
     print(game_map.map_layers.items())
     print("Capas de game_map scene ", game_map.scene.name_mapping.keys())
     print(f"Layers: {list(game_map.map_layers.keys())}")
-    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
+    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}" + "\n")
 
     return game_map
 
