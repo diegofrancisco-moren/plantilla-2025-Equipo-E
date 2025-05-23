@@ -191,9 +191,9 @@ class GameView(arcade.View):
         # Create a small white light
         x = 100
         y = 200
-        radius = 300
+        radius = 100
         mode = "soft"
-        color = arcade.csscolor.WHITE
+        color = arcade.color.CHROME_YELLOW
         self.player_light = Light(x, y, radius, color, mode)
 
     def switch_map(self, map_name, start_x, start_y):
@@ -616,10 +616,15 @@ class GameView(arcade.View):
             self.selected_item = 10
         elif key == arcade.key.L:
             cur_map = self.map_list[self.cur_map_name]
-            if self.player_light in cur_map.light_layer:
-                cur_map.light_layer.remove(self.player_light)
+            if self.item_dictionary["Torch"] in self.player_sprite.inventory:
+                if self.player_light in cur_map.light_layer:
+                    cur_map.light_layer.remove(self.player_light)
+                else:
+                    cur_map.light_layer.add(self.player_light)
             else:
-                cur_map.light_layer.add(self.player_light)
+                print(
+                    "You dont have a torch."
+                )
         elif key == arcade.key.G:  # G
             # toggle debug
             self.debug = True if not self.debug else False
