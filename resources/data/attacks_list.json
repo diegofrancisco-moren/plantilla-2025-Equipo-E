@@ -6,7 +6,7 @@
     "mana": 0,
     "type": "physic",
     "booster": false,
-    "class": "warrior",
+    "class": "knight",
     "learned": false,
     "level": 1,
     "description": "A basic physic attack, doesn't require mana"

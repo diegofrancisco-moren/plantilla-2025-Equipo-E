@@ -5,8 +5,8 @@ from rpg.entities.player import Player
 
 class PlayerSprite(CharacterSprite):
 
-    def __init__(self, sheet_name, statistics):
-        super().__init__(sheet_name)
+    def __init__(self, sheet_name, statistics, scale):
+        super().__init__(sheet_name, scale = scale)
         self.sound_update = 0
         self.footstep_sound = arcade.load_sound(":sounds:footstep00.wav")
         self.sheet_name = sheet_name

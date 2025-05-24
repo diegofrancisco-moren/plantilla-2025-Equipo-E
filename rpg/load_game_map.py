@@ -103,7 +103,7 @@ def load_map(map_name):
                 if character_object.properties.get("movement") == "random":
                     character_sprite = RandomWalkingSprite(
                         f":characters:{character_data['images']}", game_map.scene
-                    , None)
+                    , None, scale=1.0)
                 else:
                     character_sprite = CharacterSprite(
                         f":characters:{character_data['images']}")
@@ -112,7 +112,7 @@ def load_map(map_name):
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
                 character_sprite = PathFollowingSprite(
-                    f":characters:{character_data['images']}", None)
+                    f":characters:{character_data['images']}", None, scale=1.0)
                 character_sprite.position = location
                 path = []
                 for point in shape:
@@ -165,7 +165,7 @@ def load_map(map_name):
                 if enemy_object.properties.get("movement") == "random":
                     enemy_sprite = RandomWalkingSprite(
                         f":enemies:{enemy_data['images']}", game_map.scene
-                        , enemy_statistics)
+                        , enemy_statistics, scale=1.0)
                 else:
                     enemy_sprite = CharacterSprite(
                         f":enemies:{enemy_data['images']}")
@@ -174,7 +174,8 @@ def load_map(map_name):
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
                 enemy_sprite = PathFollowingSprite(
-                    f":enemies:{enemy_data['images']}", enemy_statistics)
+                    f":enemies:{enemy_data['images']}",
+                    enemy_statistics, scale=1.0)
                 enemy_sprite.position = location
                 path = []
                 for point in shape:

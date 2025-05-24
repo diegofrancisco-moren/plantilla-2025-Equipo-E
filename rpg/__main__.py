@@ -31,6 +31,10 @@ class MyWindow(arcade.Window):
                                              os.path.sep + "resources" +
                                              os.path.sep + "sounds" +
                                              os.path.sep)
+        arcade.resources.add_resource_handle("animations", ".." +
+                                             os.path.sep + "resources" +
+                                             os.path.sep + "animations" +
+                                             os.path.sep)
         arcade.resources.add_resource_handle("misc", ".." +
                                              os.path.sep + "resources" +
                                              os.path.sep + "misc" +
