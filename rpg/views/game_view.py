@@ -141,6 +141,7 @@ class GameView(arcade.View):
 
     def __init__(self, map_list):
         super().__init__()
+        self.object_list = None
         self.coin_sound = arcade.load_sound(":sounds:item-pick-up.mp3")#variable para almacenar sonido de recoger item
         self.items_collected = 0#variable para contar items recogidos
         self.time_of_day = "day"#variable para cambiar día y noche
@@ -225,6 +226,7 @@ class GameView(arcade.View):
         :param start_y: Grid y location to spawn at
         """
         self.cur_map_name = map_name
+
 
         try:
             self.my_map = self.map_list[self.cur_map_name]
@@ -393,6 +395,7 @@ class GameView(arcade.View):
             text = f"{item_name}"
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
 
+
     def on_draw(self):
         """
         Render the screen.
@@ -407,15 +410,19 @@ class GameView(arcade.View):
 
         # --- Capa de luces ---
         with cur_map.light_layer:
-            arcade.set_background_color(cur_map.background_color)
+
 
             # Cámara de sprites
             self.camera_sprites.use()
 
-            # Dibuja la escena principal
-            cur_map.scene.draw()
+  # Grab each tile layer from the map
+            map_layers = cur_map.map_layers
 
-            # Dibuja elementos especiales por capa
+            # Draw scene
+
+            for layer in cur_map.map_layers:
+                self.map_list[self.cur_map_name].map_layers[layer].draw()
+
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
                     filename=":misc:shiny-stars.png",
@@ -424,9 +431,23 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            for layer_name in ["bridges", "bridges2", "enemies", "characters", "walls_nonblocking"]:
-                if layer_name in map_layers:
-                    map_layers[layer_name].draw()
+            #for layer_name in ["bridges", "bridges2", "enemies", "characters", "walls_nonblocking"]:
+            #    if layer_name in map_layers:
+            #        map_layers[layer_name].draw()
+
+            for layer in cur_map.scene.name_mapping:
+                if layer not in cur_map.map_layers and layer !="wall_list":
+                   cur_map.scene[layer].draw()
+
+
+            # Draw the player
+            self.player_sprite_list.draw()
+
+            #Draw layers above player for deepness
+            if map_layers.get("walls_nonblocking", []):
+                self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
+            if map_layers.get("walls2_nonblocking", []):
+                self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
             # Dibuja el jugador
             self.player_sprite_list.draw()
@@ -446,7 +467,7 @@ class GameView(arcade.View):
                     length = 1  # evitar división por cero
                 unit_x = dx / length
                 unit_y = dy / length
-
+        
                 # Desplazamiento para que el pivote quede en el borde izquierdo del sprite
                 offset = texture.width / 2
 
@@ -480,9 +501,12 @@ class GameView(arcade.View):
                 ambient_color = cur_map.properties["ambient_color"]
             else:
                 ambient_color = arcade.color.WHITE
+
+
             cur_map.light_layer.draw(ambient_color=ambient_color)
 
         # --- GUI ---
+
         self.camera_gui.use()
 
         # Inventario
@@ -885,3 +909,4 @@ class GameView(arcade.View):
 
     def get_cur_map_name(self):
         return self.cur_map_name
+

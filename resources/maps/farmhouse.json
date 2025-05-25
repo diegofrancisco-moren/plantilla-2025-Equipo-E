@@ -8,7 +8,7 @@
          "data":"eJzTZGRg0BzFo3gUD0lMKQAAArwnYQ==",
          "encoding":"base64",
          "height":16,
-         "id":1,
+         "id":13,
          "name":"ground",
          "opacity":1,
          "type":"tilelayer",
@@ -24,20 +24,6 @@
          "height":16,
          "id":2,
          "name":"walls_blocking",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":16,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "compression":"zlib",
-         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
-         "encoding":"base64",
-         "height":16,
-         "id":3,
-         "name":"windows",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -66,6 +52,20 @@
          "height":16,
          "id":5,
          "name":"funiture_nonblocking",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
+         "encoding":"base64",
+         "height":16,
+         "id":3,
+         "name":"windows",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -142,6 +142,17 @@
         }, 
         {
          "draworder":"topdown",
+         "id":11,
+         "name":"characters",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":9,
          "name":"emptied",
          "objects":[
@@ -159,7 +170,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -248,19 +259,8 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":11,
-         "name":"characters",
-         "objects":[],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
         }],
- "nextlayerid":12,
+ "nextlayerid":14,
  "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":[
@@ -268,9 +268,14 @@
          "name":"ambient_color",
          "type":"color",
          "value":"#ff797979"
+        }, 
+        {
+         "name":"background_color",
+         "type":"color",
+         "value":"#ffaaaa7f"
         }],
  "renderorder":"left-up",
- "tiledversion":"1.8.4",
+ "tiledversion":"1.11.2",
  "tileheight":32,
  "tilesets":[
         {
@@ -279,6 +284,6 @@
         }],
  "tilewidth":32,
  "type":"map",
- "version":"1.8",
+ "version":"1.10",
  "width":16
 }

@@ -62,4 +62,4 @@ MESSAGE_BOX_FONT_SIZE = 38
 MESSAGE_BOX_MARGIN = 30
 
 # How fast does the camera pan to the user
-CAMERA_SPEED = 0.1
+CAMERA_SPEED = 0.2

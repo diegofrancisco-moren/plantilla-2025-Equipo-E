@@ -11,16 +11,31 @@
     "level": 1,
     "description": "A basic physic attack, doesn't require mana"
   },
-  "Bone Throw": {
-    "name": "Bone Throw",
-    "base_power": 15,
-    "atk_mod": 0.7,
-    "mana": 0,
+  "Power Strike": {
+    "name": "Power Strike",
+    "base_power": 25,
+    "atk_mod": 0.8,
+    "mana": 5,
     "type": "physic",
     "booster": false,
-    "class": "enemy",
-    "description": "A basic physic attack, doesn't require mana"
+    "class": "warrior",
+    "learned": false,
+    "level": 5,
+    "description": "A powerful strike that consumes a small amount of mana"
   },
+  "Earth Shatter": {
+    "name": "Earth Shatter",
+    "base_power": 40,
+    "atk_mod": 1.2,
+    "mana": 15,
+    "type": "physic",
+    "booster": false,
+    "class": "warrior",
+    "learned": false,
+    "level": 10,
+    "description": "A devastating attack that shakes the ground"
+  },
+
   "FireBall": {
     "name": "FireBall",
     "power": 15,
@@ -31,8 +46,70 @@
     "class": "magician",
     "learned": false,
     "level": 1,
-    "description": "A magic attack, great damage, looses mana"
+    "description": "A magic attack, great damage, uses mana"
   },
+  "Ice Lance": {
+    "name": "Ice Lance",
+    "power": 30,
+    "atk_mod": 1.0,
+    "mana": 20,
+    "type": "magic",
+    "booster": false,
+    "class": "magician",
+    "learned": false,
+    "level": 5,
+    "description": "A sharp lance of ice that pierces enemies"
+  },
+  "Lightning Storm": {
+    "name": "Lightning Storm",
+    "power": 50,
+    "atk_mod": 1.5,
+    "mana": 35,
+    "type": "magic",
+    "booster": false,
+    "class": "magician",
+    "learned": false,
+    "level": 10,
+    "description": "A powerful storm that strikes multiple enemies"
+  },
+
+  "Backstab": {
+    "name": "Backstab",
+    "base_power": 12,
+    "atk_mod": 0.6,
+    "mana": 0,
+    "type": "physic",
+    "booster": false,
+    "class": "thief",
+    "learned": false,
+    "level": 1,
+    "description": "A quick stab from the shadows"
+  },
+  "Poisoned Dagger": {
+    "name": "Poisoned Dagger",
+    "base_power": 28,
+    "atk_mod": 0.9,
+    "mana": 10,
+    "type": "physic",
+    "booster": false,
+    "class": "thief",
+    "learned": false,
+    "level": 5,
+    "description": "A dagger coated with poison causing damage over time"
+  },
+  "Shadow Slash": {
+    "name": "Shadow Slash",
+    "base_power": 45,
+    "atk_mod": 1.3,
+    "mana": 20,
+    "type": "physic",
+    "booster": false,
+    "class": "thief",
+    "learned": false,
+    "level": 10,
+    "description": "A powerful slash from the shadows"
+  },
+
   "Healing": {
     "name": "Healing",
     "power": 20,
@@ -43,6 +120,68 @@
     "class": "all",
     "learned": false,
     "level": 1,
-    "description": "Heals by the cost of mana, I doubt changing to negative the value of the power works"
+    "description": "Heals by the cost of mana"
+  },
+  "Greater Healing": {
+    "name": "Greater Healing",
+    "power": 40,
+    "mana": 30,
+    "type": "magic",
+    "booster": true,
+    "booster_type": "health",
+    "class": "all",
+    "learned": false,
+    "level": 5,
+    "description": "Stronger healing spell for all classes"
+  },
+
+  "Shield": {
+    "name": "Shield",
+    "power": 0,
+    "mana": 10,
+    "type": "magic",
+    "booster": true,
+    "booster_type": "defense",
+    "class": "all",
+    "learned": false,
+    "level": 1,
+    "description": "Boosts defense temporarily at the cost of mana"
+  },
+  "Magic Barrier": {
+    "name": "Magic Barrier",
+    "power": 0,
+    "mana": 25,
+    "type": "magic",
+    "booster": true,
+    "booster_type": "defense",
+    "class": "all",
+    "learned": false,
+    "level": 5,
+    "description": "Stronger defense boost for all classes"
+  },
+
+  "Quick Jab": {
+    "name": "Quick Jab",
+    "base_power": 8,
+    "atk_mod": 0.4,
+    "mana": 0,
+    "type": "physic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 1,
+    "description": "A quick, light attack useful for all classes"
+  },
+  "Focused Strike": {
+    "name": "Focused Strike",
+    "base_power": 20,
+    "atk_mod": 0.7,
+    "mana": 5,
+    "type": "physic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 5,
+    "description": "A precise strike aimed at weak spots"
   }
 }

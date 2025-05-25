@@ -15,6 +15,7 @@ class MyWindow(arcade.Window):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE, resizable=True)
         self.views = {}
 
+
         arcade.resources.add_resource_handle("characters", ".." +
                                              os.path.sep + "resources" +
                                              os.path.sep + "characters" +
