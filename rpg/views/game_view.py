@@ -374,10 +374,6 @@ class GameView(arcade.View):
         for i in range(capacity):
             y = vertical_hotbar_location
             x = i * field_width + 5
-            if i == self.selected_item - 1:
-                arcade.draw_lrtb_rectangle_outline(
-                    x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
-                )
 
             player_inventory = list(self.player_sprite.statistics.get_inventory().values())
             if len(player_inventory) > i:
@@ -385,6 +381,12 @@ class GameView(arcade.View):
             else:
                 item_name = ""
 
+            if i == self.selected_item - 1:
+                arcade.draw_lrtb_rectangle_outline(
+                    x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
+                )
+                if item_name == "Axe":
+                    self.use_axe()
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
@@ -737,6 +739,21 @@ class GameView(arcade.View):
 
     def close_message_box(self):
         self.message_box = None
+
+    def use_axe(self):
+        print("Uso el hacha")
+        map_layers = self.map_list[self.cur_map_name].map_layers
+        if "axeable" not in map_layers:
+            print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
+            return
+
+        searchable_sprites = map_layers["searchable"]
+        sprites_in_range = arcade.check_for_collision_with_list(
+            self.player_sprite, searchable_sprites
+        )
+        for sprite in sprites_in_range:
+            #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos
+            sprite.remove_from_sprite_lists()
 
     def search(self):
         """Search for things"""
