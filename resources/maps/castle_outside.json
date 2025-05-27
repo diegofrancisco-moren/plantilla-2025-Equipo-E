@@ -19,7 +19,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2jEKAjEARcFtFLZSDyDq\/S\/pCgparFiI5sEUAyHVh5cy82aaZgAAAAAAAAD+YjvxLdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adel3avTsvG8uAS2atelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adelXZd2Xdp1adf163Yj2i2OT+\/qcT7e7w8DbOR9uzXajevWbv+GduN6\/C9acxlgIwAAAAAAAAAAAHzqCpuCzYs=",
+         "data":"eJzt3cFKG2EUgNGpNYKrxnZXkZql8Qls3\/+52ilVmAaiJgSdbzyLA2H+WdzhS5hN4F6uhuESACDk+wxmQLuPRruuu9E26Pf5MAyr\/T7NYMZj3B\/Qrvq7+zJaP+NqBjMe41o77WZMu267pdKuS7su7bq06zp1u4uBU9GuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7f73Y5zxdrQJzKpdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vd11u3m4u\/e9PORp9X\/\/ak3Uy+V0+fbx6vryf3lvapLbnd19G3Sbt91pN7tXt\/L+0rXMIeQ+20m5tpu+l7b9fumXbvb9pu+t7btXu21HYPo58RT\/\/DPNRmBrO\/1q8T9AcAAAAAgGNsF+gjPycAwFz8Ac3VBNQ=",
          "encoding":"base64",
          "height":100,
          "id":3,
@@ -36,34 +36,6 @@
          "id":16,
          "name":"doors",
          "objects":[
-                {
-                 "gid":1225,
-                 "height":32,
-                 "id":2,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":47
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":38
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1760.33333333333,
-                 "y":1471.33333333333
-                }, 
                 {
                  "gid":1225,
                  "height":32,
@@ -91,62 +63,6 @@
                  "width":32,
                  "x":1632,
                  "y":1280
-                }, 
-                {
-                 "gid":1225,
-                 "height":32,
-                 "id":4,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":49
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":33
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":2016,
-                 "y":1280
-                }, 
-                {
-                 "gid":1225,
-                 "height":32,
-                 "id":5,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":55
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":25
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1760,
-                 "y":1056
                 }, 
                 {
                  "gid":1225,
@@ -190,12 +106,12 @@
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":55
+                         "value":15
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":46
+                         "value":30
                         }],
                  "rotation":0,
                  "type":"",
@@ -203,6 +119,34 @@
                  "width":65.6666666666665,
                  "x":1743,
                  "y":1760
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":20,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor2"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1760,
+                 "y":1408
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -212,7 +156,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwYEAAAAAw6D5U1\/gCFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAOtcAAB",
+         "data":"eJzt1MEJwkAURdHZJD2kAnvRkrURu9ECsggEiTc5F95uFh8OzDKNsZxsax19k7E7+9h1x647dt2x645dd1e20\/\/Frhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6sevGrhu7buy6seu21e45j3ELb62jb9qz17zd7v19e5+6W+vom\/bssdHtDNvz5xg7Y3e1seuOXXfsumPXHbvu2HXHrrur2EmSJEm\/6AN7C3Qy",
          "encoding":"base64",
          "height":100,
          "id":24,
@@ -226,21 +170,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwYEAAAAAw6D5U1\/gCFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAOtcAAB",
-         "encoding":"base64",
-         "height":100,
-         "id":25,
-         "name":"water_nonblocking",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":111,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "compression":"zlib",
-         "data":"eJztwYEAAAAAw6D5U1\/gCFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAOtcAAB",
+         "data":"eJzt3TEKg1AURcFvSPa\/3ohFLBVSxOpz4gzc\/sFZwBvj\/6z73odtc8\/hAu26tOvSrku7Lu26tOt6LOd2z2XyQfxMOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALiPdZz\/m29zz+EC7bq069KuS7su7bq069KuS7su7bq069KuS7su7bpeX0aDdl3adWnXpV3XXdp9AKhVbPI=",
          "encoding":"base64",
          "height":100,
          "id":26,
@@ -352,7 +282,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt21FOg0AQANAa1wP54zU8htfqNYwnMDZpegR7Az2BaYzJhrDAYikDvJfwQZguw06TaVnY7QAAACC29DB3BgAArMnz3dwZ8F8v93NnQG6fYoyxFuZi265V\/6dU3ubODSCiY+reBwCAGo+pfyMmtVsutVsutVsutQMAYIwh63CHLCaPPwz4rHW+6Zwq53bqeIb7rJzbqeMZ7qtybqeOZ7jafjR1POPU3veKcJ\/Mc56\/lli7C\/Vbbu2iu8V3S+2WS+0AoJ\/f6rG9qg+M9pbq9m89HmUfqW7\/2uPpjQAAAAAA6xPt+eRo+UQW7X2caPlEFu19nGj5RBbtfZxo+UzlnF1n35rlueX4X2\/Je0wzrrmu3TZOzXm7xmvms+\/Iq+acUeTX812RYym2+X5xM665rp0fL\/WmU0eOXeO15VOKuyh9X2vmZatKvUnPiq\/Um7bSswAAgLJ3\/wsAAAAAAAAAYLV+APpXYY4=",
+         "data":"eJzt22FOgzAUAOAZ64H84zU8htfaNYxHkMTsCO4GegKzGBOCFOhGx4N9X8IPxlt55ZF1oXS3AwAAgNjSw9IZAACwJc93S2fApV7ul86Atn2K0cZWuBa3ba76P6X8tnRuABF9pOF9AAAo8ZjGN2JSu\/VSu\/VSu\/VSOwAAzjFlHq5pxbTjmwnfNc9Xz6Hw2taOZ7rPwmtbO57pvgqvbe14pisdj2rHc57S514RnpN5z\/PXGmt3on7rrV1017i31G691A4AxvmvHtur+sDZ3lLZ\/rXbI+89le3P3Z6xEQAAAABgGTXfIY72fvLW+lpzzUy09Thb62vNNTPR1uNsra8118xEW4+zpb7+\/Ub3\/VYfW5+NzVkee473td2N685r97VTct6h9rr57AfyKjlnX9vX0mRq9F2QRy62u764G9ed124fz40fh4Ech9rryycXd5K7X6f29Zblxo9oYyj\/5caPaGMoAAAAAAAAAAAAADCfH1\/LbLE=",
          "encoding":"base64",
          "height":100,
          "id":11,
@@ -440,85 +370,7 @@
          "draworder":"topdown",
          "id":19,
          "name":"characters",
-         "objects":[
-                {
-                 "height":0,
-                 "id":15,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":-5.03637978294357,
-                         "y":14.030303030303
-                        }, 
-                        {
-                         "x":149.537198164672,
-                         "y":14.421875
-                        }, 
-                        {
-                         "x":149.386654203769,
-                         "y":83.092391304348
-                        }, 
-                        {
-                         "x":-5.53477153229774,
-                         "y":82.0984848484854
-                        }],
-                 "properties":[
-                        {
-                         "name":"speed",
-                         "type":"float",
-                         "value":0.8
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"guard2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1593.58780183533,
-                 "y":2437
-                }, 
-                {
-                 "height":0,
-                 "id":19,
-                 "name":"",
-                 "polygon":[
-                        {
-                         "x":5.05261704311405,
-                         "y":14.0303
-                        }, 
-                        {
-                         "x":-150.01935213382,
-                         "y":14.4219
-                        }, 
-                        {
-                         "x":-149.868247258155,
-                         "y":83.0924
-                        }, 
-                        {
-                         "x":5.55261786617957,
-                         "y":82.0985
-                        }],
-                 "properties":[
-                        {
-                         "name":"speed",
-                         "type":"float",
-                         "value":0.8
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"guard2"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1957.48904880049,
-                 "y":2437
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -571,7 +423,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
@@ -588,6 +440,14 @@
         {
          "firstgid":1113,
          "source":"..\/tilesets\/Castle2.json"
+        }, 
+        {
+         "firstgid":1369,
+         "source":"..\/tilesets\/DeepForest-A1.json"
+        }, 
+        {
+         "firstgid":1561,
+         "source":"..\/tilesets\/hyptosis_tile-art-batch-1.json"
         }],
  "tilewidth":32,
  "type":"map",
