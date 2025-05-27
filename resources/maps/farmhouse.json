@@ -33,7 +33,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBh48JKJgeEVE2F1f4BqHJkZGJyA2JkZIf4RKP6JCP0g4AnU5wXE3syE1cLAayLNHgXkgQkkxAU2MINC\/SMZAACE3wiO",
+         "data":"eJxjYBh48JKJgeEVE2F1f4BqHJkZGJyA2JkZIf4RKP4Jqn8HM3a9MOAJlPcCYm8C6pDBayLcNgrIBxNIiAtsYAaF+kcyAADZCglJ",
          "encoding":"base64",
          "height":16,
          "id":4,
@@ -144,7 +144,25 @@
          "draworder":"topdown",
          "id":11,
          "name":"characters",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"villager1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":80,
+                 "y":185.333333333333
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -253,6 +271,52 @@
                  "width":0,
                  "x":253.671865355335,
                  "y":35.8174560717666
+                }, 
+                {
+                 "gid":1072,
+                 "height":32,
+                 "id":11,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff4bff9"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":126.643939393939,
+                 "y":114.231060606061
+                }, 
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff4bff9"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":142.909090909091,
+                 "y":92.2727272727273
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -261,7 +325,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":11,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -281,6 +345,10 @@
         {
          "firstgid":1,
          "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
+        }, 
+        {
+         "firstgid":1065,
+         "source":"..\/tilesets\/bosque2.json"
         }],
  "tilewidth":32,
  "type":"map",

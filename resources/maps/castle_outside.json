@@ -37,62 +37,6 @@
          "name":"doors",
          "objects":[
                 {
-                 "gid":1225,
-                 "height":32,
-                 "id":3,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":59
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":39
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1632,
-                 "y":1280
-                }, 
-                {
-                 "gid":1225,
-                 "height":32,
-                 "id":6,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":55
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":16
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1568,
-                 "y":672
-                }, 
-                {
                  "gid":1239,
                  "height":32,
                  "id":18,
@@ -147,6 +91,118 @@
                  "width":32,
                  "x":1760,
                  "y":1408
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":21,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor3"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":6
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1568,
+                 "y":1216
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":22,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor3"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":25
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1952,
+                 "y":1216
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":23,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_outside"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":63
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":39
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1632,
+                 "y":1280
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":24,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_outside"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":39
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1888,
+                 "y":1280
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -423,7 +479,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":21,
+ "nextobjectid":25,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
