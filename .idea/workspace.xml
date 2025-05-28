@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Nuevas plantas para el nivel final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor3.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor4.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor5.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor5.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/woods.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748387486441</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Nuevas plantas para el nivel final">
+      <option name="closed" value="true" />
+      <created>1748444503177</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1748444503177</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,6 +392,7 @@
     <MESSAGE value="Añadida velocidad de movimiento de personajes y enemigos. Ahora desde Tiled se añade una propiedad a cada uno &quot;speed&quot; y cada uno puede tener su velocidad customizada. Sino, la velocidad por defecto se establece a 1" />
     <MESSAGE value="-Añadidas 3 salas del nivel final" />
     <MESSAGE value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
+    <MESSAGE value="Nuevas plantas para el nivel final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nuevas plantas para el nivel final" />
   </component>
 </project>

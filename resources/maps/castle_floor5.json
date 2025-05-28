@@ -5,7 +5,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJxjYBjZoIkRgRsZUfn4MLpeYtSPglEwCigDhPLiUAdFSOxMRlRMb\/vJKcMojYciwkqoDooI4FFAH3CAl+EANkwv+4dT\/A\/H9gfIH5sY8acHmH8JqRsFo2CwgeHSf8Dn\/qHqp+EKAIwoNCI=",
+         "data":"eJzt1jEOABAMheH2AA7NyXo0IxokHRj4v+QNtJFODZG\/FW3JOp77+0hmb6yCd1kS84n035kSQES\/u\/0e39UAAIjib4gTKuNeKJU=",
          "encoding":"base64",
          "height":32,
          "id":10,
@@ -22,34 +22,6 @@
          "id":14,
          "name":"doors",
          "objects":[
-                {
-                 "gid":8,
-                 "height":15,
-                 "id":10,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_floor2"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":17
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":10
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":544,
-                 "y":303
-                }, 
                 {
                  "gid":28,
                  "height":16,
@@ -105,6 +77,62 @@
                  "width":32,
                  "x":800,
                  "y":1024
+                }, 
+                {
+                 "gid":8,
+                 "height":15.2727,
+                 "id":18,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor4"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":15
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":480.666666666667,
+                 "y":464.36365
+                }, 
+                {
+                 "gid":8,
+                 "height":11.7727,
+                 "id":19,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor6"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":15
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":705,
+                 "y":460.86365
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -114,7 +142,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzllW0KgzAMhuM1av\/MbbBLbIfaGeYx9KaD9YdCCM1H00oHCg8i1j7hTW1HABgV9ksbZ50HX7Vz1rjP5Nfyjxtn9vfO\/x\/89N4ars9Hez01cdwGgHvi28j\/Kaz1mdyvQc4sMnD+GWHNi5vvIZAbvyRWhOYPyvtS\/5swQ1ketX5axwplebT2UzxrurffQ29\/bybjuMuGNu6KaOkfGT\/dl\/AzNM4K+6X996he4R5IfkufajOgmUv7s1ZPYLBkEA3fSHBnpnTeBcjX7um\/xW+ZMzjcXnDWnsx3JgZPLd7+01qkPnE9y63d0n8QDH6OUv8PE2F69g==",
+         "data":"eJztltENgyAQhm8O9K1zWXdwDXdwhq5gO1cTMZGEXDhO6y8VheR7OeA+joBSEVFV2AStjG3Jx9vjYLQ11ACGAK6P++dYx9jr5\/m6m\/lDGM9PzJ+SUP1HQkB\/6A6nrB\/tf0X2zLVc\/GvXdia\/NEbyfyPzY30o\/0xjeVpaYS7i\/Mf8e0n9\/Sn+a\/lHy9vyAfibE9RPyviekdrvv4uGH50oP+Jt5rvHJWb+5M\/x\/qH92nqk\/7yU0yz44zQnch+cX6t5AqQJgtQ=",
          "encoding":"base64",
          "height":32,
          "id":1,
@@ -128,7 +156,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJwrZICAdDwYHeBTS4x+ZNBFQJ7WAGR\/HRA\/AWJmKM0EpZExCxYxYjETAfunA\/FfNKwCxMo4sCoeOWwYZiYu+82h7I+seByKBBSIU0YUQLafWEBt+wcSYLNfYYTY30Ml+zkG2H5yAS3tl6fAflqCDaP2Y9i\/AYfaUfupC9rQ+PS2fz4Dat4mxn5auo0e9j\/B06YYjv7H19bCZT++9g89\/E9s+4uYOmXUfuxAYQTZD+tPIWOY\/chitLIf1J\/6wwDJhzBaHSr3B0kMZr8lle1HNq+KEZVGBiD7FwPxEjRcwsBwACQfjUUOhtEBLnVL8MgvBWIATNZ2tA==",
+         "data":"eJwrZBg4UAzEXQNofw\/U\/jogfgLEzFAahpnQ+DDMQqQYPnOYkOyfTmuPYgEzkOw3HwD7GZDsHygAs3\/DqP2j9o9g+wcKDHX7OciUQ7d\/oON\/1P5R+0ftHzj7BwoMlvbfSLd\/oMBg8f9A229JQzuqGFFpdPsXA\/ESNFzCwHAAJB+NRQ6G0QEudUvwyC8FYgCmU1TL",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -142,7 +170,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYGBgSAXiKkbcOJ0BgvOAOJeAWlz6QXqLsGAQqAPiJ3gwCwF5QpgZiDPx2H+HkYHmAJ\/9X0e4\/esG2H56gIG2P5sBkY9BOA2Ii+loPzpYS4c4Hyr206L8WcOIHW9mxLT\/MB3D4s6o\/Rj2Uzv+p+Ixjx724wOHBzj8nzJg2k9P\/8PAQPmfUvuJVUtIHa39P9D2I4MjWMxHtp8e7Z+RYr8xIwSTAgbC\/wNt\/3CNf3Lsr0Prr06Cyq2C8hugfJj8ZCCuR8OToe0rEEBub1VAxSrR2mG1ePw8BSqHrx5fgoYJ+RNXGAMA7uB1jg==",
+         "data":"eJzll80KwjAMxzP09XwMv647iAhul3kWvc+TBxH1JXwNvfkgdpBiKEnW1q0gBv5sS7v8aJemHQDA2GiaWBP4WGH0YjTA69DxZ0pfLQ5VSfiPDJLbkzArow2jPu1K+LXRgVEq\/s1j\/nNPxfB9vv8v8rV2jh8aK4Zv8zoFn3vf5nVqPjh9vuHHmsS\/C\/wFti9b+KOe+Fts37XwfS2Uf8L2c8986fv\/Cz90\/psaQnPTZ6+sFH7o+mtqCM3Ntr2yYdcKXxq\/xOfmRrOa6ZOSz8Xri8+dpbh6RnMmlK8Zd5bi6hmXM13wpX1Jm7OF47eqhLjaeovhbx2\/Vd0y1q74Up2JqXUxfC1WCr50\/rY5QNdQ7vhj\/1V8zv82B+gayh1\/7L8K5RfmfoUqjfZCPdBkrcQYF5SNtSO+RmthzEejGd7P8dlHwDyDE4uzN31zBuw=",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -156,7 +184,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBgF5ACOgXbACAXdNDDTkgS7kTE+IE+RiygHw9X+OiBmRsMMaGxa2j8djf8XiFWg9F8y7a8jQe0GItQ8IcE8fOAx1CwYTYz9j6lkNwj8YYCEKYwmxv4\/VLQfGyAm\/EftxwSrGelrvw8Q+0ExzO6LdLQfWx58RUf7kcvJeqiYKhXsf0qBOkrL5CcDbD+oDPpHpFpkdY+oZD+5AGT\/4wG0\/zcDJOzUBsh+egNy26iPGVDrXGQ2PcAfBtQ6F5k90gGxcUqL\/gktAQBRvDo+",
+         "data":"eJxjYBgFo2BgwYaBdsAoGAWjYBQQCZihGJ0NAnV45KgJ\/gKxCpT+iyQ+HY8cPcBAl+Wj9o9s+4ciGA2zkQ2GU\/wPtF9Guv2kAgBXIA7x",
          "encoding":"base64",
          "height":32,
          "id":9,
@@ -170,7 +198,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztlkFuwjAQRe3AGqn3KhCQehgqNWTPClDJHULLgh6hHKM7OAPLqh5ii8GdkBkrIaLql76EHNvPHjxjK3U\/igunbfKHbcH\/+Sd+L1LqWRdOCUP7QsvmTfR5Tjx2Yn4vkR+iy3GzEktjVDY2JuZ+NB5c8VPD\/MS4Y70nHHJGJPzXiv82hI9jOkLtY\/U7tlX8zHxfCc8fKEKm2sAxgw\/98gA+Rxw+6KtlPqfPX+Xnto59NLAGDt\/lLNTUN+Rb8yeoX1\/Ja8LW3ic4jqL9Gx+sp4j\/zeTvdDHPJ+JlxB3ky9Us3O+o5fun+AfGuC7Rry4+R3AHdbw2eDOMqM5XdAzkl8lfEyXI3am1yZ\/U5RHk87qhmoJF3behb5oQ+fetsyR\/c6\/uUG86aHsh4km9Z8A4f6sEMZzry\/Xjs5fp85642gnyB\/i49jg74ZrE1buQv6n5rLbNh1zsVdRdJ6i7yQ1ytS79AC3QehE=",
+         "data":"eJxjYBgFAw2mMhJW0wLErURgQnrItX8uEM8jAo+CUTDcwURgfmlAwlVY8GQoriAib5EKAoC4m0jsT33rGYKA2A8JMyDZ54MmF0gD+x+j4Xok++vQ5GgQ\/BhgLSPCfmLK0lH7R+0ftX9g7T9CRXdSav9hCt1Cqf2Uxtmo\/UM7\/ikFUwY4\/9PK\/kq0dh4uXItkf90A+H8JBXoBLH5dQg==",
          "encoding":"base64",
          "height":32,
          "id":8,
@@ -184,7 +212,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBh84CcUj4JRMAoGJ9BnHGgXjIJRMApGwSgYBaNgFFAXuIy2b0bBCAAADCkCaA==",
+         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
          "encoding":"base64",
          "height":32,
          "id":16,
@@ -198,7 +226,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztzaENAAAIBLFnJvbfDcEGKESbnL4EAAC46tr8ge8GKFUBOQ==",
+         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
          "encoding":"base64",
          "height":32,
          "id":3,
@@ -212,7 +240,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztzUENACAMxdAZWLCITI4ImAMQAwJ23iekL+m5ZgAAQCncelbVf3helel5P9lN9477XsI\/AOAdB7gzE3M=",
+         "data":"eJxjYBgFo4A24AwvQwI6JkU9pfbv4MXEpKinFBzgxcSkqB8Fo2CgwYQRbv\/KAba\/fIDtH+jwx2f\/SA+bke5\/cvLmaJiRJj5Y7KdW2xBX\/BOyn1ptQ3Ljn1ptw4Guz0bB4AIA41Ewaw==",
          "encoding":"base64",
          "height":32,
          "id":13,
@@ -226,7 +254,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwzENAAAIA7A5wL8nRHHggIujTZoAAABXXRvguwESDgG3",
+         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
          "encoding":"base64",
          "height":32,
          "id":11,
@@ -321,39 +349,15 @@
          "draworder":"topdown",
          "id":5,
          "name":"searchable",
-         "objects":[
-                {
-                 "gid":1513,
-                 "height":34,
-                 "id":12,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":96,
-                 "y":160
-                }, 
-                {
-                 "gid":1507,
-                 "height":32,
-                 "id":15,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":768,
-                 "y":672
-                }],
+         "objects":[],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":18,
- "nextobjectid":18,
+ "nextlayerid":19,
+ "nextobjectid":20,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
@@ -382,6 +386,14 @@
         {
          "firstgid":4031,
          "source":"..\/tilesets\/LightShadow_pipo.json"
+        }, 
+        {
+         "firstgid":4079,
+         "source":"..\/tilesets\/wdungeondesign.json"
+        }, 
+        {
+         "firstgid":4404,
+         "source":"..\/tilesets\/bosque2.json"
         }],
  "tilewidth":32,
  "type":"map",

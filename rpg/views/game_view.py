@@ -439,8 +439,9 @@ class GameView(arcade.View):
                    cur_map.scene[layer].draw()
 
 
-            # Draw the player
+            # Dibuja el jugador
             self.player_sprite_list.draw()
+            self.player_sprite.scale=0.99
 
             #Draw layers above player for deepness
             if map_layers.get("walls_nonblocking", []):
@@ -448,8 +449,8 @@ class GameView(arcade.View):
             if map_layers.get("walls2_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
-            # Dibuja el jugador
-            self.player_sprite_list.draw()
+
+
 
             # --- Animación del gancho ---
             if self.hook_animating:

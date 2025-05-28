@@ -128,7 +128,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJwrZICAdAI4EooJqSNWHwgUA3EXw8CBHqj9dUD8BIg5oDQDlEbGDDjEicUwvTA76pHsnw7Ef0jAX0lU\/weLHcj+30ByyFEH0Mt+EUby7Jenkv24zBkp9qsPsP24ALn2P2HFzqaX\/dQC1LB\/CRQPlP2UAEL2qw2w\/dQCKmSWf7QG1LbfAYc\/6WH\/HTL0DIXwJyYPkptPKbH\/IythNbS0n1Q15Nr\/mAHSXoTRtLQfZMcFKPsSlK8KxH8ZIG3Gv1AxdExL\/6O3HbC1bXG1L6hhPy3BqP2o9pNThlLTfnoDkP2LGRBtKFIwCLAzQjADmWYsBWIApXud7Q==",
+         "data":"eJwrZICAdAI4EooJqSNWHwgUA3EXw8CBHqj9dUD8BIg5oDQDlEbGDDjEicUwvTA76pHsnw7Ef0jAX0lUD8KhXAwLkPnI\/t9AetBRBdDLfhFG8uyXp5L9uMwZKfarD7D9uAC59j9hxc6ml\/3UAtSwfwkUD5T9lABC9qsNsP3UAipkln+0BtS23wGHP+lh\/x0y9AyF8CcmD5KbTymx\/yMrYTW0tJ9UNeTa\/5gB0l6E0bS0H2THBSj7EpSvCsR\/GSBtxr9QMXRMS\/+jtx2wtW1xtS+oYT8twaj9qPaTU4ZS0356A5D9ixkQbShSMAiwM0IwA5lmLAViAF2rnlU=",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -142,7 +142,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYGBgSAXiKkb8GAYIqUPGaQhtGHYgy9UB8RM643ok++8g+Q8XgOmjFriLZOc6IuynFDxF46+ls\/3oYCTYvxaPuSPB\/6P2j9o\/aj\/l9n+jgftIsX8zI8OBgbSfFmAw2j8RSK9BwquxuGsVWhurgky3Y7P\/MJpZfEwMDAJoWJAJVU01Fe0nJx5oaf8mIL8eTWwzGp+a9tchxTko\/muxmF2HlkaA\/AZq2U9PMGr\/qP2Dxf46Evq0VTjKZfSymxAmN9+CwBEs9qOX3cQCAASodQA=",
+         "data":"eJxjYGBgSAXiKkb8GAYIqUPGaQhtGHYgy9UB8RM643ok++8g+Q8XgOmjFriLZOc6IuynFEhzo\/LX0tl+dDAS7F+Lx9yR4P9R+0ftH7Wfcvu\/0cB9pNi\/mZHhwEDaTwswGO2fCKTXIOHVWNy1Cq2NVUGm27HZfxjNLD4mBgYBNCzIhKqmmor2kxMPtLR\/E5Bfjya2GY1PTfvrkOIcFP+1WMyuQ0sjQH4DteynJxi1f9T+wWJ\/HQl92ioc5TJ62U0Ik5tvQeAIFvvRy25iAQCAEHRB",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -156,7 +156,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBicQI8RlR8NxDFQtj4jumrcoBuKSQFMWMR6gLiLgD5mPPZjkyMFwOyfTqE5lNq\/gQy9T4D46QDaDwL\/6Gg\/TM0jCu2khv1PBtD+30D8dwDtpyYgxX5LGtpPidlLgFieAvsXQ81AxsigCIpxgXQi7H8MxejptgfJfEIYHyBk\/x8opjTdPsaCnxBhPzZATjmiCsQqwHryOpC+BcWqQL4amfaj+0WYEbsfYUABiG8AsRojAh8gw24QgJUjxGBa2E8OGLV\/1P5R+1Htv0kHe2HlLMh+W6Cd3EjYjoR+A7kAVneo096qUTCA4C0Qf4biLwNgPxtSWualIF0DAIG1aEY=",
+         "data":"eJxjYBicQI8RlR8NxDFQtj4jumrcoBuKSQFMWMR6gLiLgD5mPPZjkyMFwOyfTqb+WC6GBdSwfwMZep8A8VNKLKfQfhD4R0f7YWoeUWgnNex\/MoD2\/wbivwNoPzUBKfZb0tB+SsxeAsTyFNi\/GGoGMkYGRVCMC6QTYf9jKEZPtz1I5hPC+AAh+\/9AMaXp9jEW\/IQI+7EBcsoRVSBWAdaT14H0LShWBfLVyLQf3S\/CjNj9CAMKQHwDiNUYEfgAGXaDAKwcIQbTwn5ywKj9o\/aP2o9q\/0062AsrZ0H22wLt5EbCdiT0G8gFsLpDnfZWjYIBBG+B+DMUfxkA+9mQ0jIvBekaAPtFaU0=",
          "encoding":"base64",
          "height":32,
          "id":9,
@@ -332,6 +332,10 @@
         {
          "firstgid":1715,
          "source":"..\/tilesets\/hyptosis_tile-art-batch-1.json"
+        }, 
+        {
+         "firstgid":2615,
+         "source":"..\/tilesets\/wdungeondesign.json"
         }],
  "tilewidth":32,
  "type":"map",

@@ -409,6 +409,35 @@
         }, 
         {
          "draworder":"topdown",
+         "id":15,
+         "name":"characters",
+         "objects":[
+                {
+                 "height":0,
+                 "id":15,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"villager2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":112.666666666667,
+                 "y":146
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":10,
          "name":"emptied",
          "objects":[
@@ -483,8 +512,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":15,
- "nextobjectid":15,
+ "nextlayerid":16,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "properties":[
         {

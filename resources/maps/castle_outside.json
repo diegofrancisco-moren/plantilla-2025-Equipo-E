@@ -5,7 +5,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJzt0TEOABAQRUGNGve\/rEIrNirETLLN\/vKlBAAAAAAAAAAA8JeS13sLds7R7l3aAQAAAAAAAAAAAAAAAAAAAAAAAMCemsdFP+40awcAAAAAAAAAAAAAAAAv65y4AP0=",
+         "data":"eJzt0zEKgDAMBdAuHZxar2wv3kFBh2LHRnwPAiF\/\/CQlAAAAAAAAAACAfyn5Pd8nOeuMuju2e9ddXLqDGNr1d8\/\/AwAAAAAAAAAAAAAAAAAAAAAAAGKq+ZzZjZhG3QEAAAAAAAAAAAAAAMCXdXyGAyo=",
          "encoding":"base64",
          "height":100,
          "id":2,
@@ -19,7 +19,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt3cFKG2EUgNGpNYKrxnZXkZql8Qls3\/+52ilVmAaiJgSdbzyLA2H+WdzhS5hN4F6uhuESACDk+wxmQLuPRruuu9E26Pf5MAyr\/T7NYMZj3B\/Qrvq7+zJaP+NqBjMe41o77WZMu267pdKuS7su7bq06zp1u4uBU9GuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7f73Y5zxdrQJzKpdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vd11u3m4u\/e9PORp9X\/\/ak3Uy+V0+fbx6vryf3lvapLbnd19G3Sbt91pN7tXt\/L+0rXMIeQ+20m5tpu+l7b9fumXbvb9pu+t7btXu21HYPo58RT\/\/DPNRmBrO\/1q8T9AcAAAAAgGNsF+gjPycAwFz8Ac3VBNQ=",
+         "data":"eJzt3c1qE2EUgOHxJ0K7MepOKW2XrVegXpL3v9YRLYyB1DYE872TZ\/FAmG8WZ3gTZhM4F5tpugAACPk4wAxod26067qb3Qf9eD1N02a\/FwPMeIjPz2hX\/d29nW0f8W6AGQ\/xSTvtBqZdt91aadelXZd2Xdp1Hbvdm4lj0a5Luy7turTr0q5Luy7turTb7\/vl6WfQTrtzazc67bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7bq069KuS7su7f52Pc94M7sNzKpdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vdl3Zd2nVp16Vd1\/9uN4pfe9Nezl5tfu9Ju1p8rx4+X\/25vl3cW9qntuZ272cfFu322S7u1e70\/rWvcA17DLXTbjTLdsv33q7dM+1Ob9lu+d7btXu21nZfZl8jHv6H+Vy3A8z+VN+O0B8AAAAAAA5xv0Ln\/JwAAKP4CRttBbI=",
          "encoding":"base64",
          "height":100,
          "id":3,
@@ -94,7 +94,7 @@
                 }, 
                 {
                  "gid":1214,
-                 "height":32,
+                 "height":30,
                  "id":21,
                  "name":"",
                  "properties":[
@@ -118,7 +118,7 @@
                  "visible":true,
                  "width":32,
                  "x":1568,
-                 "y":1216
+                 "y":1214
                 }, 
                 {
                  "gid":1214,
@@ -147,62 +147,6 @@
                  "width":32,
                  "x":1952,
                  "y":1216
-                }, 
-                {
-                 "gid":1214,
-                 "height":32,
-                 "id":23,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":63
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":39
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1632,
-                 "y":1280
-                }, 
-                {
-                 "gid":1214,
-                 "height":32,
-                 "id":24,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"castle_outside"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":47
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":39
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1888,
-                 "y":1280
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -282,7 +226,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2FEKgkAQgGEf7B5eoZt1wm6QXSl8CCI0m3RYJr8PFlx28MH\/QbHrAAAAAAAAAABo6rTxnGaGlTZr58B3zv389dZZ8mlX168NtGtPu7q0q2tq8FwZ8+TRri7t6tKuLu3qem0RXbSlHQBHcQ2+u6Lz5BmDLaLz7Gv6TrzMrKXvx+g8ebSrS7v\/cA8+\/+g8AAAAQDXv\/z+i++z7sb9b\/3kPAAAAAAAAAAAAAAAAAAAAAAAAABzPAwh0LMM=",
+         "data":"eJzt2NsJgzAYgFEf0j26gpt1pI7gBNIFalcqBYtFvAWVxHoOBLz8+OAHKhYFAAAAAAAAAABJXVaeJ5nrTJu588AyZRjeXjvL\/uZ6VKFb2uVlSYP7wIx26S1pUGmXJe2Oqwzd+uo\/I+9hep40lrSotMuSdsc11aJuj2mXp6kWTXvsoV2WfluMrbE50tIOgLOoI99dsfPsp4lsETvPtj7fibeBNfb9GDvPfrQ7Lu3+wyvy\/sfOAwAAABxN\/\/9H7P7e12N7zzC9DwAAAAAAAAAAAAAAAAAAAAAAAACczxsW9TY9",
          "encoding":"base64",
          "height":100,
          "id":7,
@@ -296,7 +240,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt3VuO0zAUBuA+hJ2wLG7DI1eJDSDYAJcNULGBVjwgngCxANZEI00UYzUhaZLmOHyf5IeZ8ZzY\/ttJpLHc3Q4AAAAAiORhtdvdDGx130c97fGIWnVfpnmZreHdO8P75l71\/Dyv29eXYV6f1vDNwDYku6G13sruqqa87\/4XzRpFW4vSsltjHWU3D9m16nvj\/Z4W7R4mu9a703je97SPwcYru9an03iOPe1zsPHKriW7mNccorTs1lBKdjXZ\/U125YqaXZdjIeO8htKyA5Zz+Mdz5hd\/J8KSXblkV648u++yK8aPUzY\/k\/Y7+\/qX7AAYqW+vHcNZRwD6dO3n6\/rfxtj+LEd25ar3Yt4707r2YI7tz3KeVOf3YD7tyGJsfwAAAAAAAABgW5qzYW+q9izYEmpHG88ac833W825z2rJ2pfY2ly3Np8+W5trc87hs2r+cw2XrB1tPGntB1eaa37O4ZznGi5ZO9p41phrfu7TnOc8LVl7ynj2G5nr0tntA2a3lddp5Pmkn22RSj\/b4prjWat2l\/wcjDnPvZhae+6zviPPNdo1p9aun92e37ZU\/fWLC57lIs812jUP2f1ubO3m2e1D9nvN98Y+yzXj2ctu8drpc2Hq0ntK5LlGu2Zaez8hu6PszsrPfZrznKeptQ9V9\/vuktdC5LluTboeX2\/X4pv1AQAAAAAAAAAAAGCgPzrGQ1M=",
+         "data":"eJzt3Vtu00AUBuA8hJ2wrHJpH7lKbADBBqBsAIsNpOIB8QZiZWSkWh5GsWvHdnxsvk8aRW3d45n5ndpSR5PdDgAAAACI5Nl+t7vu2dKxzzvazYBa6VjGeVvM4eNH\/Y8tvev4eVm361j6eX+cww89W5\/s+tb6KLuLGvO++1\/UcxRtLtaW3RLzKLtpyK6R7o1POlq0e5jsGp+O\/fnc0b4E66\/sGl+P\/bnraN+C9Vd2DdnFPGcfa8tuCWvJLpHdv9aUXU52cbPjYbLjEuq\/nZXrLLRDy\/Nlkl6\/yy8s2a2X7NarzC6R3Tr8OmbzO2tJ\/vpHdgAM1LXWjv7MIwBd2tbztf1vY+jxzEd265XWYl6daG1rMIcez3xenFh\/mdrLliyGHg8AAAAAAAAAbEu9N+z1vtkLdg21o\/VnibGW662mXGc1Z+1zbG2sWxtPl62Ntd7n8NV++n0N56wdrT957acXGmu5z+GU+xrOWTtaf5YYa7nv05T7PM1Ze0x\/qo2Mde7sqoDZbeU6jTye\/LMtcvlnW1yyP0vVblPugzHlvhdja0+913fksUY759ja6dnt9X3Lpa\/fnPEsF3ms0c55KO53Q2vXz263xe\/V3xv6LFf3p5Ld7LXz58LcufeUyGONds68djUiuzvZnVTu+zTlPk9jax\/27e+7c66FyGPdmnw+ftzPxU\/zAwAAAAAAAAAAAEBPfwFoDTyz",
          "encoding":"base64",
          "height":100,
          "id":8,
@@ -310,7 +254,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt1jEKwjAUgOFq6yzaA6j3P4LgBQQ9gFvXbq4OmkBBwURdpFG+D1JKeNtPy6sqAAAAAAAAAADGcG3CY\/bhcJibfDrL181Di2mix7Z5vqvD3EK7YswzPfaJdrlZxpHrsdOueLkeh6HdqXk\/yzhij2XskThxL+mb+z7TaleUVWixTpz6oWk77DPxfqNdOTLf3MvDT+gTOwvl6R46HYf32K7Tr3jnRKPYLnVP+fwzf9dFOwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAv3YD9ycTqw==",
+         "data":"eJzt1j0KwjAYgGF\/4izqAdT7H0HwAoIewK1rN1cHTaCiaIIu0ijPAynl49teWjIYAAAAAAAAAADQh0uIj8mHy3Fv+OkuXzeNLUaZHpvwOhvHvZl21ZgWeuwy7Uq79KPUY6td9Uo99l27Y3i\/Sz9Sj3nqkTnpXtKG+31moV1VlrHFqnDWXbvl04xKFL6522lDZs5PaDN3FurTPHQ6dO+pXaNf9U6ZRqldbk79\/DN\/11k7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC\/dgUDjhXV",
          "encoding":"base64",
          "height":100,
          "id":9,
@@ -324,7 +268,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt0bsJgFAQRcENtBPLEkQbEGxAsHINNH88\/LA4AzfbYOFEAAAAAAAA\/E\/Xfv0BANxjaCLGcyWu26nwnufMlQ0W7T6nXV7a5aVdXtrlpV1e2uW1Hg36im3aAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPCCHc3DDs8=",
+         "data":"eJzt0bsJgFAMQNFX6CaOJYguILiA4OQqaGPjQ\/wQPAfShBSBmxIAAAAAAMD\/VOXXHwDAPZoipXabHPttl3nPc\/qLDQbtPqddXNrFpV1c2sWlXVzaxTUuDeqTWR13k3YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvGAG\/3cObw==",
          "encoding":"base64",
          "height":100,
          "id":10,
@@ -338,7 +282,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt22FOgzAUAOAZ64H84zU8htfaNYxHkMTsCO4GegKzGBOCFOhGx4N9X8IPxlt55ZF1oXS3AwAAgNjSw9IZAACwJc93S2fApV7ul86Atn2K0cZWuBa3ba76P6X8tnRuABF9pOF9AAAo8ZjGN2JSu\/VSu\/VSu\/VSOwAAzjFlHq5pxbTjmwnfNc9Xz6Hw2taOZ7rPwmtbO57pvgqvbe14pisdj2rHc57S514RnpN5z\/PXGmt3on7rrV1017i31G691A4AxvmvHtur+sDZ3lLZ\/rXbI+89le3P3Z6xEQAAAABgGTXfIY72fvLW+lpzzUy09Thb62vNNTPR1uNsra8118xEW4+zpb7+\/Ub3\/VYfW5+NzVkee473td2N685r97VTct6h9rr57AfyKjlnX9vX0mRq9F2QRy62u764G9ed124fz40fh4Ech9rryycXd5K7X6f29Zblxo9oYyj\/5caPaGMoAAAAAAAAAAAAADCfH1\/LbLE=",
+         "data":"eJzt28FtgzAUANAc3IF66bxZo+oIRaoyQrNBO0EVVZWQaxOMMNjkPYkD4edj81EcYXw6AQAAQNvC094tAAAAIOcc2shxFK7FY1ur\/i8hv+3dNoAWfYTpfQAAKPEc0tv4GG1Su36pXb\/Url9qBwDAEnPm4YZRzDh+mPFd83z1XAqvbe145vssvLa145nvq\/Da1o5nvtLxqHY8y+Sef+Wee5XG1+A9z1891u5G\/fqtXeu2uLfUrl9qBwD3+a\/etlf1gcXeQtn+1vnIew9l+2vnMzYCAAAAAOyj5jvErb2ffLS+1lwz09p6nKP1teaamdbW4xytrzXXzLS2HudIff37jU79Vl9Hn92bs7wmjqdyx3HxvHYqT8l5p\/LF7TlPtKvknKncWxkyNfouaEcuNl5fHMfF89rj47nx4zLRxql8qfbk4m5y9+vcvj6y3PjR2hjKf7nxo7UxFAAAAAAAAAAAAABYzw+8DWru",
          "encoding":"base64",
          "height":100,
          "id":11,
@@ -382,7 +326,31 @@
          "draworder":"topdown",
          "id":17,
          "name":"hookable",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":192,
+                 "height":32,
+                 "id":25,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1632,
+                 "y":1280
+                }, 
+                {
+                 "gid":192,
+                 "height":32,
+                 "id":26,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1888,
+                 "y":1280
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -479,7 +447,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":25,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
@@ -504,6 +472,10 @@
         {
          "firstgid":1561,
          "source":"..\/tilesets\/hyptosis_tile-art-batch-1.json"
+        }, 
+        {
+         "firstgid":2461,
+         "source":"..\/tilesets\/[A]Dirt_pipo.json"
         }],
  "tilewidth":32,
  "type":"map",
