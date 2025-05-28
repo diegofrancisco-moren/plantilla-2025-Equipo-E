@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/item_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/item_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/crypt_lvl2.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
-    </list>
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +94,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
         <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
       </set>
     </attachedChunks>
@@ -262,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746824145146</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario">
+      <option name="closed" value="true" />
+      <created>1748039174808</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748039174808</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +292,8 @@
     <MESSAGE value="Arreglado el error del mapa del castillo" />
     <MESSAGE value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/plantilla_2025_Equipo_E$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1747348412739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rpg" />
