@@ -9,7 +9,6 @@ from typing import Callable
 
 import arcade
 import arcade.gui
-from pymunk.examples.spiderweb import scale
 
 import rpg.constants as constants
 from arcade.experimental.lights import Light

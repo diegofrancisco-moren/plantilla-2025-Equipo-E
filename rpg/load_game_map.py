@@ -3,7 +3,6 @@ Load maps (edited)
 """
 import json
 import os
-from collections import OrderedDict
 from os.path import isfile, join
 
 import arcade

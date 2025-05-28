@@ -3,7 +3,6 @@ import json
 
 from rpg import constants
 from rpg.entities.player import Player
-from rpg.load_game_map import load_map
 from rpg.sprites.player_sprite import PlayerSprite
 
 
