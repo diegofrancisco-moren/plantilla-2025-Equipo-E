@@ -765,6 +765,7 @@ class GameView(arcade.View):
 
     def use_axe(self):
         print("Uso el hacha")
+        self.selected_item = 0
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "axeable" not in map_layers:
             print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
