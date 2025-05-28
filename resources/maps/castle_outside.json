@@ -147,6 +147,62 @@
                  "width":32,
                  "x":1952,
                  "y":1216
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":27,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor7"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":30
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1760,
+                 "y":992
+                }, 
+                {
+                 "gid":1214,
+                 "height":32,
+                 "id":28,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"map_name",
+                         "type":"string",
+                         "value":"castle_floor8"
+                        }, 
+                        {
+                         "name":"start_x",
+                         "type":"int",
+                         "value":55
+                        }, 
+                        {
+                         "name":"start_y",
+                         "type":"int",
+                         "value":24
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1760,
+                 "y":736
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -447,7 +503,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":27,
+ "nextobjectid":29,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",

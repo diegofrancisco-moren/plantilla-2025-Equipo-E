@@ -212,7 +212,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
+         "data":"eJztzDEKADAIA0D\/7ee7O7V1EbxbAgkkYoZ87H++Op8AzJAlbzcAgO0OHTkD2Q==",
          "encoding":"base64",
          "height":32,
          "id":16,
@@ -357,7 +357,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",

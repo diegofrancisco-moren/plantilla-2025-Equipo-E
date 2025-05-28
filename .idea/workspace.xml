@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Nuevas plantas para el nivel final">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor1.json" afterDir="false" />
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Mapas editados">
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor2.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor2.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor3.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor3.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor4.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor4.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor5.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor6.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor6.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/woods.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/tilesets/dungeondesign.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/tilesets/dungeondesign.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -356,7 +354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748444503177</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Mapas editados">
+      <option name="closed" value="true" />
+      <created>1748458925640</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748458925640</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -393,6 +399,7 @@
     <MESSAGE value="-Añadidas 3 salas del nivel final" />
     <MESSAGE value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
     <MESSAGE value="Nuevas plantas para el nivel final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nuevas plantas para el nivel final" />
+    <MESSAGE value="Mapas editados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mapas editados" />
   </component>
 </project>

@@ -5,7 +5,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJxjYBjZoIkRgRsZUfnI4qRgbGbgwqNgFAw3sJmR4QAsfW8CsgfaPaNgFNADoJfro2U96YCUunM0bIcOgNUJo2AUDEdArfJpOJZ1yO1BEBiq\/hiOAACmny0q",
+         "data":"eJxjYBjZoIkRgRsZUfnI4qRgbGbgwqNgFIyCUTCQoIqRNExrc\/ABXgGGA3jkaA5G7R+1f9T+UftH7R+1f9R++ts\/CqgLAChkK3w=",
          "encoding":"base64",
          "height":32,
          "id":10,
@@ -23,60 +23,60 @@
          "name":"doors",
          "objects":[
                 {
-                 "gid":8,
-                 "height":15.2727,
-                 "id":18,
+                 "gid":28,
+                 "height":16,
+                 "id":22,
                  "name":"",
                  "properties":[
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"castle_floor5"
+                         "value":"castle_outside"
                         }, 
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":22
+                         "value":16
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":15
+                         "value":30
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":32,
-                 "x":704.166666666667,
-                 "y":464.36365
+                 "width":64,
+                 "x":480,
+                 "y":1025
                 }, 
                 {
-                 "gid":8,
-                 "height":15.2727,
-                 "id":20,
+                 "gid":114,
+                 "height":24,
+                 "id":27,
                  "name":"",
                  "properties":[
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"castle_floor7"
+                         "value":"castle_final"
                         }, 
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":28
+                         "value":16
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":29
+                         "value":30
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":32,
-                 "x":895.25,
-                 "y":911.36365
+                 "width":63.5,
+                 "x":480,
+                 "y":120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -86,7 +86,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztl80KgzAMgOtlu2wvMAVBxQfwskfda\/hi22W77Ye1oBBC0yY11YuHD7FqPtKUxpbGmHJHRMUc48a6WTpF2okuEBv6x+kKuVseCbxQHF\/siuE\/FMYcEzgXy\/1X4psUNP2uJs8IeP4pnNsI\/a4mpwh4\/kN+Sf61YM7flo\/la\/lt4M+VfzMRW1sh6gV+7tre2u\/bYyV+rdpS\/iajv\/X4536Q2w\/jNMQ7a\/gpN6f+bSKxPIZCb\/1Re9EIcsd7BTf\/pX54v7Z\/CPQe1xNcP+jBWO788Vzgmqzp96Htl7L79fyxMwHXz9nreiKeNPdc\/Rcz\/w9iQmcyjbpe0D33PKjBJfAM+v7QBKeu",
+         "data":"eJztlkEKwCAMBPOO6qXHvtRvl4KBEhpr0ohINzAXNTtIDpqIKAETuXPNm9ULV\/RdVvGPmuVK\/q\/zm+lH\/3\/6s3L2WvNUuWWUytbgqaL91oIffvjn+61ofmsO\/PDDH+Pnd97qP6j9b9DYBZ4M9nuQfrnP+W+c3k9qtg==",
          "encoding":"base64",
          "height":32,
          "id":1,
@@ -100,7 +100,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJwrZBg4UAzEXQNofw\/U\/jogfgLEzFAahpnQ+DDMQoQYDOAyhwlq\/0CBGQNsP8MItP8Z68Dajw5G7R+1f9R+2gCOAbafGDBq\/6j9w8n+ywIDaz+pYNT+UftH7R9Y+0H9P8sBtH8xEC9BwrjAEgLq0OWJMWspEAMArS0zFQ==",
+         "data":"eJztlLEKwjAQhq9Rx0r7Er6GzyTuroVSXV0F6+67uOhc8Ql0y9ALTSDEhiSHUIf74ePStLmP3pANTJctUk\/ob7R\/hzyRma4G4Twb5hF7wjo\/1kdoPzV3a\/0g9jB+9f8dARPK2c7yHxGZyB5ZZwMHXOcFnKSuMUjLf9X1tfie0dieipr\/KhvwzT\/Uz\/WnJMYfCvvZr3JLxOdP7UO9\/yokLwHeBcAHWZa0PuxnP\/vZn3r\/sp\/97P8vf0X01wT\/r6L8Z6S18KUNfOe+j+l1QXpvhcKM",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -114,7 +114,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYGBgSAXidCriNAYEwGU2spo6IH6CBTNDaRY0cUY8akG4Hs1sZizqYWq6gPgOIwNVwV0k83CZDVMzUPavHbWfZvbzMTEw8EOxIBP97ScGEGv\/RKDcJBq4b6j4f9T+gbW\/G4oJAWLUEGt\/NxGYUjBUwn\/U\/lH7aQGmjNo\/ou2HgVH7B8Z+WvY\/iAEDXf4g218HZFdBcT0Sm9p4DRKuxeHnJXTCMAAAL5KFiQ==",
+         "data":"eJztlE0OQDAQRmdwVdxBgr2tK9i6hWOwcxAVkkpVJxp\/ie9LXto0nb7OZoiIYkX6MAnpFIrRQriukXHOjruBhdByv1zdlaJn2oUtXJmBtb848Em4\/ioh9X932k3\/8MMP\/3\/9vnPPjM878MMP\/7\/9b8y\/juGHH\/4v+OdkvFCy3kuQUStRb8gPem5O4FNj1k4ICGgd",
          "encoding":"base64",
          "height":32,
          "id":2,
@@ -128,7 +128,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBgFtAR1A+2AUTAK6AwuCDAwPGGA4MsCA+2aUTAK6ANAZT0TEDND+cxQzALE9XSwfzqU\/gvEKlD6Lx3spSZggWImJDYynwmLHMuAuHQUkAIeMUDqA2qBZUC8nIrmkQr2A\/GBUftHrP1WjAwM1owIPhMeTErZj88cGB5qAJT3YXUhBwP96sNRQBgAACgvFJA=",
+         "data":"eJztzsEAAAAIBLBDyF8roSzq0UawBICvuq4HAABsGercAOQ=",
          "encoding":"base64",
          "height":32,
          "id":9,
@@ -142,7 +142,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztlk0OgjAQhae4N3ovUTTxLmqkPQBLNV7AE+gRvIDGtRv1ILahatPQXyrVhJe8AEPhC8PMAMB3VHDHUsv\/T\/4cARxQPH5GvQnAH3LH4N+o79yXXvP8OpL57Hj0Y\/w9PU+kOmV1uxC84hZjM4u82vDXqKztpbSuMNgmj3X4A\/jUvezUgY95fpn7CUA3Kfdfecw5Hwsxtg7TGN28a58Z8Rhx4NuoKr9Hzfu9Ijv+BNQ51HkaiJ94OgvE91UovtzHslU9bOKzGh5b8E19rHoGE599Ex4R+bZq+f58bKhd0bmmjn34urmVKu5VpS3SzzlVD3VAPZuIA99m1rmK9X5VTprSif4DniWTBvmtvqtdjWuf4JN\/\/g==",
+         "data":"eJzt1qERACAMBMHQv4KWoAyKwcYjwgy7DdzLjwDgV7tVLwAAeN9In6kX\/KeVmvOifwDydgOM",
          "encoding":"base64",
          "height":32,
          "id":8,
@@ -156,7 +156,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYBgcoJrG8sSqGQWjYLiA0fQ+CkY6GM0D5ANcYTcapkMTjMbbKBgJgBrpHN2M0bwzCoYjAABl2gXF",
+         "data":"eJxjYBgFgwVMIULsF5TmZ0WICbCiypFiHrlAHMl+CVbc6kbBKBgFo4BagFeA4QAeuVH7R+0ftX\/U\/lH7R+0ftX\/U\/lFAAAAAFwYVQQ==",
          "encoding":"base64",
          "height":32,
          "id":16,
@@ -170,7 +170,35 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt0KENACAQA8BnBIZgAvbfDYF6h6HqLmkqm7QKMtbsnd7l8j\/AP3v0kOFzgDcHFXYCew==",
+         "data":"eJxjYBgFQxX0AHHXCLb\/MD\/DARAeQCeMglEwCugIruHJ70C5UftH7R+1f9R+ksBdoJnHgXqJxbgAKWbc5R+1H2bWQNt\/D2j\/dSCbWIwLkGIG0M4F+MwaBaOAHgAAjdmJqw==",
+         "encoding":"base64",
+         "height":32,
+         "id":19,
+         "name":"shadows",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":32,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJztzDENADAMBLFnEP5b0RRXMWRoltjSrZcAAMAut3I6\/f4ATHhLQiL5",
+         "encoding":"base64",
+         "height":32,
+         "id":20,
+         "name":"shadows2",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":32,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJztzKENAAAIBLHfXzMwI2BIELTuzCUAAHxWQ1+9ANjVYWMCUQ==",
          "encoding":"base64",
          "height":32,
          "id":3,
@@ -198,7 +226,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
+         "data":"eJztzjEBAAAIA6BZ3OzG2CEkIAEAAIAfdtqDngONAwCA",
          "encoding":"base64",
          "height":32,
          "id":11,
@@ -225,7 +253,30 @@
          "draworder":"topdown",
          "id":15,
          "name":"lights",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":21,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff9f9f9"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":511.333333333333,
+                 "y":1012.66666666667
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -251,13 +302,49 @@
                 {
                  "gid":1509,
                  "height":32,
-                 "id":19,
+                 "id":23,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":864,
+                 "x":736,
+                 "y":224
+                }, 
+                {
+                 "gid":1509,
+                 "height":32,
+                 "id":24,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":896,
+                 "y":224
+                }, 
+                {
+                 "gid":1509,
+                 "height":32,
+                 "id":25,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":256,
+                 "y":224
+                }, 
+                {
+                 "gid":1509,
+                 "height":32,
+                 "id":26,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":96,
                  "y":224
                 }],
          "opacity":1,
@@ -266,8 +353,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":19,
- "nextobjectid":21,
+ "nextlayerid":21,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
