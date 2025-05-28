@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Añadidas 3 salas del nivel final">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/farmhouse.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/farmhouse.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/woods.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/woods.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748380744453</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)">
+      <option name="closed" value="true" />
+      <created>1748387486441</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748387486441</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,6 +377,7 @@
     <MESSAGE value="En la línea 257 da error, así que está comentada. No parece aportar nada, el juego sigue funcionando bien" />
     <MESSAGE value="Añadida velocidad de movimiento de personajes y enemigos. Ahora desde Tiled se añade una propiedad a cada uno &quot;speed&quot; y cada uno puede tener su velocidad customizada. Sino, la velocidad por defecto se establece a 1" />
     <MESSAGE value="-Añadidas 3 salas del nivel final" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Añadidas 3 salas del nivel final" />
+    <MESSAGE value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
   </component>
 </project>
