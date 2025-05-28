@@ -280,7 +280,7 @@ class GameView(arcade.View):
             #Create the statistics of the player
             player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
                                        , constants.DEFENSE, constants.SPEED, constants.MANA,
-                                       "thief")
+                                       "knight")
             player_statistics.add_player_attack()
             player_statistics.add_player_magic_attack()
 
@@ -289,7 +289,7 @@ class GameView(arcade.View):
 
             # Create the player character
             if player_statistics.get_class_type() == "knight":
-                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.5)
+                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.2)
             elif player_statistics.get_class_type() == "magician":
                 self.player_sprite = PlayerSprite(constants.wizard_sheet_name, player_statistics, scale=1.5)
             else:
@@ -771,9 +771,9 @@ class GameView(arcade.View):
             print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
             return
 
-        searchable_sprites = map_layers["searchable"]
+        axeable_sprites = map_layers["axeable"]
         sprites_in_range = arcade.check_for_collision_with_list(
-            self.player_sprite, searchable_sprites
+            self.player_sprite, axeable_sprites
         )
         for sprite in sprites_in_range:
             #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos

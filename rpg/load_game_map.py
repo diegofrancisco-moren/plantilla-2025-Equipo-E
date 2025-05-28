@@ -116,7 +116,7 @@ def load_map(map_name):
                     , None, scale=1.0)
                 else:
                     character_sprite = CharacterSprite(
-                        f":characters:{character_data['images']}")
+                        f":characters:{character_data['images']}", scale=1.0)
                 character_sprite.position = shape
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
