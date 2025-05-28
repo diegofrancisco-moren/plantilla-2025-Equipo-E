@@ -1,0 +1,14 @@
+{ "columns":50,
+ "image":"Tileset.png",
+ "imageheight":832,
+ "imagewidth":1600,
+ "margin":0,
+ "name":"TilesetDungeon_Normal",
+ "spacing":0,
+ "tilecount":1300,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}
