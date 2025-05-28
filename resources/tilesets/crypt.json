@@ -1,0 +1,14 @@
+{ "columns":30,
+ "image":"..\/tilesets\/crypt.png",
+ "imageheight":587,
+ "imagewidth":978,
+ "margin":0,
+ "name":"crypt",
+ "spacing":0,
+ "tilecount":540,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}
