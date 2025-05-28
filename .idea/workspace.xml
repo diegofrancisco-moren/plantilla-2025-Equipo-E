@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="-Añadidas 3 salas del nivel final">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/farmhouse.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/farmhouse.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/attacks_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/item_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/item_dictionary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/sprites/character_sprite.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/sprites/character_sprite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/sprites/path_following_sprite.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/sprites/path_following_sprite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/sprites/player_sprite.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/sprites/player_sprite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/sprites/random_walking_sprite.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/sprites/random_walking_sprite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

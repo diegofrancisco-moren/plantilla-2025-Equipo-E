@@ -19,7 +19,9 @@ SPRITE_SIZE = 32
 MOVEMENT_SPEED = 6
 
 # Sprite of the player
-player_sheet_name = ":characters:Male" + os.path.sep + "Male 02-2.png"
+knight_sheet_name = ":characters:Player" + os.path.sep + "knight_sprite.png"
+wizard_sheet_name = ":characters:Player" + os.path.sep + "magician_sprite.png"
+thief_sheet_name = ":characters:Player" + os.path.sep + "thief_sprite.png"
 
 # Statistics of the player
 HEALTH = 100
@@ -48,6 +50,7 @@ KEY_LEFT = [arcade.key.LEFT, arcade.key.A]
 KEY_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 INVENTORY = [arcade.key.I]
 SEARCH = [arcade.key.E]
+GANCHO = [arcade.key.Q]
 
 # Key attack view
 KEY_ATTACK = [arcade.key.A]

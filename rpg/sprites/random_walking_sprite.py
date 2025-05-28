@@ -12,8 +12,8 @@ class RandomWalkingSprite(CharacterSprite):
     """
     MAX_PATH_DISTANCE = 350
 
-    def __init__(self, sheet_name, scene, statistics, speed=1):
-        super().__init__(sheet_name)
+    def __init__(self, sheet_name, scene, statistics, scale, speed=1):
+        super().__init__(sheet_name, scale = scale)
         self.speed = speed
         self.scene = scene
         self.destination = None
