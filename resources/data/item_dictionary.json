@@ -20,5 +20,9 @@
               "booster_type": "health",
               "heal_amount": 10,
               "usable" : true
+  },
+  "Axe": {"name": "Axe",
+              "type": "Tool",
+              "usable" : false
   }
 }

@@ -19,8 +19,8 @@ SPRITE_INFO = {
 
 
 class CharacterSprite(arcade.Sprite):
-    def __init__(self, sheet_name):
-        super().__init__()
+    def __init__(self, sheet_name, scale):
+        super().__init__(scale = scale)
         self.textures = arcade.load_spritesheet(
             sheet_name,
             sprite_width=SPRITE_SIZE,

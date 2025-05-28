@@ -3,11 +3,14 @@ Main game view
 """
 
 import json
+import math
 import os
 from typing import Callable
 
 import arcade
 import arcade.gui
+from pymunk.examples.spiderweb import scale
+
 import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
@@ -181,6 +184,20 @@ class GameView(arcade.View):
         self.hotbar_sprite_list = None
         self.selected_item = 1
 
+        #Sprites Hook
+        self.hook_animation_textures = [
+            arcade.load_texture(":animations:" + os.path.sep + "hook" +
+                                os.path.sep + f"hook_{i}.png") for i in range(9)
+        ]
+        self.hook_animation_index = 0
+        self.hook_animating = False
+        self.hook_animation_angle = 0
+        self.hook_animation_pos = [0, 0]  # posición actual del gancho
+        self.hook_animation_start = [0, 0]  # origen (jugador)
+        self.hook_animation_end = [0, 0]  # destino (casilla hookable)
+        self.hook_animation_progress = 0.0  # entre 0.0 y 1.0
+        self.hook_animation_speed = 0.08  # ajustable
+
         f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
                  os.path.sep + "item_dictionary.json")
         self.item_dictionary = json.load(f)
@@ -263,7 +280,7 @@ class GameView(arcade.View):
             #Create the statistics of the player
             player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
                                        , constants.DEFENSE, constants.SPEED, constants.MANA,
-                                       "warrior")
+                                       "knight")
             player_statistics.add_player_attack()
             player_statistics.add_player_magic_attack()
 
@@ -271,7 +288,13 @@ class GameView(arcade.View):
             self.window.views["inventory"].setup()
 
             # Create the player character
-            self.player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
+            if player_statistics.get_class_type() == "knight":
+                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.2)
+            elif player_statistics.get_class_type() == "magician":
+                self.player_sprite = PlayerSprite(constants.wizard_sheet_name, player_statistics, scale=1.5)
+            else:
+                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics, scale=1.5)
+
 
             # Spawn the player
             start_x = constants.STARTING_X
@@ -281,6 +304,8 @@ class GameView(arcade.View):
 
         # Set up the hotbar
         self.load_hotbar_sprites()
+
+
 
     def load_hotbar_sprites(self):
         """Load the sprites for the hotbar at the bottom of the screen.
@@ -351,10 +376,6 @@ class GameView(arcade.View):
         for i in range(capacity):
             y = vertical_hotbar_location
             x = i * field_width + 5
-            if i == self.selected_item - 1:
-                arcade.draw_lrtb_rectangle_outline(
-                    x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
-                )
 
             player_inventory = list(self.player_sprite.statistics.get_inventory().values())
             if len(player_inventory) > i:
@@ -362,6 +383,12 @@ class GameView(arcade.View):
             else:
                 item_name = ""
 
+            if i == self.selected_item - 1:
+                arcade.draw_lrtb_rectangle_outline(
+                    x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
+                )
+                if item_name == "Axe":
+                    self.use_axe()
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
@@ -369,29 +396,26 @@ class GameView(arcade.View):
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
 
 
-
-
-
     def on_draw(self):
         """
         Render the screen.
         """
-            # This command should happen before we start drawing. It will clear
-        # the screen to the background color, and erase what we drew last frame.
+        # Borra la pantalla antes de dibujar
         arcade.start_render()
-        cur_map = self.map_list[self.cur_map_name]
 
-        # --- Light related ---
-        # Everything that should be affected by lights gets rendered inside this
-        # 'with' statement. Nothing is rendered to the screen yet, just the light
-        # layer.
+        cur_map = self.map_list[self.cur_map_name]
+        map_layers = cur_map.map_layers
+
+
+
+        # --- Capa de luces ---
         with cur_map.light_layer:
 
 
-            # Use the scrolling camera for sprites
+            # Cámara de sprites
             self.camera_sprites.use()
 
-            # Grab each tile layer from the map
+  # Grab each tile layer from the map
             map_layers = cur_map.map_layers
 
             # Draw scene
@@ -407,6 +431,9 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
+            #for layer_name in ["bridges", "bridges2", "enemies", "characters", "walls_nonblocking"]:
+            #    if layer_name in map_layers:
+            #        map_layers[layer_name].draw()
 
             for layer in cur_map.scene.name_mapping:
                 if layer not in cur_map.map_layers and layer !="wall_list":
@@ -422,37 +449,86 @@ class GameView(arcade.View):
             if map_layers.get("walls2_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
+            # Dibuja el jugador
+            self.player_sprite_list.draw()
 
+            # --- Animación del gancho ---
+            if self.hook_animating:
+                print("Dibujando la animación")
+                texture = self.hook_animation_textures[self.hook_animation_index]
 
+                # Vector unitario en la dirección del gancho
+                dx = self.hook_animation_end[0] - self.hook_animation_start[0]
+                dy = self.hook_animation_end[1] - self.hook_animation_start[1]
+                length = math.hypot(dx, dy)
+                angle = math.degrees(math.atan2(dy, dx))
+                print("El angulo es:" + str(angle) + "\n")
+                if length == 0:
+                    length = 1  # evitar división por cero
+                unit_x = dx / length
+                unit_y = dy / length
+        
+                # Desplazamiento para que el pivote quede en el borde izquierdo del sprite
+                offset = texture.width / 2
+
+                draw_x = self.hook_animation_pos[0] - unit_x * offset
+                draw_y = self.hook_animation_pos[1] - unit_y * offset
+
+                # Posición ajustada para que la animación empiece en el jugador y se extienda hacia adelante
+                if (angle > -30 and angle < 30) or (angle > -210 and angle < -150):
+                    if self.hook_animation_start[0] > self.hook_animation_end[0]:
+                        draw_x -= 40
+                    else:
+                        draw_x += 40
+                if (angle > 60 and angle < 120) or (angle > -120 and angle < -60):
+                    print("Entro en Y")
+                    if self.hook_animation_start[1] > self.hook_animation_end[1]:
+                        draw_y -= 40
+                    else:
+                        draw_y += 40
+                arcade.draw_texture_rectangle(
+                    draw_x,
+                    draw_y,
+                    texture.width,
+                    texture.height,
+                    texture,
+                    angle=self.hook_animation_angle
+                )
+
+        # --- Dibuja la capa de luz en pantalla ---
         if cur_map.light_layer:
-            # Draw the light layer to the screen.
-            # This fills the entire screen with the lit version
-            # of what we drew into the light layer above.
             if cur_map.properties and "ambient_color" in cur_map.properties:
                 ambient_color = cur_map.properties["ambient_color"]
-                # ambient_color = (ambient_color.green, ambient_color.blue, ambient_color.alpha, ambient_color.red)
             else:
                 ambient_color = arcade.color.WHITE
 
 
             cur_map.light_layer.draw(ambient_color=ambient_color)
 
+        # --- GUI ---
 
-
-        # Use the non-scrolled GUI camera
         self.camera_gui.use()
 
-        # Draw the inventory
+        # Inventario
         self.draw_inventory()
 
-        # Draw any message boxes
+        # Mensajes (como MessageBox)
         if self.message_box:
             self.message_box.on_draw()
 
-        # draw GUI
+        # Elementos UI
         self.ui_manager.draw()
 
-        arcade.draw_text(f"Items: {self.items_collected}", 10, self.window.height - 30, arcade.color.WHITE, 18)#texto de items recogidos
+        # Contador de ítems
+        arcade.draw_text(
+            f"Items: {self.items_collected}",
+            10,
+            self.window.height - 30,
+            arcade.color.WHITE,
+            18
+        )
+
+
 
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
@@ -473,6 +549,36 @@ class GameView(arcade.View):
         """
         All the logic to move, and the game logic goes here.
         """
+        if self.hook_animating:
+            self.hook_animation_progress += self.hook_animation_speed
+            if self.hook_animation_progress >= 1.0:
+                self.hook_animation_progress = 1.0
+                self.hook_animating = False
+
+                # TELETRANSPORTAR al jugador al final del gancho
+                self.player_sprite.center_x = self.hook_animation_end[0]
+                self.player_sprite.center_y = self.hook_animation_end[1]
+
+            # Calcular posición intermedia
+            sx, sy = self.hook_animation_start
+            ex, ey = self.hook_animation_end
+            t = self.hook_animation_progress
+
+            # Interpolación lineal de la posición actual del gancho
+            self.hook_animation_pos[0] = sx + (ex - sx) * t
+            self.hook_animation_pos[1] = sy + (ey - sy) * t
+
+            # Calcular ángulo en grados para rotar la textura
+            dx = ex - sx
+            dy = ey - sy
+            self.hook_animation_angle = math.degrees(math.atan2(dy, dx))
+
+            # Avanzar en la animación de frames
+            self.hook_animation_index += 1
+            if self.hook_animation_index >= len(self.hook_animation_textures):
+                self.hook_animation_index = 0
+
+            return  # No actualizar nada más durante la animación
 
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
@@ -619,6 +725,8 @@ class GameView(arcade.View):
             self.window.show_view(pause_menu)
         elif key in constants.SEARCH:
             self.search()
+        elif key in constants.GANCHO:
+            self.throw_claw()
         elif key == arcade.key.KEY_1:
             self.selected_item = 1
         elif key == arcade.key.KEY_2:
@@ -655,6 +763,21 @@ class GameView(arcade.View):
 
     def close_message_box(self):
         self.message_box = None
+
+    def use_axe(self):
+        print("Uso el hacha")
+        map_layers = self.map_list[self.cur_map_name].map_layers
+        if "axeable" not in map_layers:
+            print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
+            return
+
+        axeable_sprites = map_layers["axeable"]
+        sprites_in_range = arcade.check_for_collision_with_list(
+            self.player_sprite, axeable_sprites
+        )
+        for sprite in sprites_in_range:
+            #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos
+            sprite.remove_from_sprite_lists()
 
     def search(self):
         """Search for things"""
@@ -693,6 +816,46 @@ class GameView(arcade.View):
                 print(
                     "The 'item' property was not set for the sprite. Can't get any items from this.\n"
                 )
+
+    def throw_claw(self):
+        """Throw the claw """
+
+        map_layers = self.map_list[self.cur_map_name].map_layers
+        if "hookable" not in map_layers:
+            print(f"No hookable sprites on {self.cur_map_name} map layer.\n")
+            return
+        else:
+            player_sprite = self.player_sprite
+            hookable_sprites = map_layers["hookable"]
+            launch_zones = arcade.check_for_collision_with_list(player_sprite, hookable_sprites)
+            if not launch_zones:
+                print("No estás en una zona de lanzamiento.")
+                return
+            else:
+                self.hook_animation_start = [self.player_sprite.center_x, self.player_sprite.center_y]
+                self.hook_animation_progress = 0.0
+                self.hook_animating = True
+                self.hook_animation_index = 0
+
+                # Buscar el sprite más cercano que NO sea el punto actual
+                min_distance = float("inf")
+                target_sprite = None
+
+                for sprite in hookable_sprites:
+                    if sprite not in launch_zones:
+                        dist = arcade.get_distance_between_sprites(player_sprite, sprite)
+                        if dist < min_distance:
+                            min_distance = dist
+                            target_sprite = sprite
+                if target_sprite:
+                    self.hook_animation_end = [target_sprite.center_x, target_sprite.center_y]
+                    self.hook_animating = True
+                    self.hook_animation_index = 0
+                    # player_sprite.center_x, player_sprite.center_y = target_sprite.center_x, target_sprite.center_y
+                    # arcade.play_sound(self.hook_sound)
+                    print(f"Gancho lanzado a {target_sprite.position}")
+                else:
+                    print("No hay destino válido para el gancho.")
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
