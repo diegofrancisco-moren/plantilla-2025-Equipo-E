@@ -1,8 +1,7 @@
 import arcade
 from pathlib import Path
-from rpg.entities.player import Player
 
-class PlayerStatusView(arcade.View, Player):
+class PlayerStatusView(arcade.View):
     def __init__(self, player):
         super().__init__()
         self.player = player

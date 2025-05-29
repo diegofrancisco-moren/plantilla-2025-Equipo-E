@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="implementación de la vista de estadísticas del jugador">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/views/player_status_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/player_status_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
     "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.player_status_view">
+  <component name="RunManager" selected="Python.__main__">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="plantilla-2025-Equipo-E" />
       <option name="ENV_FILES" value="" />
@@ -392,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748546955571</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="implementación de la vista de estadísticas del jugador">
+      <option name="closed" value="true" />
+      <created>1748549746009</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1748549746009</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
