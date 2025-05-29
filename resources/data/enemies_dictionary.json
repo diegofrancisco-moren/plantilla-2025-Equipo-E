@@ -26,10 +26,10 @@
     "reward_exp": 150,
      "attacks": [
       {
-        "name": "Psychic"
+        "name": "Lightning Storm"
       },
       {
-        "name": "Shadow Ball"
+        "name": "Shadow ball"
       }
     ]
   },
@@ -46,7 +46,7 @@
         "name": "Dark Slash"
       },
       {
-        "name": "Multi Throw"
+        "name": "Poisoned Dagger"
       },
        {
         "name": "Bone thrust"
@@ -66,7 +66,7 @@
         "name": "Slash"
       },
       {
-        "name": "Bone boomerang"
+        "name": "Focused Strike"
       }
     ]
   },
@@ -83,7 +83,7 @@
         "name": "Frozen Breath"
       },
       {
-        "name": "Rain of Icicles"
+        "name": "Ice Lance"
       }
     ]
   },
@@ -101,7 +101,7 @@
         "name": "Fiery Breath"
       },
       {
-        "name": "Land of fire"
+        "name": "Fireball"
       }
     ]
   },
@@ -115,7 +115,7 @@
     "reward_exp": 120,
      "attacks": [
       {
-        "name": "Rocky Spikes"
+        "name": "Earth Shatter"
       },
       {
         "name": "Sandstorm"
@@ -132,7 +132,7 @@
     "reward_exp": 200,
      "attacks": [
       {
-        "name": "Toxic"
+        "name": "Backstab"
       },
       {
         "name": "Fatuous fire"

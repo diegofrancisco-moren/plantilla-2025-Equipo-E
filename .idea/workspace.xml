@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Enemigos añadidos al enemy_dictinary">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/attacks_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor2.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor3.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor4.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor5.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor5.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor6.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor6.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor7.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor8.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor8.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,7 +375,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748473517939</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
+      <option name="closed" value="true" />
+      <created>1748516099754</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1748516099754</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -421,6 +422,7 @@
     <MESSAGE value="Nuevas plantas para el nivel final" />
     <MESSAGE value="Mapas editados" />
     <MESSAGE value="Mapas del castillo terminados, faltan enemigos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mapas del castillo terminados, faltan enemigos" />
+    <MESSAGE value="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
   </component>
 </project>

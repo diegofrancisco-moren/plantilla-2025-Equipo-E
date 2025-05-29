@@ -78,8 +78,10 @@ def load_map(map_name):
 
 
     if not background_music:
-        background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")
-        background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
+        if map_name=="main_map":
+            background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")
+            background_player=arcade.play_sound(background_music, looping=True)
+
         background_music = True
 
 
