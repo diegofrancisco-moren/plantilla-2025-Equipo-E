@@ -311,7 +311,121 @@
          "draworder":"topdown",
          "id":4,
          "name":"enemies",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":28,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":222.666666666667,
+                         "y":2.66666666666666
+                        }, 
+                        {
+                         "x":220,
+                         "y":200
+                        }, 
+                        {
+                         "x":408,
+                         "y":200
+                        }, 
+                        {
+                         "x":414.666666666667,
+                         "y":578.666666666667
+                        }, 
+                        {
+                         "x":404,
+                         "y":196
+                        }, 
+                        {
+                         "x":216,
+                         "y":196
+                        }, 
+                        {
+                         "x":221.333333333333,
+                         "y":1.33333333333334
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton_lvl2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":532,
+                 "y":142.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":29,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-5.33333333333334,
+                         "y":581.333333333333
+                        }, 
+                        {
+                         "x":0,
+                         "y":-6.66666666666666
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"earth_Poltergeist"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":178.666666666667,
+                 "y":166.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":30,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":128,
+                         "y":-1.33333333333331
+                        }, 
+                        {
+                         "x":126.666666666667,
+                         "y":321.333333333333
+                        }, 
+                        {
+                         "x":-2.66666666666663,
+                         "y":322.666666666667
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"necromancer"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":466.666666666667,
+                 "y":430.666666666667
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -414,7 +528,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":28,
+ "nextobjectid":31,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",

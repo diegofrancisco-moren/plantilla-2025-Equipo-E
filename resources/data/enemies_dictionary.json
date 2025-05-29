@@ -9,7 +9,7 @@
     "reward_exp": 70,
      "attacks": [
       {
-        "name": "Slash"
+        "name": "Stitch"
       },
       {
         "name": "Bone Throw"
@@ -23,13 +23,122 @@
     "defense": 7,
     "speed": 12,
     "mana": 80,
-    "reward_exp": 100,
+    "reward_exp": 150,
      "attacks": [
       {
         "name": "Psychic"
       },
       {
         "name": "Shadow Ball"
+      }
+    ]
+  },
+  "skeleton_lvl3": {
+    "images": "Enemy/Enemy 05-1.png",
+    "health": 400,
+    "attack": 45,
+    "defense": 9,
+    "speed": 15,
+    "mana": 60,
+    "reward_exp": 200,
+     "attacks": [
+      {
+        "name": "Dark Slash"
+      },
+      {
+        "name": "Multi Throw"
+      },
+       {
+        "name": "Bone thrust"
+      }
+    ]
+  },
+  "skeleton_lvl2": {
+    "images": "Enemy/Enemy 04-1.png",
+    "health": 200,
+    "attack": 26,
+    "defense": 7,
+    "speed": 12,
+    "mana": 50,
+    "reward_exp": 120,
+     "attacks": [
+      {
+        "name": "Slash"
+      },
+      {
+        "name": "Bone boomerang"
+      }
+    ]
+  },
+  "ice_Poltergeist": {
+    "images": "Enemy/Enemy 15-2.png",
+    "health": 150,
+    "attack": 16,
+    "defense": 4,
+    "speed": 11,
+    "mana": 50,
+    "reward_exp": 100,
+     "attacks": [
+      {
+        "name": "Frozen Breath"
+      },
+      {
+        "name": "Rain of Icicles"
+      }
+    ]
+  },
+
+  "fire_Poltergeist": {
+    "images": "Enemy/Enemy 15-3.png",
+    "health": 170,
+    "attack": 16,
+    "defense": 7,
+    "speed": 9,
+    "mana": 60,
+    "reward_exp": 130,
+     "attacks": [
+      {
+        "name": "Fiery Breath"
+      },
+      {
+        "name": "Land of fire"
+      }
+    ]
+  },
+  "earth_Poltergeist": {
+    "images": "Enemy/Enemy 15-5.png",
+    "health": 160,
+    "attack": 16,
+    "defense": 12,
+    "speed": 7,
+    "mana": 55,
+    "reward_exp": 120,
+     "attacks": [
+      {
+        "name": "Rocky Spikes"
+      },
+      {
+        "name": "Sandstorm"
+      }
+    ]
+  },
+  "ether_soul": {
+    "images": "Enemy/Enemy 16-1.png",
+    "health": 280,
+    "attack": 23,
+    "defense": 17,
+    "speed": 14,
+    "mana": 70,
+    "reward_exp": 200,
+     "attacks": [
+      {
+        "name": "Toxic"
+      },
+      {
+        "name": "Fatuous fire"
+      },
+       {
+        "name": "Dark gaze"
       }
     ]
   }
