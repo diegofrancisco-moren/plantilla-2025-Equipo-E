@@ -3,7 +3,6 @@ Load maps (edited)
 """
 import json
 import os
-from collections import OrderedDict
 from os.path import isfile, join
 
 import arcade
@@ -35,15 +34,22 @@ def load_map(map_name):
     global background_music
     global background_player
     game_map = GameMap()
-    game_map.map_layers = OrderedDict()
+    game_map.map_layers = dict()
     game_map.light_layer = LightLayer(100, 100)
 
     # List of blocking sprites
-
     layer_options = {
+        "trees3_blocking": {
+            "use_spatial_hash": True,
+
+        },
+        "trees2_blocking": {
+            "use_spatial_hash": True,
+
+        },
         "trees_blocking": {
             "use_spatial_hash": True,
-            "hit_box_algorithm": "Simple"  # Evita cálculo automático
+
         },
         "misc_blocking": {
             "use_spatial_hash": True,
@@ -55,6 +61,7 @@ def load_map(map_name):
         "water_blocking": {
             "use_spatial_hash": True,
         },
+
     }
 
 
@@ -65,17 +72,22 @@ def load_map(map_name):
         map_name, scaling=TILE_SCALING, layer_options=layer_options
     )
 
+
+
     game_map.scene = arcade.Scene.from_tilemap(my_map)
+
+
     if not background_music:
-        background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")  # Asegúrate de que la ruta sea correcta
-        background_player=arcade.play_sound(background_music, looping=True, volume=0.1)
+        if map_name=="main_map":
+            background_music = arcade.load_sound(":sounds:zelda-song-101soundboards.mp3")
+            background_player=arcade.play_sound(background_music, looping=True)
+
         background_music = True
 
 
-
-
     if "characters" in my_map.object_lists:
-        f = open("../resources/data/characters_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "characters_dictionary.json")
         character_dictionary = json.load(f)
         character_object_list = my_map.object_lists["characters"]
 
@@ -102,16 +114,18 @@ def load_map(map_name):
                 if character_object.properties.get("movement") == "random":
                     character_sprite = RandomWalkingSprite(
                         f":characters:{character_data['images']}", game_map.scene
-                    , None)
+                    , None, scale=1.0)
                 else:
                     character_sprite = CharacterSprite(
-                        f":characters:{character_data['images']}")
+                        f":characters:{character_data['images']}", scale=1.0)
                 character_sprite.position = shape
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
+                speed = character_object.properties.get("speed", 1)
                 character_sprite = PathFollowingSprite(
-                    f":characters:{character_data['images']}", None)
+                    f":characters:{character_data['images']}", None, speed, scale=1.0)
+
                 character_sprite.position = location
                 path = []
                 for point in shape:
@@ -129,7 +143,8 @@ def load_map(map_name):
 
     if "enemies" in my_map.object_lists:
 
-        f = open("../resources/data/enemies_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep
+                 + "data" + os.path.sep + "enemies_dictionary.json")
         enemy_dictionary = json.load(f)
         enemy_object_list = my_map.object_lists["enemies"]
         game_map.scene.add_sprite_list("enemy_collisions", use_spatial_hash=True)
@@ -156,13 +171,14 @@ def load_map(map_name):
                                      , enemy_data["defense"]
                                      , enemy_data["speed"]
                                      , enemy_data["mana"]
-                                     , enemy_data["reward"])
+                                     , enemy_data["reward_exp"])
+            enemy_statistics.add_enemy_attack(enemy_data)
             if isinstance(shape, list) and len(shape) == 2:
                 # Point
                 if enemy_object.properties.get("movement") == "random":
                     enemy_sprite = RandomWalkingSprite(
                         f":enemies:{enemy_data['images']}", game_map.scene
-                        , enemy_statistics)
+                        , enemy_statistics, scale=1.0)
                 else:
                     enemy_sprite = CharacterSprite(
                         f":enemies:{enemy_data['images']}")
@@ -170,8 +186,11 @@ def load_map(map_name):
             elif isinstance(shape, list) and len(shape[0]) == 2:
                 # Rect or polygon.
                 location = [shape[0][0], shape[0][1]]
+                speed = enemy_object.properties.get("speed", 1)
                 enemy_sprite = PathFollowingSprite(
-                    f":enemies:{enemy_data['images']}", enemy_statistics)
+                    f":enemies:{enemy_data['images']}",
+                    enemy_statistics, speed, scale=1.0)
+
                 enemy_sprite.position = location
                 path = []
                 for point in shape:
@@ -238,22 +257,18 @@ def load_map(map_name):
 
     game_map.properties = my_map.properties
 
-
-
     # Any layer with '_blocking' in it, will be a wall
     game_map.scene.add_sprite_list("wall_list", use_spatial_hash=True)
     for layer, sprite_list in game_map.map_layers.items():
         if "_blocking" in layer:
-            game_map.scene.remove_sprite_list_by_object(sprite_list)
-
+            #game_map.scene.remove_sprite_list_by_object(sprite_list)  #Línea da error
             game_map.scene["wall_list"].extend(sprite_list)
 
     print(f"Map loaded: {map_name}")
+    print(game_map.map_layers.items())
+    print("Capas de game_map scene ", game_map.scene.name_mapping.keys())
     print(f"Layers: {list(game_map.map_layers.keys())}")
-    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}")
-
-
-
+    print(f"Wall list sprites: {len(game_map.scene['wall_list'])}" + "\n")
 
     return game_map
 
@@ -265,7 +280,7 @@ def load_maps():
     """
 
     # Directory to pull maps from
-    mypath = "../resources/maps"
+    mypath = ".." + os.path.sep + "resources" + os.path.sep + "maps"
 
     if load_maps.map_file_names is None:
 
@@ -285,7 +300,8 @@ def load_maps():
 
     # Loop and load each file
     map_name = load_maps.map_file_names.pop(0)
-    load_maps.map_list[map_name] = load_map(f"../resources/maps/{map_name}.json")
+    load_maps.map_list[map_name] = load_map(f".." + os.path.sep + "resources" +
+                                            os.path.sep + "maps" + os.path.sep + f"{map_name}.json")
 
     files_left = load_maps.file_count - len(load_maps.map_file_names)
     progress = 100 * files_left / load_maps.file_count
@@ -297,3 +313,5 @@ def load_maps():
 load_maps.map_file_names = None
 load_maps.map_list = None
 load_maps.file_count = None
+
+

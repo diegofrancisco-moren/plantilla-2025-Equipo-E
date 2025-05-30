@@ -1,0 +1,14 @@
+{ "columns":23,
+ "image":"..\/..\/..\/Game\/resources\/tilesets\/32x32_map_tile v3.1 [MARGINLESS].png",
+ "imageheight":928,
+ "imagewidth":736,
+ "margin":0,
+ "name":"32x32_map_tile v3.1 [MARGINLESS]",
+ "spacing":0,
+ "tilecount":667,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

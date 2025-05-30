@@ -8,7 +8,7 @@
          "data":"eJzTZGRg0BzFo3gUD0lMKQAAArwnYQ==",
          "encoding":"base64",
          "height":16,
-         "id":1,
+         "id":13,
          "name":"ground",
          "opacity":1,
          "type":"tilelayer",
@@ -33,21 +33,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
-         "encoding":"base64",
-         "height":16,
-         "id":3,
-         "name":"windows",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":16,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "compression":"zlib",
-         "data":"eJxjYBh48JKJgeEVE2F1f4BqHJkZGJyA2JkZIf4RKP6JCP0g4AnU5wXE3syE1cLAayLNHgXkgQkkxAU2MINC\/SMZAACE3wiO",
+         "data":"eJxjYBh48JKJgeEVE2F1f4BqHJkZGJyA2JkZIf4RKP4Jqn8HM3a9MOAJlPcCYm8C6pDBayLcNgrIBxNIiAtsYAaF+kcyAADZCglJ",
          "encoding":"base64",
          "height":16,
          "id":4,
@@ -66,6 +52,20 @@
          "height":16,
          "id":5,
          "name":"funiture_nonblocking",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJxjYMANgpggmFwQxQTBo2AUjILBCQAtAwFh",
+         "encoding":"base64",
+         "height":16,
+         "id":3,
+         "name":"windows",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -142,6 +142,35 @@
         }, 
         {
          "draworder":"topdown",
+         "id":11,
+         "name":"characters",
+         "objects":[
+                {
+                 "height":0,
+                 "id":12,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"villager1"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":80,
+                 "y":185.333333333333
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":9,
          "name":"emptied",
          "objects":[
@@ -159,7 +188,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -242,43 +271,87 @@
                  "width":0,
                  "x":253.671865355335,
                  "y":35.8174560717666
+                }, 
+                {
+                 "gid":1072,
+                 "height":32,
+                 "id":11,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff4bff9"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":126.643939393939,
+                 "y":114.231060606061
+                }, 
+                {
+                 "height":0,
+                 "id":13,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#fff4bff9"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":142.909090909091,
+                 "y":92.2727272727273
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
          "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":11,
-         "name":"characters",
-         "objects":[],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":11,
+ "nextlayerid":14,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "properties":[
         {
          "name":"ambient_color",
          "type":"color",
          "value":"#ff797979"
+        }, 
+        {
+         "name":"background_color",
+         "type":"color",
+         "value":"#ffaaaa7f"
         }],
  "renderorder":"left-up",
- "tiledversion":"1.8.4",
+ "tiledversion":"1.11.2",
  "tileheight":32,
  "tilesets":[
         {
          "firstgid":1,
          "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
+        }, 
+        {
+         "firstgid":1065,
+         "source":"..\/tilesets\/bosque2.json"
         }],
  "tilewidth":32,
  "type":"map",
- "version":"1.8",
+ "version":"1.10",
  "width":16
 }

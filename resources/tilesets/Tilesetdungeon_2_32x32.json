@@ -1,0 +1,14 @@
+{ "columns":25,
+ "image":"Tilesetdungeon_2_32x32.png",
+ "imageheight":416,
+ "imagewidth":800,
+ "margin":0,
+ "name":"Tilesetdungeon_2_32x32",
+ "spacing":0,
+ "tilecount":325,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

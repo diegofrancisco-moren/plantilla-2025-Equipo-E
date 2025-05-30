@@ -37,6 +37,12 @@
   },
   "guard2": {
     "images": "Soldier/Soldier 03-2.png"
+  },
+  "villager1": {
+    "images": "Male/Male 13-3.png"
+  },
+  "villager2": {
+    "images": "Male/Male 12-1.png"
   }
 
 }

@@ -6,7 +6,6 @@ from rpg.draw_bar import draw_bar
 from rpg.load_game_map import load_maps
 from rpg.views.battle_view import BattleView
 from rpg.views.game_view import GameView
-from rpg.views.inventory_view import InventoryView
 from rpg.views.main_menu_view import MainMenuView
 from rpg.views.settings_view import SettingsView
 
@@ -17,7 +16,10 @@ class LoadingView(arcade.View):
         self.started = False
         self.progress = 0
         self.map_list = None
+        self.load_save = False
+        self.file_name = None
         arcade.set_background_color(arcade.color.ALMOND)
+
 
     def on_draw(self):
         arcade.start_render()
@@ -53,13 +55,16 @@ class LoadingView(arcade.View):
             done, self.progress, self.map_list = load_maps()
             if done:
                 self.window.views["game"] = GameView(self.map_list)
-                self.window.views["game"].setup()
-                self.window.views["inventory"] = InventoryView()
-                self.window.views["inventory"].setup()
-                self.window.views["main_menu"] = MainMenuView()
-                self.window.views["settings"] = SettingsView()
+                self.window.views["game"].setup(self.load_save, self.file_name)
+                self.window.views["main_menu"] = MainMenuView(None, None)
+                self.window.views["settings"] = SettingsView(None)
                 self.window.views["settings"].setup()
                 self.window.views["battle"] = BattleView(None,None,None)
                 self.window.views["battle"].setup()
 
+
                 self.window.show_view(self.window.views["game"])
+
+    def set_load_game(self, load_save, file_name):
+        self.load_save = load_save
+        self.file_name = file_name

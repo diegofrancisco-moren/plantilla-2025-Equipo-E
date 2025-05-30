@@ -1,0 +1,14 @@
+{ "columns":60,
+ "image":"..\/..\/..\/..\/..\/..\/Rub\u00e9n\/Universidad\/1\u00ba\/Cuatrimestre 2\/Tecnolog\u00eda de Videojuegos\/castle-dungeon_tiles\/Castle-Dungeon_Tiles\/Sample_Map.png",
+ "imageheight":1920,
+ "imagewidth":1920,
+ "margin":0,
+ "name":"Sample_Map",
+ "spacing":0,
+ "tilecount":3600,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

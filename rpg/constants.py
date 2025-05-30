@@ -1,7 +1,13 @@
-"""
-Constant values for the game
-"""
+
+import json
+import os
+
 import arcade
+
+#Json archives
+f = open(".." + os.path.sep + "resources" + os.path.sep + "data"
+         + os.path.sep + "attacks_list.json")
+attack_dictionary = json.load(f)
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
@@ -11,6 +17,11 @@ SPRITE_SIZE = 32
 
 # How fast does the player move
 MOVEMENT_SPEED = 6
+
+# Sprite of the player
+knight_sheet_name = ":characters:Player" + os.path.sep + "knight_sprite.png"
+wizard_sheet_name = ":characters:Player" + os.path.sep + "magician_sprite.png"
+thief_sheet_name = ":characters:Player" + os.path.sep + "thief_sprite.png"
 
 # Statistics of the player
 HEALTH = 100
@@ -39,6 +50,7 @@ KEY_LEFT = [arcade.key.LEFT, arcade.key.A]
 KEY_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 INVENTORY = [arcade.key.I]
 SEARCH = [arcade.key.E]
+GANCHO = [arcade.key.Q]
 
 # Key attack view
 KEY_ATTACK = [arcade.key.A]
@@ -50,4 +62,4 @@ MESSAGE_BOX_FONT_SIZE = 38
 MESSAGE_BOX_MARGIN = 30
 
 # How fast does the camera pan to the user
-CAMERA_SPEED = 0.1
+CAMERA_SPEED = 0.2

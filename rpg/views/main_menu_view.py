@@ -5,12 +5,15 @@ import arcade
 import arcade.gui
 
 
+from rpg.views.saves_view import SavesView
+
+
 class MainMenuView(arcade.View):
     """
     This class acts as the game view for the main menu screen and its buttons. Accessed by hitting ESC. That logic can be referenced in game_view.py
     """
 
-    def __init__(self):
+    def __init__(self, player, game_view):
         super().__init__()
 
         # --- Required for all code that uses UI element, a UIManager to handle the UI.
@@ -34,6 +37,10 @@ class MainMenuView(arcade.View):
         new_game_button = arcade.gui.UIFlatButton(text="New Game", width=200)
         self.v_box.add(new_game_button.with_space_around(bottom=20))
         new_game_button.on_click = self.on_click_new_game
+
+        save_game_button = arcade.gui.UIFlatButton(text="Save Game", width=200)
+        self.v_box.add(save_game_button.with_space_around(bottom=20))
+        save_game_button.on_click = lambda event: self.on_click_save_game(event, player, game_view)
 
         quit_button = arcade.gui.UIFlatButton(text="Quit", width=200)
         self.v_box.add(quit_button.with_space_around(bottom=20))
@@ -79,6 +86,11 @@ class MainMenuView(arcade.View):
         print("restart game")
         self.window.views["game"].setup()
         self.window.show_view(self.window.views["game"])
+
+    def on_click_save_game(self, event, player, gameview):
+        print("saving game...")
+        next_view = SavesView(True, player, gameview)
+        self.window.show_view(next_view)
 
     def on_click_quit(self, event):
         print("quitting")

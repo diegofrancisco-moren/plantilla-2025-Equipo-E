@@ -1,0 +1,14 @@
+{ "columns":8,
+ "image":"[A]Wall-Up_pipo.png",
+ "imageheight":384,
+ "imagewidth":256,
+ "margin":0,
+ "name":"[A]Wall-Up_pipo",
+ "spacing":0,
+ "tilecount":96,
+ "tiledversion":"1.11.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

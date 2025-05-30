@@ -1,17 +1,32 @@
 {
-  "Apple": {"short_name": "Apple",
-            "type": "food",
-            "heal_amount": 5},
-  "Dagger": {"short_name": "Dagger",
-             "type": "weapon",
-             "damage_amount": 5},
-  "Sword": {"short_name": "Sword",
-             "type": "weapon",
-             "damage_amount": 10},
-  "Lesser_Healing_Potion": {"short_name": "Lesser Healing Potion",
+  "Apple": {"name": "Apple",
+            "type": "Food",
+            "booster_type": "health",
+            "heal_amount": 5,
+            "usable" : true
+  },
+  "Dagger": {"name": "Dagger",
+             "type": "Weapon",
+             "damage_amount": 5,
+             "usable" : false
+  },
+  "Sword": {"name": "Sword",
+             "type": "Weapon",
+             "damage_amount": 10,
+             "usable" : false
+  },
+  "Lesser_Healing_Potion": {"name": "Lesser Healing Potion",
               "type": "Potion",
-              "heal_amount": 10},
+              "booster_type": "health",
+              "heal_amount": 10,
+              "usable" : true
+  },
   "Torch": {"short_name": "Torch",
-              "type": "weapon",
-              "damage_amount": 2}
+              "type": "Tool",
+              "usable" : false
+  },
+  "Axe": {"name": "Axe",
+              "type": "Tool",
+              "usable" : false
+  }
 }

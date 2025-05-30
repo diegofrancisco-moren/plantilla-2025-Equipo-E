@@ -3,21 +3,25 @@ Main game view
 """
 
 import json
-from functools import partial
+import math
+import os
 from typing import Callable
 
 import arcade
 import arcade.gui
+
 import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 
-from rpg.load_game_map import background_music, background_player #Se importa la variable desde load_game_map
 
 from rpg.message_box import MessageBox
+from rpg.save_player_game import load_game
 from rpg.sprites.player_sprite import PlayerSprite
 from rpg.views.battle_view import BattleView
 from rpg.entities.player import Player
+from rpg.views.inventory_view import InventoryView
+from rpg.views.main_menu_view import MainMenuView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -136,6 +140,7 @@ class GameView(arcade.View):
 
     def __init__(self, map_list):
         super().__init__()
+        self.object_list = None
         self.coin_sound = arcade.load_sound(":sounds:item-pick-up.mp3")#variable para almacenar sonido de recoger item
         self.items_collected = 0#variable para contar items recogidos
         self.time_of_day = "day"#variable para cambiar día y noche
@@ -178,10 +183,26 @@ class GameView(arcade.View):
         self.hotbar_sprite_list = None
         self.selected_item = 1
 
-        f = open("../resources/data/item_dictionary.json")
+        #Sprites Hook
+        self.hook_animation_textures = [
+            arcade.load_texture(":animations:" + os.path.sep + "hook" +
+                                os.path.sep + f"hook_{i}.png") for i in range(9)
+        ]
+        self.hook_animation_index = 0
+        self.hook_animating = False
+        self.hook_animation_angle = 0
+        self.hook_animation_pos = [0, 0]  # posición actual del gancho
+        self.hook_animation_start = [0, 0]  # origen (jugador)
+        self.hook_animation_end = [0, 0]  # destino (casilla hookable)
+        self.hook_animation_progress = 0.0  # entre 0.0 y 1.0
+        self.hook_animation_speed = 0.08  # ajustable
+
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "item_dictionary.json")
         self.item_dictionary = json.load(f)
 
-        f = open("../resources/data/characters_dictionary.json")
+        f = open(".." + os.path.sep + "resources" + os.path.sep + "data" +
+                 os.path.sep + "characters_dictionary.json")
         self.enemy_dictionary = json.load(f)
 
         # Cameras
@@ -205,6 +226,7 @@ class GameView(arcade.View):
         """
         self.cur_map_name = map_name
 
+
         try:
             self.my_map = self.map_list[self.cur_map_name]
         except KeyError:
@@ -217,14 +239,18 @@ class GameView(arcade.View):
         self.player_sprite.center_x = (
             start_x * constants.SPRITE_SIZE + constants.SPRITE_SIZE / 2
         )
-        self.player_sprite.center_y = (
-            map_height - start_y
-        ) * constants.SPRITE_SIZE - constants.SPRITE_SIZE / 2
+        self.player_sprite.center_y = (map_height - start_y) * constants.SPRITE_SIZE - constants.SPRITE_SIZE / 2
         self.scroll_to_player(1.0)
         self.player_sprite_list = arcade.SpriteList()
         self.player_sprite_list.append(self.player_sprite)
 
         self.setup_physics()
+        map_scene = self.map_list[self.cur_map_name].scene
+
+        if "enemy_collisions" in map_scene.name_mapping.keys():
+            for enemy in self.my_map.scene["enemy_collisions"]:
+                enemy.visible = True
+                enemy.defeated = False
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)
@@ -244,24 +270,41 @@ class GameView(arcade.View):
 
 
 
-    def setup(self):
+    def setup(self, load_save, file_name):
         """Set up the game variables. Call to re-start the game."""
+        if load_save:
+            print("Cargo el personaje anterior")
+            load_game(filename = file_name, gameview = self)
+        else:
+            #Create the statistics of the player
+            player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
+                                       , constants.DEFENSE, constants.SPEED, constants.MANA,
+                                       "knight")
+            player_statistics.add_player_attack()
+            player_statistics.add_player_magic_attack()
 
-        #Create the statistics of the player
-        player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
-                                   , constants.DEFENSE, constants.SPEED, constants.MANA)
+            self.window.views["inventory"] = InventoryView(player_statistics)
+            self.window.views["inventory"].setup()
 
-        # Create the player character
-        self.player_sprite = PlayerSprite(":characters:Male/Male 02-2.png", player_statistics)
+            # Create the player character
+            if player_statistics.get_class_type() == "knight":
+                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.2)
+            elif player_statistics.get_class_type() == "magician":
+                self.player_sprite = PlayerSprite(constants.wizard_sheet_name, player_statistics, scale=1.5)
+            else:
+                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics, scale=1.5)
 
-        # Spawn the player
-        start_x = constants.STARTING_X
-        start_y = constants.STARTING_Y
-        self.switch_map(constants.STARTING_MAP, start_x, start_y)
-        self.cur_map_name = constants.STARTING_MAP
+
+            # Spawn the player
+            start_x = constants.STARTING_X
+            start_y = constants.STARTING_Y
+            self.switch_map(constants.STARTING_MAP, start_x, start_y)
+            self.cur_map_name = constants.STARTING_MAP
 
         # Set up the hotbar
         self.load_hotbar_sprites()
+
+
 
     def load_hotbar_sprites(self):
         """Load the sprites for the hotbar at the bottom of the screen.
@@ -275,7 +318,8 @@ class GameView(arcade.View):
         last_number_pad_sprite_index = 61
 
         self.hotbar_sprite_list = arcade.load_spritesheet(
-            file_name="../resources/tilesets/input_prompts_kenney.png",
+            file_name=".." + os.path.sep + "resources" + os.path.sep + "tilesets" +
+                      os.path.sep + "input_prompts_kenney.png",
             sprite_width=16,
             sprite_height=16,
             columns=34,
@@ -331,52 +375,52 @@ class GameView(arcade.View):
         for i in range(capacity):
             y = vertical_hotbar_location
             x = i * field_width + 5
+
+            player_inventory = list(self.player_sprite.statistics.get_inventory().values())
+            if len(player_inventory) > i:
+                item_name = player_inventory[i]["name"]
+            else:
+                item_name = ""
+
             if i == self.selected_item - 1:
                 arcade.draw_lrtb_rectangle_outline(
                     x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
                 )
-
-            if len(self.player_sprite.inventory) > i:
-                item_name = self.player_sprite.inventory[i]["short_name"]
-            else:
-                item_name = ""
-
+                if item_name == "Axe":
+                    self.use_axe()
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
-            text = f"     {item_name}"
+            text = f"{item_name}"
             arcade.draw_text(text, x, y, arcade.color.ALLOY_ORANGE, 16)
-
 
 
     def on_draw(self):
         """
         Render the screen.
         """
-
-
-
-            # This command should happen before we start drawing. It will clear
-        # the screen to the background color, and erase what we drew last frame.
+        # Borra la pantalla antes de dibujar
         arcade.start_render()
+
         cur_map = self.map_list[self.cur_map_name]
+        map_layers = cur_map.map_layers
 
-        # --- Light related ---
-        # Everything that should be affected by lights gets rendered inside this
-        # 'with' statement. Nothing is rendered to the screen yet, just the light
-        # layer.
+
+
+        # --- Capa de luces ---
         with cur_map.light_layer:
-            arcade.set_background_color(cur_map.background_color)
 
-            # Use the scrolling camera for sprites
+
+            # Cámara de sprites
             self.camera_sprites.use()
 
-            # Grab each tile layer from the map
+  # Grab each tile layer from the map
             map_layers = cur_map.map_layers
 
             # Draw scene
-            cur_map.scene.draw()
 
+            for layer in cur_map.map_layers:
+                self.map_list[self.cur_map_name].map_layers[layer].draw()
 
             for item in map_layers.get("searchable", []):
                 arcade.Sprite(
@@ -386,52 +430,105 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            if map_layers.get("bridges",[]):
-                self.map_list[self.cur_map_name].map_layers["bridges"].draw()
-            if map_layers.get("bridges2",[]):
-                self.map_list[self.cur_map_name].map_layers["bridges2"].draw()
-            if map_layers.get("enemies",[]):
-                self.map_list[self.cur_map_name].map_layers["enemies"].draw()
-            if map_layers.get("characters",[]):
-                self.map_list[self.cur_map_name].map_layers["characters"].draw()
+            #for layer_name in ["bridges", "bridges2", "enemies", "characters", "walls_nonblocking"]:
+            #    if layer_name in map_layers:
+            #        map_layers[layer_name].draw()
+
+            for layer in cur_map.scene.name_mapping:
+                if layer not in cur_map.map_layers and layer !="wall_list":
+                   cur_map.scene[layer].draw()
 
 
-
-            # Draw the player
+            # Dibuja el jugador
             self.player_sprite_list.draw()
+            self.player_sprite.scale=0.99
 
-
-            if map_layers.get("walls_nonblocking",[]):
+            #Draw layers above player for deepness
+            if map_layers.get("walls_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
+            if map_layers.get("walls2_nonblocking", []):
+                self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
 
 
+
+            # --- Animación del gancho ---
+            if self.hook_animating:
+                print("Dibujando la animación")
+                texture = self.hook_animation_textures[self.hook_animation_index]
+
+                # Vector unitario en la dirección del gancho
+                dx = self.hook_animation_end[0] - self.hook_animation_start[0]
+                dy = self.hook_animation_end[1] - self.hook_animation_start[1]
+                length = math.hypot(dx, dy)
+                angle = math.degrees(math.atan2(dy, dx))
+                print("El angulo es:" + str(angle) + "\n")
+                if length == 0:
+                    length = 1  # evitar división por cero
+                unit_x = dx / length
+                unit_y = dy / length
+        
+                # Desplazamiento para que el pivote quede en el borde izquierdo del sprite
+                offset = texture.width / 2
+
+                draw_x = self.hook_animation_pos[0] - unit_x * offset
+                draw_y = self.hook_animation_pos[1] - unit_y * offset
+
+                # Posición ajustada para que la animación empiece en el jugador y se extienda hacia adelante
+                if (angle > -30 and angle < 30) or (angle > -210 and angle < -150):
+                    if self.hook_animation_start[0] > self.hook_animation_end[0]:
+                        draw_x -= 40
+                    else:
+                        draw_x += 40
+                if (angle > 60 and angle < 120) or (angle > -120 and angle < -60):
+                    print("Entro en Y")
+                    if self.hook_animation_start[1] > self.hook_animation_end[1]:
+                        draw_y -= 40
+                    else:
+                        draw_y += 40
+                arcade.draw_texture_rectangle(
+                    draw_x,
+                    draw_y,
+                    texture.width,
+                    texture.height,
+                    texture,
+                    angle=self.hook_animation_angle
+                )
+
+        # --- Dibuja la capa de luz en pantalla ---
         if cur_map.light_layer:
-            # Draw the light layer to the screen.
-            # This fills the entire screen with the lit version
-            # of what we drew into the light layer above.
             if cur_map.properties and "ambient_color" in cur_map.properties:
                 ambient_color = cur_map.properties["ambient_color"]
-                # ambient_color = (ambient_color.green, ambient_color.blue, ambient_color.alpha, ambient_color.red)
             else:
                 ambient_color = arcade.color.WHITE
+
+
             cur_map.light_layer.draw(ambient_color=ambient_color)
 
+        # --- GUI ---
 
-        # Use the non-scrolled GUI camera
         self.camera_gui.use()
 
-        # Draw the inventory
+        # Inventario
         self.draw_inventory()
 
-        # Draw any message boxes
+        # Mensajes (como MessageBox)
         if self.message_box:
             self.message_box.on_draw()
 
-        # draw GUI
+        # Elementos UI
         self.ui_manager.draw()
 
-        arcade.draw_text(f"Items: {self.items_collected}", 10, self.window.height - 30, arcade.color.WHITE, 18)#texto de items recogidos
+        # Contador de ítems
+        arcade.draw_text(
+            f"Items: {self.items_collected}",
+            10,
+            self.window.height - 30,
+            arcade.color.WHITE,
+            18
+        )
+
+
 
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
@@ -452,6 +549,36 @@ class GameView(arcade.View):
         """
         All the logic to move, and the game logic goes here.
         """
+        if self.hook_animating:
+            self.hook_animation_progress += self.hook_animation_speed
+            if self.hook_animation_progress >= 1.0:
+                self.hook_animation_progress = 1.0
+                self.hook_animating = False
+
+                # TELETRANSPORTAR al jugador al final del gancho
+                self.player_sprite.center_x = self.hook_animation_end[0]
+                self.player_sprite.center_y = self.hook_animation_end[1]
+
+            # Calcular posición intermedia
+            sx, sy = self.hook_animation_start
+            ex, ey = self.hook_animation_end
+            t = self.hook_animation_progress
+
+            # Interpolación lineal de la posición actual del gancho
+            self.hook_animation_pos[0] = sx + (ex - sx) * t
+            self.hook_animation_pos[1] = sy + (ey - sy) * t
+
+            # Calcular ángulo en grados para rotar la textura
+            dx = ex - sx
+            dy = ey - sy
+            self.hook_animation_angle = math.degrees(math.atan2(dy, dx))
+
+            # Avanzar en la animación de frames
+            self.hook_animation_index += 1
+            if self.hook_animation_index >= len(self.hook_animation_textures):
+                self.hook_animation_index = 0
+
+            return  # No actualizar nada más durante la animación
 
         # Calculate speed based on the keys pressed
         self.player_sprite.change_x = 0
@@ -565,8 +692,9 @@ class GameView(arcade.View):
                 enemy_hit = arcade.check_for_collision_with_list(
                     self.player_sprite, map_scene["enemy_collisions"]
                 )
+                alive_enemies = [e for e in enemy_hit if not getattr(e, "defeated", False)]
                 # We did!
-                if len(enemy_hit) > 0:
+                if len(alive_enemies) > 0:
                     # Swap to the new map
                     battle_view = BattleView(player=self.player_sprite,enemy=enemy_hit[0],game_view=self)
                     self.window.show_view(battle_view)
@@ -589,11 +717,16 @@ class GameView(arcade.View):
         if key in (constants.KEY_UP + constants.KEY_DOWN + constants.KEY_LEFT + constants.KEY_RIGHT):
             self.keys_held.add(key)
         elif key in constants.INVENTORY:
-            self.window.show_view(self.window.views["inventory"])
+            inventory_view = InventoryView(self.player_sprite.statistics)
+            inventory_view.setup()
+            self.window.show_view(inventory_view)
         elif key == arcade.key.ESCAPE:
-            self.window.show_view(self.window.views["main_menu"])
+            pause_menu = MainMenuView(player = self.player_sprite, game_view = self)
+            self.window.show_view(pause_menu)
         elif key in constants.SEARCH:
             self.search()
+        elif key in constants.GANCHO:
+            self.throw_claw()
         elif key == arcade.key.KEY_1:
             self.selected_item = 1
         elif key == arcade.key.KEY_2:
@@ -636,35 +769,99 @@ class GameView(arcade.View):
     def close_message_box(self):
         self.message_box = None
 
+    def use_axe(self):
+        print("Uso el hacha")
+        self.selected_item = 0
+        map_layers = self.map_list[self.cur_map_name].map_layers
+        if "axeable" not in map_layers:
+            print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
+            return
+
+        axeable_sprites = map_layers["axeable"]
+        sprites_in_range = arcade.check_for_collision_with_list(
+            self.player_sprite, axeable_sprites
+        )
+        for sprite in sprites_in_range:
+            #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos
+            sprite.remove_from_sprite_lists()
+
     def search(self):
         """Search for things"""
 
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "searchable" not in map_layers:
-            print(f"No searchable sprites on {self.cur_map_name} map layer.")
+            print(f"No searchable sprites on {self.cur_map_name} map layer.\n")
             return
 
         searchable_sprites = map_layers["searchable"]
         sprites_in_range = arcade.check_for_collision_with_list(
             self.player_sprite, searchable_sprites
         )
-        print(f"Found {len(sprites_in_range)} searchable sprite(s) in range.")
+        print(f"Found {len(sprites_in_range)} searchable sprite(s) in range.\n")
         for sprite in sprites_in_range:
             if "item" in sprite.properties:
                 self.message_box = MessageBox(
-                    self, f"Found: {sprite.properties['item']}"
+                    self, f"Found: {sprite.properties['item']}\n"
                 )
 
                 arcade.play_sound(self.coin_sound)#sonido añadido para buscar cosas
                 self.items_collected += 1#contador de items recogidos
 
                 sprite.remove_from_sprite_lists()
+                item_key = sprite.properties["item"]
                 lookup_item = self.item_dictionary[sprite.properties["item"]]
-                self.player_sprite.inventory.append(lookup_item)
+                player_inventory = self.player_sprite.statistics.get_inventory()
+                if item_key in player_inventory:
+                    player_inventory[item_key]["quantity"] += 1
+                else:
+                    # Copiar el diccionario del ítem y añadirle cantidad
+                    item_copy = lookup_item.copy()
+                    item_copy["quantity"] = 1
+                    player_inventory[item_key] = item_copy
             else:
                 print(
-                    "The 'item' property was not set for the sprite. Can't get any items from this."
+                    "The 'item' property was not set for the sprite. Can't get any items from this.\n"
                 )
+
+    def throw_claw(self):
+        """Throw the claw """
+
+        map_layers = self.map_list[self.cur_map_name].map_layers
+        if "hookable" not in map_layers:
+            print(f"No hookable sprites on {self.cur_map_name} map layer.\n")
+            return
+        else:
+            player_sprite = self.player_sprite
+            hookable_sprites = map_layers["hookable"]
+            launch_zones = arcade.check_for_collision_with_list(player_sprite, hookable_sprites)
+            if not launch_zones:
+                print("No estás en una zona de lanzamiento.")
+                return
+            else:
+                self.hook_animation_start = [self.player_sprite.center_x, self.player_sprite.center_y]
+                self.hook_animation_progress = 0.0
+                self.hook_animating = True
+                self.hook_animation_index = 0
+
+                # Buscar el sprite más cercano que NO sea el punto actual
+                min_distance = float("inf")
+                target_sprite = None
+
+                for sprite in hookable_sprites:
+                    if sprite not in launch_zones:
+                        dist = arcade.get_distance_between_sprites(player_sprite, sprite)
+                        if dist < min_distance:
+                            min_distance = dist
+                            target_sprite = sprite
+                if target_sprite:
+                    self.hook_animation_end = [target_sprite.center_x, target_sprite.center_y]
+                    self.hook_animating = True
+                    self.hook_animation_index = 0
+                    # player_sprite.center_x, player_sprite.center_y = target_sprite.center_x, target_sprite.center_y
+                    # arcade.play_sound(self.hook_sound)
+                    print(f"Gancho lanzado a {target_sprite.position}")
+                else:
+                    print("No hay destino válido para el gancho.")
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key."""
@@ -701,8 +898,21 @@ class GameView(arcade.View):
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
+
         if result:
-            self.map_list[self.cur_map_name].scene["enemy_collisions"].remove(enemy)
+            self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
+            enemy.statistics.set_defeated(True)
+            enemy.visible = False
 
         self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])
+
+    def set_player_sprite(self, player_sprite):
+        self.player_sprite = player_sprite
+
+    def set_cur_map_name(self, cur_map_name):
+        self.cur_map_name = cur_map_name
+
+    def get_cur_map_name(self):
+        return self.cur_map_name
+
