@@ -21,6 +21,10 @@
               "heal_amount": 10,
               "usable" : true
   },
+  "Torch": {"short_name": "Torch",
+              "type": "Tool",
+              "usable" : false
+  },
   "Axe": {"name": "Axe",
               "type": "Tool",
               "usable" : false
