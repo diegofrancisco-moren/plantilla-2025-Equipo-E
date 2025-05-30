@@ -277,30 +277,45 @@ class GameView(arcade.View):
 
 
 
-    def setup(self, load_save, file_name):
+    def setup(self, load_save, file_name, selected_class):
         """Set up the game variables. Call to re-start the game."""
         if load_save:
             print("Cargo el personaje anterior")
             load_game(filename = file_name, gameview = self)
         else:
-            #Create the statistics of the player
-            player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
-                                       , constants.DEFENSE, constants.SPEED, constants.MANA,
-                                       "knight")
-            player_statistics.add_player_attack()
-            player_statistics.add_player_magic_attack()
+
+            # Create the player character
+            if selected_class == "knight":
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.knight_health, constants.knight_attack
+                                           , constants.knight_defense, constants.knight_speed, constants.knight_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+
+                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics,
+                                                  constants.knight_battle_sprite,scale=constants.SCALE)
+            elif selected_class == "magician":
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.magician_health, constants.magician_attack
+                                           , constants.magician_defense, constants.magician_speed, constants.magician_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+                self.player_sprite = PlayerSprite(constants.magician_sheet_name, player_statistics,
+                                                  constants.magician_battle_sprite,scale=constants.SCALE)
+            else:
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.thief_health, constants.thief_attack
+                                           , constants.thief_defense, constants.thief_speed, constants.thief_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics,
+                                                  constants.thief_battle_sprite, scale=constants.SCALE)
 
             self.window.views["inventory"] = InventoryView(player_statistics)
             self.window.views["inventory"].setup()
-
-            # Create the player character
-            if player_statistics.get_class_type() == "knight":
-                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.2)
-            elif player_statistics.get_class_type() == "magician":
-                self.player_sprite = PlayerSprite(constants.wizard_sheet_name, player_statistics, scale=1.5)
-            else:
-                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics, scale=1.5)
-
 
             # Spawn the player
             start_x = constants.STARTING_X

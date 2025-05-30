@@ -75,7 +75,7 @@ class SavesView(arcade.View):
                 pass
             else:
                 print("Loads the save file 1")
-                self.window.views["loading"].set_load_game(True, self.save_buttons[0].text)
+                self.window.views["loading"].set_load_game(True, self.save_buttons[0].text, None)
                 self.window.show_view(self.window.views["loading"])
 
     def on_click_save_file2(self, event):
@@ -88,7 +88,7 @@ class SavesView(arcade.View):
                 pass
             else:
                 print("Loads the save file 2")
-                self.window.views["loading"].set_load_game(True, self.save_buttons[1].text)
+                self.window.views["loading"].set_load_game(True, self.save_buttons[1].text, None)
                 self.window.show_view(self.window.views["loading"])
 
     def on_click_save_file3(self, event):
@@ -101,7 +101,7 @@ class SavesView(arcade.View):
                 pass
             else:
                 print("Loads the save file 3")
-                self.window.views["loading"].set_load_game(True, self.save_buttons[2].text)
+                self.window.views["loading"].set_load_game(True, self.save_buttons[2].text, None)
                 self.window.views["loading"].setup()
 
     def on_key_press(self, symbol: int, modifiers: int):

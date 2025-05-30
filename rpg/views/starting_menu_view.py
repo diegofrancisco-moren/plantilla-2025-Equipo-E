@@ -1,6 +1,7 @@
 import arcade
 import arcade.gui
 
+from rpg.views.characterselectview import CharacterSelectView
 from rpg.views.loading_view import LoadingView
 from rpg.views.saves_view import SavesView
 
@@ -58,12 +59,11 @@ class StartingMenuView(arcade.View):
         self.manager.draw()
 
     def on_click_new_game(self, event):
-        print("Loads game")
+        print("New game")
         self.manager.disable()
-        self.window.views["loading"] = LoadingView()
-        self.window.views["loading"].set_load_game(load_save = False, file_name = None)
-        self.window.views["loading"].setup()
-        self.window.show_view(self.window.views["loading"])
+        next_view = CharacterSelectView()
+        self.window.show_view(next_view)
+
 
     def on_click_load_game(self, event):
         print("Loads game")
