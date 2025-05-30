@@ -74,6 +74,7 @@ KEY_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 INVENTORY = [arcade.key.I]
 SEARCH = [arcade.key.E]
 GANCHO = [arcade.key.Q]
+PLAYERINFO = [arcade.key.P]
 
 # Key attack view
 KEY_ATTACK = [arcade.key.A]

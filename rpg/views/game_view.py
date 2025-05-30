@@ -14,7 +14,7 @@ import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 
-
+from rpg.entities import player
 from rpg.message_box import MessageBox
 from rpg.save_player_game import load_game
 from rpg.sprites.player_sprite import PlayerSprite
@@ -22,6 +22,7 @@ from rpg.views.battle_view import BattleView
 from rpg.entities.player import Player
 from rpg.views.inventory_view import InventoryView
 from rpg.views.main_menu_view import MainMenuView
+from rpg.views.player_status_view import PlayerStatusView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -745,6 +746,10 @@ class GameView(arcade.View):
             self.window.show_view(pause_menu)
         elif key in constants.SEARCH:
             self.search()
+        elif key in constants.PLAYERINFO:
+            status_view = PlayerStatusView(player)
+            status_view.on_draw()
+            self.window.show_view(status_view)
         elif key in constants.GANCHO:
             self.throw_claw()
         elif key == arcade.key.KEY_1:
@@ -950,4 +955,7 @@ class GameView(arcade.View):
 
     def get_cur_map_name(self):
         return self.cur_map_name
+
+    def player_status_view(self):
+        pass
 
