@@ -9,7 +9,6 @@ from typing import Callable
 
 import arcade
 import arcade.gui
-from pymunk.examples.spiderweb import scale
 
 import rpg.constants as constants
 from arcade.experimental.lights import Light
@@ -252,6 +251,7 @@ class GameView(arcade.View):
             for enemy in self.my_map.scene["enemy_collisions"]:
                 enemy.visible = True
                 enemy.defeated = False
+                enemy.health_up(enemy.get_health_max())
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)
@@ -264,9 +264,15 @@ class GameView(arcade.View):
                 self.player_sprite, arcade.SpriteList()
             )
         else:
-            # use the walls as normal
+            if "axeable" in self.my_map.scene.name_mapping.keys():
+                combined_list = arcade.SpriteList()
+                combined_list.extend(self.my_map.scene["wall_list"])
+                combined_list.extend(self.my_map.scene["axeable"])
+            else:
+                combined_list = self.my_map.scene["wall_list"]
+
             self.physics_engine = arcade.PhysicsEngineSimple(
-                self.player_sprite, self.my_map.scene["wall_list"]
+                self.player_sprite, combined_list
             )
 
 
@@ -389,6 +395,8 @@ class GameView(arcade.View):
                 )
                 if item_name == "Axe":
                     self.use_axe()
+                    self.selected_item = 0
+
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
@@ -528,8 +536,6 @@ class GameView(arcade.View):
             18
         )
 
-
-
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
 
@@ -652,7 +658,6 @@ class GameView(arcade.View):
         map_layers = self.map_list[self.cur_map_name].map_layers
         map_scene = self.map_list[self.cur_map_name].scene
 
-
         # Is there as layer named 'doors'?
         if "doors" in map_layers:
             # Did we hit a door?
@@ -766,16 +771,31 @@ class GameView(arcade.View):
 
     def use_axe(self):
         print("Uso el hacha")
-        map_layers = self.map_list[self.cur_map_name].map_layers
-        if "axeable" not in map_layers:
+        map_scene = self.map_list[self.cur_map_name].scene
+        print(f"Antes: {len(map_scene['axeable'])} sprites axeable")
+        if "axeable" not in map_scene.name_mapping.keys():
             print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
             return
+        axeable_sprites = map_scene["axeable"]
 
-        axeable_sprites = map_layers["axeable"]
+        # Crear un sprite invisible o un rectángulo que representa el área de ataque
+        axe_box = arcade.SpriteSolidColor(70, 70, arcade.color.RED)
+
+
+        # Posicionarlo cerca del jugador (ajustar según dirección, por ejemplo)
+        axe_box.center_x = self.player_sprite.center_x   # 20 pixeles a la derecha, por ejemplo
+        axe_box.center_y = self.player_sprite.center_y
+
         sprites_in_range = arcade.check_for_collision_with_list(
-            self.player_sprite, axeable_sprites
+            axe_box, axeable_sprites
         )
+
+        print("Sprites en rango (colisionando):")
+        for s in sprites_in_range:
+            print(f" - ID: {id(s)} Pos: ({s.center_x}, {s.center_y})")
+
         for sprite in sprites_in_range:
+            print(f"Removiendo sprite con id {id(sprite)}")
             #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos
             sprite.remove_from_sprite_lists()
 
