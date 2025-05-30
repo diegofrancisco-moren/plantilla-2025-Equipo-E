@@ -9,6 +9,7 @@ class SettingsView(arcade.View):
         super().__init__()
         self.started = False
         arcade.set_background_color(arcade.color.ALMOND)
+        self.last_window = last_window
 
     def on_draw(self):
         arcade.start_render()
@@ -33,4 +34,4 @@ class SettingsView(arcade.View):
 
     def on_key_press(self, symbol: int, modifiers: int):
         if symbol == arcade.key.ESCAPE:
-            self.window.show_view(self.window.views["main_menu"])
+            self.window.show_view(self.last_window)

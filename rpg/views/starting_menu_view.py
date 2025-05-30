@@ -2,8 +2,10 @@ import arcade
 import arcade.gui
 
 from rpg.views.characterselectview import CharacterSelectView
+from rpg.views.credits_view import CreditsView
 from rpg.views.loading_view import LoadingView
 from rpg.views.saves_view import SavesView
+from rpg.views.settings_view import SettingsView
 
 
 class StartingMenuView(arcade.View):
@@ -13,7 +15,7 @@ class StartingMenuView(arcade.View):
         self.v_box = arcade.gui.UIBoxLayout()
         arcade.set_background_color(arcade.color.ALMOND)
 
-        title = arcade.gui.UILabel(text="[NOMBRE DEL JUEGO]", width=637, font_size=44,
+        title = arcade.gui.UILabel(text="[La Odisea]", width=330, font_size=44,
                                    text_color=arcade.color.ALLOY_ORANGE)
         self.v_box.add(title.with_space_around(bottom=80))
 
@@ -76,12 +78,14 @@ class StartingMenuView(arcade.View):
 
     def on_click_settings(self, event):
         print("Adjust the settings")
-        self.window.show_view(self.window.views["settings"])
+        next_view = SettingsView(self)
+        self.window.show_view(next_view)
         'Have to find a way to fix the Esc button not working'
 
     def on_click_credits(self, event):
         print("Displays the credits")
-        self.window.show_view(self.window.views["credits"])
+        next_view = CreditsView(self)
+        self.window.show_view(next_view)
 
     def on_click_exit(self, event):
         print("Exits the game")
