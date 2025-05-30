@@ -128,7 +128,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJwrZICAdAI4EooJqSNWHwgUA3EXw8CBHqj9dUD8BIg5oDQDlEbGDDjEicUwvTA76pHsnw7Ef0jAX0lUD8KhXAwLkPnI\/t9AetBRBdDLfhFG8uyXp5L9uMwZKfarD7D9uAC59j9hxc6ml\/3UAtSwfwkUD5T9lABC9qsNsP3UAipkln+0BtS23wGHP+lh\/x0y9AyF8CcmD5KbTymx\/yMrYTW0tJ9UNeTa\/5gB0l6E0bS0H2THBSj7EpSvCsR\/GSBtxr9QMXRMS\/+jtx2wtW1xtS+oYT8twaj9qPaTU4ZS0356A5D9ixkQbShSMAiwM0IwA5lmLAViAF2rnlU=",
+         "data":"eJwrZICAdAI4EooJqSNWHwgUA3EXw8CBHqj9dUD8BIg5oDQDlEbGDDjEicUwvTA76pHsnw7Ef0jAX0lUD8KhXAwLkPnI\/t9AetBRBdDLfhFG8uyXp5L9uMwZKfarD7D9uMCo\/ZTbvwSKB8p+SgAh+9UG2H5qARUyyz9aA2rb74DDn\/Sw\/w4ZeoZC+BOTB8nNp5TY\/5F1YO0nVQ259j9mgLQXYTQt7QfZcQHKvgTlqwLxXwZIm\/EvVAwd09L\/6G0HbG1bXO0LathPSzBqP6r95JSh1LSf3gBk\/2IGRBuKFAwC7IwQzECmGUuBGADAHZyD",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -375,36 +375,18 @@
                  "height":33.75,
                  "id":1,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"item",
+                         "type":"string",
+                         "value":"Apple"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":32,
                  "x":448,
                  "y":704
-                }, 
-                {
-                 "gid":1507,
-                 "height":32,
-                 "id":3,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":512,
-                 "y":352
-                }, 
-                {
-                 "gid":1507,
-                 "height":32,
-                 "id":4,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":416,
-                 "y":352
                 }],
          "opacity":1,
          "type":"objectgroup",

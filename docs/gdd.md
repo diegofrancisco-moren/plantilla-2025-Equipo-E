@@ -76,6 +76,12 @@ Es el personaje principal que podrá manejar el jugador, podrá elegir entre tre
 - **Puzle/Desafio en los niveles**
   En algunos niveles el jugador deberá resolver un puzzle para poder seguir avanzando por el nivel y poder pasar al siguiente.
 
+- **Inventario**
+  Se creará un sistema de inventario funcional, aprovechando la pantalla de inventario que trae la plantilla.
+
+- **Sistema de Guardado**
+  Crear uns sistema de guardado funcional, que permita guardar la partida y retomarla desde el mismo punto. Para así no tener que empezar una nueva partida siempre.
+
 ### Fisicas
 Las físicas que se implementarán en el juego, son las convencionales de su genero. Es decir se implementarán las colisiones con los diferentes enemigos que haya en los mapas, y que con los diferentes obstaculos del camino. Debido a la camara que tiene el juego, no hay necesidad de implementar gravedad o saltos.
 

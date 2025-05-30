@@ -24,7 +24,7 @@
          "objects":[
                 {
                  "gid":263,
-                 "height":30,
+                 "height":42.5,
                  "id":6,
                  "name":"",
                  "properties":[
@@ -72,7 +72,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJwrZICAdDwYHeBTS6w+ECgG4i4s6ugB6oG4B2p\/HRAL0Bkj2z+dxn7FBWD2bxi1f9T+UftH7R+1f9T+UftH7R+1f9T+UftH7R+1n+b2LwbiJWRgdECOGUuBGADrO1HY",
+         "data":"eJwrZICAdDwYHeBTS6w+ECgG4i4s6ugB6oG4B2p\/HRAL0Bkj2z+dxn7FBWD2bxii9l9kguCRaj+lYNT+UftH7R+1f9T+UftH7R+1f9T+UftH7aev\/YuBeAkZGB2QY8ZSIAYA0FBVJA==",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -128,7 +128,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztwQENAAAAwqD3T20PBxQAAADwbhAAAAE=",
+         "data":"eJxjYBi8IE0Qu3g1kWL4zCAGlBHQ68TIwODMSJkZo4AwmMhDHz24wEwyzCJHz2AFnnTSM1jBaPobWDCa\/uijBxcYTX\/00TNYwWj6G1gwmv7oowcXGOnpbxQMXwAANDcSVg==",
          "encoding":"base64",
          "height":32,
          "id":3,
@@ -200,7 +200,37 @@
          "draworder":"topdown",
          "id":4,
          "name":"enemies",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":0.1171875,
+                         "y":0
+                        }, 
+                        {
+                         "x":0.04296875,
+                         "y":0.0859375
+                        }],
+                 "properties":[
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"Serpensordia"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":511.9609375,
+                 "y":191.96484375
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -219,7 +249,7 @@
          "y":0
         }],
  "nextlayerid":17,
- "nextobjectid":9,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tiledversion":"1.11.2",
@@ -244,6 +274,14 @@
         {
          "firstgid":2615,
          "source":"..\/tilesets\/wdungeondesign.json"
+        }, 
+        {
+         "firstgid":2940,
+         "source":"..\/tilesets\/bosque.json"
+        }, 
+        {
+         "firstgid":4356,
+         "source":"..\/tilesets\/Castle2.json"
         }],
  "tilewidth":32,
  "type":"map",
