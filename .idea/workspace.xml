@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
     <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/attacks_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/load_game_map.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/load_game_map.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +37,15 @@
     &quot;assignee&quot;: &quot;Rutosca&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git",
-    "accountId": "f31bdab1-31ac-4ed6-b874-86b390dd1904"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git&quot;,
+    &quot;accountId&quot;: &quot;6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/arcade/experimental/lights.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -54,12 +60,27 @@
     "Python.load_game_map.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Maxim",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.__main__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="plantilla-2025-Equipo-E" />
@@ -88,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
       </set>
     </attachedChunks>
   </component>
@@ -100,6 +121,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742494925932</updated>
+      <workItem from="1746809070961" duration="7800000" />
+      <workItem from="1747322172122" duration="9733000" />
+      <workItem from="1748038867408" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="ko">
       <option name="closed" value="true" />
@@ -156,6 +180,104 @@
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1746025872431</updated>
+    </task>
+    <task id="LOCAL-00008" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746026144851</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746026144851</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746027969472</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746027969472</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746031913276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031913276</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha">
+      <option name="closed" value="true" />
+      <created>1746210172380</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746210172380</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Arreglado el dibujado de capas (se dibujan en orden).">
+      <option name="closed" value="true" />
+      <created>1746217091359</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746217091359</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746223160323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746223160325</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746231369462</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746231369462</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets">
+      <option name="closed" value="true" />
+      <created>1746550742090</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746550742090</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Arreglado el error del mapa del castillo">
+      <option name="closed" value="true" />
+      <created>1746716991485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746716991485</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <option name="closed" value="true" />
+      <created>1746723774624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746723774624</updated>
+    </task>
+    <task id="LOCAL-00018" summary=".">
+      <option name="closed" value="true" />
+      <created>1746824145146</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746824145146</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario">
+      <option name="closed" value="true" />
+      <created>1748039174808</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748039174808</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     </task>
     <task id="LOCAL-00008" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
       <option name="closed" value="true" />
@@ -407,6 +529,12 @@
     <MESSAGE value="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets" />
     <MESSAGE value="Arreglado el error del mapa del castillo" />
     <MESSAGE value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
+    <MESSAGE value="." />
+    <MESSAGE value="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido nuevo mapa «crypta» y cambiado que «L» sólo funciona si hay un &quot;Torch&quot; en el inventario" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/plantilla_2025_Equipo_E$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1747348412739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/rpg" />
     <MESSAGE value="Arreglada la pantalla de batalla: No se cierra el juego al colisionar con enemigos ni pulsar botones de acciones" />
     <MESSAGE value="Arreglado el dibujado de capas definitivamente (espero)" />
     <MESSAGE value="pequeños cambios para hacer pruebas" />

@@ -59,17 +59,17 @@
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"farmhouse"
+                         "value":"nexo"
                         }, 
                         {
                          "name":"start_x",
                          "type":"int",
-                         "value":11
+                         "value":51
                         }, 
                         {
                          "name":"start_y",
                          "type":"int",
-                         "value":12
+                         "value":93
                         }],
                  "rotation":0,
                  "type":"",
