@@ -128,7 +128,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztlkEKwjAQRUdR6C1cWOkRxDt4D9fivnRt3fcA6t5D9QIeQHBCOxBDIk7MJCJ58KEdwrympWT2MLATDFgcigPmCOk4jf4a02uZGvcqM0vt0xDqutDq5O8wDy2KErMMFMKsk3\/NfnNhyP7sJ38zGeJD8aVf0Y6Jic0f8xnI30L2+\/grps9cT\/4ts48vC4c\/Fi5\/ndjfBXTc53z\/LaD\/HRJ+25zjqkv4V\/A6NxHmPCXlN3ty1oY4f3\/d32v\/w7\/tvwLeGSCxfw4p\/NLfn4PLv\/HoRfMqZ261+c+YS6JcMU84JYC7",
+         "data":"eJztlksKwjAQQEdR6C1cqPQI4h28h+vivri27nsAde+hvIAHEJzQDsRhIk7MZ5MHD9pQ8tpuMg0M7CMKQsNwQE+Qj\/PYb9GH5ZTdG2fC2q8S5rqy1qnfoy9LwwpdBpLg69TfqP9cGEq\/9Kl\/nAz6UP3ZN3SjKZH6Kd+B+h2Uvk+\/Vvb489TfKffxZeHop8LVbzP3+4CN51zfvwfsfyNGX5pzXOsx+mv4nJsIPk\/F6vM9Nc+GOH9LP1+\/Bt0ZEOP7NZS+3N967EXzqmZulfoX9JrJG\/oGcKR+6Q==",
          "encoding":"base64",
          "height":32,
          "id":7,
@@ -726,30 +726,6 @@
                  "width":32,
                  "x":640,
                  "y":608
-                }, 
-                {
-                 "gid":1507,
-                 "height":32,
-                 "id":17,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":768,
-                 "y":800
-                }, 
-                {
-                 "gid":1507,
-                 "height":32,
-                 "id":18,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":768,
-                 "y":928
                 }, 
                 {
                  "gid":1512,

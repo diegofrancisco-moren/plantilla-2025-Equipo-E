@@ -291,5 +291,54 @@
     "learned": false,
     "level": 5,
     "description": "A precise strike aimed at weak spots"
+  },
+
+  "Empire Fang": {
+    "name": "Empire Fang",
+    "base_power": 30,
+    "atk_mod": 0.7,
+    "mana": 0,
+    "type": "physic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 20,
+    "description": "A fang from the king Serpensordia"
+  },
+  "Basilisk's Gaze": {
+    "name": "Basilisk's Gaze",
+    "base_power": 45,
+    "atk_mod": 1.0,
+    "mana": 20,
+    "type": "magic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 20,
+    "description": "A petrifying and dark gaze from Serpensordia"
+  },
+  "Scaled Fury": {
+    "name": "Scaled Fury",
+    "base_power": 50,
+    "atk_mod": 0.8,
+    "mana": 35,
+    "type": "magic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 20,
+    "description": "The royal scales of Serpensordia tremble with suppressed fury."
+  },
+  "Poisonous spines": {
+    "name": "Poisonous spines",
+    "base_power": 20,
+    "atk_mod": 1.5,
+    "mana": 10,
+    "type": "physic",
+    "booster": false,
+    "class": "all",
+    "learned": false,
+    "level": 20,
+    "description": "Serpensordia's spines grants no blessings... only curses and toxicity."
   }
 }

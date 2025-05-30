@@ -1,4 +1,27 @@
 {
+  "Serpensordia": {
+    "images": "Enemy/Enemy 01-1.png",
+    "health": 600,
+    "attack": 30,
+    "defense": 20,
+    "speed": 20,
+    "mana": 150,
+    "reward_exp": 1000,
+     "attacks": [
+      {
+        "name": "Empire Fang"
+      },
+      {
+        "name": "Basilisk's Gaze"
+      },
+       {
+        "name": "Scaled Fury"
+      },
+       {
+        "name": "Poisonous spines"
+      }
+    ]
+  },
   "skeleton": {
     "images": "Enemy/Enemy 06-1.png",
     "health": 100,
@@ -35,7 +58,7 @@
   },
   "skeleton_lvl3": {
     "images": "Enemy/Enemy 05-1.png",
-    "health": 400,
+    "health": 360,
     "attack": 45,
     "defense": 9,
     "speed": 15,

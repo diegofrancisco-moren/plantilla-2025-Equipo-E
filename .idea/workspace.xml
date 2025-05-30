@@ -4,68 +4,431 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60bb3295-fb2b-4fea-a843-def61da19538" name="Changes" comment="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
-      <change beforePath="$PROJECT_DIR$/.idea/plantilla-2025-Equipo-E.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/plantilla-2025-Equipo-E.iml" afterDir="false" />
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/item_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/item_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/graveyard_dungeon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/attacks_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_final.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor2.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor3.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor4.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor8.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor8.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/maps/main_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/main_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Diego" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "woupwoup"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Rutosca&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git",
-    "accountId": "f31bdab1-31ac-4ed6-b874-86b390dd1904"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/diegofrancisco-moren/plantilla-2025-Equipo-E.git&quot;,
+    &quot;accountId&quot;: &quot;6bdafea3-c2d6-4a25-b8c2-f7c4ec093d33&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
-  <component name="ProjectId" id="2xoWzgINz2WA1cVgzGCAl6mnsgd" />
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2uamBgYVlHjlRbuOOJgtnXWtUS7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.__main__.executor": "Run",
-    "Python.constants.executor": "Run",
-    "Python.game_view.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.__main__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.load_game_map.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fdieg/PycharmProjects/plantilla-2025-Equipo-E&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="plantilla-2025-Equipo-E" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (plantilla-2025-Equipo-E)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rpg" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rpg/__main__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="60bb3295-fb2b-4fea-a843-def61da19538" name="Changes" comment="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
-      <created>1748605172757</created>
+      <changelist id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Basic Idea of the implementation of characters stats" />
+      <created>1742494925932</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1748605172757</updated>
+      <updated>1742494925932</updated>
     </task>
+    <task id="LOCAL-00001" summary="ko">
+      <option name="closed" value="true" />
+      <created>1742500002611</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742500002611</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Basic Idea of the implementation of characters stats">
+      <option name="closed" value="true" />
+      <created>1744120052575</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744120052575</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Basic Idea of the implementation of characters stats">
+      <option name="closed" value="true" />
+      <created>1744120096863</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744120096863</updated>
+    </task>
+    <task id="LOCAL-00004" summary="-Implementación de listas de ataques fisicos y magicos en la clase Entity, con sus funciones para cargar los ataques&#10;-Automatización de la carga de los ataques del jugador al iniciar el juego.&#10;-Ahora se muestran las listas de ataques fisicos y mágicos del jugador al pulsar los respectivos botones en la pantalla de batalla. También se muestran los objetos usables por el jugador al pulsar el boton &quot;I&quot; en la ventana de batalla.">
+      <option name="closed" value="true" />
+      <created>1745075791688</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745075791688</updated>
+    </task>
+    <task id="LOCAL-00005" summary="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David.">
+      <option name="closed" value="true" />
+      <created>1745077068319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745077068319</updated>
+    </task>
+    <task id="LOCAL-00006" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746023585426</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746023585426</updated>
+    </task>
+    <task id="LOCAL-00007" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746025872431</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746025872431</updated>
+    </task>
+    <task id="LOCAL-00008" summary="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)">
+      <option name="closed" value="true" />
+      <created>1746026144851</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746026144851</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746027969472</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746027969472</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mapa del bosque unificado a un solo mapa (woods.json)">
+      <option name="closed" value="true" />
+      <created>1746031913276</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031913276</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha">
+      <option name="closed" value="true" />
+      <created>1746210172380</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746210172380</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Arreglado el dibujado de capas (se dibujan en orden).">
+      <option name="closed" value="true" />
+      <created>1746217091359</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746217091359</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746223160323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746223160325</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)">
+      <option name="closed" value="true" />
+      <created>1746231369462</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746231369462</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets">
+      <option name="closed" value="true" />
+      <created>1746550742090</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746550742090</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Arreglado el error del mapa del castillo">
+      <option name="closed" value="true" />
+      <created>1746716991485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746716991485</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <option name="closed" value="true" />
+      <created>1746723774624</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746723774624</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)">
+      <option name="closed" value="true" />
+      <created>1746727147453</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746727147453</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Arreglada la pantalla de batalla: No se cierra el juego al colisionar con enemigos ni pulsar botones de acciones">
+      <option name="closed" value="true" />
+      <created>1746740460803</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746740460803</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Arreglado el dibujado de capas definitivamente (espero)">
+      <option name="closed" value="true" />
+      <created>1746740473370</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1746740473370</updated>
+    </task>
+    <task id="LOCAL-00021" summary="pequeños cambios para hacer pruebas">
+      <option name="closed" value="true" />
+      <created>1746740511651</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1746740511651</updated>
+    </task>
+    <task id="LOCAL-00022" summary="pequeños cambios para hacer pruebas.">
+      <option name="closed" value="true" />
+      <created>1746745215884</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746745215884</updated>
+    </task>
+    <task id="LOCAL-00023" summary="pequeños cambios para hacer pruebas.">
+      <option name="closed" value="true" />
+      <created>1746746357281</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746746357281</updated>
+    </task>
+    <task id="LOCAL-00024" summary="pequeños cambios para hacer pruebas.">
+      <option name="closed" value="true" />
+      <created>1746747234620</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1746747234620</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Actualización castillo final">
+      <option name="closed" value="true" />
+      <created>1746822145615</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1746822145615</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Actualizacion del castillo final">
+      <option name="closed" value="true" />
+      <created>1746830595823</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1746830595823</updated>
+    </task>
+    <task id="LOCAL-00027" summary="En la línea 257 da error, así que está comentada. No parece aportar nada, el juego sigue funcionando bien">
+      <option name="closed" value="true" />
+      <created>1746830760076</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1746830760076</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Añadida velocidad de movimiento de personajes y enemigos. Ahora desde Tiled se añade una propiedad a cada uno &quot;speed&quot; y cada uno puede tener su velocidad customizada. Sino, la velocidad por defecto se establece a 1">
+      <option name="closed" value="true" />
+      <created>1746873388715</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1746873388715</updated>
+    </task>
+    <task id="LOCAL-00029" summary="-Añadidas 3 salas del nivel final">
+      <option name="closed" value="true" />
+      <created>1748380744453</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1748380744453</updated>
+    </task>
+    <task id="LOCAL-00030" summary="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)">
+      <option name="closed" value="true" />
+      <created>1748387486441</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1748387486441</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Nuevas plantas para el nivel final">
+      <option name="closed" value="true" />
+      <created>1748444503177</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1748444503177</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Mapas editados">
+      <option name="closed" value="true" />
+      <created>1748458925640</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748458925640</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Mapas del castillo terminados, faltan enemigos">
+      <option name="closed" value="true" />
+      <created>1748472349416</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1748472349416</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Mapas del castillo terminados, faltan enemigos">
+      <option name="closed" value="true" />
+      <created>1748473517939</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1748473517939</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo">
+      <option name="closed" value="true" />
+      <created>1748516099754</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1748516099754</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ko" />
+    <MESSAGE value="Basic Idea of the implementation of characters stats" />
+    <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
+    <MESSAGE value="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
+    <MESSAGE value="Mapa del bosque unificado a un solo mapa (woods.json)" />
+    <MESSAGE value="Añadida casa de leñador en el main_map, que lleva a nuevo mapa (lumberjack_house.json). En el cofre se coloca el futuro hacha" />
+    <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden)." />
+    <MESSAGE value="Arreglado el dibujado de capas (se dibujan en orden del tiled).&#10;Arreglado el dibujado de objetos (nuevo comando introducido para dibujarlos como las capas aparte)" />
+    <MESSAGE value="Añadido el mapa de los exteriores y murallas de castillo nivel final (versión de prueba) más algunos png de tilesets" />
+    <MESSAGE value="Arreglado el error del mapa del castillo" />
+    <MESSAGE value="Ahora sí, arreglado el error del mapa del castillo: El json que contiene el tileset que se usa tenía una ruta de imagen incorrecta, funcional, pero incorrecta (no era la de la carpeta Tilesets)" />
+    <MESSAGE value="Arreglada la pantalla de batalla: No se cierra el juego al colisionar con enemigos ni pulsar botones de acciones" />
+    <MESSAGE value="Arreglado el dibujado de capas definitivamente (espero)" />
+    <MESSAGE value="pequeños cambios para hacer pruebas" />
+    <MESSAGE value="pequeños cambios para hacer pruebas." />
+    <MESSAGE value="Actualización castillo final" />
+    <MESSAGE value="Actualizacion del castillo final" />
+    <MESSAGE value="En la línea 257 da error, así que está comentada. No parece aportar nada, el juego sigue funcionando bien" />
+    <MESSAGE value="Añadida velocidad de movimiento de personajes y enemigos. Ahora desde Tiled se añade una propiedad a cada uno &quot;speed&quot; y cada uno puede tener su velocidad customizada. Sino, la velocidad por defecto se establece a 1" />
+    <MESSAGE value="-Añadidas 3 salas del nivel final" />
+    <MESSAGE value="-Añadidas 3 salas del nivel final&#10;- Añadido personaje en farmhouse y pista para el nivel del bosque (la flor rosa)" />
+    <MESSAGE value="Nuevas plantas para el nivel final" />
+    <MESSAGE value="Mapas editados" />
+    <MESSAGE value="Mapas del castillo terminados, faltan enemigos" />
+    <MESSAGE value="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
   </component>
 </project>
