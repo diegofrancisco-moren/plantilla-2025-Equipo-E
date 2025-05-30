@@ -18,6 +18,7 @@ class LoadingView(arcade.View):
         self.map_list = None
         self.load_save = False
         self.file_name = None
+        self.selected_class = None
         arcade.set_background_color(arcade.color.ALMOND)
 
 
@@ -55,7 +56,7 @@ class LoadingView(arcade.View):
             done, self.progress, self.map_list = load_maps()
             if done:
                 self.window.views["game"] = GameView(self.map_list)
-                self.window.views["game"].setup(self.load_save, self.file_name)
+                self.window.views["game"].setup(self.load_save, self.file_name, self.selected_class)
                 self.window.views["main_menu"] = MainMenuView(None, None)
                 self.window.views["settings"] = SettingsView(None)
                 self.window.views["settings"].setup()
@@ -65,6 +66,7 @@ class LoadingView(arcade.View):
 
                 self.window.show_view(self.window.views["game"])
 
-    def set_load_game(self, load_save, file_name):
+    def set_load_game(self, load_save, file_name, selected_class):
         self.load_save = load_save
         self.file_name = file_name
+        self.selected_class = selected_class

@@ -26,6 +26,7 @@ class InventoryView(arcade.View):
         self.inventory = [[None for _ in range(INVENTORY_COLS)] for _ in range(INVENTORY_ROWS)]
         self.selected = None
         self.player = player
+        self.dragging_from = None
 
     def setup(self):
         # ejemplos
@@ -44,6 +45,8 @@ class InventoryView(arcade.View):
                 item_color = arcade.color.YELLOW
             elif player_inventory[i]["type"] == "Potion":
                 item_color = arcade.color.GREEN
+            elif player_inventory[i]["type"] == "Tool":
+                item_color = arcade.color.BROWN
             self.inventory[i_rows][i_cols] = Item(player_inventory[i]["name"],
                                                   item_color, player_inventory[i]["quantity"])
 
@@ -130,6 +133,7 @@ class InventoryView(arcade.View):
 
                 if abs(x - cell_x) < CELL_WIDTH // 2 and abs(y - cell_y) < CELL_HEIGHT // 2:
                     self.selected = (row, col)
+                    self.dragging_from = (row, col)
                     return
 
         #  clic en el botón de ordenar
@@ -138,6 +142,23 @@ class InventoryView(arcade.View):
             BUTTON_Y - BUTTON_HEIGHT / 2 < y < BUTTON_Y + BUTTON_HEIGHT / 2
         ):
             self.sort_inventory()
+
+    def on_mouse_release(self, x: int, y: int, button: int, modifiers: int):
+        # soltar en una celda para intercambiar
+        if self.dragging_from:
+            for row in range(INVENTORY_ROWS):
+                for col in range(INVENTORY_COLS):
+                    cell_x = START_X + col * CELL_WIDTH + CELL_WIDTH // 2
+                    cell_y = START_Y + row * CELL_HEIGHT + CELL_HEIGHT // 2
+
+                    if abs(x - cell_x) < CELL_WIDTH // 2 and abs(y - cell_y) < CELL_HEIGHT // 2:
+                        from_row, from_col = self.dragging_from
+                        # intercambiar
+                        self.inventory[from_row][from_col], self.inventory[row][col] = \
+                            self.inventory[row][col], self.inventory[from_row][from_col]
+                        self.selected = (row, col)  # actualizar selección
+                        break
+            self.dragging_from = None  # reiniciar drag
 
     def sort_inventory(self):
         # Extraer todos los ítems
@@ -158,4 +179,24 @@ class InventoryView(arcade.View):
 
     def on_key_press(self, symbol: int, modifiers: int):
         if symbol in (arcade.key.ESCAPE, arcade.key.I):
+            self.sync_inventory_with_player()
             self.window.show_view(self.window.views["game"])
+
+    def sync_inventory_with_player(self):
+        real_inventory = self.player.get_inventory()
+        new_item_order = []
+
+        for row in reversed(range(INVENTORY_ROWS)):
+            for col in range(INVENTORY_COLS):
+                item = self.inventory[row][col]
+                if item:
+                    new_item_order.append(item)
+
+        new_inventory_dict = {}
+        for item in new_item_order:
+            if item.name in real_inventory:
+                new_inventory_dict[item.name] = real_inventory[item.name]
+            else:
+                print(f"Advertencia: el ítem '{item}' no está en el inventario real.")
+
+        self.player.set_inventory(new_inventory_dict)

@@ -85,9 +85,20 @@ def load_game(filename, gameview):
     player_statistics.set_inventory(save_data["inventory"])
 
     player_statistics.leveling_up()
+    player_class = save_data["class_type"]
+    if player_class == "knight":
+        # Restaurar sprite del jugador, inventario, mapa y ultima posicion
+        player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics,
+                                     constants.knight_battle_sprite, scale=constants.SCALE)
+    elif player_class == "magician":
+        # Restaurar sprite del jugador, inventario, mapa y ultima posicion
+        player_sprite = PlayerSprite(constants.magician_sheet_name, player_statistics,
+                                     constants.magician_battle_sprite, scale=constants.SCALE)
+    else:
+        # Restaurar sprite del jugador, inventario, mapa y ultima posicion
+        player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics,
+                                     constants.thief_battle_sprite, scale=constants.SCALE)
 
-    # Restaurar sprite del jugador, inventario, mapa y ultima posicion
-    player_sprite = PlayerSprite(constants.player_sheet_name, player_statistics)
 
 
     gameview.set_player_sprite(player_sprite)
