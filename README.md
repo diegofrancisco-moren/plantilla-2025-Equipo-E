@@ -1,4 +1,4 @@
-# Nombre del juego
+# La Odisea
 
 ## Equipo
 - Diego Francisco Moreno - Jefe de Proyecto | Programador
