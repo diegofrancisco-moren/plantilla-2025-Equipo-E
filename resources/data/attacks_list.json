@@ -20,7 +20,7 @@
     "booster": false,
     "class": "knight",
     "learned": false,
-    "level": 1,
+    "level": 2,
     "description": "A basic physic attack, doesn't require mana"
   },
   "Dark Slash": {
@@ -32,7 +32,7 @@
     "booster": false,
     "class": "knight",
     "learned": false,
-    "level": 1,
+    "level": 4,
     "description": "More effective than normal slash, but requires mana"
   },
   "Power Strike": {
@@ -56,7 +56,7 @@
     "booster": false,
     "class": "knight",
     "learned": false,
-    "level": 1,
+    "level": 4,
     "description": "A basic physic attack, doesn't require mana"
   },
   "Bone thrust": {
@@ -68,7 +68,7 @@
     "booster": false,
     "class": "knight",
     "learned": false,
-    "level": 1,
+    "level": 6,
     "description": "A basic physic attack, doesn't require mana"
   },
   "Earth Shatter": {
@@ -105,7 +105,7 @@
     "booster": false,
     "class": "magician",
     "learned": false,
-    "level": 1,
+    "level": 8,
     "description": "A magic attack, great damage, uses mana"
   },
   "Fiery Breath": {
@@ -117,7 +117,7 @@
     "booster": false,
     "class": "magician",
     "learned": false,
-    "level": 1,
+    "level": 7,
     "description": "A magic attack, great damage, uses mana"
   },
   "Ice Lance": {
@@ -166,7 +166,7 @@
     "booster": false,
     "class": "thief",
     "learned": false,
-    "level": 1,
+    "level": 7,
     "description": "A quick stab from the shadows"
   },
   "Fatuous fire": {
@@ -178,7 +178,7 @@
     "booster": false,
     "class": "magician",
     "learned": false,
-    "level": 1,
+    "level": 10,
     "description": "A mysterious fire that burns the opponent"
   },
   "Dark gaze": {
@@ -190,7 +190,7 @@
     "booster": false,
     "class": "magician",
     "learned": false,
-    "level": 1,
+    "level": 10,
     "description": "A very powerful dark attack"
   },
   "Poisoned Dagger": {
@@ -202,7 +202,7 @@
     "booster": false,
     "class": "thief",
     "learned": false,
-    "level": 5,
+    "level": 8,
     "description": "A dagger coated with poison causing damage over time"
   },
   "Shadow ball": {

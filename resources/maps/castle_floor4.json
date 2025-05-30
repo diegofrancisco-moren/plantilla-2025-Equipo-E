@@ -1030,7 +1030,7 @@
         {
          "name":"ambient_color",
          "type":"color",
-         "value":"#ff464646"
+         "value":"#ff121212"
         }],
  "renderorder":"left-down",
  "tiledversion":"1.11.2",

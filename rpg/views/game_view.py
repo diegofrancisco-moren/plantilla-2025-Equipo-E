@@ -252,7 +252,7 @@ class GameView(arcade.View):
             for enemy in self.my_map.scene["enemy_collisions"]:
                 enemy.visible = True
                 enemy.defeated = False
-                enemy.health_up(enemy.get_health_max())
+                #enemy.health_up(enemy.get_health_max())
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)

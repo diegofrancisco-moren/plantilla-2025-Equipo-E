@@ -438,6 +438,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":16,
+         "name":"axeable",
+         "objects":[
+                {
+                 "gid":867,
+                 "height":32,
+                 "id":16,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":32,
+                 "y":160
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":10,
          "name":"emptied",
          "objects":[
@@ -512,8 +535,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":16,
- "nextobjectid":16,
+ "nextlayerid":17,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "properties":[
         {

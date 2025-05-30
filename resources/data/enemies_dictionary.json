@@ -79,8 +79,8 @@
   "skeleton_lvl2": {
     "images": "Enemy/Enemy 04-1.png",
     "health": 200,
-    "attack": 26,
-    "defense": 7,
+    "attack": 25,
+    "defense": 4,
     "speed": 12,
     "mana": 50,
     "reward_exp": 120,
