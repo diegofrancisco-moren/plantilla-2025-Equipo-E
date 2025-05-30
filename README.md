@@ -55,8 +55,16 @@
 ### Cerrar Juego
 1. Para cerrar el juego, desde la GameView, se deberá pulsar la tecla Esc. Lo que lanzará la pantalla de pausa o menu del juego.
 2. Dentro de esta ventana se deberá pulsar el botón Quit Game, terminando la ejecución del juego.
-# Welcome to The Python Arcade Community RPG
 
+### Superación puzles
+- Puzle bosque:
+  Se tendrá que seguir una flor rosa que hay cerca de los accesos a las siguientes pantalla.
+  Ruta desde el inicio: Izquierda-izquierda-arriba-derecha-arriba-abajo-derecha-abajo-izquierda-arriba
+- Puzle hacha:
+  El hacha se podrá encontrar en la siguiente casa:
+![image](https://github.com/user-attachments/assets/1ce7fc00-8daa-4c88-b992-8cf50bec3f6d)
+
+# Welcome to The Python Arcade Community RPG
 ![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-success)
 ![First Timer Friendly](https://img.shields.io/badge/First%20Timer-friendly-informational)
 ![License MIT](https://img.shields.io/badge/license-MIT-success)
