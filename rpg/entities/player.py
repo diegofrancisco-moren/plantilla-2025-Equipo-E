@@ -6,7 +6,7 @@ class Player(Entity):
     def __init__(self, name, health, attack, defense, speed, mana, class_type):
         super().__init__(name, health, attack, defense, speed, mana)
         self.xp = 0
-        self.xp_max = 100
+        self.xp_max = 500
         self.level = 1
         self.class_type = class_type
         self.save_file = None

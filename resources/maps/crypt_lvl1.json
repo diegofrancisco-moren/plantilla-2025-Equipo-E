@@ -79,62 +79,6 @@
                  "y":1088
                 }, 
                 {
-                 "gid":1378,
-                 "height":32,
-                 "id":35,
-                 "name":"lvl2 entrance",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"crypt_lvl2"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":8
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":25
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":928,
-                 "y":736
-                }, 
-                {
-                 "gid":1377,
-                 "height":32,
-                 "id":36,
-                 "name":"lvl2 entrance",
-                 "properties":[
-                        {
-                         "name":"map_name",
-                         "type":"string",
-                         "value":"crypt_lvl2"
-                        }, 
-                        {
-                         "name":"start_x",
-                         "type":"int",
-                         "value":8
-                        }, 
-                        {
-                         "name":"start_y",
-                         "type":"int",
-                         "value":25
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":896,
-                 "y":736
-                }, 
-                {
                  "gid":392,
                  "height":32,
                  "id":37,
@@ -393,7 +337,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJztzrENwCAMAEHLWwJVYP8diBQGSCoUdFd9+REAAAAAAN+VjKj5dMu9L29c92Nfn+MHvwDAGSb5SQJB",
+         "data":"eJztzsEJgDAABMEjkCLVV2L\/PShoAYKQoMy89rkJAAAAMFqrSa+zLwDeWUqylqu3MvfliXY+9vtz\/8AvAPAPBy5XAw4=",
          "encoding":"base64",
          "height":43,
          "id":7,

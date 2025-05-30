@@ -855,7 +855,7 @@
                         {
                          "name":"map_name",
                          "type":"string",
-                         "value":"castle_outside"
+                         "value":"crypt_lvl1"
                         }, 
                         {
                          "name":"start_x",

@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Añadido jefe final con sus ataques">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/attacks_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/attacks_list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/data/enemies_dictionary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_final.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_floor4.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_floor4.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/castle_outside.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/castle_outside.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/crypt_lvl2.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/crypt_lvl2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/maps/lumberjack_house.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/lumberjack_house.json" afterDir="false" />
+    <list default="true" id="7ddb5ee6-df0a-4a7c-8d84-6467d35aca0d" name="Changes" comment="Ediciones a la cripta y al nivel final&#10;línea de código problemática de game_view omitoda">
       <change beforePath="$PROJECT_DIR$/resources/maps/nexo.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/nexo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg/views/game_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/views/game_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpg/entities/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/rpg/entities/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -398,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748637945996</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Ediciones a la cripta y al nivel final&#10;línea de código problemática de game_view omitoda">
+      <option name="closed" value="true" />
+      <created>1748641612173</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1748641612173</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Basic Idea of the implementation of characters stats" />
     <MESSAGE value="-Implementación de la ventana de Inventario&#10;Subido por Diego, pero todo el codigo esta hecho por David." />
     <MESSAGE value="añadida carpeta item_sprites que incluye el sprite del gancho (de momento)" />
     <MESSAGE value="Mapa del bosque unificado a un solo mapa (woods.json)" />
@@ -438,6 +437,7 @@
     <MESSAGE value="Mapas del castillo terminados, faltan enemigos" />
     <MESSAGE value="Enemigos añadidos al enemy_dictinary&#10;Emeigos colocados en el castillo" />
     <MESSAGE value="Añadido jefe final con sus ataques" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido jefe final con sus ataques" />
+    <MESSAGE value="Ediciones a la cripta y al nivel final&#10;línea de código problemática de game_view omitoda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ediciones a la cripta y al nivel final&#10;línea de código problemática de game_view omitoda" />
   </component>
 </project>
