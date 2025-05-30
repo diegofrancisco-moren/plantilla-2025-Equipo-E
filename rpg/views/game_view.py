@@ -189,9 +189,9 @@ class GameView(arcade.View):
             arcade.load_texture(":animations:" + os.path.sep + "hook" +
                                 os.path.sep + f"hook_{i}.png") for i in range(9)
         ]
-        self.hook_animation_index = 0
-        self.hook_animating = False
-        self.hook_animation_angle = 0
+        self.hook_animation_index = 0 # indice de los frames de la animación
+        self.hook_animating = False # variable para saber si se tiene que hacer la animación
+        self.hook_animation_angle = 0 #angulo de la animación
         self.hook_animation_pos = [0, 0]  # posición actual del gancho
         self.hook_animation_start = [0, 0]  # origen (jugador)
         self.hook_animation_end = [0, 0]  # destino (casilla hookable)
@@ -250,6 +250,7 @@ class GameView(arcade.View):
 
         if "enemy_collisions" in map_scene.name_mapping.keys():
             for enemy in self.my_map.scene["enemy_collisions"]:
+                ##Así al cambiar de mapa los enemigos reaparecen con toda la vida
                 enemy.visible = True
                 enemy.defeated = False
                 #enemy.health_up(enemy.get_health_max())
@@ -265,6 +266,7 @@ class GameView(arcade.View):
                 self.player_sprite, arcade.SpriteList()
             )
         else:
+            ##Añadimos los objetos axeable para que tengan fisicas
             if "axeable" in self.my_map.scene.name_mapping.keys():
                 combined_list = arcade.SpriteList()
                 combined_list.extend(self.my_map.scene["wall_list"])
@@ -280,10 +282,11 @@ class GameView(arcade.View):
 
     def setup(self, load_save, file_name, selected_class):
         """Set up the game variables. Call to re-start the game."""
+        ## Si hay una partida anterior la cargo
         if load_save:
             print("Cargo el personaje anterior")
             load_game(filename = file_name, gameview = self)
-        else:
+        else: ## Si no hay partida anterior se crea un personaje nuevo
 
             # Create the player character
             if selected_class == "Knight":
@@ -381,6 +384,7 @@ class GameView(arcade.View):
             else self.original_movement_speed
         )
 
+    ## Función para dibujar la barra de acceso rápido (Teclas 1-9)
     def draw_inventory(self):
         capacity = 10
         vertical_hotbar_location = 40
@@ -409,6 +413,8 @@ class GameView(arcade.View):
                 arcade.draw_lrtb_rectangle_outline(
                     x - 6, x + field_width - 15, y + 25, y - 10, arcade.color.BLACK, 2
                 )
+                ## Si la tecla pulsada del inventario contiene el objeto Axe
+                ## se ejecuta la función use_axe
                 if item_name == "Axe":
                     self.use_axe()
                     self.selected_item = 0
@@ -438,7 +444,7 @@ class GameView(arcade.View):
             # Cámara de sprites
             self.camera_sprites.use()
 
-  # Grab each tile layer from the map
+            # Grab each tile layer from the map
             map_layers = cur_map.map_layers
 
             # Draw scene
@@ -454,10 +460,6 @@ class GameView(arcade.View):
                     scale=0.8,
                 ).draw()
 
-            #for layer_name in ["bridges", "bridges2", "enemies", "characters", "walls_nonblocking"]:
-            #    if layer_name in map_layers:
-            #        map_layers[layer_name].draw()
-
             for layer in cur_map.scene.name_mapping:
                 if layer not in cur_map.map_layers and layer !="wall_list":
                    cur_map.scene[layer].draw()
@@ -472,9 +474,6 @@ class GameView(arcade.View):
                 self.map_list[self.cur_map_name].map_layers["walls_nonblocking"].draw()
             if map_layers.get("walls2_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
-
-            # Dibuja el jugador
-            self.player_sprite_list.draw()
 
             # --- Animación del gancho ---
             if self.hook_animating:
@@ -571,6 +570,7 @@ class GameView(arcade.View):
         """
         All the logic to move, and the game logic goes here.
         """
+        ##Actualizar la animación del gancho
         if self.hook_animating:
             self.hook_animation_progress += self.hook_animation_speed
             if self.hook_animation_progress >= 1.0:
@@ -795,10 +795,13 @@ class GameView(arcade.View):
     def close_message_box(self):
         self.message_box = None
 
+    ## Función que crea la mecánica del hacha,
+    ## destruye los objetos en la capa axeable
     def use_axe(self):
         print("Uso el hacha")
         map_scene = self.map_list[self.cur_map_name].scene
         print(f"Antes: {len(map_scene['axeable'])} sprites axeable")
+        ##Comprobamos si la capa axeable esta en el mapa
         if "axeable" not in map_scene.name_mapping.keys():
             print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
             return
@@ -827,12 +830,12 @@ class GameView(arcade.View):
 
     def search(self):
         """Search for things"""
-
+        ##Comprobamos si existe la capa sercheable
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "searchable" not in map_layers:
             print(f"No searchable sprites on {self.cur_map_name} map layer.\n")
             return
-
+        ##Comprobamos si hemos colisionado con un objeto de la capa
         searchable_sprites = map_layers["searchable"]
         sprites_in_range = arcade.check_for_collision_with_list(
             self.player_sprite, searchable_sprites
@@ -862,16 +865,19 @@ class GameView(arcade.View):
                 print(
                     "The 'item' property was not set for the sprite. Can't get any items from this.\n"
                 )
-
+    ## Función que crea la mecánica del gancho,
+    ## teletransporta al jugador entre las posiciones de dos objetos
+    ## de la capa hookable
     def throw_claw(self):
         """Throw the claw """
-
+        ##Comprobamos si existe la capa hookable en el mapa
         map_layers = self.map_list[self.cur_map_name].map_layers
         if "hookable" not in map_layers:
             print(f"No hookable sprites on {self.cur_map_name} map layer.\n")
             return
         else:
             player_sprite = self.player_sprite
+            ##Comprobamos si hemos colisionado con un objeto hookable
             hookable_sprites = map_layers["hookable"]
             launch_zones = arcade.check_for_collision_with_list(player_sprite, hookable_sprites)
             if not launch_zones:
@@ -883,7 +889,7 @@ class GameView(arcade.View):
                 self.hook_animating = True
                 self.hook_animation_index = 0
 
-                # Buscar el sprite más cercano que NO sea el punto actual
+                # Buscar el sprite más cercano de la capa hookable que NO sea el punto actual
                 min_distance = float("inf")
                 target_sprite = None
 
@@ -933,18 +939,22 @@ class GameView(arcade.View):
         if cur_map.light_layer:
             cur_map.light_layer.resize(width, height)
 
+    ## Función que se ejecuta al salir de una batalla
     def resume_from_battle(self, result, enemy):
+        # Hacemos que el personaje no se mueva y limpiamos el buffer de teclas
         self.keys_held.clear()
         self.player_sprite.change_x = 0
         self.player_sprite.change_y = 0
 
-
+        ## Si hemos ganado la batalla
         if result:
             self.player_sprite.statistics.add_xp(enemy.statistics.reward_exp)
             enemy.statistics.set_defeated(True)
             enemy.visible = False
-
-        self.collision_cooldown = 2.0
+        else:
+            # Si hemos huido o nos han derrotado, activamos un cooldown en las colisiones con enemigos
+            # para que el personaje no entre de nuevo en batalla
+            self.collision_cooldown = 2.0
         self.window.show_view(self.window.views["game"])
 
     def set_player_sprite(self, player_sprite):

@@ -18,10 +18,13 @@ class Player(Entity):
             self.xp = self.xp - self.xp_max
             self.level += 1
             self.xp_max += (self.xp_max * 0.1)
-            self.health += (self.health * 0.1)
+            self.healh_max += (self.healh_max * 0.1)
+            self.mana_max += (self.mana_max * 0.1)
             self.attack += (self.attack * 0.1)
             self.defense += (self.defense * 0.1)
             self.speed +=  (self.speed * 0.1)
+            self.health_up( self.healh_max)
+            self.mana_up(self.mana_max)
             print(self.name + " ha subido al nivel " + str(self.level) + "\n")
         self.add_player_attack()
         self.add_player_magic_attack()

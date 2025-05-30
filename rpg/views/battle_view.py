@@ -10,22 +10,25 @@ class BattleView(arcade.View):
     def __init__(self, player, enemy, game_view):
         super().__init__()
         self.started = False
-        self.inventory_open = False
-        self.attack_menu = False
-        self.magic_attack_menu = False
-        self.selected_item = 0
+        self.inventory_open = False # Variable para saber si el inventario de objetos está abierto
+        self.attack_menu = False # Variable para saber si el menu de ataques físicos está abierto
+        self.magic_attack_menu = False # Variable para saber si el menu de ataques mágicos esta abierto
+        self.selected_item = 0 # Variable contador para saber el objeto o ataque seleccionado
 
         self.game_view = game_view
         self.enemy = enemy
         self.player = player
-        self.items = []
+        self.items = [] # Lista de objetos
 
         # Preparar lista de sprites
         self.sprite_list = arcade.SpriteList()
 
+        #Comprobación para cuando se crea la vista, en loading view
         if not(self.player == None):
+            # Actualizamos los objetos que se pueden usar
             self.update_usable_items()
 
+            #Copiamos las listas de ataques del jugador para mostrarlos
             self.attacks = player.statistics.attack_list
             self.magic_attacks = player.statistics.attack_magic_list
 
@@ -195,16 +198,23 @@ class BattleView(arcade.View):
 
             # Movimiento inventario de items
         if self.inventory_open or self.magic_attack_menu or self.attack_menu:
+            # Si el inventario de items esta abierto
             if self.inventory_open:
+                # Se cargan los items
                 items = self.items
+            # Si el inventario de ataques mágicos esta abierto
             elif self.magic_attack_menu:
+                # Se cargan los ataques mágicos
                 items = self.magic_attacks
             else:
+                # Sino se cargan los ataques físicos
                 items = self.attacks
+            #Teclas para moverse en los menus abiertos
             if symbol in constants.KEY_UP:
                 self.selected_item = (self.selected_item - 1) % len(items)
             elif symbol in constants.KEY_DOWN:
                 self.selected_item = (self.selected_item + 1) % len(items)
+            #Tecla para confirmar el objeto o ataque que se quiere usar
             elif symbol == arcade.key.ENTER:
                 if self.inventory_open:
                     print(f"Usaste {items[self.selected_item]}")
@@ -261,6 +271,7 @@ class BattleView(arcade.View):
         # Borde de la barra
         arcade.draw_rectangle_outline(x, y, bar_width, bar_height, arcade.color.BLACK, 2)
 
+    #Metodo para dibujar los objetos o ataques del menu de items, ataques fisicos o mágicos
     def draw_inventory(self, items):
         inventory_width = 700
         inventory_height = 415
@@ -279,29 +290,33 @@ class BattleView(arcade.View):
             arcade.draw_lrtb_rectangle_outline(
                 290, 990, start_y - i * 35 + 24, start_y - i * 35 - 10, arcade.color.WHITE, 1
             )
-
+    # Método para utilizar un item
     def use_item(self,selected_item):
         selected_item_name = selected_item["name"]
         player_inventory = self.player.statistics.get_inventory()
-
+        #Si el item esta en el inventario del personaje
         if selected_item_name in player_inventory:
             item = player_inventory[selected_item_name]
+            # Si el item no se puede usar
             if not item.get("usable", False):
                 print(f"{selected_item_name} no es usable.")
                 return
+            # Si el item aumenta la salud
             if item["booster_type"] == "health":
                 self.player.statistics.health_up(item["heal_amount"])
                 health_amount = item["heal_amount"]
                 print(f"{self.player.statistics.name} uso {selected_item_name} y recuperaste {health_amount} HP.\n")
 
-
+            #Se hace el ataque enemigo
             enemy_selected_attack = random.choice(self.enemy.statistics.attack_list)
             enemy_damage = (self.enemy.statistics.attack * enemy_selected_attack["atk_mod"] + enemy_selected_attack[
                 "base_power"]) - self.player.statistics.defense
             self.player.statistics.health_down(enemy_damage)
 
+            #Se resta una unidad a la cantidad del item usado
             item["quantity"] -= 1
             print(item["quantity"])
+            # Si llega a cero se agota y se elimina del inventario
             if item["quantity"] <= 0:
                 self.player.statistics.del_item_inventory(selected_item_name)
                 print(f"{selected_item_name} se ha agotado.")
@@ -309,6 +324,7 @@ class BattleView(arcade.View):
         else:
             print(f"No tienes {selected_item_name}.")
 
+    #Método para actualizar los menus, para cuando se gastan los items
     def update_usable_items(self):
         self.items.clear()  # Vaciar la lista actual
         player_inventory = list(self.player.statistics.get_inventory().values())
@@ -334,7 +350,13 @@ class BattleView(arcade.View):
             if player_selected_attack["booster_type"] == "health":
                 self.player.statistics.health_up(player_selected_attack["power"])
         else:
-            player_damage = (self.player.statistics.attack * player_selected_attack["atk_mod"] + player_selected_attack["base_power"]) - self.enemy.statistics.defense
+            if player_selected_attack["type"] == "physic":
+                player_damage = (self.player.statistics.attack * player_selected_attack["atk_mod"]
+                                 + player_selected_attack["base_power"]) - self.enemy.statistics.defense
+            else:
+                player_damage = (self.player.statistics.attack * player_selected_attack["atk_mod"] +
+                                 player_selected_attack["base_power"]) - self.enemy.statistics.defense
+                self.player.mana_down(player_selected_attack["mana"])
 
         """Calculo del ataque del enemigo
         El ataque que utilice el enemigo (si tiene más de un ataque) se hará de forma
