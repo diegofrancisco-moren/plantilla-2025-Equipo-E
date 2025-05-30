@@ -61,7 +61,9 @@ def load_map(map_name):
         "water_blocking": {
             "use_spatial_hash": True,
         },
-
+        "axeable": {
+            "use_spatial_hash": True,
+        },
     }
 
 
@@ -72,10 +74,9 @@ def load_map(map_name):
         map_name, scaling=TILE_SCALING, layer_options=layer_options
     )
 
-
+    print("Capa de objetos disponibles:", my_map.object_lists.keys())
 
     game_map.scene = arcade.Scene.from_tilemap(my_map)
-
 
     if not background_music:
         if map_name=="main_map":
@@ -263,6 +264,22 @@ def load_map(map_name):
         if "_blocking" in layer:
             #game_map.scene.remove_sprite_list_by_object(sprite_list)  #Línea da error
             game_map.scene["wall_list"].extend(sprite_list)
+
+    if "axeable" in my_map.sprite_lists:
+        print("Entro a axeable")
+
+        # Obtén la lista del mapa
+        axeable_sprite_list = my_map.sprite_lists["axeable"]
+
+        # Crea la lista en la escena (si no existe)
+        if "axeable" not in game_map.scene.sprite_lists:
+            game_map.scene.add_sprite_list("axeable", use_spatial_hash=True)
+
+        # Vacía la lista en escena (por si hay algo)
+        game_map.scene["axeable"].clear()
+
+        # Añade todos los sprites de la capa al scene
+        game_map.scene["axeable"].extend(axeable_sprite_list)
 
     print(f"Map loaded: {map_name}")
     print(game_map.map_layers.items())

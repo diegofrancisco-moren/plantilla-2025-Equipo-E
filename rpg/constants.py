@@ -18,10 +18,33 @@ SPRITE_SIZE = 32
 # How fast does the player move
 MOVEMENT_SPEED = 6
 
+#Player Sprites Scale
+SCALE = 1.3
+
 # Sprite of the player
 knight_sheet_name = ":characters:Player" + os.path.sep + "knight_sprite.png"
-wizard_sheet_name = ":characters:Player" + os.path.sep + "magician_sprite.png"
+knight_battle_sprite = ":characters:Player" + os.path.sep + "knight_big.png"
+knight_health = 100
+knight_attack = 40
+knight_defense = 10
+knight_speed = 10
+knight_mana = 20
+
+magician_sheet_name = ":characters:Player" + os.path.sep + "magician_sprite.png"
+magician_battle_sprite = ":characters:Player" + os.path.sep + "magician_big.png"
+magician_health = 100
+magician_attack = 40
+magician_defense = 10
+magician_speed = 10
+magician_mana = 20
+
 thief_sheet_name = ":characters:Player" + os.path.sep + "thief_sprite.png"
+thief_battle_sprite = ":characters:Player" + os.path.sep + "thief_big.png"
+thief_health = 100
+thief_attack = 40
+thief_defense = 10
+thief_speed = 10
+thief_mana = 20
 
 # Statistics of the player
 HEALTH = 100
@@ -51,6 +74,7 @@ KEY_RIGHT = [arcade.key.RIGHT, arcade.key.D]
 INVENTORY = [arcade.key.I]
 SEARCH = [arcade.key.E]
 GANCHO = [arcade.key.Q]
+PLAYERINFO = [arcade.key.P]
 
 # Key attack view
 KEY_ATTACK = [arcade.key.A]

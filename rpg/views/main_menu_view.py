@@ -1,5 +1,5 @@
 # """
-# Main Menu
+# Main CharacterSelectView
 # """
 import arcade
 import arcade.gui

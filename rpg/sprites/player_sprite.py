@@ -5,11 +5,12 @@ from rpg.entities.player import Player
 
 class PlayerSprite(CharacterSprite):
 
-    def __init__(self, sheet_name, statistics, scale):
+    def __init__(self, sheet_name, statistics, battle_sprite, scale):
         super().__init__(sheet_name, scale = scale)
         self.sound_update = 0
         self.footstep_sound = None
         self.sheet_name = sheet_name
+        self.battle_sprite = battle_sprite
         self.statistics = statistics
 
     def on_update(self, delta_time):

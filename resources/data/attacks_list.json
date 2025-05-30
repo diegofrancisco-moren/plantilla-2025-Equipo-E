@@ -42,7 +42,7 @@
     "mana": 5,
     "type": "physic",
     "booster": false,
-    "class": "warrior",
+    "class": "knight",
     "learned": false,
     "level": 5,
     "description": "A powerful strike that consumes a small amount of mana"
@@ -78,7 +78,7 @@
     "mana": 15,
     "type": "physic",
     "booster": false,
-    "class": "warrior",
+    "class": "knight",
     "learned": false,
     "level": 10,
     "description": "A devastating attack that shakes the ground"

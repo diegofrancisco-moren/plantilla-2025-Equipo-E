@@ -14,7 +14,7 @@ import rpg.constants as constants
 from arcade.experimental.lights import Light
 from pyglet.math import Vec2
 
-
+from rpg.entities import player
 from rpg.message_box import MessageBox
 from rpg.save_player_game import load_game
 from rpg.sprites.player_sprite import PlayerSprite
@@ -22,6 +22,7 @@ from rpg.views.battle_view import BattleView
 from rpg.entities.player import Player
 from rpg.views.inventory_view import InventoryView
 from rpg.views.main_menu_view import MainMenuView
+from rpg.views.player_status_view import PlayerStatusView
 
 
 class DebugMenu(arcade.gui.UIBorder, arcade.gui.UIWindowLikeMixin):
@@ -251,6 +252,7 @@ class GameView(arcade.View):
             for enemy in self.my_map.scene["enemy_collisions"]:
                 enemy.visible = True
                 enemy.defeated = False
+                enemy.health_up(enemy.get_health_max())
 
         if self.my_map.light_layer:
             self.my_map.light_layer.resize(self.window.width, self.window.height)
@@ -263,37 +265,58 @@ class GameView(arcade.View):
                 self.player_sprite, arcade.SpriteList()
             )
         else:
-            # use the walls as normal
+            if "axeable" in self.my_map.scene.name_mapping.keys():
+                combined_list = arcade.SpriteList()
+                combined_list.extend(self.my_map.scene["wall_list"])
+                combined_list.extend(self.my_map.scene["axeable"])
+            else:
+                combined_list = self.my_map.scene["wall_list"]
+
             self.physics_engine = arcade.PhysicsEngineSimple(
-                self.player_sprite, self.my_map.scene["wall_list"]
+                self.player_sprite, combined_list
             )
 
 
 
-    def setup(self, load_save, file_name):
+    def setup(self, load_save, file_name, selected_class):
         """Set up the game variables. Call to re-start the game."""
         if load_save:
             print("Cargo el personaje anterior")
             load_game(filename = file_name, gameview = self)
         else:
-            #Create the statistics of the player
-            player_statistics = Player("Paco",constants.HEALTH, constants.ATTACK
-                                       , constants.DEFENSE, constants.SPEED, constants.MANA,
-                                       "knight")
-            player_statistics.add_player_attack()
-            player_statistics.add_player_magic_attack()
+
+            # Create the player character
+            if selected_class == "Knight":
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.knight_health, constants.knight_attack
+                                           , constants.knight_defense, constants.knight_speed, constants.knight_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+
+                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics,
+                                                  constants.knight_battle_sprite,scale=constants.SCALE)
+            elif selected_class == "Magician":
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.magician_health, constants.magician_attack
+                                           , constants.magician_defense, constants.magician_speed, constants.magician_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+                self.player_sprite = PlayerSprite(constants.magician_sheet_name, player_statistics,
+                                                  constants.magician_battle_sprite,scale=constants.SCALE)
+            else:
+                # Create the statistics of the player
+                player_statistics = Player("Paco", constants.thief_health, constants.thief_attack
+                                           , constants.thief_defense, constants.thief_speed, constants.thief_mana,
+                                           selected_class)
+                player_statistics.add_player_attack()
+                player_statistics.add_player_magic_attack()
+                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics,
+                                                  constants.thief_battle_sprite, scale=constants.SCALE)
 
             self.window.views["inventory"] = InventoryView(player_statistics)
             self.window.views["inventory"].setup()
-
-            # Create the player character
-            if player_statistics.get_class_type() == "knight":
-                self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics, scale=1.2)
-            elif player_statistics.get_class_type() == "magician":
-                self.player_sprite = PlayerSprite(constants.wizard_sheet_name, player_statistics, scale=1.5)
-            else:
-                self.player_sprite = PlayerSprite(constants.thief_sheet_name, player_statistics, scale=1.5)
-
 
             # Spawn the player
             start_x = constants.STARTING_X
@@ -388,6 +411,7 @@ class GameView(arcade.View):
                 )
                 if item_name == "Axe":
                     self.use_axe()
+                    self.selected_item = 0
             hotkey_sprite = self.hotbar_sprite_list[i]
             hotkey_sprite.draw_scaled(x + sprite_height / 2, y + sprite_height / 2, 2.0)
             # Add whitespace so the item text doesn't hide behind the number pad sprite
@@ -449,8 +473,8 @@ class GameView(arcade.View):
             if map_layers.get("walls2_nonblocking", []):
                 self.map_list[self.cur_map_name].map_layers["walls2_nonblocking"].draw()
 
-
-
+            # Dibuja el jugador
+            self.player_sprite_list.draw()
 
             # --- Animación del gancho ---
             if self.hook_animating:
@@ -527,8 +551,6 @@ class GameView(arcade.View):
             arcade.color.WHITE,
             18
         )
-
-
 
     def scroll_to_player(self, speed=constants.CAMERA_SPEED):
         """Manage Scrolling"""
@@ -652,7 +674,6 @@ class GameView(arcade.View):
         map_layers = self.map_list[self.cur_map_name].map_layers
         map_scene = self.map_list[self.cur_map_name].scene
 
-
         # Is there as layer named 'doors'?
         if "doors" in map_layers:
             # Did we hit a door?
@@ -725,6 +746,10 @@ class GameView(arcade.View):
             self.window.show_view(pause_menu)
         elif key in constants.SEARCH:
             self.search()
+        elif key in constants.PLAYERINFO:
+            status_view = PlayerStatusView(player)
+            status_view.on_draw()
+            self.window.show_view(status_view)
         elif key in constants.GANCHO:
             self.throw_claw()
         elif key == arcade.key.KEY_1:
@@ -772,17 +797,31 @@ class GameView(arcade.View):
 
     def use_axe(self):
         print("Uso el hacha")
-        self.selected_item = 0
-        map_layers = self.map_list[self.cur_map_name].map_layers
-        if "axeable" not in map_layers:
+        map_scene = self.map_list[self.cur_map_name].scene
+        print(f"Antes: {len(map_scene['axeable'])} sprites axeable")
+        if "axeable" not in map_scene.name_mapping.keys():
             print(f"No axeable sprites on {self.cur_map_name} map layer.\n")
             return
+        axeable_sprites = map_scene["axeable"]
 
-        axeable_sprites = map_layers["axeable"]
+        # Crear un sprite invisible o un rectángulo que representa el área de ataque
+        axe_box = arcade.SpriteSolidColor(70, 70, arcade.color.RED)
+
+
+        # Posicionarlo cerca del jugador (ajustar según dirección, por ejemplo)
+        axe_box.center_x = self.player_sprite.center_x   # 20 pixeles a la derecha, por ejemplo
+        axe_box.center_y = self.player_sprite.center_y
+
         sprites_in_range = arcade.check_for_collision_with_list(
-            self.player_sprite, axeable_sprites
+            axe_box, axeable_sprites
         )
+
+        print("Sprites en rango (colisionando):")
+        for s in sprites_in_range:
+            print(f" - ID: {id(s)} Pos: ({s.center_x}, {s.center_y})")
+
         for sprite in sprites_in_range:
+            print(f"Removiendo sprite con id {id(sprite)}")
             #arcade.play_sound(self.axe_sound)  # sonido añadido para cortar obstaculos
             sprite.remove_from_sprite_lists()
 
@@ -916,4 +955,7 @@ class GameView(arcade.View):
 
     def get_cur_map_name(self):
         return self.cur_map_name
+
+    def player_status_view(self):
+        pass
 
