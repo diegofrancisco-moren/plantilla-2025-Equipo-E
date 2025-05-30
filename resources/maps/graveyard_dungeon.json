@@ -116,7 +116,30 @@
          "draworder":"topdown",
          "id":10,
          "name":"lights",
-         "objects":[],
+         "objects":[
+                {
+                 "height":0,
+                 "id":21,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"color",
+                         "type":"color",
+                         "value":"#ffffffff"
+                        }, 
+                        {
+                         "name":"radius",
+                         "type":"int",
+                         "value":75
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":465.727347321533,
+                 "y":43.2118157308639
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -276,6 +299,24 @@
                  "width":32,
                  "x":416.414417645477,
                  "y":990.563211691922
+                }, 
+                {
+                 "gid":1079,
+                 "height":32,
+                 "id":22,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"item",
+                         "type":"string",
+                         "value":"Torch"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":447.326690892041,
+                 "y":90.4203493142656
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -284,7 +325,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":21,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "properties":[
         {
@@ -299,6 +340,10 @@
         {
          "firstgid":1,
          "source":"..\/tilesets\/[Base]BaseChip_pipo.json"
+        }, 
+        {
+         "firstgid":1065,
+         "source":"..\/tilesets\/Untitled (Recovered).json"
         }],
  "tilewidth":32,
  "type":"map",

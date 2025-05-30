@@ -781,29 +781,6 @@
          "objects":[
                 {
                  "height":0,
-                 "id":19,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1018,
-                 "y":92
-                }, 
-                {
-                 "height":0,
                  "id":27,
                  "name":"",
                  "point":true,
@@ -827,98 +804,6 @@
                 }, 
                 {
                  "height":0,
-                 "id":28,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":619.333333333333,
-                 "y":670.666666666667
-                }, 
-                {
-                 "height":0,
-                 "id":29,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":578,
-                 "y":374.666666666667
-                }, 
-                {
-                 "height":0,
-                 "id":30,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":430,
-                 "y":541.333333333333
-                }, 
-                {
-                 "height":0,
-                 "id":20,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":802,
-                 "y":96
-                }, 
-                {
-                 "height":0,
                  "id":21,
                  "name":"",
                  "point":true,
@@ -937,31 +822,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":434,
-                 "y":120
-                }, 
-                {
-                 "height":0,
-                 "id":22,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"movement",
-                         "type":"string",
-                         "value":"random"
-                        }, 
-                        {
-                         "name":"type",
-                         "type":"string",
-                         "value":"skeleton"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":1316,
-                 "y":320
+                 "x":537,
+                 "y":233
                 }, 
                 {
                  "height":0,
@@ -1031,6 +893,184 @@
                  "width":0,
                  "x":430,
                  "y":998
+                }, 
+                {
+                 "height":0,
+                 "id":47,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":741,
+                 "y":72
+                }, 
+                {
+                 "height":0,
+                 "id":49,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":254,
+                         "y":1
+                        }, 
+                        {
+                         "x":255,
+                         "y":287
+                        }, 
+                        {
+                         "x":-2,
+                         "y":282
+                        }],
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":430,
+                 "y":82
+                }, 
+                {
+                 "height":0,
+                 "id":50,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-2,
+                         "y":382
+                        }, 
+                        {
+                         "x":-2,
+                         "y":2
+                        }],
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":623,
+                 "y":404
+                }, 
+                {
+                 "height":0,
+                 "id":51,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-3,
+                         "y":411
+                        }, 
+                        {
+                         "x":-1,
+                         "y":2
+                        }],
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":431,
+                 "y":400
+                }, 
+                {
+                 "height":0,
+                 "id":52,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1291,
+                 "y":287
+                }, 
+                {
+                 "height":0,
+                 "id":53,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"movement",
+                         "type":"string",
+                         "value":"random"
+                        }, 
+                        {
+                         "name":"type",
+                         "type":"string",
+                         "value":"skeleton"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1326,
+                 "y":445
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1039,7 +1079,7 @@
          "y":0
         }],
  "nextlayerid":13,
- "nextobjectid":38,
+ "nextobjectid":54,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -748,8 +748,9 @@ class GameView(arcade.View):
         elif key == arcade.key.KEY_0:
             self.selected_item = 10
         elif key == arcade.key.L:
+            player_inventory = self.player_sprite.statistics.get_inventory()
             cur_map = self.map_list[self.cur_map_name]
-            if self.item_dictionary["Torch"] in self.player_sprite.inventory:
+            if "Torch" in player_inventory:
                 if self.player_light in cur_map.light_layer:
                     cur_map.light_layer.remove(self.player_light)
                 else:
