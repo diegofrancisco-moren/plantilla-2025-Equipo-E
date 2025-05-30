@@ -285,7 +285,7 @@ class GameView(arcade.View):
         else:
 
             # Create the player character
-            if selected_class == "knight":
+            if selected_class == "Knight":
                 # Create the statistics of the player
                 player_statistics = Player("Paco", constants.knight_health, constants.knight_attack
                                            , constants.knight_defense, constants.knight_speed, constants.knight_mana,
@@ -295,7 +295,7 @@ class GameView(arcade.View):
 
                 self.player_sprite = PlayerSprite(constants.knight_sheet_name, player_statistics,
                                                   constants.knight_battle_sprite,scale=constants.SCALE)
-            elif selected_class == "magician":
+            elif selected_class == "Magician":
                 # Create the statistics of the player
                 player_statistics = Player("Paco", constants.magician_health, constants.magician_attack
                                            , constants.magician_defense, constants.magician_speed, constants.magician_mana,

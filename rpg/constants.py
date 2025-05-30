@@ -19,7 +19,7 @@ SPRITE_SIZE = 32
 MOVEMENT_SPEED = 6
 
 #Player Sprites Scale
-SCALE = 1.2
+SCALE = 1.3
 
 # Sprite of the player
 knight_sheet_name = ":characters:Player" + os.path.sep + "knight_sprite.png"
